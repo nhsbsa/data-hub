@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /views/layout.html -->
-{% extends 'layout.html' %}
+{% extends 'layouts/layout.html' %}
 <!-- 
   In /views/layout.html you can:
     - change the header and footer 
@@ -12,7 +12,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-  NHS.UK prototype kit
+Data Hub
 {% endblock %}
 
 <!-- For adding a breadcrumb -->
@@ -28,62 +28,165 @@
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
-  <div class="nhsuk-grid-row">
+<div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-      <!-- Change the page title here -->
-      <h1>
-        NHS.UK prototype kit
-        <span class="nhsuk-caption-xl nhsuk-caption--bottom">Version {{version}}</span>
-      </h1>
+        <h1 class="nhsuk-heading-xl">
+            Data Hub Service
+        </h1>
+        
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-2">Our vision</h2>
+        <p>To accelerate the user experience from 'enquiry to insight' through a unified, intuitive entry point that integrates NHSBSA data products and services.</p>
 
-      <!-- Add your content here -->
-      <!-- Styles and components can be found at https://service-manual.nhs.uk/design-system -->
+        <hr>
+        
 
-      <p class="nhsuk-lede-text">
-        This kit lets you rapidly create HTML prototypes of NHS services.
-      </p>
+        <h2 class="nhsuk-heading-l">Versions</h2>
+        
+        <!-- new blank details code snippet -->
+        <!-- <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Current version
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <p>...</p>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Find a minor injuries unit</span>
+                    </a>
+                </div>
+            </div>
+        </details> -->
 
-      <hr>
-
-      <h2>
-        About this page
-      </h2>
-
-      <p>
-        Use this page as the index for your project.
-      </p>
-      
-      <p>
-        You'll find the code for this page at <strong>/app/views/index.html</strong>.
-      </p>
-
-      <p>
-        There is also an <a href="/page-example">example page</a>, which contains a selection of NHS.UK frontend styles and components.
-      </p>
-
-      <hr>
-
-      <h2>
-        Get started
-      </h2>
-
-      <p>Get started by using the:</p>
-
-      <ul>
-        <li>
-          <a href="/docs/how-tos">how to guides</a>
-        </li>
-        <li>
-          <a href="/docs/page-templates">page templates</a>
-        </li>
-        <li>
-          code snippets for styles and components from the <a href="https://service-manual.nhs.uk/design-system">NHS digital service manual</a>
-        </li>
-      </ul>
-
-      <!-- End of content -->
-
+        <!-- <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Current version
+                </span>
+                 <strong class="nhsuk-tag nhsuk-tag--blue tag-positioning">
+                    Version 1 
+                </strong>
+            </summary>
+            <div class="nhsuk-details__text">
+                <p>This version of the prototype is what the designer is currently working on.</p>
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">View the current version</span>
+                    </a>
+                </div>
+            </div>
+        </details> -->
+        <!-- <h3 class="nhsuk-heading-m">Previous versions</h3> -->
+        <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    To-be user journey
+                </span>
+                <strong class="nhsuk-tag nhsuk-tag--blue tag-positioning">
+                    Version 1 
+                </strong>
+            </summary>
+            <div class="nhsuk-details__text">
+                <p>Wanting to understand what journey users would take to access the data hub website, we mapped out the routes for an internal users and external users, this was to show visually how they would navigate to the data hub and from what starting points.</p>
+                <hr>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="v1/MVP/my-hub">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Product Performance MVP (internal)</span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="v1/screenshot-screens/my-hub">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">MyHub (internal)</span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="v1/MVP/product-performance">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Direct link </span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="v1/screenshot-screens/nhs-england-link">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">NHS England (external)</span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="v1/screenshot-screens/nhsbsa-link">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">NHSBSA Website (external)</span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="v1/google">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Organic Traffic i.e. Google (external)</span>
+                    </a>
+                </div>
+            </div>
+        </details>
     </div>
-  </div>
+</div>
 {% endblock %}

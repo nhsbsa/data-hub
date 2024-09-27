@@ -7498,3 +7498,9 @@ b {
     line-height: 1.2;
   }
 }
+
+.tag-positioning {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+}

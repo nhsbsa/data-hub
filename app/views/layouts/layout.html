@@ -14,21 +14,33 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-  NHS.UK prototype kit
+  Data Hub Service
 {% endblock %}
 
 <!-- Edit the header -->
 <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
 {% block header %}
-  {{ header({
-    "service": {
-        "name": "Prototype kit",
-        "href": "/"
+{% from 'header/macro.njk' import header %}
+
+{{ header({
+  service: {
+    name: "Data Hub Service"
+  },
+  showNav: "false",
+  showSearch: "false",
+  searchAction: " ",
+  primaryLinks: [
+      {
+        url  : "#",
+        label : 'Home'
       },
-      "showNav": "false",
-      "showSearch": "false"
-    })
-  }}
+      {
+        url : '#',
+        label : 'NHSBSA Product Performance'
+      }
+    ]
+  })
+}}
 {% endblock %}
 
 <!-- Edit the footer -->
