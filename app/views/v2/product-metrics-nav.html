@@ -1,0 +1,150 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/prod-metrics-layout.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - edit the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-full">
+
+        <span class="nhsuk-caption-l">NHS Business Services Authority</span>
+        <h1 class="nhsuk-heading-xl">Product Metrics</h1>
+
+
+
+
+        <p>A centralised location for understanding product metrics,<br> monitor trends and future tracking.</p>
+        <hr>
+
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="#">Baby Loss Certificate</a>
+                        </h2>
+                        <div class="nhsuk-card__description">
+                            <strong class="nhsuk-tag">
+                                Beta
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="product-metrics/healthy-start-metrics">Healty Start</a>
+                        </h2>
+                        <div class="nhsuk-card__description">
+                            <strong class="nhsuk-tag">
+                                Beta
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="#">Immigration Health Surcharge</a>
+                        </h2>
+                        <div class="nhsuk-card__description">
+                            <strong class="nhsuk-tag">
+                                Live
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="#">MATEX</a>
+                        </h2>
+                        <div class="nhsuk-card__description">
+                            <strong class="nhsuk-tag">
+                                Beta
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="#">NHS Jobs</a>
+                        </h2>
+                        <div class="nhsuk-card__description">
+                            <strong class="nhsuk-tag">
+                                Beta
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="#">NHS Volunteering</a>
+                        </h2>
+                        <div class="nhsuk-card__description">
+                            <strong class="nhsuk-tag">
+                                Beta
+                            </strong>
+                        </div>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+{% endblock %}

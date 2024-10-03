@@ -7504,3 +7504,12 @@ b {
   right: 25px;
   top: 25px;
 }
+
+.nhsuk-card__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.nhsuk-card__content .nhsuk-card__description {
+  margin-top: auto;
+}
