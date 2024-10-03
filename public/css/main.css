@@ -7499,6 +7499,41 @@ b {
   }
 }
 
+.govuk-notification-banner {
+  margin-bottom: 50px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.25;
+  margin-bottom: 30px;
+  border: 5px solid #1d70b8;
+  background-color: #1d70b8;
+}
+.govuk-notification-banner .govuk-notification-banner__header {
+  padding: 2px 20px 5px;
+  border-bottom: 1px solid transparent;
+}
+.govuk-notification-banner .govuk-notification-banner__header .govuk-notification-banner__title {
+  font-size: 1.1875rem;
+  line-height: 1.3157894737;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.govuk-notification-banner__content {
+  padding: 20px;
+  color: #0b0c0c;
+  background-color: #f0f4f5;
+}
+.govuk-notification-banner__content .govuk-notification-banner__heading {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 700;
+  margin: 0 0 15px;
+  padding: 0;
+}
+
 .tag-positioning {
   position: absolute;
   right: 25px;
