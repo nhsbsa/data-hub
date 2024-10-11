@@ -7534,6 +7534,13 @@ b {
   padding: 0;
 }
 
+.prototype-warning {
+  background-color: #ffeb3b;
+}
+.prototype-warning .nhsuk-header__container {
+  border-bottom: 0;
+}
+
 .tag-positioning {
   position: absolute;
   right: 25px;

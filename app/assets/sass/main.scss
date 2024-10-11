@@ -10,6 +10,18 @@
 // Add your custom CSS/Sass styles below...
 ///////////////////////////////////////////
 
+// Prototype warning message
+.prototype-warning {
+
+    background-color: $color_nhsuk-yellow;
+
+    .nhsuk-header__container {
+        border-bottom: 0;
+    }
+
+}
+
+
 // Index page version tag positioning
 .tag-positioning {
     position: absolute;

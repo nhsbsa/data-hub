@@ -1,0 +1,120 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/prod-metrics-layout-warning.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - edit the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-full">
+
+        <div class="nhsuk-back-link">
+            <a class="nhsuk-back-link__link" href="javascript:history.back()">
+                <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
+                    <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z">
+                    </path>
+                </svg>
+                Go back</a>
+        </div>
+
+        <span class="nhsuk-caption-l">Product Metrics</span>
+        <h1 class="nhsuk-heading-xl">Healthy Start</h1>
+
+        <div class="nhsuk-inset-text">
+            <span class="nhsuk-u-visually-hidden">Information: </span>
+
+            <p>Service phase: <strong class="nhsuk-tag">Beta</strong></p>
+            <p>Production URL: <a href="https://applyforhealthystart.nhsbsa.nhs.uk/apply-for-healthy-start/">https://applyforhealthystart.nhsbsa.nhs.uk/apply-for-healthy-start/</a></p>
+        </div>
+
+    </div>
+    <div class="nhsuk-grid-column-full">
+        <h2 class="nhsuk-heading-m">Service asccessibility</h2>
+        <p></p>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <p class="nhsuk-u-margin-bottom-2">WCAG 2.2 Compliant</p><strong class="nhsuk-tag nhsuk-tag--red">Not
+            compliant</strong>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <p class="nhsuk-u-margin-bottom-2">Accessibility statement</p><strong class="nhsuk-tag nhsuk-tag--yellow">In
+            review</strong>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <p class="nhsuk-u-margin-bottom-2">Disproportionate burden</p><strong class="nhsuk-tag nhsuk-tag--blue">Not in
+            place</strong>
+    </div>
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-5">
+        <h3 class="nhsuk-heading-xs">Digital Accessibility Centre (DAC) assessment</h4>
+            <p><a href="#">DAC Accessibility Report August 2024</a></p>
+    </div>
+    <div class="nhsuk-grid-column-full">
+        <hr>
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="#">AWS Cost (monthly) data</a></h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cumque.</p>
+        <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+                <h3 class="nhsuk-heading-xs">AWS Cost (Monthly) Summary</h3>
+                <img class="nhsuk-image__img" src="/images/healthy-start/hs-aws-cost-monthly.png" alt="AWS Cost Monthly"
+                    style="width:100%;height:100%;">
+                <hr class="nhsuk-u-margin-top-3 nhsuk-u-margin-bottom-3">
+                <p><a href="#">View in table format</a></p>
+            </div>
+        </div>
+
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="#">AWS Compute (daily) data</a></h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cumque.</p>
+        <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+                <h3 class="nhsuk-heading-xs">AWS Compute (Daily) Summary</h3>
+                <img class="nhsuk-image__img" src="/images/healthy-start/hs-aws-compute-daily.png"
+                    alt="AWS Compute Daily" style="width:100%;height:100%;">
+                <hr class="nhsuk-u-margin-top-3 nhsuk-u-margin-bottom-3">
+                <p><a href="#">View in table format</a></p>
+            </div>
+        </div>
+
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="#">AWS Storage (daily) data</a></h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cumque.</p>
+        <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+                <h3 class="nhsuk-heading-xs">AWS Storage (Daily) Summary</h3>
+                <img class="nhsuk-image__img" src="/images/healthy-start/hs-aws-storage-daily.png"
+                    alt="AWS Storage Daily" style="width:100%;height:100%;">
+                <hr class="nhsuk-u-margin-top-3 nhsuk-u-margin-bottom-3">
+                <p><a href="#">View in table format</a></p>
+            </div>
+        </div>
+
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="#">Customer Satisfaction score</a></h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, cumque.</p>
+        <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+                <h3 class="nhsuk-heading-xs">Customer Satisfaction Score Summary</h3>
+                <img class="nhsuk-image__img" src="/images/healthy-start/hs-aws-storage-daily.png"
+                    alt="AWS Storage Daily" style="width:100%;height:100%;">
+                <hr class="nhsuk-u-margin-top-3 nhsuk-u-margin-bottom-3">
+                <p><a href="#">View in table format</a></p>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}
