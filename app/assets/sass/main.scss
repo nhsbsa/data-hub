@@ -39,3 +39,21 @@
         margin-top: auto;
     }
 }
+
+// Trend Icons
+.trend-increased {
+    &:after {
+        content: "\25B2";
+        display: inline-block;
+        padding-right: 0.2em;
+        color: $color_nhsuk-blue;
+    }
+}
+.trend-decreased {
+    &:after {
+        content: "\25BC";
+        display: inline-block;
+        padding-right: 0.2em;
+        color: $color_nhsuk-blue;
+    }
+}

@@ -7555,3 +7555,17 @@ b {
 .nhsuk-card__content .nhsuk-card__description {
   margin-top: auto;
 }
+
+.trend-increased:after {
+  content: "▲";
+  display: inline-block;
+  padding-right: 0.2em;
+  color: #005eb8;
+}
+
+.trend-decreased:after {
+  content: "▼";
+  display: inline-block;
+  padding-right: 0.2em;
+  color: #005eb8;
+}
