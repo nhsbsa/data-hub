@@ -7569,3 +7569,11 @@ b {
   padding-right: 0.2em;
   color: #005eb8;
 }
+
+.trend-green {
+  color: #007f3b;
+}
+
+.trend-red {
+  color: #d5281b;
+}
