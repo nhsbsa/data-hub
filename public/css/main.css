@@ -7577,3 +7577,7 @@ b {
 .trend-red {
   color: #d5281b;
 }
+
+.date-filter-to {
+  display: inline-block;
+}

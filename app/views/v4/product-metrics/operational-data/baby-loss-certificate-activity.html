@@ -1,0 +1,150 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/prod-metrics-layout-warning.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - edit the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block outerContent %}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-one-half">
+
+        <div class="nhsuk-back-link">
+            <a class="nhsuk-back-link__link" href="javascript:history.back()">
+                <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    aria-hidden="true" height="24" width="24">
+                    <path
+                        d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z">
+                    </path>
+                </svg>
+                Go back</a>
+        </div>
+
+        <span class="nhsuk-caption-l">Baby Loss Certificate</span>
+        <h1 class="nhsuk-heading-xl">Activity data</h1>
+    </div>
+
+    <div class="nhsuk-grid-column-full">
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--secondary">
+                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-s">
+                            Active users
+                        </h2>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-3">1,050<span
+                                class="nhsuk-u-visually-hidden">Applicants</span></p>
+                        <p class="nhsuk-card__description nhsuk-body-s">
+                            <span class="trend-increased trend-green nhsuk-body-l nhsuk-u-margin-bottom-1">+3.45%
+                            </span>
+                            September 2024 to October 2024
+                        </p>
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--secondary">
+                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-s">
+                            Transactions
+                        </h2>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-3">246,140 <span
+                                class="nhsuk-u-visually-hidden">Applicants</span></p>
+                        <p class="nhsuk-card__description nhsuk-body-s">
+                            <span class="trend-increased trend-green nhsuk-body-l nhsuk-u-margin-bottom-1">+2.31%
+                            </span>
+                            September 2024 to October 2024
+                        </p>
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--secondary">
+                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-s">
+                            Alerts
+                        </h2>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-3">4<span
+                                class="nhsuk-u-visually-hidden">Applicants</span></p>
+                        <p class="nhsuk-card__description nhsuk-body-s">
+                            <span class="trend-decreased trend-green nhsuk-body-l nhsuk-u-margin-bottom-1">-6.78%
+                            </span>
+                            September 2024 to October 2024
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+        <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-heading-s">Certificates issued</h2>
+                <img id="certs-issued" class="nhsuk-image__img" src="/images/baby-loss-cert/certs-issued.png"
+                    alt="AWS Compute Daily" style="width:100%;height:100%;">
+                <p class="nhsuk-u-margin-top-3"><a href="#">View as table</a> | <a href="#">Download snapshot</a> | <a
+                        href="#">Enlarge</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-half">
+        <div class="nhsuk-card">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-heading-s">Digital and physical requests</h2>
+                <img id="certs-issued" class="nhsuk-image__img" src="/images/baby-loss-cert/pie-chart.png"
+                alt="AWS Compute Daily" style="width:100%;height:100%;">
+                <p class="nhsuk-u-margin-top-3"><a href="#">View as table</a> | <a href="#">Download snapshot</a> | <a
+                    href="#">Enlarge</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="nhsuk-grid-column-one-half">
+        <div class="nhsuk-card nhsuk-card--secondary nhsuk-u-margin-bottom-5">
+            <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                <h2 class="nhsuk-card__heading nhsuk-heading-s">
+                    Digital certificate issue time
+                </h2>
+                <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-3">2 days</p>
+                <p class="nhsuk-card__description nhsuk-body-s">
+                    <span class="trend-increased trend-green nhsuk-body-l nhsuk-u-margin-bottom-1">+1.05%
+                    </span>
+                    September 2024 to October 2024
+                </p>
+            </div>
+        </div>
+        <div class="nhsuk-card nhsuk-card--secondary">
+            <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                <h2 class="nhsuk-card__heading nhsuk-heading-s">
+                    Physical certificate issue time
+                </h2>
+                <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-3">4 days</p>
+                <p class="nhsuk-card__description nhsuk-body-s">
+                    <span class="trend-decreased trend-red nhsuk-body-l nhsuk-u-margin-bottom-1">-0.25%
+                    </span>
+                    September 2024 to October 2024
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
