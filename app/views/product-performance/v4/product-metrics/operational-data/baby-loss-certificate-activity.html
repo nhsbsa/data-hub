@@ -36,9 +36,71 @@ Content page example - NHS.UK prototype kit
 
         <span class="nhsuk-caption-l">Baby Loss Certificate</span>
         <h1 class="nhsuk-heading-xl">Activity data</h1>
+        
     </div>
 
     <div class="nhsuk-grid-column-full">
+        <details class="nhsuk-details nhsuk-u-margin-bottom-7">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Filter the dates for this data
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+              
+                <div class="nhsuk-form-group">
+    
+                    <fieldset class="nhsuk-fieldset" aria-describedby="example-hint" role="group">
+                      <legend class="nhsuk-fieldset__legend nhsuk-label--m">
+                        <h1 class="nhsuk-fieldset__heading">
+                          Date filter
+                        </h1>
+                      </legend>
+                      <div class="nhsuk-hint" id="example-hint">
+                        For example, 3 2024 to 4 2024
+                      </div>
+                  
+                      <div class="nhsuk-date-input" id="example">
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                              Month
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month" name="example[month]" type="text" inputmode="numeric">
+                          </div>
+                        </div>
+                        <div class="nhsuk-date-input__item">
+                          <div class="nhsuk-form-group">
+                            <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                              Year
+                            </label>
+                            <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year" name="example[year]" type="text" inputmode="numeric">
+                          </div>
+                        </div>
+                        <p class="date-filter-to nhsuk-u-margin-right-4">to</p>
+                        <div class="nhsuk-date-input__item">
+                            <div class="nhsuk-form-group">
+                              <label class="nhsuk-label nhsuk-date-input__label" for="example-month">
+                                Month
+                              </label>
+                              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-2" id="example-month" name="example[month]" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                          <div class="nhsuk-date-input__item">
+                            <div class="nhsuk-form-group">
+                              <label class="nhsuk-label nhsuk-date-input__label" for="example-year">
+                                Year
+                              </label>
+                              <input class="nhsuk-input nhsuk-date-input__input nhsuk-input--width-4" id="example-year" name="example[year]" type="text" inputmode="numeric">
+                            </div>
+                          </div>
+                      </div>
+                    </fieldset>
+                  <button class="nhsuk-button nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-2">Apply filter</button>
+                  </div>    
+    
+            </div>
+          </details>
         <ul class="nhsuk-grid-row nhsuk-card-group">
             <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
 
@@ -54,7 +116,7 @@ Content page example - NHS.UK prototype kit
                             </span>
                             September 2024 to October 2024
                         </p>
-                    </div>
+                    </div>  
                 </div>
 
             </li>
