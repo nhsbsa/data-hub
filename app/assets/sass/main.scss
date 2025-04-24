@@ -13,10 +13,14 @@
 span.custom-hero-caption {
     color: $color_nhsuk-grey-5;
 }
-input.nhsuk-search__input {
+.nhsuk-hero input.nhsuk-search__input {
     width: 585px;
 }
 
+// Search in header to be inline with 'My account'
+.nhsuk-header__search.custom-search-inline {
+    display: inline-block;
+}
 // My account
 .nhsuk-account__login {
     float: right;
@@ -45,9 +49,20 @@ input.nhsuk-search__input {
 .nhsuk-account__login--link:focus .nhsuk-account__login--icon {
     fill: #212b32;
 }
+// End My account
 
+// Footer
+ul.nhsuk-footer__list {
+    width: 65%;
+}
 
-// End Data Hub Custom Styles 
+.custom-float-right {
+    float: right;
+}
+
+///////////////////////////////////////////
+// Other Custom Styles
+///////////////////////////////////////////
 
 // Prototype warning message
 .prototype-warning {

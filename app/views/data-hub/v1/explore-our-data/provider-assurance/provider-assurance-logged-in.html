@@ -1,0 +1,261 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search to header (generally not included on data area landing page or homepage)-->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "yes" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Provider assurance - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/v1/homepage",
+        text: "Home"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-two-thirds">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <h1 class="nhsuk-u-margin-bottom-4"><span class="nhsuk-caption-l custom-hero-caption">Data Hub</span>Provider Assurance</h1>
+                        <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Ensuring healthcare providers deliver services in line with NHS standards and use public funds appropriately</p>
+                        <form class="nhsuk-header__search-form nhsuk-u-margin-top-4" id="search" action=" "
+                            method="get" role="search">
+                            <label class="nhsuk-label" for="search-field">Search the Data Hub</label>
+                            <input class="nhsuk-search__input" id="search-field" name="search-field"
+                                type="search" autocomplete="off">
+                            <button class="nhsuk-search__submit" type="submit">
+                                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                    <path
+                                        d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z">
+                                    </path>
+                                </svg>
+                                <span class="nhsuk-u-visually-hidden">Search</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Show filter at top of HTML -->
+                {% if 'yes' in showFilter %}
+                <div class="nhsuk-grid-column-full">
+                    <button class="nhsuk-button nhsuk-button--reverse" data-module="nhsuk-button" type="submit">
+                        Dental
+                    </button>
+                    <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-left-3" data-module="nhsuk-button" type="submit">
+                        Dispensing
+                    </button>
+                    <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-left-3" data-module="nhsuk-button" type="submit">
+                        Prescription
+                    </button>
+                    <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-left-3" data-module="nhsuk-button" type="submit">
+                        Reports
+                    </button>
+                    <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-left-3" data-module="nhsuk-button" type="submit">
+                        Precribing
+                    </button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+<!-- Main content -->
+{% block content %}
+<div class="nhsuk-grid-row">
+
+    <!-- Homepage Title is within docs/views/template-data-hub.html -->
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-m">Recently accessed</h2>
+        <p>The latest data accessed by you.</p>
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-third">
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Prescription dataset</span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">New Medicines dashboard</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nhsuk-grid-column-one-third">
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Local ICB Report</span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Pharmacy recoup report</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nhsuk-grid-column-one-third">
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Dispensing report</span>
+                    </a>
+                </div>
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">Prescribing report</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nhsuk-grid-column-full">
+        <h2 class="nhsuk-heading-m">Data access</h2>
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content nhsuk-card__content--primary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="#">Your current access</a>
+                        </h2>
+                        <p class="nhsuk-card__description">View all information, tools and data you currently have
+                            access to</p>
+
+                        <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+                            aria-hidden="true" focusable="false">
+                            <circle cx="13.333" cy="13.333" r="13.333" fill="" />
+                            <g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round"
+                                stroke-miterlimit="10" stroke-width="2.667">
+                                <path d="M15.438 13l-3.771 3.771" />
+                                <path data-name="Path" d="M11.667 9.229L15.438 13" />
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content nhsuk-card__content--primary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="epact2-reports">Explore data access</a>
+                        </h2>
+                        <p class="nhsuk-card__description">See what information, tools and data you could request access
+                            for</p>
+
+                        <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+                            aria-hidden="true" focusable="false">
+                            <circle cx="13.333" cy="13.333" r="13.333" fill="" />
+                            <g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round"
+                                stroke-miterlimit="10" stroke-width="2.667">
+                                <path d="M15.438 13l-3.771 3.771" />
+                                <path data-name="Path" d="M11.667 9.229L15.438 13" />
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+
+            </li>
+            <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
+
+                <div class="nhsuk-card nhsuk-card--clickable">
+                    <div class="nhsuk-card__content nhsuk-card__content--primary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m">
+                            <a class="nhsuk-card__link" href="#">Create a data request</a>
+                        </h2>
+                        <p class="nhsuk-card__description">Request a particular dataset based on your own data
+                            requirements</p>
+
+                        <svg class="nhsuk-icon" xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+                            aria-hidden="true" focusable="false">
+                            <circle cx="13.333" cy="13.333" r="13.333" fill="" />
+                            <g data-name="Group 1" fill="none" stroke="#fff" stroke-linecap="round"
+                                stroke-miterlimit="10" stroke-width="2.667">
+                                <path d="M15.438 13l-3.771 3.771" />
+                                <path data-name="Path" d="M11.667 9.229L15.438 13" />
+                            </g>
+                        </svg>
+
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds">
+        <h3 class="nhsuk-heading-m">
+            Workstreams
+        </h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam doloremque eligendi, omnis id fugiat possimus.</p>
+        <p><a href="#">View all workstreams</a></p>
+    </div>
+</div>
+{% endblock %}

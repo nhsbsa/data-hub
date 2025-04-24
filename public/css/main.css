@@ -7538,8 +7538,12 @@ span.custom-hero-caption {
   color: #f0f4f5;
 }
 
-input.nhsuk-search__input {
+.nhsuk-hero input.nhsuk-search__input {
   width: 585px;
+}
+
+.nhsuk-header__search.custom-search-inline {
+  display: inline-block;
 }
 
 .nhsuk-account__login {
@@ -7571,6 +7575,14 @@ input.nhsuk-search__input {
 
 .nhsuk-account__login--link:focus .nhsuk-account__login--icon {
   fill: #212b32;
+}
+
+ul.nhsuk-footer__list {
+  width: 65%;
+}
+
+.custom-float-right {
+  float: right;
 }
 
 .prototype-warning {

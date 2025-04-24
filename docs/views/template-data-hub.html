@@ -96,33 +96,9 @@
     {% block beforeContent %}{% endblock %}
 
     {% block main %}
-    <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0" id="maincontent" role="main">
-        <div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
-            {% if 'homepage' in activePage %}
-            <section class="nhsuk-hero">
-                <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
-                    <div class="nhsuk-grid-row">
-                        <div class="nhsuk-grid-column-two-thirds">
-                            <div class="nhsuk-hero__wrapper app-hero__wrapper">
-                                <h1 class="nhsuk-u-margin-bottom-4"><span class="nhsuk-caption-l custom-hero-caption">NHS Business Services Authority</span>Data Hub</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Your central access point for exploring and using data from the NHS Business Services Authority. The Data Hub is your go-to platform for ensuring you can effectively work with NHSBSA data, unlocking its potential to drive better decisions and outcomes across the health and care system</p>
-                                <form class="nhsuk-header__search-form nhsuk-u-margin-top-6" id="search" action=" " method="get" role="search">
-                                    <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-                                    <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
-                                    <button class="nhsuk-search__submit" type="submit">
-                                      <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                        <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-                                      </svg>
-                                      <span class="nhsuk-u-visually-hidden">Search</span>
-                                    </button>
-                                  </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {% endif %}
-        </div>
+    <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0" id="maincontent"
+        role="main">
+        {% block heroContent %}{% endblock %}
         <div class="nhsuk-width-container {{ containerClasses }}">
             {% block content %}{% endblock %}
         </div>
