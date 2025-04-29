@@ -5,6 +5,7 @@
 @import 'components/list-border';
 @import 'components/related-nav';
 @import 'components/notification-banner';
+@import 'components/alerts-ho';
 
 ///////////////////////////////////////////
 // Data Hub - Custom Styles
@@ -13,6 +14,7 @@
 span.custom-hero-caption {
     color: $color_nhsuk-grey-5;
 }
+
 .nhsuk-hero input.nhsuk-search__input {
     width: 585px;
 }
@@ -21,6 +23,7 @@ span.custom-hero-caption {
 .nhsuk-header__search.custom-search-inline {
     display: inline-block;
 }
+
 // My account
 .nhsuk-account__login {
     float: right;
@@ -29,15 +32,20 @@ span.custom-hero-caption {
     position: relative;
     z-index: 2;
 }
+
 @media (min-width: 40.0625em) {
     .nhsuk-account__login {
         margin-right: -8px;
     }
 }
-.nhsuk-account__login--link, .nhsuk-account__login--link:visited, .nhsuk-account__login--link:hover {
+
+.nhsuk-account__login--link,
+.nhsuk-account__login--link:visited,
+.nhsuk-account__login--link:hover {
     color: #fff;
     padding: 1em;
 }
+
 .nhsuk-account__login--icon {
     fill: #fff;
     height: 1.6em;
@@ -46,10 +54,35 @@ span.custom-hero-caption {
     top: .4em;
     width: 1.6em;
 }
+
 .nhsuk-account__login--link:focus .nhsuk-account__login--icon {
     fill: #212b32;
 }
+
 // End My account
+
+// News and Events
+.custom-sort-by {
+
+    .nhsuk-form-group {
+
+        float: right;
+
+        label {
+            display: inline-block;
+            text-align: right;
+        }
+
+    }
+}
+
+.custom-tag-filter {
+    padding: 5px 10px;
+    height: 220px;
+    overflow-y: auto;
+}
+
+// End news and events
 
 // Footer
 ul.nhsuk-footer__list {
@@ -74,12 +107,14 @@ ul.nhsuk-footer__list {
     }
 
 }
+
 // Index page version tag positioning
 .tag-positioning {
     position: absolute;
     right: 25px;
     top: 25px;
 }
+
 // Product Metrics Landing page: Card tag aligned with one another
 .nhsuk-card__content {
     display: flex;
@@ -90,6 +125,7 @@ ul.nhsuk-footer__list {
         margin-top: auto;
     }
 }
+
 // Trend Icons
 .trend-increased {
     &:after {
@@ -99,6 +135,7 @@ ul.nhsuk-footer__list {
         color: $color_nhsuk-blue;
     }
 }
+
 .trend-decreased {
     &:after {
         content: "\25BC";
@@ -107,13 +144,16 @@ ul.nhsuk-footer__list {
         color: $color_nhsuk-blue;
     }
 }
+
 // Trend colours
 .trend-green {
     color: $color_nhsuk-green;
 }
+
 .trend-red {
     color: $color_nhsuk-red;
 }
+
 // Dates filter 
 .date-filter-to {
     display: inline-block;

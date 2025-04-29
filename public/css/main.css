@@ -7534,6 +7534,21 @@ b {
   padding: 0;
 }
 
+.hods-alert {
+  border-color: #2b8cc4;
+  background-color: #dbeff9;
+}
+
+.hods-alert__heading {
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.1111111111;
+  margin-bottom: 15px;
+}
+
 span.custom-hero-caption {
   color: #f0f4f5;
 }
@@ -7559,7 +7574,9 @@ span.custom-hero-caption {
     margin-right: -8px;
   }
 }
-.nhsuk-account__login--link, .nhsuk-account__login--link:visited, .nhsuk-account__login--link:hover {
+.nhsuk-account__login--link,
+.nhsuk-account__login--link:visited,
+.nhsuk-account__login--link:hover {
   color: #fff;
   padding: 1em;
 }
@@ -7575,6 +7592,20 @@ span.custom-hero-caption {
 
 .nhsuk-account__login--link:focus .nhsuk-account__login--icon {
   fill: #212b32;
+}
+
+.custom-sort-by .nhsuk-form-group {
+  float: right;
+}
+.custom-sort-by .nhsuk-form-group label {
+  display: inline-block;
+  text-align: right;
+}
+
+.custom-tag-filter {
+  padding: 5px 10px;
+  height: 220px;
+  overflow-y: auto;
 }
 
 ul.nhsuk-footer__list {
