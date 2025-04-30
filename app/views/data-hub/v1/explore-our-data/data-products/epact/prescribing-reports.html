@@ -15,16 +15,32 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Datasets - {{ serviceName }} - NHSBSA
+Prescribing reports - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/v1/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/v1/explore-our-data/explore-our-data",
+text: "Explore our data"
+},
+{
+href: "epact-loggedin",
+text: "Prescribing and Dispensing Data"
+}
+]
+}) }}
 {% endblock %}
 
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-        <h1 class="nhsuk-heading-l nhsuk-u-margin-top-7"><span class="nhsuk-caption-m">Data Hub</span>Datasets</h1>
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-top-7"><span class="nhsuk-caption-m">Prescribing and Dispensing Data (ePACT)</span>Prescribing reports</h1>
         <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation"
             aria-label="A to Z Navigation">
             <!-- A to Z list -->
@@ -33,8 +49,7 @@ Datasets - {{ serviceName }} - NHSBSA
                     <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#a">A</a>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span
-                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">B</span>
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#b">B</a>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
                     <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#c">C</a>
@@ -43,70 +58,70 @@ Datasets - {{ serviceName }} - NHSBSA
                     <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#d">D</a>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#e">E</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">E</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#f">F</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">F</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#g">G</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">G</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#h">H</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">H</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#i">I</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">I</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#j">J</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">J</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#k">K</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">K</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#l">L</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">L</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#m">M</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">M</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#n">N</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">N</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#o">O</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">O</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#p">P</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">P</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#q">Q</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Q</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#r">R</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">R</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#s">S</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">S</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#t">T</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">T</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#u">U</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">U</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#v">V</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">V</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#w">W</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">W</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#x">X</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">X</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#y">Y</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Y</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#z">Z</a>
+                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Z</span>
                 </li>
             </ol>
         </nav>
@@ -117,9 +132,10 @@ Datasets - {{ serviceName }} - NHSBSA
                     A
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="/conditions/abdominal-aortic-aneurysm/">AAA</a></li>
-                    <li><a href="/conditions/abdominal-aortic-aneurysm/">Abdominal aortic aneurysm</a></li>
-                    <li><a href="/conditions/abscess/">Abscess</a></li>
+                    <li><a href="embedded-data">ADQ/STAR PU (VC1)</a></li>
+                    <li><a href="#">ADQ/Items (MO4)</a></li>
+                    <li><a href="#">ADQ/STAR PU (MO2)</a></li>
+                    <li><a href="#">Advanced Service Flu Report - Pharmacy Contractors</a></li>
                 </ul>
             </div>
         </div>
@@ -136,7 +152,8 @@ Datasets - {{ serviceName }} - NHSBSA
                     B
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li>There are currently no conditions listed</li>
+                    <li><a href="#">BNF Codes and Names (P2)</a></li>
+                    <li><a href="#">Budget Report (P1)</a></li>                    
                 </ul>
             </div>
         </div>
@@ -153,8 +170,11 @@ Datasets - {{ serviceName }} - NHSBSA
                     C
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="/conditions/chest-pain/">Chest pain</a></li>
-                    <li><a href="/conditions/cold-sores/">Cold sore</a></li>
+                    <li><a href="#">Chemist Table C20 - National (PR7)</a></li>
+                    <li><a href="#">Chemist Table C20 - Regional (PR7)</a></li>
+                    <li><a href="#">CD Injections Practice Reports (CD10)</a></li>
+                    <li><a href="#">CD Injections Presentation Report (CD11)</a></li>
+                    <li><a href="#">CD Requisitions (CD1)</a></li>
                 </ul>
             </div>
         </div>
@@ -171,9 +191,14 @@ Datasets - {{ serviceName }} - NHSBSA
                     D
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="/conditions/dandruff/">Dandruff</a></li>
-                    <li><a href="/conditions/dementia/">Dementia</a></li>
-                    <li><a href="/conditions/toothache/">Dental pain</a></li>
+                    <li><a href="#">Dispensing Doctors (P3)</a></li>
+                    <li><a href="#">Drug Table 1 - Monthly</a></li>
+                    <li><a href="#">Drug Table 1 - Quarterly</a></li>
+                    <li><a href="#">Drug Table 1 - Annually</a></li>
+                    <li><a href="#">Drug Table 2 - Monthly</a></li>
+                    <li><a href="#">Drug Table 2 - Quarterly</a></li>
+                    <li><a href="#">Drug Table 2 - Annually</a></li>
+                    <li><a href="#">Drug File Download (PR1)</a></li>
                 </ul>
             </div>
         </div>

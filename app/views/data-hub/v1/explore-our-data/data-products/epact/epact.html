@@ -11,7 +11,7 @@
 -->
 
 <!-- include mini search box in the header -->
-{% set includeMiniSearch = 'yes' %}
+{% set includeMiniSearch = 'no' %}
 <!-- Hero Filter Buttons -->
 {% set showFilter = "yes" %}
 
@@ -111,59 +111,72 @@ text: "Data products"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
-        <p>Designed to support better decision-making, it allows authorised users to explore and analyse prescribing trends, costs, and patterns through interactive dashboards and custom reports.</p>
-        <p>Whether you're in a clinical, commissioning, or financial role, ePACT2 helps you make data-driven decisions to improve patient care and deliver value to the NHS.</p>
+        <p>Designed to support better decision-making, it allows authorised users to explore and analyse prescribing
+            trends, costs, and patterns through interactive dashboards and custom reports.</p>
+        <p>Whether you're in a clinical, commissioning, or financial role, ePACT2 helps you make data-driven decisions
+            to improve patient care and deliver value to the NHS.</p>
         <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
-              <span class="nhsuk-details__summary-text">
-                Understanding ePACT2 data
-              </span>
+                <span class="nhsuk-details__summary-text">
+                    Understanding ePACT2 data
+                </span>
             </summary>
             <div class="nhsuk-details__text">
                 <p>Data is available 6 weeks after the dispensing month.</p>
 
-                <p>An explanation of the fields held in the system is available on the <a href="#">Data Dictionary</a>.</p>
-                
-                <p>You can use the <a href="#">age logic summary flowchart</a> for information on how patient age is determined in ePACT2.</p>
-                
-                <p>ePACT2 contains data down to single prescription level. If you have access to this level of data, remember that you cannot share confidential data outside of your organisation. For this reason, you should read and agree to the <a href="#">ePACT2 User Agreement</a> as part of the registration process.</p>
+                <p>An explanation of the fields held in the system is available on the <a href="#">Data Dictionary</a>.
+                </p>
+
+                <p>You can use the <a href="#">age logic summary flowchart</a> for information on how patient age is
+                    determined in ePACT2.</p>
+
+                <p>ePACT2 contains data down to single prescription level. If you have access to this level of data,
+                    remember that you cannot share confidential data outside of your organisation. For this reason, you
+                    should read and agree to the <a href="#">ePACT2 User Agreement</a> as part of the registration
+                    process.</p>
             </div>
-          </details>
-        <hr>
-        <h2 class="nhsuk-heading-l">User guides</h2>
-        <p>User Guides page provides a range of helpful resources to support users in accessing and using the ePACT2 system effectively.</p>
-        <p>Tailored guides for different NHS organisations—such as ICBs, PCNs, and GP practices—it offers step-by-step instructions, video tutorials, and tips for exploring dashboards, creating custom reports, and interpreting prescribing data.</p>
+        </details>
+        <!-- <hr> -->
+        <!-- <h2 class="nhsuk-heading-l">User guides</h2>
+        <p>User Guides page provides a range of helpful resources to support users in accessing and using the ePACT2
+            system effectively.</p>
+        <p>Tailored guides for different NHS organisations—such as ICBs, PCNs, and GP practices—it offers step-by-step
+            instructions, video tutorials, and tips for exploring dashboards, creating custom reports, and interpreting
+            prescribing data.</p>
         <div class="nhsuk-action-link">
             <a class="nhsuk-action-link__link" href="#">
-              <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                <path d="M0 0h24v24H0z" fill="none"></path>
-                <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
-              </svg>
-              <span class="nhsuk-action-link__text">Explore ePACT2 user guides</span>
+                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                    <path
+                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                    </path>
+                </svg>
+                <span class="nhsuk-action-link__text">Explore ePACT2 user guides</span>
             </a>
-          </div>
+        </div> -->
         <hr>
         <h2 class="nhsuk-heading-l">Sign in or create account</h2>
         <p>Create a Data Hub account to be able to request access to Prescribing and Dispensing data.</p>
         <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
-              <span class="nhsuk-details__summary-text">
-                What access will I have with an account?
-              </span>
+                <span class="nhsuk-details__summary-text">
+                    What access will I have with an account?
+                </span>
             </summary>
             <div class="nhsuk-details__text">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, optio.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore, optio.</p>
             </div>
-          </details>
-        <a class="nhsuk-button" href="provider-assurance-logged-in">Sign into the Data Hub</a>
+        </details>
+        <a class="nhsuk-button" href="epact-loggedin">Sign into the Data Hub</a>
         <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-4" href="#">Create a Data Hub account</a>
     </div>
 
     <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-7">
         <h2 class="nhsuk-heading-s">Using our data</h2>
         <p><a href="#">Data methodology</a></p>
-        <p><a href="#">Data calculations</a></p>        
-        <p><a href="#">Refresh dates</a></p>        
+        <p><a href="#">Data calculations</a></p>
+        <p><a href="#">Refresh dates</a></p>
         <p><a href="#">Software and tools support</a></p>
         <h2 class="nhsuk-heading-s">Useful links</h2>
         <p><a href="#">Contact</a></p>
@@ -174,7 +187,7 @@ text: "Data products"
         <p><a href="#">Requesting data</a></p>
         <p><a href="#">Supporting documents</a></p>
         <p><a href="#">System access</a></p>
-        <p><a href="#">Training resources</a></p>        
+        <p><a href="#">Training resources</a></p>
     </div>
 </div>
 {% endblock %}
