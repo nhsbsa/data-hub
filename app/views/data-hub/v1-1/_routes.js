@@ -3,6 +3,8 @@ const express = require('express');
 
 const router = express.Router();
 
-router.use('/v1-1', require('./views/data-hub/v1-1/_routes'));
+router.post(/search-data-hub/, (req, res) => {
+    res.redirect('search-results');
+});
 
 module.exports = router;

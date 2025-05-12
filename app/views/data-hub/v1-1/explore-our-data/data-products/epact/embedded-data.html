@@ -1,0 +1,63 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1-1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'yes' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Datasets - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "prescribing-reports",
+        text: "Prescribing reports"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full nhsuk-u-padding-top-4">
+        <h1 class="nhsuk-heading-l">Title of the data dashboard</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt libero recusandae esse veniam.</p>
+
+        <h2 class="nhsuk-heading-m">What is presented in this data</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga exercitationem unde esse asperiores modi architecto praesentium natus tenetur culpa quibusdam earum, commodi illum veniam repellendus eos dolore soluta sunt totam enim aliquam illo excepturi recusandae. Quis nesciunt, illum nulla impedit cum reprehenderit corporis earum rem voluptate blanditiis aliquam reiciendis facere?</p>
+    </div>
+
+    <div class="nhsuk-grid-column-full">
+        <h2 class="nhsuk-heading-m">Dashboard</h2>
+        <iframe title="Template With Example Visuals" width="100%" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=f3444155-678f-4676-ae72-a62c9192f903&autoAuth=true&ctid=cf6d0482-86b1-4f88-8c0c-3b4de4cb402c" frameborder="0" allowFullScreen="true"></iframe>
+    </div>
+
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-7">
+        <h2 class="nhsuk-heading-m">Latest release</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus et nostrum sequi voluptas commodi! Aliquam!</p>
+
+        <h2 class="nhsuk-heading-m">Full report and datasets</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, iusto?</p>
+
+        <h2 class="nhsuk-heading-m">Included and excluded data</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatibus in autem reprehenderit quis veritatis veniam doloribus aspernatur qui hic!</p>
+
+        <h2 class="nhsuk-heading-m">Caveats and notes</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos itaque, perspiciatis tempora mollitia at deserunt laborum maxime ad natus libero dicta, aperiam nesciunt repellat, illum voluptatibus nihil quaerat facere quasi iure fugiat provident quo repellendus odit qui. Mollitia, perferendis veniam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ab eligendi voluptas, deleniti reiciendis accusamus delectus dicta magnam rem ullam consectetur?</p>
+    </div>
+</div>
+{% endblock %}

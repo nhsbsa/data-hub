@@ -1,0 +1,95 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1-1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'yes' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "yes" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+My account - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/v1-1/homepage",
+text: "Home"
+}
+]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row nhsuk-u-padding-top-7">
+
+    <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title"
+        data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Notification
+            </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+                Your Precribing and Dispensing (ePACT2) access is expiring.</p>
+            <p class="nhsuk-u-margin-bottom-0"><a class="govuk-notification-banner__link" href="#">View your access</a></p>
+        </div>
+    </div>
+
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-4">
+
+        <h1 class="nhsuk-heading-l">My account</h1>
+        <p>You are signed in as: <span class="nhsuk-u-font-weight-bold">mr.name@nhsbsa.nhs.uk</span></p>
+        <p><a href="#">Your details</a></p>
+        <hr>
+        <h2 class="nhsuk-heading-m">My saved resources</h2>
+        <p>Favourited, saved, shared and analysis created by you will all be stored within saved resources.</p>
+        <ul class="nhsuk-list">
+            <li><a href="#">My analysis</a></li>
+            <li><a href="#">My files</a></li>
+            <li><a href="#">My favourites</a></li>
+            <li><a href="#">My shared files</a></li>
+        </ul>
+        <hr>
+        <h2 class="nhsuk-heading-m">My access</h2>
+        <!-- <div class="govuk-notification-banner" role="region"
+            aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                    Important
+                </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+                <p class="govuk-notification-banner__heading">
+                    Your Precribing and Dispensing (ePACT2) access is expiring
+                    <a class="govuk-notification-banner__link" href="#">View access</a>.
+                </p>
+            </div>
+        </div> -->
+        <p>View all your current access to products, tools and analysis. If you have any expired access this will be
+            highlighted here, if you require access, you can do that here.</p>
+        <ul class="nhsuk-list">
+            <li><a href="#">My current access</a></li>
+            <li><a href="#">My expired access</a></li>
+            <li><a href="#">My requests</a></li>
+        </ul>
+
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+        <a class="nhsuk-button nhsuk-button--secondary custom-float-right" href="#">Sign out</a>
+    </div>
+</div>
+{% endblock %}
