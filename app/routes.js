@@ -3,6 +3,6 @@ const express = require('express');
 
 const router = express.Router();
 
-router.use('/v1-1', require('./views/data-hub/v1-1/_routes'));
+router.use('/data-hub/v1-1', require('./views/data-hub/v1-1/_routes'));
 
 module.exports = router;

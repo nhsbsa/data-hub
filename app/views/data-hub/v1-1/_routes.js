@@ -3,7 +3,7 @@ const express = require('express');
 
 const router = express.Router();
 
-router.post(/search-data-hub/, (req, res) => {
+router.post('/homepage-search', (req, res) => {
     res.redirect('search-results');
 });
 
