@@ -3,6 +3,11 @@ const express = require('express');
 
 const router = express.Router();
 
-router.use('/data-hub/v1-1', require('./views/data-hub/v1-1/_routes'));
+// MVP Folder
+
+
+// Assumptions Folder
+router.use('/data-hub/assumptions/v1-2', require('./views/data-hub/assumptions/v1-2/_routes'));
+router.use('/data-hub/assumptions/v1-1', require('./views/data-hub/assumptions/v1-1/_routes'));
 
 module.exports = router;

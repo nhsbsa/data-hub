@@ -1,0 +1,235 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/assumptions/v1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "yes" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+ePACT2 - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/assumptions/v1/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/assumptions/v1/explore-our-data/explore-our-data",
+text: "Explore our data"
+},
+{
+href: "/data-hub/assumptions/v1/explore-our-data/data-products/data-products",
+text: "Data products"
+}
+]
+}) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-two-thirds">
+                                <h1 class="nhsuk-u-margin-bottom-4"><span
+                                        class="nhsuk-caption-l custom-hero-caption">Data
+                                        Products</span>Prescribing and Dispensing Data (ePACT2)</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
+                                    interactive
+                                    and easy to use prescription data reports and dasboards. Data is available 6 weeks
+                                    after the
+                                    dispensing month</p>
+                                <form class="nhsuk-header__search-form nhsuk-u-margin-top-4" id="search" action=" "
+                                    method="get" role="search">
+                                    <label class="nhsuk-label" for="search-field">Search Prescribing and Dispensing Data</label>
+                                    <input class="nhsuk-search__input" id="search-field" name="search-field"
+                                        type="search" autocomplete="off">
+                                    <button class="nhsuk-search__submit" type="submit">
+                                        <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                            <path
+                                                d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z">
+                                            </path>
+                                        </svg>
+                                        <span class="nhsuk-u-visually-hidden">Search</span>
+                                    </button>
+                                </form>
+                                <!-- Show filter at top of HTML -->
+                                {% if 'yes' in showFilter %}
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
+                                    data-module="nhsuk-button" type="submit">
+                                    Reports
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Dashboards
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Latest release
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Prescriptions
+                                </button>
+                                {% endif %}
+                            </div>
+                            <div class="nhsuk-grid-column-one-third">
+                                <div class="latest-data">
+                                    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Latest data</h2>
+                                    <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">Prescription data: <span
+                                            class="nhsuk-u-font-weight-bold">January 2025</span></p>
+                                    <p class="nhsuk-body-s nhsuk-u-margin-bottom-0">Remuneration data: <span
+                                            class="nhsuk-u-font-weight-bold">January 2025</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-m">My folders</h2>
+        <p>Access all data you have favourited, analysis you have created and datasets shared with you.</p>
+        
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-third">
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">My folders</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nhsuk-grid-column-one-third">
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">My favourites</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nhsuk-grid-column-one-third">
+                <div class="nhsuk-action-link">
+                    <a class="nhsuk-action-link__link" href="#">
+                        <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                            <path
+                                d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
+                            </path>
+                        </svg>
+                        <span class="nhsuk-action-link__text">My shared folders</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nhsuk-grid-column-full">
+                <hr class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-7">
+            </div>
+            <div class="nhsuk-grid-column-two-thirds">
+                <ul class="nhsuk-grid-row nhsuk-card-group">
+                    <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                        <div class="nhsuk-card nhsuk-card--clickable">
+                            <div class="nhsuk-card__content nhsuk-card__content--primary">
+                                <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                        href="#">Dashboards</a> </h2>
+                                <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                        <div class="nhsuk-card nhsuk-card--clickable">
+                            <div class="nhsuk-card__content nhsuk-card__content--primary">
+                                <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                        href="prescribing-reports">Prescribing reports</a> </h2>
+                                <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                        <div class="nhsuk-card nhsuk-card--clickable">
+                            <div class="nhsuk-card__content nhsuk-card__content--primary">
+                                <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                        href="#">Financial reports</a> </h2>
+                                <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                        <div class="nhsuk-card nhsuk-card--clickable">
+                            <div class="nhsuk-card__content nhsuk-card__content--primary">
+                                <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                        href="#">Pharmacy Contract Managers Reports</a> </h2>
+                                <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                        <div class="nhsuk-card nhsuk-card--clickable">
+                            <div class="nhsuk-card__content nhsuk-card__content--primary">
+                                <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                        href="#">PADM Patient Analysis</a> </h2>
+                                <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="nhsuk-grid-column-one-third">
+                <h2 class="nhsuk-heading-m">Useful links</h2>
+                <ul class="nhsuk-list">
+                    <li><a href="#">Data release calendar</a></li>
+                    <li><a href="#">ePACT2 website</a></li>
+                    <li><a href="#">How to request prescription data</a></li>
+                    <li><a href="#">Latest ePACT2 news</a></li>
+                </ul>
+                <h2 class="nhsuk-heading-m">Guidance</h2>
+                <ul class="nhsuk-list">
+                    <li><a href="#">Book an ePACT2 training webinar</a></li>
+                    <li><a href="#">ePACT2 training</a></li>
+                    <li><a href="#">ePACT2 report information</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

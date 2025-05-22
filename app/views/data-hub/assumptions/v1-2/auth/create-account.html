@@ -1,0 +1,77 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/assumptions/v1-2/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'yes' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Register - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/assumptions/v1-2/homepage",
+text: "Home"
+}
+]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row nhsuk-u-padding-top-4">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l">Create a Data Hub account</h1>
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Enter your full name
+            </label> <input class="nhsuk-input nhsuk-u-width-three-quarters" id="input-width-20" name="test-width-20"
+                type="text">
+        </div>
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                What is your job role?
+            </label> <input class="nhsuk-input nhsuk-u-width-three-quarters" id="input-width-20" name="test-width-20"
+                type="text">
+        </div>
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Which organisation are you associated with?
+            </label> <input class="nhsuk-input nhsuk-u-width-three-quarters" id="input-width-20" name="test-width-20"
+                type="text">
+        </div>
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Enter your email address
+            </label> <input class="nhsuk-input nhsuk-u-width-three-quarters" id="input-width-20" name="test-width-20"
+                type="text">
+        </div>
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="input-width-20">
+                Confirm email address
+            </label> <input class="nhsuk-input nhsuk-u-width-three-quarters" id="input-width-20" name="test-width-20"
+                type="text">
+        </div>
+
+        <button class="nhsuk-button" data-module="nhsuk-button" type="submit">
+            Submit details
+        </button>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Already have an account?</h2>
+        <p>If you already have a Data Hub account, <a href="sign-in">go to sign in</a>.</p>
+    </div>
+</div>
+{% endblock %}

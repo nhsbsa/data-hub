@@ -1,0 +1,60 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/assumptions/v1-1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'yes' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Open data portal - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/assumptions/v1-1/homepage",
+        text: "Home"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-4">
+        <h1 class="nhsuk-heading-l">News and events</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt libero recusandae esse veniam.</p>
+    </div>
+</div>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title"
+            data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                    Upcoming events
+                </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+                <h3 class="govuk-notification-banner__heading">
+                    Title of the event
+                </h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum molestias facere quasi sed
+                    aliquam dignissimos, laborum aspernatur praesentium atque sunt.</p>
+                <p class="nhsuk-u-margin-bottom-0"><a href="#">View upcoming event</a></p>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+{% endblock %}
