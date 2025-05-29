@@ -1,0 +1,83 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v3/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium Priced Generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v3/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v3/data-products/epact/epact-loggedin",
+text: "Prescribing and Dispensing Data"
+},
+{
+href: "dashboards",
+text: "Dashboards"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-0"><span class="nhsuk-u-font-weight-bold">Data last refreshed:</span> 6 May 2025 at 8:31am</p>
+        <h1 class="nhsuk-heading-l">Premium Priced Generics</h1>
+        <h2 class="nhsuk-heading-m">Practice in SICBL</h2>
+
+        <p>There's an increasing volume of computerised prescriptions each month where the prescriber has prescribed a generic Drug Tariff Part VIIIA product but also with the name of the branded product or the supplier/ manufacturer added in brackets.</p>
+        <p>In these situations, the drug costs charged to the prescriber's budget and reimbursed to the community pharmacy or dispensing practice will be that of the list price of the branded medicine or the specified supplier.</p>
+        <p>In many cases this cost will be significantly higher than the Drug Tariff Part VIIIA listed price.</p>
+        <p>To help SICBLs monitor this scenario more closely and explore opportunities for review, we've developed this dashboard to highlight the details of practices and drugs where this is most common.</p>
+
+    </div>
+
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">
+        <h3 class="nhsuk-heading-m">Dashboard</h3>
+        <iframe class="embeded-dashboard" title="Premium Priced Generics - Data Hub" width="100%" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=cf6fd114-648c-48a3-b50c-c48402d19b94&autoAuth=true&ctid=cf6d0482-86b1-4f88-8c0c-3b4de4cb402c" frameborder="0" allowFullScreen="true"></iframe>
+        <!-- <p class="nhsuk-u-margin-top-4"><a href="dashboard-full-screen">View dashboard full screen</a></p> -->
+        <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-top-5" href="premium-priced-generics-full-screen">View dashboard full screen</a>
+    </div>
+
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">
+        <h3 class="nhsuk-heading-m">Full report and datasets</h3>
+        <h4 class="nhsuk-heading-s">Time period</h4>
+        <p>...</p>
+        <h4 class="nhsuk-heading-s">Data source</h4>
+        <p>...</p>
+        <h4 class="nhsuk-heading-s">Data definitions</h4>
+        <p>...</p>
+        <h4 class="nhsuk-heading-s">Data dictionary</h4>
+        <p>...</p>
+
+        <h3 class="nhsuk-heading-m">Included and excluded data</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex voluptatibus in autem reprehenderit quis veritatis veniam doloribus aspernatur qui hic!</p>
+
+        <h3 class="nhsuk-heading-m">Caveats and notes</h3>
+        <h4 class="nhsuk-heading-s">Assumptions</h4>
+        <p>...</p>
+        <h4 class="nhsuk-heading-s">Geography</h4>
+        <p>...</p>
+    </div>
+</div>
+{% endblock %}
