@@ -1,5 +1,5 @@
 <!-- Extends the layout from /docs/views/layouts-templates/ -->
-{% extends "template-assumptions-data-hub.html" %}
+{% extends "template-data-hub.html" %}
 
 {% block headCSS %}
 <link href="/css/main.css" rel="stylesheet">
@@ -16,7 +16,7 @@ NHS.UK prototype kit
 
     <div class="nhsuk-header__container">
         <div class="nhsuk-header__logo">
-            <a class="nhsuk-header__link nhsuk-header__link--service " href="/" aria-label="NHS homepage">
+            <a class="nhsuk-header__link nhsuk-header__link--service " href="/data-hub/mvp/v1/data-products" aria-label="NHS homepage">
                 <svg class="nhsuk-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" height="40" width="100">
                     <path class="nhsuk-logo__background" fill="#005eb8" d="M0 0h40v16H0z"></path>
                     <path class="nhsuk-logo__text" fill="#fff"
@@ -50,7 +50,7 @@ NHS.UK prototype kit
                 </div>
             </div>
             {% endif %}
-            <div class="nhsuk-header__search custom-search-inline">
+            <!-- <div class="nhsuk-header__search custom-search-inline">
                 <div class="nhsuk-header__search-wrap" id="wrap-search">
                     <div class="nhsuk-account__login">
                         <a class="nhsuk-account__login--link" href="#">
@@ -64,29 +64,28 @@ NHS.UK prototype kit
                                 </path>
                             </svg></a>
                     </div>
-                    <!-- <form class="nhsuk-header__search-form" id="search" action=" " method="get" role="search">
-              <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
-              <input class="nhsuk-search__input" id="search-field" name="search-field" type="search" placeholder="Search" autocomplete="off">
-              <button class="nhsuk-search__submit" type="submit">
-                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z"></path>
-                </svg>
-                <span class="nhsuk-u-visually-hidden">Search</span>
-              </button>
-            </form> -->
+                    <form class="nhsuk-header__search-form" id="search" action=" " method="get" role="search">
+                        <label class="nhsuk-u-visually-hidden" for="search-field">Search the NHS website</label>
+                        <input class="nhsuk-search__input" id="search-field" name="search-field" type="search"
+                            placeholder="Search" autocomplete="off">
+                        <button class="nhsuk-search__submit" type="submit">
+                            <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                <path
+                                    d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z">
+                                </path>
+                            </svg>
+                            <span class="nhsuk-u-visually-hidden">Search</span>
+                        </button>
+                    </form>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 
-    <div class="nhsuk-navigation-container">
+    <!-- <div class="nhsuk-navigation-container">
         <nav class="nhsuk-navigation" id="header-navigation" role="navigation" aria-label="Primary navigation">
             <ul class="nhsuk-header__navigation-list">
-                <!-- <li class="nhsuk-header__navigation-item">
-                    <a class="nhsuk-header__navigation-link" href="/data-hub/assumptions/v1/homepage">
-                        Home
-                    </a>
-                </li> -->
                 <li class="nhsuk-header__navigation-item">
                     <a class="nhsuk-header__navigation-link" href="/data-hub/assumptions/v1/explore-our-data/explore-our-data">
                         Explore our data
@@ -109,7 +108,7 @@ NHS.UK prototype kit
                 </li>
             </ul>
         </nav>
-    </div>
+    </div> -->
 </header>
 {% endblock %}
 
@@ -135,17 +134,17 @@ NHS.UK prototype kit
                     <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
                         <a class="nhsuk-footer__list-item-link" href="#">Contact</a>
                     </li>
-                    <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
-                        <a class="nhsuk-footer__list-item-link" href="/data-hub/assumptions/v1/embedded-data">Embedded Dashboard Example</a>
-                    </li>
-                    <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
-                        <a class="nhsuk-footer__list-item-link" href="/">Back to Prototype Versioning</a>
-                    </li>
                 </ul>
                 <div>
                     <p class="nhsuk-footer__copyright">&copy; NHS Business Services Authority</p>
                 </div>
             </div>
+            <h3 class="nhsuk-heading-xs">Prototype purposes</h3>
+                <ul class="nhsuk-list">
+                <li class="nhsuk-footer__list-item nhsuk-footer-default__list-item">
+                    <a class="nhsuk-footer__list-item-link" href="/">Back to Prototype Versioning</a>
+                </li>
+                </ul>
         </div>
     </div>
 </footer>
