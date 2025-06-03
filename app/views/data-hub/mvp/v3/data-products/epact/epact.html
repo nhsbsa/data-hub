@@ -17,18 +17,18 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Prescribing and dispensing data (eDEN) - {{ serviceName }} - NHSBSA
+Prescribing and dispensing data (ePACT) - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-items: [
-{
-href: "/data-hub/mvp/v3/homepage",
-text: "Home"
-}
-]
-}) }}
+    {{ breadcrumb({
+        items: [
+            {
+                href: "/data-hub/mvp/v3/homepage",
+                text: "Home"
+            }
+        ]
+    }) }}
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->

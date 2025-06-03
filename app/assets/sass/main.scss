@@ -6,6 +6,7 @@
 @import 'components/related-nav';
 @import 'components/notification-banner';
 @import 'components/alerts-ho';
+@import 'components/password-button';
 
 ///////////////////////////////////////////
 // Data Hub - Custom Styles
@@ -163,4 +164,9 @@ ul.nhsuk-footer__list {
 .latest-data {
     border: 2px solid #ffffff;
     padding: 15px
+}
+
+// Override breadcrumbs padding bottom
+.nhsuk-breadcrumb {
+    padding-bottom: 16px;
 }
