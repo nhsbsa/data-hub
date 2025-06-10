@@ -1,0 +1,59 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Sign in or create account- {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/v1/homepage",
+text: "Home"
+}
+]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <form action="" method="post">
+            <h1 class="nhsuk-heading-l">Sign in or create an account</h1>
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="username">
+                    Email
+                </label> <input class="nhsuk-input nhsuk-input--width-20" id="username" name="username"
+                    type="text">
+            </div>
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="password-signin">
+                    Password
+                </label> <input class="nhsuk-input nhsuk-input--width-20" id="password-signin" name="password-signin"
+                    type="password">
+            </div>
+            <p><a href="#">Forgotten password</a></p>
+            <button class="nhsuk-button" type="submit">Sign in</button>
+        </form>
+
+        <h2 class="nhsuk-heading-m">Create an account</h2>
+        <p>Create a data hub account to be able to store custom analysis, shared folders and more.</p>
+        <a class="nhsuk-button nhsuk-button--secondary" href="your-name">Create an account</a>
+
+    </div>
+</div>
+{% endblock %}

@@ -8715,3 +8715,17 @@ ul.nhsuk-footer__list {
 .nhsuk-breadcrumb {
   padding-bottom: 16px;
 }
+
+.nhsuk-expander-hidden {
+  display: none;
+}
+
+.custom-sign-out {
+  position: absolute;
+  right: 15px;
+  top: 0;
+}
+
+.custom-position-relative {
+  position: relative;
+}

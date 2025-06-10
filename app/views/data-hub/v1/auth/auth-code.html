@@ -1,0 +1,46 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Authentication code sent to your email - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+    
+        <form action="auth-code" method="post">
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="auth-code"><h1 class="nhsuk-heading-l">Enter your authentication code</h1>
+                </label>
+                <p>An authentication code has been sent to the email address you provided.</p>
+                <div class="nhsuk-hint" id="example-with-hint-text-hint">
+                    For example,123456
+                </div>
+                <input class="nhsuk-input nhsuk-input--width-5" id="auth-code" name="auth-code" type="text">           
+            </div>
+            <button class="nhsuk-button" type="submit">Continue</button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

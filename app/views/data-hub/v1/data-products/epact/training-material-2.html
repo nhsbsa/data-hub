@@ -1,0 +1,170 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Training material - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+
+{% block beforeContent %}
+    {% if data['productSignedInAs'] == 'epact' %}
+        {{ breadcrumb({
+            items: [
+            {
+                href: "/data-hub/v1/homepage",
+                text: "Home"
+            },
+            {
+                href: "/data-hub/v1/data-products/epact/epact-loggedin",
+                text: "Prescribing and dispensing data"
+            }
+            ]
+        }) }}
+    {% else %}
+        {{ breadcrumb({
+            items: [
+            {
+                href: "/data-hub/v1/homepage",
+                text: "Home"
+            },
+            {
+                href: "/data-hub/v1/data-products/epact/epact",
+                text: "Prescribing and dispensing data"
+            }
+            ]
+        }) }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
+        <h1 class="nhsuk-heading-l">Training material</h1>
+        <p>Access a variety of user guides for getting started, organisation type and functional guides.</p>
+    </div>
+</div>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-quarter">
+        <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Filters</h2>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading">
+                        Type of guides
+                    </h3>
+                </legend>
+                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
+                    Select all options that are relevant to you.
+                </div>
+                <div class="nhsuk-checkboxes">
+
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Beginner guides
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Video guides
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Courses
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Filter result</a>
+    </div>
+
+    <div class="nhsuk-grid-column-three-quarters">
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-third">
+                <span class="nhsuk-heading-s nh">62 results</span>
+            </div>
+            <div class="nhsuk-grid-column-two-thirds custom-sort-by">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label nhsuk-u-margin-right-2" for="select-1">
+                        Sort by
+                    </label> <select class="nhsuk-select" id="select-1" name="select-1">
+                        <option value="1" selected>Updated (newest)</option>
+                        <option value="2">option 2</option>
+                        <option value="3">option 3</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h2 class="nhsuk-heading-s"><a href="#">ePACT2 - Hospital Trust Reports to get you started (PDF: 929KB)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">ePACT2 - Accessing and using the Hospital Trust Volume and Cost Report (PDF: 476KB)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">ePACT2 - Accessing and using the Invoice Reconciliation Report (PDF: 400KB)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">ePACT2 - Accessing and using the Itemised Prescribing Payment (IPP) Report (PDF: 478KB)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">ePACT2 - Accessing and using the Remuneration Report (PDF: 508KB)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">Introductory recorded webinar for Primary Care Network ePACT2 users (YouTube video)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">ePACT2 - PCN Reports to get you started (PDF: 651KB)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">Introductory pre-recorded webinar for GP Practice ePACT2 users (YouTube video)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">5 minute guide to the GP Practice Personally Administered Items Report (PADAM) (YouTube video)</a></h2>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">3 minute guide to the Practice Detailed Prescribing Information Report (YouTube video)</a></h2>
+        <hr>
+
+        <!-- pagination -->
+        <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
+            <ul class="nhsuk-list nhsuk-pagination__list">
+              <li class="nhsuk-pagination-item--previous">
+                <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="training-material">
+                  <span class="nhsuk-pagination__title">Previous</span>
+                  <span class="nhsuk-pagination__page">Page 2 of 4</span>
+                  <span class="nhsuk-u-visually-hidden">:</span>
+                  <!-- <span class="nhsuk-pagination__page">Treatments</span> -->
+                  <svg class="nhsuk-icon nhsuk-icon__arrow-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                    <path d="M4.1 12.3l2.7 3c.2.2.5.2.7 0 .1-.1.1-.2.1-.3v-2h11c.6 0 1-.4 1-1s-.4-1-1-1h-11V9c0-.2-.1-.4-.3-.5h-.2c-.1 0-.3.1-.4.2l-2.7 3c0 .2 0 .4.1.6z"></path>
+                  </svg>
+                </a>
+              </li>
+              <li class="nhsuk-pagination-item--next">
+                <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="#">
+                  <span class="nhsuk-pagination__title">Next</span>
+                  <span class="nhsuk-pagination__page">Page 3 of 4</span>
+                  <span class="nhsuk-u-visually-hidden">:</span>
+                  <!-- <span class="nhsuk-pagination__page">Symptoms</span> -->
+                  <svg class="nhsuk-icon nhsuk-icon__arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="34" height="34">
+                    <path d="M19.6 11.66l-2.73-3A.51.51 0 0 0 16 9v3H5a1 1 0 0 0 0 2h11v3a.5.5 0 0 0 .32.46.39.39 0 0 0 .18 0 .52.52 0 0 0 .37-.16l2.73-3a.5.5 0 0 0 0-.64z"></path>
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+    </div>
+</div>
+{% endblock %}

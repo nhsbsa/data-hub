@@ -1,0 +1,156 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium Priced Generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/v1/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/v1/data-products/epact/epact-loggedin",
+text: "Prescribing and Dispensing Data"
+},
+{
+href: "dashboards",
+text: "Dashboards"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-0"><span class="nhsuk-u-font-weight-bold">Data last refreshed:</span> 6 May 2025 at 8:31am</p>
+        <h1 class="nhsuk-heading-l">Premium Priced Generics</h1>
+        <h2 class="nhsuk-heading-m">Practice in SICBL</h2>
+
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Summary of the data product's purpose and intended use </li>
+            <li>High-level description of what the data is about </li>
+        </ul>
+
+    </div>
+
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">
+        <h3 class="nhsuk-heading-m">Dashboard</h3>
+        <img src="/images/data-hub/dashboard-example.png" alt="" style="width: 100%;">
+        <!-- <iframe class="embeded-dashboard" title="Premium Priced Generics - Data Hub" width="100%" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=cf6fd114-648c-48a3-b50c-c48402d19b94&autoAuth=true&ctid=cf6d0482-86b1-4f88-8c0c-3b4de4cb402c" frameborder="0" allowFullScreen="true"></iframe>         -->
+        <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-top-5" href="premium-priced-generics-full-screen">View dashboard full screen</a>
+    </div>
+
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">
+        <h3 class="nhsuk-heading-m">Version control and change log</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Data product version number and release date </li>
+            <li>Clear change log outlining updates, corrections, or new features </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Methodology statement</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Description of data sources and how they are collected </li>
+            <li>Processing steps, including aggregation, filtering, or transformation rules </li>
+            <li>Any models, calculations, or derived metrics used </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Data dictionary</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Clear definitions of each data field or column </li>
+            <li>Units of measurement, allowable values, and codes (e.g. region codes) </li>
+            <li>Description of derived fields and calculations </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Data scope and structure</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Time Period: Start and end dates the data covers </li>
+            <li>Geographic Coverage: Areas included (e.g. national, regional, local) and any relevant geocoding </li>
+            <li>Organisational Level: Grouping level (e.g. Practice, ICB) </li>
+            <li>Update Frequency: How often the data is refreshed, and latest update </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Data classification</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Tagging as Official Statistics, Management Information, or Experimental/Research Data </li>
+            <li>Visible classification label </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Caveats and limitations</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Known issues or risks in interpreting the data </li>
+            <li>Explanation of suppression, missing data, or assumptions </li>
+            <li>Impact of models or estimation methods </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Contact and feedback</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Named team or individual responsible (can be internal)  </li>
+            <li>Generic support email for queries and feedback </li>
+            <li>Option to flag issues or give feedback </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Licensing and Reuse (Citation)</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Licence applied to the data (e.g. Open Government Licence v3.0) </li>
+            <li>Attribution instructions and reuse conditions </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Data download</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Links to downloadable formats (e.g. CSV, XLSX, API) </li>
+            <li>README or schema explaining the file structure </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Data lineage / provenance</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Description of data origin and transformations </li>
+            <li>Links to original source (if applicable) </li>
+            <li>Summary of processing tools or scripts used </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Accessibility statement</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Statement on WCAG 2.2 compliance </li>
+            <li>Considerations for screen readers and keyboard navigation </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">User guide or training materials</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Step-by-step guidance for interacting with the data product </li>
+            <li>Tips for filtering, exporting, or visualisation use </li>
+            <li>Optional: annotated screenshots, help overlays, or video guides </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Related data products</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Links to related dashboards, datasets, or similar products </li>
+            <li>Suggestions for complementary content </li>
+        </ul>
+
+        <h3 class="nhsuk-heading-m">Related publications and news</h3>
+        <ul class="nhuk-list nhsuk-list--bullet">
+            <li>Statistical releases, blogs, or external articles using or referencing the data </li>
+            <li>Policy or research context, where appropriate </li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

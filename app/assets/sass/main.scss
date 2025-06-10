@@ -170,3 +170,18 @@ ul.nhsuk-footer__list {
 .nhsuk-breadcrumb {
     padding-bottom: 16px;
 }
+
+// hide 'Getting started' expander
+.nhsuk-expander-hidden {
+    display: none;
+}
+
+// sign out button (my account page)
+.custom-sign-out {
+    position: absolute;
+    right: 15px;    
+    top: 0;
+}
+.custom-position-relative {
+    position: relative;
+}
