@@ -45,10 +45,10 @@ text: "Dashboards"
         <h1 class="nhsuk-heading-l">Premium Priced Generics</h1>
         <h2 class="nhsuk-heading-m">Practice in SICBL</h2>
 
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Summary of the data product's purpose and intended use </li>
-            <li>High-level description of what the data is about </li>
-        </ul>
+        <p>There's an increasing volume of computerised prescriptions each month where the prescriber has prescribed a generic Drug Tariff Part VIIIA product but also with the name of the branded product or the supplier/ manufacturer added in brackets.</p>
+        <p>In these situations, the drug costs charged to the prescriber's budget and reimbursed to the community pharmacy or dispensing practice will be that of the list price of the branded medicine or the specified supplier.</p>
+        <p>In many cases this cost will be significantly higher than the Drug Tariff Part VIIIA listed price.</p>
+        <p>To help SICBLs monitor this scenario more closely and explore opportunities for review, we've developed this dashboard to highlight the details of practices and drugs where this is most common.</p>
 
     </div>
 
@@ -61,77 +61,55 @@ text: "Dashboards"
 
     <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">
         <h3 class="nhsuk-heading-m">Version control and change log</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Data product version number and release date </li>
-            <li>Clear change log outlining updates, corrections, or new features </li>
-        </ul>
+        <p>Version 1.0.</p>
 
         <h3 class="nhsuk-heading-m">Methodology statement</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Description of data sources and how they are collected </li>
-            <li>Processing steps, including aggregation, filtering, or transformation rules </li>
-            <li>Any models, calculations, or derived metrics used </li>
-        </ul>
+        <p>Data includes current spend, potential spend and potential saving, these appear to be provided to us at SICBL level but calculated elsewhere in the dashboard. Potential saving is calculated, detail included in the dictionary.</p>
 
         <h3 class="nhsuk-heading-m">Data dictionary</h3>
         <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Clear definitions of each data field or column </li>
-            <li>Units of measurement, allowable values, and codes (e.g. region codes) </li>
-            <li>Description of derived fields and calculations </li>
+            <li>Period - The month for which the claim for dispensed items has been submitted to NHSBSA in the format MMM-YY. </li>
+            <li>Commissioner/Provider / SICBL - The name of the organisation which commissions or provides services that needs to use NHS prescriptions.</li>
+            <li>Practice Code - The ODS code of the organisation which is at the level of Practice/ Cost Centre within the Prescriptions master data hierarchies.</li>
+            <li>Practice - The name of the organisation which is at the level of Practice/ Cost Centre within the Prescriptions master data hierarchies.</li>
+            <li>BNF Presentation Code - The BNF Code is a 15-digit code in which the first seven digits are allocated according to the categories in the BNF and the last 8 digits represent the medicinal product, form, strength and the link to the generic equivalent product. NHS Prescription Services has created pseudo BNF chapters, which are not published, for items not included in BNF chapters 1 to 15. The majority of such items are dressings and appliances which NHS Prescription Services has classified into four pseudo BNF chapters (20 to 23).</li>
+            <li>BNF Presentation - The individual preparation name of the drug, which may be proprietary or generic, followed by strength and form.</li>
+            <li>Supplier - The name of the company responsible for developing, manufacturing or distributing a specific drug.</li>
+            <li>Items - Items shows the number of times a product appears on a prescription form not the quantity prescribed.
+                Current Spend (£). Net Ingredient Cost (NIC) where the prescribed item is a generic name AMP.</li>
+            <li>Potential Spend (£) - Quantity prescribed multiplied by the generic part VIII cost per single unit of the quantity.</li>
+            <li>Potential Saving (£) -The difference between current spend and potential spend. When negative this will show 0 potential saving.</li>
         </ul>
-
+        
         <h3 class="nhsuk-heading-m">Data scope and structure</h3>
         <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Time Period: Start and end dates the data covers </li>
-            <li>Geographic Coverage: Areas included (e.g. national, regional, local) and any relevant geocoding </li>
-            <li>Organisational Level: Grouping level (e.g. Practice, ICB) </li>
-            <li>Update Frequency: How often the data is refreshed, and latest update </li>
+            <li>Time period - any available in ePACT2 so January 2014 to March 2025 currently. </li>
+            <li>Geographic Coverage - Limited to organisations held as GP practices in our organisational database. </li>
+            <li>Organisational Level - Available at practice and SICBL level</li>
+            <li>Update Frequency - Monthly available for customers when ePACT2 refreshes, around the 20th of the month. Also - Limited to prescribing of generic name AMPs (generics with a supplier name) where a saving is possible. </li>
         </ul>
+        
 
         <h3 class="nhsuk-heading-m">Data classification</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Tagging as Official Statistics, Management Information, or Experimental/Research Data </li>
-            <li>Visible classification label </li>
-        </ul>
+        <p>No patient information is included in the dashboard. Data is aggregated to practice level. Risk of reidentification of patients is low. Purpose is a cost analysis for NHS organisations. To be used by appropriate NHS professionals.</p>
 
         <h3 class="nhsuk-heading-m">Caveats and limitations</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Known issues or risks in interpreting the data </li>
-            <li>Explanation of suppression, missing data, or assumptions </li>
-            <li>Impact of models or estimation methods </li>
-        </ul>
+        <p>Data is limited to GP practices and where we have calculated that there is a potential saving based on the costs of the products prescribed. Comparison of cost appears to be the current price vs the price in the month specified. May not take into account recent changes in price. No suppression applied, access to the dashboard is limited to registered users. </p>
 
         <h3 class="nhsuk-heading-m">Contact and feedback</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Named team or individual responsible (can be internal)  </li>
-            <li>Generic support email for queries and feedback </li>
-            <li>Option to flag issues or give feedback </li>
-        </ul>
+        <p>Data services support, <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">dataservicessupport@nhsbsa.nhs.uk</a>.</p>
 
         <h3 class="nhsuk-heading-m">Licensing and Reuse (Citation)</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Licence applied to the data (e.g. Open Government Licence v3.0) </li>
-            <li>Attribution instructions and reuse conditions </li>
-        </ul>
+        <p><a href="https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions" target="_blank">Terms and conditions</a></p>
 
         <h3 class="nhsuk-heading-m">Data download</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Links to downloadable formats (e.g. CSV, XLSX, API) </li>
-            <li>README or schema explaining the file structure </li>
-        </ul>
+        <a href="#" class="nhsuk-button">Download as CSV</a>
 
         <h3 class="nhsuk-heading-m">Data lineage / provenance</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Description of data origin and transformations </li>
-            <li>Links to original source (if applicable) </li>
-            <li>Summary of processing tools or scripts used </li>
-        </ul>
+        <p>ePACT2 is the source of most of the data.</p>
 
         <h3 class="nhsuk-heading-m">Accessibility statement</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Statement on WCAG 2.2 compliance </li>
-            <li>Considerations for screen readers and keyboard navigation </li>
-        </ul>
+        <p><a href="https://www.nhsbsa.nhs.uk/accessibility-statement-epact2" target="_blank">Accessibility statement</a></p>
 
         <h3 class="nhsuk-heading-m">User guide or training materials</h3>
         <ul class="nhuk-list nhsuk-list--bullet">
@@ -141,10 +119,7 @@ text: "Dashboards"
         </ul>
 
         <h3 class="nhsuk-heading-m">Related data products</h3>
-        <ul class="nhuk-list nhsuk-list--bullet">
-            <li>Links to related dashboards, datasets, or similar products </li>
-            <li>Suggestions for complementary content </li>
-        </ul>
+        <p>PGeneric savings reports/dashboards in ePACT2.</p>
 
         <h3 class="nhsuk-heading-m">Related publications and news</h3>
         <ul class="nhuk-list nhsuk-list--bullet">
