@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-    <div class="nhsuk-back-link"> <a class="nhsuk-back-link__link" href="javascript:history.back()">
+    <div class="nhsuk-back-link"> <a class="nhsuk-back-link__link" href="../index">
             <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 aria-hidden="true" height="24" width="24">
                 <path
@@ -39,8 +39,48 @@
 
         <p>Here you will be able to navigate through various templates that are created to set a standard for ways of
             doing things i.e. dashboard templates</p>
-
         <hr>
+        
+        <details class="nhsuk-details nhsuk-expander">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Dashboard templates
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <table role="table" class="nhsuk-table-responsive">
+                    <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Versions</caption>
+                    <thead role="rowgroup" class="nhsuk-table__head">
+                        <tr role="row">
+                            <th role="columnheader" class="" scope="col">
+                                Description
+                            </th>
+                            <th role="columnheader" class="" scope="col">
+                                Last update
+                            </th>
+                            <th role="columnheader" class="" scope="col">
+                                Link
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="nhsuk-table__body">
+                        <tr role="row" class="nhsuk-table__row">
+                            <td role="cell" class="nhsuk-table__cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Description </span>
+                                Version 1
+                            </td>
+                            <td role="cell" class="nhsuk-table__cell" id="last-upated-cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Last update </span>23 June 2025
+                            </td>
+                            <td role="cell" class="nhsuk-table__cell">
+                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Link</span><a
+                                    href="dashboards/premium-priced-generics">View template</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
     </div>
 </div>
 {% endblock %}
