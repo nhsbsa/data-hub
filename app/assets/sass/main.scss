@@ -18,6 +18,7 @@
 //     max-width: 1400px
 // }
 
+
 span.custom-hero-caption {
     color: $color_nhsuk-grey-5;
 }
@@ -190,4 +191,13 @@ ul.nhsuk-footer__list {
 }
 .custom-position-relative {
     position: relative;
+}
+
+.custom-table--scroll {
+    height: 400px;
+    overflow: auto;
+}
+.custom-tab-table--scroll {
+    height: 505.77px;
+    overflow: auto;
 }

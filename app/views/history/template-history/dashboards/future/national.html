@@ -1,0 +1,275 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/v1/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium Priced Generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{
+breadcrumb({ items: [ { href: "/history/template-history/index", text: "Back to templates" } ] }) }}
+{% endblock %}
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l">Premium Priced Generics</h1>
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">
+            <span class="nhsuk-u-font-weight-bold">Data last
+                refreshed:</span> 6 May 2025 at 8:31am
+        </p>
+        <span class="nhsuk-tag nhsuk-tag--white nhsuk-u-margin-bottom-3">
+            Version 1.0
+        </span>
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden"> Premium Priced Generics
+            </span><a href="#">Dashboard Change log</a></p>
+            <hr>
+    </div>
+    <div class="nhsuk-grid-column-one-quarter">
+        <ul class="nhsuk-list">
+            <li><a href="dashboard-intro">About the Data</a></li>
+            <li><a href="national">SICBL in National</a></li>
+            <li><a href="overview">Practice in SICBL - Overview</a></li>
+            <li><a href="items">Practice in SICBL - Items</a></li>            
+        </ul>
+        <hr>
+        <h2 class="nhsuk-heading-s">Download</h2>
+        <a href="#" class="nhsuk-button">Download CSV</a>
+        <h2 class="nhsuk-heading-s">Full screen</h2>
+        <a href="#" class="nhsuk-button nhsuk-button--secondary">View in full screen</a>
+    </div>
+    <div class="nhsuk-grid-column-three-quarters">
+        <h2 class="nhsuk-heading-m">SICBL in National</h2>
+            <details class="nhsuk-details">
+                <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Filter data
+                </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <div class="nhsuk-form-group">
+                        <label class="nhsuk-label" for="select-1">
+                          Period
+                        </label> <select class="nhsuk-select" id="select-1" name="select-1">
+                          <option value="1">February 2025</option>
+                          <option value="2">March 2025</option>
+                          <option value="3">April 2025</option>
+                        </select>
+                    </div>
+                    <div class="nhsuk-form-group">
+                        <label class="nhsuk-label" for="select-1">
+                          SICBL
+                        </label> <select class="nhsuk-select" id="select-1" name="select-1">
+                          <option value="1">NHS BATH AND NORTH EAST SOMERSET, SWINDON AND WILTSHIRE ICB - 92G</option>
+                          <option value="2">empty</option>
+                          <option value="3">empty</option>
+                        </select>
+                    </div>
+                    <a class="nhsuk-button nhsuk-button--secondary" href="#">Filter</a>
+                </div>
+            </details>
+
+            <ul class="nhsuk-grid-row nhsuk-card-group">
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                        <p>National items</p>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">79,065</p>
+                    </div>
+                  </div>    
+              
+                </li>
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                        <p>National current spend (£)</p>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">993,426.40</p>
+                    </div>
+                  </div>
+              
+                </li>
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                        <p>National potential spend (£)</p>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">692,275.52</p>
+                    </div>
+                  </div>
+              
+                </li>
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                    <div class="nhsuk-card">
+                      <div class="nhsuk-card__content">
+                          <p>National potential saving (£)</p>
+                          <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">397,753.66</p>
+                      </div>
+                    </div>
+                
+                  </li>
+                  <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+              
+                    <div class="nhsuk-card">
+                      <div class="nhsuk-card__content">
+                        <h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2">Generics prescribed with a supplier</h3>
+                        <p class="nhsuk-body-s nhsuk-u-margin-bottom-5">NHS BATH AND NORTH EAST, SWINDON AND WILTSHIRE ICB - 92G within National</p>
+                        <div class="nhsuk-tabs" data-module="nhsuk-tabs">
+                            <h2 class="nhsuk-tabs__title">
+                              Contents
+                            </h2>
+                            <ul class="nhsuk-tabs__list">
+                              <li class="nhsuk-tabs__list-item nhsuk-tabs__list-item--selected">
+                                <a class="nhsuk-tabs__tab" href="#graph">
+                                  Graph
+                                </a>
+                              </li>
+                              <li class="nhsuk-tabs__list-item">
+                                <a class="nhsuk-tabs__tab" href="#tabular">
+                                  Tabular data
+                                </a>
+                              </li>
+                              <li class="nhsuk-tabs__list-item">
+                                <a class="nhsuk-tabs__tab" href="#download">
+                                  Download data
+                                </a>
+                              </li>
+                            </ul>
+                            <div class="nhsuk-tabs__panel" id="graph">
+                          
+                                <img src="/images/data-hub/barchart.png" alt="" style="width: 100%;">
+                          
+                            </div>
+                            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden custom-tab-table--scroll" id="tabular">
+                              <table class="nhsuk-table">
+                                <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Tabular data</caption>
+                                <thead class="nhsuk-table__head">
+                                  <tr>
+                                    <th scope="col" class="nhsuk-table__header">Items</th>
+                                    <th scope="col" class="nhsuk-table__header nhsuk-table__header--numeric">SICBL current spend (£)</th>
+                                    <th scope="col" class="nhsuk-table__header nhsuk-table__header--numeric">SICBL potential spend (£)</th>
+                                    <th scope="col" class="nhsuk-table__header nhsuk-table__header--numeric">SICBL potential saving (£)</th>
+                                  </tr>
+                                </thead>
+                                <tbody class="nhsuk-table__body">
+                                  <tr class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">Lorem, ipsum.</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">24,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">22,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">2,000</td>
+                                  </tr>
+                                  <tr class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">Lorem, ipsum.</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">24,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">22,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">2,000</td>
+                                  </tr>
+                                  <tr class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">Lorem, ipsum.</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">24,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">22,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">2,000</td>
+                                  </tr>
+                                  <tr class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">Lorem, ipsum.</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">24,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">22,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">2,000</td>
+                                  </tr>
+                                  <tr class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">Lorem, ipsum.</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">24,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">22,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">2,000</td>
+                                  </tr>
+                                  <tr class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">Lorem, ipsum.</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">24,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">22,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">2,000</td>
+                                  </tr>
+                                  <tr class="nhsuk-table__row">
+                                    <td class="nhsuk-table__cell">Lorem, ipsum.</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">24,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">22,045.33</td>
+                                    <td class="nhsuk-table__cell nhsuk-table__cell--numeric">2,000</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                          
+                            </div>
+                            <div class="nhsuk-tabs__panel nhsuk-tabs__panel--hidden" id="download">
+                              
+                                <h4 class="nhsuk-heading-s">Download data</h4>
+                                <a href="#" class="nhsuk-button nhsuk-button--secondary">CSV File</a>
+                                <a href="#" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-4">Excel File</a>                            
+                          
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                
+                  </li>
+              </ul>
+
+              <ul class="nhsuk-grid-row nhsuk-card-group">
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                        <p>SICBL Items</p>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">1,850</p>
+                    </div>
+                  </div>    
+              
+                </li>
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                        <p>SICBL current spend (£)</p>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">29,840.86</p>
+                    </div>
+                  </div>
+              
+                </li>
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                  <div class="nhsuk-card">
+                    <div class="nhsuk-card__content">
+                        <p>SICBL potential spend (£)</p>
+                        <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">25,373.26</p>
+                    </div>
+                  </div>
+              
+                </li>
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+              
+                    <div class="nhsuk-card">
+                      <div class="nhsuk-card__content">
+                          <p>SICBL potential saving (£)</p>
+                          <p class="nhsuk-heading-xl nhsuk-u-font-size-48 nhsuk-u-margin-bottom-1">6,719.41</p>
+                      </div>
+                    </div>
+                
+                  </li>
+              </ul>
+             
+    </div>
+</div>
+{% endblock %}
