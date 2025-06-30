@@ -8592,6 +8592,10 @@ b {
   top: 0;
 }
 
+.custom-inline {
+  display: inline;
+}
+
 span.custom-hero-caption {
   color: #f0f4f5;
 }
@@ -8724,6 +8728,19 @@ ul.nhsuk-footer__list {
   position: absolute;
   right: 15px;
   top: 0;
+}
+
+.custom-sign-out-button {
+  border: 0;
+  background: 0;
+  font-size: 16px;
+  color: #ffffff;
+  cursor: pointer;
+  padding: 1em;
+  text-decoration: underline;
+}
+.custom-sign-out-button:focus, .custom-sign-out-button:hover {
+  text-decoration: none;
 }
 
 .custom-position-relative {

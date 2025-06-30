@@ -18,6 +18,9 @@
 //     max-width: 1400px
 // }
 
+.custom-inline {
+    display: inline;
+}
 
 span.custom-hero-caption {
     color: $color_nhsuk-grey-5;
@@ -189,6 +192,21 @@ ul.nhsuk-footer__list {
     right: 15px;    
     top: 0;
 }
+// sign out header link
+.custom-sign-out-button {
+    border: 0;
+    background: 0;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 1em;
+    text-decoration: underline;
+
+    &:focus, &:hover {
+        text-decoration: none;
+    }
+}
+
 .custom-position-relative {
     position: relative;
 }
@@ -201,3 +219,4 @@ ul.nhsuk-footer__list {
     height: 505.77px;
     overflow: auto;
 }
+

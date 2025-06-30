@@ -53,14 +53,21 @@ router.post(/create-password/, (req, res) => {
 router.post(/sign-in/, (req, res) => {
     req.session.data['signedIn'] = 'yes'
     req.session.data['your-email'] = ''
-    res.redirect('my-account');
+    const userType = req.session.data['userType'];
+
+    if (userType == 'epact') {
+        res.redirect('/data-hub/mvp/v3/data-products/epact/epact-loggedin')
+    } else {
+        res.redirect('my-account'); 
+    }    
 });
 
 // Sign out
 router.post(/sign-out/, (req, res) => {
     req.session.data['signedIn'] = 'no'
+    req.session.data['userType'] = ''
 
-    res.redirect('../homepage');
+    res.redirect('/data-hub/mvp/v3/homepage');
 });
 
 
