@@ -8756,3 +8756,8 @@ ul.nhsuk-footer__list {
   height: 505.77px;
   overflow: auto;
 }
+
+.custom-full-width .nhsuk-header__container {
+  max-width: 100%;
+  margin: 0 32px;
+}

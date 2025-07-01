@@ -20,9 +20,7 @@ Premium Priced Generics - {{ serviceName }} - NHSBSA
 
 {% block beforeContent %}
 {{
-breadcrumb({ items: [ { href: "/data-hub/v1/homepage", text: "Home" }, { href:
-"/data-hub/v1/data-products/epact/epact-loggedin", text:
-"Prescribing and Dispensing Data" }, { href: "dashboards", text: "Dashboards" } ] }) }}
+breadcrumb({ items: [ { href: "../../../index", text: "Back to templates" } ] }) }}
 {% endblock %}
 
 {% block content%}
@@ -41,13 +39,6 @@ breadcrumb({ items: [ { href: "/data-hub/v1/homepage", text: "Home" }, { href:
         <p class="nhsuk-body-s nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden"> Premium Priced Generics
             </span><a href="#">Dashboard Change log</a></p>
     </div>
-    <!-- <div class="nhsuk-grid-column-one-half">
-        <p class="nhsuk-u-float-right nhsuk-u-margin-top-0">
-            <span class="nhsuk-tag nhsuk-tag--white">
-                Version 1.0
-            </span>
-        </p>
-    </div> -->
     <div class="nhsuk-grid-column-full">
         <hr>
         <p>There's an increasing volume of computerised prescriptions each month where the prescriber has prescribed a
@@ -64,15 +55,12 @@ breadcrumb({ items: [ { href: "/data-hub/v1/homepage", text: "Home" }, { href:
     </div>
 
     <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">
-        <h2 class="nhsuk-heading-m">Practice in SICBL</h2>
-        <!-- <iframe title="Example Visuals For Embedded Testing" width="100%" height="541.25"
-            src="https://app.powerbi.com/reportEmbed?reportId=0a04eb18-db8c-42c6-90a7-8d9b75f824a6&autoAuth=true&ctid=cf6d0482-86b1-4f88-8c0c-3b4de4cb402c"
-            frameborder="0" allowFullScreen="true"></iframe> -->
-            <iframe title="Premium Priced Generics - embedded" width="100%" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=b2c07f38-b381-48ad-b097-6010650af9af&autoAuth=true&ctid=cf6d0482-86b1-4f88-8c0c-3b4de4cb402c" frameborder="0" allowFullScreen="true"></iframe>
-        <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-top-5"
-            href="premium-priced-generics-full-screen">View dashboard full screen</a>
-        <h3 class="nhsuk-heading-m">Data download</h3>
-        <a href="#" class="nhsuk-button">Download as CSV</a>
+        <h2 class="nhsuk-heading-m">Dashboard data</h2>
+        <p>View the data for this dashboard. This will open as a full screen dashboard.</p> 
+        
+        <a href="premium-priced-generics-full-screen" class="nhsuk-button">View the data (opens full screen)</a>
+        <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-3"
+            href="#">Download as CSV</a>
     </div>
 
     <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">

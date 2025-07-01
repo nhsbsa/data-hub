@@ -220,3 +220,11 @@ ul.nhsuk-footer__list {
     overflow: auto;
 }
 
+.custom-full-width {
+
+    .nhsuk-header__container {
+        max-width: 100%;
+        margin: 0 32px;
+    }
+
+}
