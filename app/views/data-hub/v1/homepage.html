@@ -75,7 +75,7 @@
         <hr class="nhsuk-u-margin-top-0">
         <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">Services and information</h2>
         <h3 class="nhsuk-heading-m">
-            {% if data['userType'] == 'epact' %}
+            {% if data['signedIn'] == 'yes' %}
                 <a href="data-products/epact/epact-loggedin">Prescribing and Dispensing Data (ePACT2)</a>
             {% else %}
                 <a href="data-products/epact/epact">Prescribing and Dispensing Data (ePACT2)</a>
