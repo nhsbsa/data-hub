@@ -13,11 +13,6 @@
 ///////////////////////////////////////////
 
 
-// OVERRIDE - EXTEND PAGE WIDTH
-// .nhsuk-width-container, .nhsuk-header__container {
-//     max-width: 1400px
-// }
-
 .custom-inline {
     display: inline;
 }
@@ -50,9 +45,9 @@ span.custom-hero-caption {
     }
 }
 
-.nhsuk-account__login--link,
-.nhsuk-account__login--link:visited,
-.nhsuk-account__login--link:hover {
+a.nhsuk-account__login--link,
+a.nhsuk-account__login--link:visited,
+a.nhsuk-account__login--link:hover {
     color: #fff;
     padding: 1em;
 }
