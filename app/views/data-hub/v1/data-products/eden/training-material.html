@@ -40,7 +40,7 @@ Training material - {{ serviceName }} - NHSBSA
                 text: "Home"
             },
             {
-                href: "/data-hub/v1/data-products/eden/eden",
+                href: "javascript:history.back()",
                 text: "Dental data"
             }
             ]
@@ -62,7 +62,50 @@ Training material - {{ serviceName }} - NHSBSA
             <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
                 <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                     <h3 class="nhsuk-fieldset__heading">
-                        Type of guides
+                        Data tool
+                    </h3>
+                </legend>
+                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
+                    Select all options that are relevant to you.
+                </div>
+                <div class="nhsuk-checkboxes">
+
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="power-bi" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="power-bi">
+                            Power BI
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="excel" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="excel">
+                            Excel
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="api" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="api">
+                            API
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="create-analysis" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="create-analysis">
+                            Create Analysis Tool
+                        </label>
+                    </div>            
+                </div>
+            </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading">
+                        Experience level
                     </h3>
                 </legend>
                 <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
@@ -74,23 +117,66 @@ Training material - {{ serviceName }} - NHSBSA
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Beginner guides
+                            Introductory
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Video guides
+                            Beginner
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Courses
+                            Intermediate
                         </label>
                     </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Advanced
+                        </label>
+                    </div>                  
+                </div>
+            </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading">
+                        Content type
+                    </h3>
+                </legend>
+                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
+                    Select all options that are relevant to you.
+                </div>
+                <div class="nhsuk-checkboxes">
+
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Video
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Training guide
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            PDF
+                        </label>
+                    </div>                 
                 </div>
             </fieldset>
         </div>
