@@ -4,9 +4,10 @@ const express = require('express');
 const router = express.Router();
 
 // POST MVP
-router.use('/data-hub/v1', require('./views/data-hub/v1/_routes'));
+
 
 // MVP Folder
+router.use('/data-hub/mvp/v4', require('./views/data-hub/mvp/v4/_routes'));
 router.use('/data-hub/mvp/v3', require('./views/data-hub/mvp/v3/_routes'));
 router.use('/data-hub/mvp/v2', require('./views/data-hub/mvp/v2/_routes'));
 

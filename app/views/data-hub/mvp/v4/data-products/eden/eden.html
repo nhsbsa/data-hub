@@ -1,0 +1,133 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4/layout-data-hub-hero.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Dental data (eDEN) - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v4/homepage",
+text: "Home"
+}
+]
+}) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-two-thirds">
+                                <h1 class="nhsuk-u-margin-bottom-4">Dental Data (eDEN)</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
+                                    interactive and easy to use dental data reports and dasboards</p>
+                                    <form action="../../../search-results" method="POST" class="nhsuk-header__search-form nhsuk-u-margin-top-4">
+                                <!-- Show filter at top of HTML -->
+                                {% if 'yes' in showFilter %}
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
+                                    data-module="nhsuk-button" type="submit">
+                                    Reports
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Dashboards
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Latest release
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Dental
+                                </button>
+                                {% endif %}
+                            </div>
+                            <!-- <div class="nhsuk-grid-column-one-third">
+                                <a class="nhsuk-button nhsuk-button--secondary custom-float-right" href="#">Request access</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
+        <p>eDEN is an online application designed to help users access dental data more efficiently. It enables quick retrieval of information, supports user-friendly report management, and allows you to refresh and export both dashboards and flat data tables with ease. With eDEN, you can also view interactive data visualisations, making it simpler to understand and explore key dental insights.</p>
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+              <span class="nhsuk-details__summary-text">
+                Understanding eDEN data
+              </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </details>
+        <hr>
+        {% if data['signedIn'] == 'yes' %}
+            <h2 class="nhsuk-heading-l">Request access</h2>
+            <p>Requet access to be able to view Dental data.</p>         
+            <a class="nhsuk-button" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden">Request access to eDEN</a>
+        {% else %}
+            <h2 class="nhsuk-heading-l">Sign in or create account</h2>
+            <p>Sign in or create an account to request access to data products.</p>
+            <a class="nhsuk-button" href="../../auth/sign-in?userType=eden">Sign in or create account</a>
+            <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-4" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden">Request access to eDEN</a>
+        {% endif %}
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-7">
+        <h2 class="nhsuk-heading-m">Useful links</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">Compass</a></li>
+            <li><a href="#">Data release calendar</a></li>
+            <li><a href="#">Department of Health and Social Care</a></li>
+            <li><a href="#">England dental statistics</a></li>
+            <li><a href="#">eDEN website</a></li>
+            <li><a href="#">How to request dental data</a></li>            
+            <li><a href="#">KO41b Primary care (GP and dental) complaints collection</a></li>
+            <li><a href="../../product-news">Latest eDEN news</a></li>
+            <li><a href="#">NHS England dental comissioning</a></li>                                    
+        </ul>
+        <h2 class="nhsuk-heading-m">Guidance</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">Book an eDEN training webinar</a></li>
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
+            <li><a href="training-material">Training material</a></li>
+            <li><a href="#">eDEN dashboard information</a></li>
+        </ul>    
+    </div>
+</div>
+{% endblock %}

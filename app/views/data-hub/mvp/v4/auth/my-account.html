@@ -1,0 +1,93 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+My account - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v4/homepage",
+text: "Home"
+}
+]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-full custom-position-relative">
+
+        <h1 class="nhsuk-heading-l">My account</h1>
+        <p>You are signed in as: <span class="nhsuk-u-font-weight-bold">
+            {% if data['your-email'] %}
+                {{ data['your-email'] }}
+            {% elif data['username'] %}
+                {{ data['username'] }}
+            {% else %}
+                mr.test@nhsbsa.nhs.uk
+            {% endif %}
+        </span></p>
+        <form action="sign-out" method="post">
+            <button class="nhsuk-button nhsuk-button--secondary custom-sign-out" type="submit">Sign out</button>
+        </form>    
+        <p><a href="#">Your details</a></p>
+        <hr>
+        <h2 class="nhsuk-heading-m">My saved resources</h2>
+        <p>Favourited, saved, shared and analysis created by you will all be stored within saved resources.</p>
+        <ul class="nhsuk-list">
+            <li><a href="#">My analysis</a></li>
+            <li><a href="#">My files</a></li>
+            <li><a href="#">My favourites</a></li>
+            <li><a href="#">My shared files</a></li>
+        </ul>
+        <hr>
+        <h2 class="nhsuk-heading-m">My access</h2>
+        <p>View all your current access to products, tools and analysis. If you have any expired access this will be
+            highlighted here, if you require access, you can do that here.</p>
+            <details class="nhsuk-details nhsuk-expander" id="getting-started-expander">
+                <summary class="nhsuk-details__summary">
+                    <span class="nhsuk-details__summary-text">
+                        Getting started
+                    </span>
+                </summary>
+                <div class="nhsuk-details__text">
+                    <p>Here are some valuable resources to help you get started with Prescribing and dispensing data</p>
+                    <ul class="nhsuk-list">
+                        <li><a href="#">Introduction to ePACT2 (video)</a></li>
+                        <li><a href="#">Beginner user guide (PDF: 2Mb)</a></li>
+                        <li><a href="#">Navigating prescribing and dispensing data (video)</a></li>
+                    </ul>
+    
+                    <h2 class="nhsuk-heading-s">No longer needed?</h2>
+                    <p>If you wish to remove the getting started section, you can access the material on our <a href="training-material">training material</a> page.</p>
+                    <button class="nhsuk-button nhsuk-button--secondary" id="hide-getting-started">Remove getting started</button>
+                </div>
+            </details>
+        <ul class="nhsuk-list">
+            <li><a href="#">My current access</a></li>
+            <li><a href="#">My expired access</a></li>
+            <li><a href="#">My requests</a></li>
+        </ul>
+
+    </div>
+</div>
+{% endblock %}
