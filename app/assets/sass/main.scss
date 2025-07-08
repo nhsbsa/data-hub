@@ -173,7 +173,7 @@ ul.nhsuk-footer__list {
 
 // Override breadcrumbs padding bottom
 .nhsuk-breadcrumb {
-    padding-bottom: 16px;
+    padding-bottom: 24px;
 }
 
 // hide 'Getting started' expander
@@ -194,11 +194,21 @@ ul.nhsuk-footer__list {
     font-size: 16px;
     color: #ffffff;
     cursor: pointer;
-    padding: 1em;
+    padding: 10px 16px;
     text-decoration: underline;
 
     &:focus, &:hover {
         text-decoration: none;
+        padding: 10px 16px;
+    }
+}
+
+a.nhsuk-account__login--link {
+    padding: 10px 16px;
+
+    &:focus, &:hover {
+        text-decoration: none;
+        padding: 10px 16px;
     }
 }
 

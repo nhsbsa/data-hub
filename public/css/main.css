@@ -9263,7 +9263,7 @@ ul.nhsuk-footer__list {
 }
 
 .nhsuk-breadcrumb {
-  padding-bottom: 16px;
+  padding-bottom: 24px;
 }
 
 .nhsuk-expander-hidden {
@@ -9282,11 +9282,20 @@ ul.nhsuk-footer__list {
   font-size: 16px;
   color: #ffffff;
   cursor: pointer;
-  padding: 1em;
+  padding: 10px 16px;
   text-decoration: underline;
 }
 .custom-sign-out-button:focus, .custom-sign-out-button:hover {
   text-decoration: none;
+  padding: 10px 16px;
+}
+
+a.nhsuk-account__login--link {
+  padding: 10px 16px;
+}
+a.nhsuk-account__login--link:focus, a.nhsuk-account__login--link:hover {
+  text-decoration: none;
+  padding: 10px 16px;
 }
 
 .custom-position-relative {
