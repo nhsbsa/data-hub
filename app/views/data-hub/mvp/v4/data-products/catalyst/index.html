@@ -17,7 +17,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Electronic Prescribing Analysis and Cost Tool (ePACT) - {{ serviceName }} - NHSBSA
+Catalyst - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
@@ -45,12 +45,8 @@ Electronic Prescribing Analysis and Cost Tool (ePACT) - {{ serviceName }} - NHSB
                     <div class="nhsuk-hero__wrapper app-hero__wrapper">
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
-                                <h1 class="nhsuk-u-margin-bottom-4">Electronic Prescribing Analysis and Cost Tool (ePACT2)</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
-                                    interactive
-                                    and easy to use prescription data reports and dasboards. Data is available 6 weeks
-                                    after the
-                                    dispensing month</p>
+                                <h1 class="nhsuk-u-margin-bottom-4">Catalyst</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Public insight portal for accessing and exploring a range of prescribing, organisational and demographic data</p>
                                 <!-- Show filter at top of HTML -->
                                 {% if 'yes' in showFilter %}
                                 <button
@@ -90,34 +86,27 @@ Electronic Prescribing Analysis and Cost Tool (ePACT) - {{ serviceName }} - NHSB
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
-        <p>Designed to support better decision-making, it allows authorised users to explore and analyse prescribing
-            trends, costs, and patterns through interactive dashboards and custom reports.</p>
-        <p>Whether you're in a clinical, commissioning, or financial role, ePACT2 helps you make data-driven decisions
-            to improve patient care and deliver value to the NHS.</p>
-        <details class="nhsuk-details">
-            <summary class="nhsuk-details__summary">
-                <span class="nhsuk-details__summary-text">
-                    Understanding ePACT2 data
-                </span>
-            </summary>
-            <div class="nhsuk-details__text">
-                <p>Data is available 6 weeks after the dispensing month.</p>
-
-                <p>An explanation of the fields held in the system is available on the <a href="#">Data Dictionary</a>.
-                </p>
-
-                <p>You can use the <a href="#">age logic summary flowchart</a> for information on how patient age is
-                    determined in ePACT2.</p>
-
-                <p>ePACT2 contains data down to single prescription level. If you have access to this level of data,
-                    remember that you cannot share confidential data outside of your organisation. For this reason, you
-                    should read and agree to the <a href="#">ePACT2 User Agreement</a> as part of the registration
-                    process.</p>
-            </div>
-        </details>
-        <hr>
-        <h2 class="nhsuk-heading-l">Sign in or create an account</h2>
-        <p>Sign in or create an account to request access to data products.</p>
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
+                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                href="dashboards/a-to-z">Dashboards</a> </h2>
+                    </div>
+                </div>
+            </li>
+            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
+                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
+                                href="reports/reports">Prescribing reports</a> </h2>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        
+        <h2 class="nhsuk-heading-l">Data Hub account</h2>
+        <p>Sign in or create an account to request access to more data products.</p>
         <a class="nhsuk-button" href="../../auth/sign-in?userType=epact">Sign in or create account</a>
         <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-4" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2">Request access to ePACT2</a>
     </div>

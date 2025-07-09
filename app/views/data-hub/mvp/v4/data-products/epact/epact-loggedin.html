@@ -21,14 +21,18 @@ Prescribing and dispensing data (eDEN) - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-items: [
-{
-href: "/data-hub/mvp/v4/homepage",
-text: "Home"
-}
-]
-}) }}
+    {{ breadcrumb({
+        items: [
+            {
+                href: "/data-hub/mvp/v4/homepage",
+                text: "Home"
+            },
+            {
+                href: "/data-hub/mvp/v4/prescribing-dispensing",
+                text: "Prescribing and dispensing"
+            }
+        ]
+    }) }}
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->
@@ -41,7 +45,7 @@ text: "Home"
                     <div class="nhsuk-hero__wrapper app-hero__wrapper">
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
-                                <h1 class="nhsuk-u-margin-bottom-4">Prescribing and Dispensing Data (ePACT2)</h1>
+                                <h1 class="nhsuk-u-margin-bottom-4">Electronic Prescribing Analysis and Cost Tool (ePACT2)</h1>
                                 <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
                                     interactive
                                     and easy to use prescription data reports and dasboards. Data is available 6 weeks
