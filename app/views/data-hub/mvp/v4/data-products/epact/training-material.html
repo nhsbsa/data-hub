@@ -19,7 +19,7 @@ Training material - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-    {% if data['productSignedInAs'] == 'epact' %}
+    {% if data['signedIn'] == 'yes' %}
         {{ breadcrumb({
             items: [
             {
@@ -27,8 +27,12 @@ Training material - {{ serviceName }} - NHSBSA
                 text: "Home"
             },
             {
+                href: "/data-hub/mvp/v4/prescribing-dispensing",
+                text: "Prescribing and dispensing"
+            },
+            {
                 href: "/data-hub/mvp/v4/data-products/epact/epact-loggedin",
-                text: "Prescribing and dispensing data"
+                text: "ePACT"
             }
             ]
         }) }}
@@ -40,8 +44,12 @@ Training material - {{ serviceName }} - NHSBSA
                 text: "Home"
             },
             {
-                href: "javascript:history.back()",
-                text: "Prescribing and dispensing data"
+                href: "/data-hub/mvp/v4/prescribing-dispensing",
+                text: "Prescribing and dispensing"
+            },
+            {
+                href: "/data-hub/mvp/v4/data-products/epact/epact",
+                text: "ePACT"
             }
             ]
         }) }}
