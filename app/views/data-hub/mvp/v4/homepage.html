@@ -33,7 +33,8 @@
                 <div class="nhsuk-grid-column-two-thirds">
                     <div class="nhsuk-hero__wrapper app-hero__wrapper">
                         <h1 class="nhsuk-u-margin-bottom-4"><span class="nhsuk-caption-l custom-hero-caption">NHS
-                                Business Services Authority</span>Data Hub</h1>
+                                Business Services Authority</span>Data Hub
+                            </h1>
                         <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Your central access point for exploring and
                             using data from the NHS Business Services Authority. The Data Hub is your go-to platform for
                             ensuring you can effectively work with NHSBSA data, unlocking its potential to drive better
@@ -80,7 +81,7 @@
         <p>ePACT2 provides authorised users with interactive tools to analyse and export detailed prescribing and dispensing data.</p>
         <hr>
         <h3 class="nhsuk-heading-m">
-            {% if userType == 'eden' and signedIn == 'yes' %}
+            {% if data.userType == 'eden' and data.signedIn == 'yes' %}
                 <a href="data-products/eden/eden-loggedin">Dental Data (eDEN)</a>
             {% else %}
                 <a href="data-products/eden/eden">Dental Data (eDEN)</a>
@@ -89,7 +90,7 @@
         <p>eDEN is an online tool that lets users quickly access, view, and export dental data through interactive reports and dashboards.</p>
         <hr>
         <h3 class="nhsuk-heading-m">
-            {% if userType == 'eops' and signedIn == 'yes' %}
+            {% if data.userType == 'eops' and data.signedIn == 'yes' %}
                 <a href="data-products/eops/eops-loggedin">Ophthalmic Data (eOPS)</a>
             {% else %}
                 <a href="data-products/eops/eops">Ophthalmic Data (eOPS)</a>
