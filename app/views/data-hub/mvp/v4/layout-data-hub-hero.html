@@ -52,7 +52,7 @@ NHS.UK prototype kit
             </div>
             {% endif %}
             <div class="nhsuk-account__login">
-                {% if data['signedIn'] == 'yes' %}
+                {% if data.signedIn == 'yes' %}
                     <a class="nhsuk-account__login--link nhsuk-contents-list__link" href="/data-hub/mvp/v4/auth/my-account">My account</a>
                     <form class="nhsuk-contents-list__link" action="sign-out" method="post">
                         <button class="custom-sign-out-button" type="submit">Sign out</button>

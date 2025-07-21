@@ -9,7 +9,7 @@ router.post('/auth/sign-in', (req, res) => {
     req.session.data['signedIn'] = 'yes'
     res.redirect('my-account'); 
 });
-router.post('/sign-out', (req, res) => {
+router.post(/sign-out/, (req, res) => {
     req.session.data['signedIn'] = 'no'
     req.session.data['userType'] = ''
     res.redirect('/data-hub/mvp/v4/homepage');
