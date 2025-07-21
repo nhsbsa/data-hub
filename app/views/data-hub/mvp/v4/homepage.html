@@ -80,7 +80,7 @@
         <p>ePACT2 provides authorised users with interactive tools to analyse and export detailed prescribing and dispensing data.</p>
         <hr>
         <h3 class="nhsuk-heading-m">
-            {% if userType == 'eden' %}
+            {% if userType == 'eden' and signedIn == 'yes' %}
                 <a href="data-products/eden/eden-loggedin">Dental Data (eDEN)</a>
             {% else %}
                 <a href="data-products/eden/eden">Dental Data (eDEN)</a>
@@ -89,7 +89,7 @@
         <p>eDEN is an online tool that lets users quickly access, view, and export dental data through interactive reports and dashboards.</p>
         <hr>
         <h3 class="nhsuk-heading-m">
-            {% if userType == 'eden' %}
+            {% if userType == 'eops' and signedIn == 'yes' %}
                 <a href="data-products/eops/eops-loggedin">Ophthalmic Data (eOPS)</a>
             {% else %}
                 <a href="data-products/eops/eops">Ophthalmic Data (eOPS)</a>
