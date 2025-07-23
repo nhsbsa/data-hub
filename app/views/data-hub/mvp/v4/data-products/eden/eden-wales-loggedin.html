@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'data-hub/assumptions/v1-2/layout-data-hub.html' %}
+{% extends 'data-hub/mvp/v4/layout-data-hub-hero.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -13,7 +13,7 @@
 <!-- include mini search box in the header -->
 {% set includeMiniSearch = 'no' %}
 <!-- Hero Filter Buttons -->
-{% set showFilter = "yes" %}
+{% set showFilter = "no" %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
@@ -21,14 +21,14 @@ eDEN - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-items: [
-{
-href: "/data-hub/mvp/v4/data-products",
-text: "Data products"
-}
-]
-}) }}
+    {{ breadcrumb({
+        items: [
+            {
+                href: "/data-hub/mvp/v4/homepage",
+                text: "Home"
+            }
+        ]
+    }) }}
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->
@@ -44,24 +44,7 @@ text: "Data products"
                                 <h1 class="nhsuk-u-margin-bottom-4"><span
                                         class="nhsuk-caption-l custom-hero-caption">Data
                                         Products</span>Dental Data (ePACT2)</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
-                                    interactive
-                                    and easy to use dental data dasboards</p>
-                                <form class="nhsuk-header__search-form nhsuk-u-margin-top-4" id="search" action="#"
-                                    method="get" role="search">
-                                    <label class="nhsuk-label" for="search-field">Search Dental Data</label>
-                                    <input class="nhsuk-search__input" id="search-field" name="search-field"
-                                        type="search" autocomplete="off">
-                                    <button class="nhsuk-search__submit" type="submit">
-                                        <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                            <path
-                                                d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z">
-                                            </path>
-                                        </svg>
-                                        <span class="nhsuk-u-visually-hidden">Search</span>
-                                    </button>
-                                </form>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access interactive and easy to use dental data dasboards</p>
                                 <!-- Show filter at top of HTML -->
                                 {% if 'yes' in showFilter %}
                                 <button
@@ -107,47 +90,17 @@ text: "Data products"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
-        <h2 class="nhsuk-heading-m">My folders</h2>
-        <p>Access all data you have favourited, analysis you have created and datasets shared with you.</p>
-        <div class="nhsuk-action-link">
-            <a class="nhsuk-action-link__link" href="#">
-                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                    <path d="M0 0h24v34H0z" fill="none"></path>
-                    <path
-                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
-                    </path>
-                </svg>
-                <span class="nhsuk-action-link__text">My folders</span>
-            </a>
-        </div>
-        <div class="nhsuk-action-link">
-            <a class="nhsuk-action-link__link" href="#">
-                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                    <path d="M0 0h24v34H0z" fill="none"></path>
-                    <path
-                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
-                    </path>
-                </svg>
-                <span class="nhsuk-action-link__text">My favourites</span>
-            </a>
-        </div>
-        <div class="nhsuk-action-link">
-            <a class="nhsuk-action-link__link" href="#">
-                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                    <path d="M0 0h24v34H0z" fill="none"></path>
-                    <path
-                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
-                    </path>
-                </svg>
-                <span class="nhsuk-action-link__text">My shared folders</span>
-            </a>
-        </div>
-        <hr class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-7">
-
         <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
+                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="dashboards/wales-data-dashboard">Wales Data Dashboard (Wales)</a> </h2>
+                        <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing
+                            elit.
+                            Molestias, aliquid.</p>
+                    </div>
+                </div>
+            </li>
             <li class="nhsuk-grid-column-full nhsuk-card-group__item">
                 <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
                     <div class="nhsuk-card__content nhsuk-card__content--secondary">
@@ -201,16 +154,6 @@ text: "Data products"
             <li class="nhsuk-grid-column-full nhsuk-card-group__item">
                 <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
                     <div class="nhsuk-card__content nhsuk-card__content--secondary">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Wales Data Dashboard (Wales)</a> </h2>
-                        <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing
-                            elit.
-                            Molestias, aliquid.</p>
-                    </div>
-                </div>
-            </li>
-            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
-                <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
-                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
                         <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Wales Monthly Data Dashboard (LHB)</a> </h2>
                         <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing
                             elit.
@@ -240,15 +183,14 @@ text: "Data products"
             <li><a href="#">eDEN website</a></li>
             <li><a href="#">How to request dental data</a></li>            
             <li><a href="#">KO41b Primary care (GP and dental) complaints collection</a></li>
-            <li><a href="#">Latest ePACT2 news</a></li>
+            <li><a href="../../product-news">Latest eDEN news</a></li>
             <li><a href="#">NHS England dental comissioning</a></li>                                    
         </ul>
         <h2 class="nhsuk-heading-m">Guidance</h2>
         <ul class="nhsuk-list">
             <li><a href="#">Book an eDEN training webinar</a></li>
-            <li><a href="#">Contact us</a></li>
-            <li><a href="../../training-hub/landing-page">Training hub</a></li>
-            <li><a href="../../training-hub/training-material">Training materials</a></li>
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
+            <li><a href="training-material">Training material</a></li>
             <li><a href="#">eDEN dashboard information</a></li>
         </ul>
     </div>

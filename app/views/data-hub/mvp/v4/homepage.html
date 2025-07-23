@@ -83,6 +83,8 @@
         <h3 class="nhsuk-heading-m">
             {% if data.userType == 'eden' and data.signedIn == 'yes' %}
                 <a href="data-products/eden/eden-loggedin">Dental Data (eDEN)</a>
+            {% elif data.userType == 'edenWelsh' and data.signedIn == 'yes' %}
+                <a href="data-products/eden/eden-wales-loggedin">Dental Data (eDEN)</a>
             {% else %}
                 <a href="data-products/eden/eden">Dental Data (eDEN)</a>
             {% endif %}
