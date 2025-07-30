@@ -1,0 +1,25 @@
+<!-- Extends the layout from /docs/views/layouts-templates/ -->
+{% extends "template-data-hub-full-width.html" %}
+
+{% block head %}
+<link href="/css/main.css" rel="stylesheet">
+<link href="/css/prism.css" rel="stylesheet">
+<link href="/css/docs.css" rel="stylesheet">
+{% endblock %}
+
+{% block pageTitle %}
+NHS.UK prototype kit
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block bodyEnd %}
+{% block scripts %}
+{% include "includes/scripts.html" %}
+{% block pageScripts %}{% endblock %}
+{% endblock %}
+{% endblock %}
