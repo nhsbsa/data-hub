@@ -17,22 +17,22 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Prescribing and dispensing data (eDEN) - {{ serviceName }} - NHSBSA
+Electronic prescribing analysis and cost tool (ePACT2) - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-    {{ breadcrumb({
-        items: [
-            {
-                href: "/data-hub/mvp/v4-1/homepage",
-                text: "Home"
-            },
-            {
-                href: "/data-hub/mvp/v4-1/prescribing-dispensing",
-                text: "Prescribing and dispensing"
-            }
-        ]
-    }) }}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v4-1/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v4-1/prescribing-dispensing",
+text: "Prescribing and dispensing data"
+}
+]
+}) }}
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->
@@ -45,12 +45,9 @@ Prescribing and dispensing data (eDEN) - {{ serviceName }} - NHSBSA
                     <div class="nhsuk-hero__wrapper app-hero__wrapper">
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
-                                <h1 class="nhsuk-u-margin-bottom-4">Electronic Prescribing Analysis and Cost Tool (ePACT2)</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
-                                    interactive
-                                    and easy to use prescription data reports and dasboards. Data is available 6 weeks
-                                    after the
-                                    dispensing month</p>
+                                <h1 class="nhsuk-u-margin-bottom-4">Electronic prescribing analysis and cost tool
+                                    (ePACT2)</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Access interactive prescription data reports and dashboards. Data is available 6 weeks after the dispensing month.</p>
                                 <!-- Show filter at top of HTML -->
                                 {% if 'yes' in showFilter %}
                                 <button
@@ -156,8 +153,7 @@ Prescribing and dispensing data (eDEN) - {{ serviceName }} - NHSBSA
             <li class="nhsuk-grid-column-full nhsuk-card-group__item">
                 <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
                     <div class="nhsuk-card__content nhsuk-card__content--secondary">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">PADM
-                                patient analysis</a> </h2>
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Personally administered items (PADAM) patient analysis report </a> </h2>
                     </div>
                 </div>
             </li>
@@ -175,7 +171,7 @@ Prescribing and dispensing data (eDEN) - {{ serviceName }} - NHSBSA
         <ul class="nhsuk-list">
             <li><a href="#">Book an ePACT2 training webinar</a></li>
             <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
-            <li><a href="training-material">Training material</a></li>
+            <li><a href="training-material">Training guides</a></li>
             <li><a href="#">ePACT2 report information</a></li>
         </ul>
     </div>

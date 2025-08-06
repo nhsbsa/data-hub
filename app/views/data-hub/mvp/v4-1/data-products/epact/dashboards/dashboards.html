@@ -15,7 +15,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Prescribing reports - {{ serviceName }} - NHSBSA
+Dashboards - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
@@ -27,11 +27,11 @@ text: "Home"
 },
 {
 href: "/data-hub/mvp/v4-1/prescribing-dispensing",
-text: "Prescribing and Dispensing"
+text: "Prescribing and dispensing data"
 },
 {
 href: "/data-hub/mvp/v4-1/data-products/epact/epact-loggedin",
-text: "ePACT"
+text: "Electronic prescribing analysis and cost tool"
 }
 ]
 }) }}
@@ -40,14 +40,13 @@ text: "ePACT"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Prescribing and Dispensing Data
-                (ePACT)</span>Dashboards</h1>
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Electronic prescribing analysis and cost tool (ePACT2)</span>ePACT2 Dashboards</h1>
         <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation"
             aria-label="A to Z Navigation">
             <!-- A to Z list -->
             <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#a">A</a>
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#a">A</a>                    
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
                     <span
@@ -147,12 +146,27 @@ text: "ePACT"
                     A
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Alerts Dashboard</a></li>
-                    <li><a href="#">Antimicrobial Stewardship</a></li>
-                    <li><a href="#">Antimicrobial Stewardship - Children</a></li>
-                    <li><a href="#">Antimicrobial Stewardship - Pharmacy First</a></li>
-                    <li><a href="#">Antimicrobial Stewardship - RightCare UTI Focus Pack</a></li>
-                    <li><a href="#">Antimicrobial Stewardship - UTI</a></li>
+                    <li><a href="#">Alerts</a></li>
+                    <li>
+                        <a href="#">Antimicrobial stewardship</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">To monitor Sub Integrated Care Board Locations' performance in the delivery of the 'antibiotic quality premium'.</p>
+                    </li>
+                    <li>
+                        <a href="#">Antimicrobial stewardship - children</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor antibiotic prescribing for children aged 0 to 14 years.</p>
+                    </li>
+                    <li>
+                        <a href="#">Antimicrobial stewardship - Pharmacy First</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Track how community pharmacies treat common infections through the Pharmacy First service.</p>
+                    </li>
+                    <li>
+                        <a href="#">Antimicrobial stewardship - RightCare UTI focus pack</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">This dashboard has been de-commissioned and replaced by the Antimicrobial Stewardship - UTI dashboard. Monitor antibiotic prescribing patterns for people treated for Urinary Tract Infections (UTIs). </p>
+                    </li>
+                    <li>
+                        <a href="#">Antimicrobial stewardship - UTI</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor and improve prescribing practices in primary and community care for the treatment of Urinary Tract Infections (UTIs). For the first time, this dashboard also reports the number of people prescribed urinary continence devices.</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -186,7 +200,10 @@ text: "ePACT"
                     C
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Children's Standard Liquid Concentration</a></li>
+                    <li>
+                        <a href="#">Children's standard liquid concentration</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor how closely liquid medicines prescribed to children under 18 years match the recommended strength for each drug.</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -203,7 +220,10 @@ text: "ePACT"
                     D
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Diabetes Prescribing Comparators</a></li>
+                    <li>
+                        <a href="#">Diabetes prescribing comparators</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">View prescribing patterns for patients treated with antidiabetic drugs.</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -220,7 +240,10 @@ text: "ePACT"
                     E
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">EPS and eRD Utilisation Dashboard</a></li>
+                    <li>
+                        <a href="#">EPS and eRD utilisation</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Track electronic prescription service (EPS) and electronic repeat dispensing (eRD) prescribing across GP practices, within and across Integrated Care Boards (ICBs).</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -288,7 +311,10 @@ text: "ePACT"
                     I
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Items not for Routine Prescribing</a></li>
+                    <li>
+                        <a href="#">Items not for routine prescribing</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor the prescribing of products of low clinical effectiveness, low priority or low cost effectiveness.</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -356,8 +382,14 @@ text: "ePACT"
                     M
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Medication Safety Indicators</a></li>
-                    <li><a href="#">Mental Health Prescribing Comparators</a></li>
+                    <li>
+                        <a href="#">Medication safety indicators</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">This dashboard was updated for a final time in March 2022. Review prescribing patterns linked to potential harm.</p>
+                    </li>
+                    <li>
+                        <a href="#">Mental health prescribing comparators</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">This dashboard shows 5 metrics that focus on safe prescribing. It allows users to identify groups of patients who might need a prescribing review or close physical health monitoring.</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -374,8 +406,13 @@ text: "ePACT"
                     N
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">National Medicines Optimisation Opportunities</a></li>
-                    <li><a href="#">NHS Number Search</a></li>
+                    <li>
+                        <a href="#">National medicines optimisation opportunities</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">This dashboard brings together data to support the <a href="https://www.england.nhs.uk/long-read/national-medicines-optimisation-opportunities-2023-24/">national medicines optimisation opportunities 2024/25</a>. It includes metrics to support 12 of the opportunity areas described in the NHS England guidance.</p>
+                    </li>
+                    <li>
+                        <a href="#">NHS number search</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -392,11 +429,25 @@ text: "ePACT"
                     O
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Opioid Prescribing Comparators (Snapshot)</a></li>
-                    <li><a href="#">Opioid Prescribing Comparators (Trend)</a></li>
-                    <li><a href="#">Oversupply Dashboard</a></li>
-                    <li><a href="#">Over the Counter Medicines (OTC)</a></li>
-                    <li><a href="#">Out of Area Dispensing</a></li>
+                    <li>
+                        <a href="#">Opioid prescribing comparators (snapshot)</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor opioid use, including using data to understand the scale of opioid issues in specific areas, and identify patients deemed at highest risk.</p>
+                    </li>
+                    <li>
+                        <a href="#">Opioid prescribing comparators (trend)</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0"></p>
+                    </li>
+                    <li>
+                        <a href="#">Oversupply dashboard</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor potential medication overprescribing.</p>
+                    </li>
+                    <li>
+                        <a href="#">Over the counter medicines (OTC)</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">This dashboard focuses on a list of conditions for which over the counter items should not be routinely prescribed in primary care.</p>
+                    </li>
+                    <li>
+                        <a href="#">Out of area dispensing</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -413,14 +464,19 @@ text: "ePACT"
                     P
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">                    
-                    <li><a href="premium-priced-generics">Premium Priced Generics</a></li>
-                    <li><a href="#">Polypharmacy Prescribing Comparators</a></li>
-                    <li><a href="#">Potential Generic Savings - (2023/24-Q4 Jan-Mar)</a></li>
-                    <li><a href="#">Potential Generic Savings - (2024/25-Q1 Apr-Jun)</a></li>
-                    <li><a href="#">Potential Generic Savings - (2024/25-Q2 Jul-Sep)</a></li>
-                    <li><a href="#">Potential Generic Savings - (2024/25-Q3 Oct-Dec)</a></li>
-                    <li><a href="#">Premium Priced Generics</a></li>
-                    <li><a href="#">Prescription Search</a></li>
+                    <li>
+                        <a href="premium-priced-generics">Premium priced generics</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor when generic medicines are being prescribed in a way that leads to higher costs, such as naming a brand or supplier.</p>
+                    </li>
+                    <li>
+                        <a href="#">Polypharmacy prescribing comparators</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Identify patients on multiple medicines, assess potential risks, and support safer, more effective prescribing decisions.</p>
+                    </li>
+                    <li><a href="#">Potential generic savings - (2023/24 - Quarterly 4 - Jan-Mar)</a></li>
+                    <li><a href="#">Potential generic savings - (2024/25 - Quarterly 1 - Apr-Jun)</a></li>
+                    <li><a href="#">Potential generic savings - (2024/25 - Quarterly 2 - Jul-Sep)</a></li>
+                    <li><a href="#">Potential generic savings - (2024/25 - Quarterly 3 - Oct-Dec)</a></li>
+                    <li><a href="#">Prescription search</a></li>
                 </ul>
             </div>
         </div>
@@ -454,8 +510,14 @@ text: "ePACT"
                     R
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Respiratory</a></li>
-                    <li><a href="#">Respiratory - Carbon Impact</a></li>
+                    <li>
+                        <a href="#">Respiratory</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Explore how respiratory medicines are prescribed across different areas</p>
+                    </li>
+                    <li>
+                        <a href="#">Respiratory - carbon impact</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Track how respiratory inhalers are prescribed, compare their carbon impact, and support greener choices.</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -472,7 +534,10 @@ text: "ePACT"
                     S
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a  href="#">Safer Management of Controlled Drugs</a></li>
+                    <li>
+                        <a  href="#">Safer management of controlled drugs</a>                                            
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor how controlled drugs are prescribed across regions and practices.    </p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -523,8 +588,14 @@ text: "ePACT"
                     V
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="#">Valproate Prescribing in Female Patients Under 55</a></li>
-                    <li><a href="#">Volume & Cost</a></li>
+                    <li>
+                        <a href="#">Valproate prescribing in female patients under 55</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Monitor how valproate is prescribed to girls and women of childbearing age, as well as girls aged 0 to 12 years old who may continue treatment in later years.</p>
+                    </li>
+                    <li>
+                        <a href="#">Volume and cost</a>
+                        <p class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-0">Explore a range of reports providing information on the volume and cost of prescribing for selected organisations down to prescriber level.</p>
+                    </li>
                 </ul>
             </div>
         </div>

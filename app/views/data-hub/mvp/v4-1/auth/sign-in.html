@@ -15,7 +15,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Sign in or create account- {{ serviceName }} - NHSBSA
+Sign in or create an account- {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
@@ -51,9 +51,12 @@ text: "Home"
         </form>
 
         <h2 class="nhsuk-heading-m">Create an account</h2>
-        <p>Create a data hub account to be able to store custom analysis, shared folders and more.</p>
-        <a class="nhsuk-button nhsuk-button--secondary" href="your-name">Create an account</a>
-
+        <p>Create a Data Hub account to store custom analysis, manage your access and more.</p>
+        <div class="nhsuk-inset-text">
+            <span class="nhsuk-u-visually-hidden">Information: </span>
+            <p>We recommend using an NHS email address to create a Data Hub account so you can access our data services.</p>
+        </div>
+        <a class="nhsuk-button nhsuk-button--secondary" href="your-name">Create an account</a>        
     </div>
 </div>
 {% endblock %}

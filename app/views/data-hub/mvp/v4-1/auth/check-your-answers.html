@@ -21,12 +21,6 @@ Check your answers - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-<div class="nhsuk-back-link"> <a class="nhsuk-back-link__link" href="javascript:history.back()">
-    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
-      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
-    </svg>
-    Go back</a>
-</div>
 {% endblock %}
 
 {% block content %}
@@ -34,7 +28,7 @@ Check your answers - {{ serviceName }} - NHSBSA
 
     <div class="nhsuk-grid-column-two-thirds">
 
-        <h1 class="nhsuk-heading-l">Check your answers</h1>
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Create an account</span>Check your answers</h1>
     
         <dl class="nhsuk-summary-list">
             <div class="nhsuk-summary-list__row">
@@ -65,14 +59,14 @@ Check your answers - {{ serviceName }} - NHSBSA
             </div>
             <div class="nhsuk-summary-list__row">
               <dt class="nhsuk-summary-list__key">
-                Associated organisation
+                Organisation
               </dt>
               <dd class="nhsuk-summary-list__value">
                 {{ data['organisation'] }}
               </dd>
               <dd class="nhsuk-summary-list__actions">
                 <a href="associated-organisation">
-                  Change<span class="nhsuk-u-visually-hidden"> associated organisation</span>
+                  Change<span class="nhsuk-u-visually-hidden"> Organisation</span>
                 </a>
               </dd>
             </div>
@@ -91,9 +85,10 @@ Check your answers - {{ serviceName }} - NHSBSA
             </div>
           </dl>
 
-          <h2 class="nhsuk-heading-m">Authentication</h2>
-          <p>You will be required to enter an authentication code once you submit your details, this one time code will be sent to the email address you have provided.</p>
-          <a class="nhsuk-button" href="auth-code">Confirm and submit</a>
+        <h2 class="nhsuk-heading-m">Confirmation code</h2>
+        <p>Once you've confirmed your details, we'll send a code to the email address you've provided to confirm it belongs to you.</p>
+        <p>You'll need to enter this code on the next page.</p>
+        <a class="nhsuk-button" href="auth-code">Confirm and submit</a>
 
     </div>
 </div>

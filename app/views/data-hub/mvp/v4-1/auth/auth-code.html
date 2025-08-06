@@ -30,15 +30,26 @@ Authentication code sent to your email - {{ serviceName }} - NHSBSA
     
         <form action="auth-code" method="post">
             <div class="nhsuk-form-group">
-                <label class="nhsuk-label" for="auth-code"><h1 class="nhsuk-heading-l">Enter your authentication code</h1>
-                </label>
-                <p>An authentication code has been sent to the email address you provided.</p>
+                <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Create an account</span>Enter code to confirm your email address</h1>
+                <p>We've sent a code to: <span class="nhsuk-u-body-weight-bold">{{ data['your-email'] }}</span></p>
+                <label class="nhsuk-label" for="auth-code">Confirmation code</label>
                 <div class="nhsuk-hint" id="example-with-hint-text-hint">
                     For example,123456
                 </div>
+                <details class="nhsuk-details">
+                    <summary class="nhsuk-details__summary">
+                      <span class="nhsuk-details__summary-text">
+                        I have not received a code
+                      </span>
+                    </summary>
+                    <div class="nhsuk-details__text">
+                        <p>The email may take a few minutes to arrive.</p>
+                        <p>Check your junk folder. If it still has not arrived, you can <a href="#">request a new code</a> or <a href="your-email">provide another email address</a>.</p>
+                    </div>
+                  </details>
                 <input class="nhsuk-input nhsuk-input--width-5" id="auth-code" name="auth-code" type="text">           
             </div>
-            <button class="nhsuk-button" type="submit">Continue</button>
+            <button class="nhsuk-button" type="submit">Confirm</button>
         </form>
 
     </div>

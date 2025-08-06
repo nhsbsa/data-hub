@@ -42,8 +42,7 @@ text: "Home"
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
                                 <h1 class="nhsuk-u-margin-bottom-4">Dental Data (eDEN)</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
-                                    interactive and easy to use dental data reports and dasboards</p>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Authorised users can access interactive dental data reports and dashboards. </p>
                                     <form action="../../../search-results" method="POST" class="nhsuk-header__search-form nhsuk-u-margin-top-4">
                                 <!-- Show filter at top of HTML -->
                                 {% if 'yes' in showFilter %}
@@ -84,7 +83,15 @@ text: "Home"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
-        <p>eDEN is an online application designed to help users access dental data more efficiently. It enables quick retrieval of information, supports user-friendly report management, and allows you to refresh and export both dashboards and flat data tables with ease. With eDEN, you can also view interactive data visualisations, making it simpler to understand and explore key dental insights.</p>
+        <p>We provide information on dental data to registered users through dashboards and reports.</p>
+        <p>These products can help to identify trends and inform decisions to provide value for money services.</p>
+        <p>This service allows you to:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>quickly access dental data</li>
+            <li>review reports</li>
+            <li>refresh and export dashboards and flat data tables</li>
+            <li>view data visualisations</li>
+        </ul>
         <details class="nhsuk-details">
             <summary class="nhsuk-details__summary">
               <span class="nhsuk-details__summary-text">
@@ -92,7 +99,34 @@ text: "Home"
               </span>
             </summary>
             <div class="nhsuk-details__text">
-                <p>Lorem ipsum dolor sit amet.</p>
+                <p>Those eligible can access  FP17, Compass and dental performer level data. Dashboards and reports are automatically updated with the latest available data.</p>
+                <p>All data is exportable to Excel, PDF and PowerPoint.</p>
+                <h2 class="nhsuk-heading-m">Who can access this data?</h2>
+                <p>NHS colleagues in England and Wales.</p>
+                <p><a href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden">Register for eDEN</a></p>
+                <h2 class="nhsuk-heading-m">What data is available?</h2>
+                <p>Contractual</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>information on dental contracts (including which companies or individuals hold these contracts)</li>
+                    <li>details of practitioners working on each contract</li>
+                </ul>
+                <p>Activity</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>treatment data from dental surgeries (including type of treatment and performer)</li>                    
+                </ul>
+                <p>Financial</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Total contract value, remuneration, pensions and business rate information</li>                    
+                </ul>
+                <p>Access</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Patient access levels across England and Wales</li>                    
+                    <li>Historic levels</li>
+                </ul>
+                <p>Risk</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Risk models have been developed to identify contract outliers and risks to both the provision and the quality of dental care</li>                    
+                </ul>
             </div>
           </details>
         <hr>
@@ -101,8 +135,8 @@ text: "Home"
             <p>Requet access to be able to view Dental data.</p>         
             <a class="nhsuk-button" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden">Request access to eDEN</a>
         {% else %}
-            <h2 class="nhsuk-heading-l">Sign in or create account</h2>
-            <p>Sign in or create an account to request access to data products.</p>
+            <h2 class="nhsuk-heading-l">Sign in or request access</h2>
+            <p>Sign in to your account using your username and password, or request access to view dental data.</p>
             <a class="nhsuk-button" href="../../auth/sign-in?userType=eden">Sign in or create account</a>
             <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-4" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden">Request access to eDEN</a>
         {% endif %}
@@ -125,7 +159,7 @@ text: "Home"
         <ul class="nhsuk-list">
             <li><a href="#">Book an eDEN training webinar</a></li>
             <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
-            <li><a href="training-material">Training material</a></li>
+            <li><a href="training-material">Training guides</a></li>
             <li><a href="#">eDEN dashboard information</a></li>
         </ul>    
     </div>

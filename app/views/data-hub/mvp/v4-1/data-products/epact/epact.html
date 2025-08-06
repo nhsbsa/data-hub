@@ -17,7 +17,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Electronic Prescribing Analysis and Cost Tool (ePACT2) - {{ serviceName }} - NHSBSA
+Electronic prescribing analysis and cost tool (ePACT2) - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
@@ -45,12 +45,8 @@ Electronic Prescribing Analysis and Cost Tool (ePACT2) - {{ serviceName }} - NHS
                     <div class="nhsuk-hero__wrapper app-hero__wrapper">
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
-                                <h1 class="nhsuk-u-margin-bottom-4">Electronic Prescribing Analysis and Cost Tool (ePACT2)</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
-                                    interactive
-                                    and easy to use prescription data reports and dasboards. Data is available 6 weeks
-                                    after the
-                                    dispensing month</p>
+                                <h1 class="nhsuk-u-margin-bottom-4">Electronic prescribing analysis and cost tool (ePACT2)</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Users with access can view prescribing and dispensing data dashboards interactive data sets. Data is available 6 weeks after the dispensing month.</p>
                                 <!-- Show filter at top of HTML -->
                                 {% if 'yes' in showFilter %}
                                 <button
@@ -75,9 +71,6 @@ Electronic Prescribing Analysis and Cost Tool (ePACT2) - {{ serviceName }} - NHS
                                 </button>
                                 {% endif %}
                             </div>
-                            <!-- <div class="nhsuk-grid-column-one-third">
-                                <a class="nhsuk-button nhsuk-button--secondary custom-float-right" href="#">Request access</a>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -90,39 +83,23 @@ Electronic Prescribing Analysis and Cost Tool (ePACT2) - {{ serviceName }} - NHS
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
-        <p>Designed to support better decision-making, it allows authorised users to explore and analyse prescribing
-            trends, costs, and patterns through interactive dashboards and custom reports.</p>
-        <p>Whether you're in a clinical, commissioning, or financial role, ePACT2 helps you make data-driven decisions
-            to improve patient care and deliver value to the NHS.</p>
-        <details class="nhsuk-details">
-            <summary class="nhsuk-details__summary">
-                <span class="nhsuk-details__summary-text">
-                    Understanding ePACT2 data
-                </span>
-            </summary>
-            <div class="nhsuk-details__text">
-                <p>Data is available 6 weeks after the dispensing month.</p>
-
-                <p>An explanation of the fields held in the system is available on the <a href="#">Data Dictionary</a>.
-                </p>
-
-                <p>You can use the <a href="#">age logic summary flowchart</a> for information on how patient age is
-                    determined in ePACT2.</p>
-
-                <p>ePACT2 contains data down to single prescription level. If you have access to this level of data,
-                    remember that you cannot share confidential data outside of your organisation. For this reason, you
-                    should read and agree to the <a href="#">ePACT2 User Agreement</a> as part of the registration
-                    process.</p>
-            </div>
-        </details>
+        <p>Authorised users of ePACT2 are able to:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>access prescription data through reports and dashboards</li>
+            <li>build custom reports</li>
+            <li>explore prescribing trends and costs</li>
+            <li>export data</li>
+            <li>filter down to individual prescription item and patient level detail</li>
+            <li>view high level data summaries</li>
+        </ul>
         <hr>
         {% if data.signedIn == 'yes' %}
             <h2 class="nhsuk-heading-l">Request access</h2>
             <p>Requet access to be able to view ePACT.</p>         
             <a class="nhsuk-button" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact/registering-epact">Request access to ePACT</a>
         {% else %}
-        <h2 class="nhsuk-heading-l">Sign in or create account</h2>
-        <p>Sign in or create an account to request access to data products.</p>
+        <h2 class="nhsuk-heading-l">Sign in or request access</h2>
+        <p>Sign in to your account using your username and password, or request access to view prescribing and dispensing data.</p>
         <a class="nhsuk-button" href="../../auth/sign-in?userType=epact">Sign in or create account</a>
         <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-left-4" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact/registering-epact">Request access to ePACT</a>
         {% endif %}
@@ -140,7 +117,7 @@ Electronic Prescribing Analysis and Cost Tool (ePACT2) - {{ serviceName }} - NHS
         <ul class="nhsuk-list">
             <li><a href="#">Book an ePACT2 training webinar</a></li>
             <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>            
-            <li><a href="training-material">Training material</a></li>
+            <li><a href="training-material">Training guides</a></li>
             <li><a href="#">ePACT2 report information</a></li>
         </ul>   
     </div>

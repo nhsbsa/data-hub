@@ -15,7 +15,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-News and events - {{ serviceName }} - NHSBSA
+Training guides - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
@@ -32,18 +32,17 @@ News and events - {{ serviceName }} - NHSBSA
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
-        <h1 class="nhsuk-heading-l">Training material</h1>
-        <p>Access a variety of user guides for getting started, organisation type and functional guides.</p>
+        <h1 class="nhsuk-heading-l">Training guides</h1>
     </div>
 </div>
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-one-quarter">
-        <h2 class="nhsuk-heading-m nhsuk-u-visually-hidden">Filters</h2>
+        <h2 class="nhsuk-heading-m">Filters</h2>
         <div class="nhsuk-form-group">
             <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
                 <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                     <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
-                        Data product
+                        Digital product
                     </h3>
                 </legend>
                 <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
@@ -52,24 +51,31 @@ News and events - {{ serviceName }} - NHSBSA
                 <div class="nhsuk-checkboxes">
 
                     <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                        <input class="nhsuk-checkboxes__input" id="epact2" name="digital-product" type="checkbox"
                             value="email">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="epact2">
                             ePACT2
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                        <input class="nhsuk-checkboxes__input" id="eden" name="digital-product" type="checkbox"
                             value="email">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="eden">
                             eDEN
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                        <input class="nhsuk-checkboxes__input" id="eops" name="digital-product" type="checkbox"
                             value="email">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="eops">
                             eOPS
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="ODP" name="digital-product" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="ODP">
+                            Open Data Portal
                         </label>
                     </div>
                 </div>
@@ -79,7 +85,50 @@ News and events - {{ serviceName }} - NHSBSA
             <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
                 <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                     <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
-                        Type of guides
+                        Data tool
+                    </h3>
+                </legend>
+                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
+                    Select all options that are relevant to you.
+                </div>
+                <div class="nhsuk-checkboxes">
+
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="power-bi" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="power-bi">
+                            Power BI
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="excel" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="excel">
+                            Excel
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="api" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="api">
+                            API
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="create-analysis" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="create-analysis">
+                            Create analysis
+                        </label>
+                    </div>            
+                </div>
+            </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
+                        Experience level
                     </h3>
                 </legend>
                 <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
@@ -91,23 +140,59 @@ News and events - {{ serviceName }} - NHSBSA
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Beginner guides
+                            Introductory
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Video guides
+                            Beginner
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Courses
+                            Intermediate
                         </label>
                     </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Advanced
+                        </label>
+                    </div>                  
+                </div>
+            </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
+                        Content type
+                    </h3>
+                </legend>
+                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
+                    Select all options that are relevant to you.
+                </div>
+                <div class="nhsuk-checkboxes">
+
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Video
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            PDF
+                        </label>
+                    </div>                 
                 </div>
             </fieldset>
         </div>
@@ -117,7 +202,7 @@ News and events - {{ serviceName }} - NHSBSA
     <div class="nhsuk-grid-column-three-quarters">
         <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-one-third">
-                <span class="nhsuk-heading-s nh">62 results</span>
+                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 62 results</span>
             </div>
             <div class="nhsuk-grid-column-two-thirds custom-sort-by">
                 <div class="nhsuk-form-group">

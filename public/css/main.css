@@ -9126,7 +9126,7 @@ button.nhsuk-back-link__link {
   margin-bottom: 0;
   border: 2px solid;
   border-radius: 0px;
-  padding: 4px 16px;
+  padding: 2px 16px;
 }
 .nhsuk-password-input__wrapper .nhsuk-password-button:before, .nhsuk-password-input__wrapper .nhsuk-password-button:after {
   display: none;
@@ -9134,7 +9134,7 @@ button.nhsuk-back-link__link {
 .nhsuk-password-input__wrapper .nhsuk-password-button:active {
   border: 2px solid;
   border-radius: 0px;
-  padding: 4px 16px;
+  padding: 2px 16px;
   top: 0;
 }
 

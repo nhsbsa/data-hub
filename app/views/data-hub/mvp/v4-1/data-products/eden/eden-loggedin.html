@@ -41,10 +41,8 @@ text: "Home"
                     <div class="nhsuk-hero__wrapper app-hero__wrapper">
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
-                                <h1 class="nhsuk-u-margin-bottom-4">Dental Data (eDEN)</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access
-                                    interactive
-                                    and easy to use dental data dasboards</p>
+                                <h1 class="nhsuk-u-margin-bottom-4">Dental data (eDEN)</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">eDEN allows authorised users to access interactive dental data reports and dashboards</p>
                                 <!-- Show filter at top of HTML -->
                                 {% if 'yes' in showFilter %}
                                 <button
@@ -88,51 +86,11 @@ text: "Home"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
-        <!-- <h2 class="nhsuk-heading-m">My folders</h2>
-        <p>Access all data you have favourited, analysis you have created and datasets shared with you.</p>
-        <div class="nhsuk-action-link">
-            <a class="nhsuk-action-link__link" href="#">
-                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                    <path d="M0 0h24v34H0z" fill="none"></path>
-                    <path
-                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
-                    </path>
-                </svg>
-                <span class="nhsuk-action-link__text">My folders</span>
-            </a>
-        </div>
-        <div class="nhsuk-action-link">
-            <a class="nhsuk-action-link__link" href="#">
-                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                    <path d="M0 0h24v34H0z" fill="none"></path>
-                    <path
-                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
-                    </path>
-                </svg>
-                <span class="nhsuk-action-link__text">My favourites</span>
-            </a>
-        </div>
-        <div class="nhsuk-action-link">
-            <a class="nhsuk-action-link__link" href="#">
-                <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24" aria-hidden="true" width="36" height="36">
-                    <path d="M0 0h24v34H0z" fill="none"></path>
-                    <path
-                        d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z">
-                    </path>
-                </svg>
-                <span class="nhsuk-action-link__text">My shared folders</span>
-            </a>
-        </div>
-        <hr class="nhsuk-u-margin-top-2 nhsuk-u-margin-bottom-7"> -->
-        <!-- <h2 class="nhsuk-heading-m">Dashboards</h2> -->
         <ul class="nhsuk-grid-row nhsuk-card-group">
             <li class="nhsuk-grid-column-full nhsuk-card-group__item">
                 <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
                     <div class="nhsuk-card__content nhsuk-card__content--secondary">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">NHS England Central Dashboard</a> </h2>
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">NHS England Central dashboard</a> </h2>
                         <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.</p>
                     </div>
                 </div>
@@ -140,7 +98,7 @@ text: "Home"
             <li class="nhsuk-grid-column-full nhsuk-card-group__item">
                 <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
                     <div class="nhsuk-card__content nhsuk-card__content--secondary">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">NHS England Dentistry Dashboard v1</a> </h2>
+                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">NHS England dentistry dashboard v1</a> </h2>
                         <p class="nhsuk-card__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.</p>
                     </div>
                 </div>
@@ -164,7 +122,7 @@ text: "Home"
         <ul class="nhsuk-list">
             <li><a href="#">Book an eDEN training webinar</a></li>
             <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
-            <li><a href="training-material">Training material</a></li>
+            <li><a href="training-material">Training guides</a></li>
             <li><a href="#">eDEN dashboard information</a></li>
         </ul>
     </div>
