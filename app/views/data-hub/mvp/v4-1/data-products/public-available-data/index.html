@@ -86,25 +86,9 @@ Public available data - {{ serviceName }} - NHSBSA
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
-        <ul class="nhsuk-grid-row nhsuk-card-group">
-            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
-                <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
-                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
-                                href="dashboards/a-to-z">Dashboards</a> </h2>
-                    </div>
-                </div>
-            </li>
-            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
-                <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
-                    <div class="nhsuk-card__content nhsuk-card__content--secondary">
-                        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link"
-                                href="reports/a-to-z">Reports</a> </h2>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/a-to-z">Dashboards</a></h2>
+        <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="reports/a-to-z">Reports</a></h2>
         {% if data['signedIn'] == 'yes' %}
         {% else %}
             <h2 class="nhsuk-heading-m">Data Hub account</h2>
