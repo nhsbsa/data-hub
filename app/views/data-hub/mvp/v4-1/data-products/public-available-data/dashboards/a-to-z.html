@@ -41,8 +41,42 @@ Dashboards - {{ serviceName }} - NHSBSA
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
         <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Publicly available data</span>Dashboards</h1>
-        <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation"
-            aria-label="A to Z Navigation">
+        <!-- Javascript set up to listen for submit of the button -->
+        <form>
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+
+                    <div class="nhsuk-form-group">
+                        <label class="nhsuk-label" for="search">
+                            Searching by keyword
+                        </label>
+                        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+                            Add multiple keywords by separating them with commas.
+                        </div>
+                        <div class="flex">
+                            <input class="nhsuk-input nhsuk-u-padding-left-1 nhsuk-u-padding-right-1" id="search"
+                                name="search" type="text">
+                            <button class="nhsuk-search__submit" type="submit">
+                                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+                                    <path
+                                        d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z">
+                                    </path>
+                                </svg>
+                                <span class="nhsuk-u-visually-hidden">Submit</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <h3 class="nhsuk-heading-s nhsuk-u-visually-hidden">Searched keywords</h3>
+        <ul id="searched-keywords" class="nhsuk-list"></ul>
+        <p><a href="#" id="clear-all-keywords" class="nhsuk-link nhsuk-u-visually-hidden">Clear all keywords</a></p>
+        <hr class="nhsuk-u-visually-hidden">
+        <nav class="nhsuk-u-margin-bottom-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
             <!-- A to Z list -->
             <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
@@ -602,4 +636,8 @@ Dashboards - {{ serviceName }} - NHSBSA
 
     </div>
 </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/js/a-to-z-search-filter.js"></script>
 {% endblock %}

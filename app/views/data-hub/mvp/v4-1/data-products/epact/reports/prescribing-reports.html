@@ -30,8 +30,8 @@ href: "/data-hub/mvp/v4-1/prescribing-dispensing",
 text: "Prescribing and Dispensing Data"
 },
 {
-    href: "/data-hub/mvp/v4-1/data-products/epact/epact-loggedin",
-    text: "ePACT"
+href: "/data-hub/mvp/v4-1/data-products/epact/epact-loggedin",
+text: "ePACT"
 }
 ]
 }) }}
@@ -40,9 +40,44 @@ text: "Prescribing and Dispensing Data"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Prescribing and Dispensing Data (ePACT)</span>Prescribing reports</h1>
-        <nav class="nhsuk-u-margin-bottom-4 nhsuk-u-margin-top-4" id="nhsuk-nav-a-z" role="navigation"
-            aria-label="A to Z Navigation">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Prescribing and Dispensing Data
+                (ePACT)</span>Prescribing reports</h1>
+        <!-- Javascript set up to listen for submit of the button -->
+        <form>
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+
+                    <div class="nhsuk-form-group">
+                        <label class="nhsuk-label" for="search">
+                            Searching by keyword
+                        </label>
+                        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+                            Add multiple keywords by separating them with commas.
+                        </div>
+                        <div class="flex">
+                            <input class="nhsuk-input nhsuk-u-padding-left-1 nhsuk-u-padding-right-1" id="search"
+                                name="search" type="text">
+                            <button class="nhsuk-search__submit" type="submit">
+                                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+                                    <path
+                                        d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z">
+                                    </path>
+                                </svg>
+                                <span class="nhsuk-u-visually-hidden">Submit</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <h3 class="nhsuk-heading-s nhsuk-u-visually-hidden">Searched keywords</h3>
+        <ul id="searched-keywords" class="nhsuk-list"></ul>
+        <p><a href="#" id="clear-all-keywords" class="nhsuk-link nhsuk-u-visually-hidden">Clear all keywords</a></p>
+        <hr class="nhsuk-u-visually-hidden">
+        <nav class="nhsuk-u-margin-bottom-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
             <!-- A to Z list -->
             <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
@@ -58,70 +93,91 @@ text: "Prescribing and Dispensing Data"
                     <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#d">D</a>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">E</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">E</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">F</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">F</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">G</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">G</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">H</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">H</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">I</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">I</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">J</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">J</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">K</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">K</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">L</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">L</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">M</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">M</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">N</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">N</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">O</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">O</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
                     <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#p">P</a>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Q</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Q</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">R</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">R</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">S</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">S</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">T</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">T</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">U</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">U</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">V</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">V</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">W</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">W</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">X</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">X</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Y</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Y</span>
                 </li>
                 <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
-                    <span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Z</span>
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Z</span>
                 </li>
             </ol>
         </nav>
@@ -153,7 +209,7 @@ text: "Prescribing and Dispensing Data"
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
                     <li><a href="#">BNF Codes and Names (P2)</a></li>
-                    <li><a href="#">Budget Report (P1)</a></li>                    
+                    <li><a href="#">Budget Report (P1)</a></li>
                 </ul>
             </div>
         </div>
@@ -215,7 +271,7 @@ text: "Prescribing and Dispensing Data"
                     P
                 </h2>
                 <ul class="nhsuk-list nhsuk-list--border">
-                    <li><a href="premium-priced-generics">Premium Priced Generics</a></li>              
+                    <li><a href="premium-priced-generics">Premium Priced Generics</a></li>
                 </ul>
             </div>
         </div>
@@ -227,4 +283,8 @@ text: "Prescribing and Dispensing Data"
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/js/a-to-z-search-filter.js"></script>
 {% endblock %}

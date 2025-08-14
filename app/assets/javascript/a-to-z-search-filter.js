@@ -57,47 +57,53 @@
          * - Hides sections, nav letters, and back-to-top links with no matches
          */
         function updateDisplay() {
-          const keywords = Array.from(searchedList.querySelectorAll('li')).map(li => li.dataset.keyword);
-      
-          // No keywords? → Reset the whole view
-          if (keywords.length === 0) {
-            resetView();
-            return;
-          }
-      
-          // Loop over each alphabetical section
-          sections.forEach(section => {
-            const h2 = section.querySelector('h2');
-            const letter = h2?.id ? h2.id.toUpperCase() : null;
-            const navLi = letter ? letterToLi.get(letter) : null;
-            const lis = section.querySelectorAll('ul li');
-      
-            let matchCount = 0; // Count of matching <li> items in this section
-    
-            // Check each <li> item inside the section
-            lis.forEach(li => {
-              const liText = li.innerText.toLowerCase();
-              const match = keywords.some(kw => liText.includes(kw.toLowerCase())); // Match ANY keyword
-              li.style.display = match ? '' : 'none';
-              if (match) matchCount++;
-            });
-      
-            // Show/hide section + related UI based on match count
-            if (matchCount > 0) {
-              section.style.display = '';
-              if (navLi) navLi.style.display = '';
-              const backToTop = section.nextElementSibling?.classList.contains('nhsuk-back-to-top')
-                ? section.nextElementSibling : null;
-              if (backToTop) backToTop.style.display = '';
-            } else {
-              section.style.display = 'none';
-              if (navLi) navLi.style.display = 'none';
-              const backToTop = section.nextElementSibling?.classList.contains('nhsuk-back-to-top')
-                ? section.nextElementSibling : null;
-              if (backToTop) backToTop.style.display = 'none';
+            const keywords = Array.from(searchedList.querySelectorAll('li')).map(li => li.dataset.keyword);
+          
+            if (keywords.length === 0) {
+              resetView();
+              return;
             }
-          });
-        }
+          
+            // Keep track of which letters should be visible
+            const lettersToShow = new Set();
+          
+            sections.forEach(section => {
+              const h2 = section.querySelector('h2');
+              const letter = h2?.id ? h2.id.toUpperCase() : null;
+              const lis = section.querySelectorAll('ul li');
+          
+              let matchCount = 0;
+              lis.forEach(li => {
+                const liText = li.innerText.toLowerCase();
+                const match = keywords.some(kw => liText.includes(kw.toLowerCase()));
+                li.style.display = match ? '' : 'none';
+                if (match) matchCount++;
+              });
+          
+              if (matchCount > 0) {
+                section.style.display = '';
+                if (letter) lettersToShow.add(letter);
+                const backToTop = section.nextElementSibling?.classList.contains('nhsuk-back-to-top')
+                  ? section.nextElementSibling : null;
+                if (backToTop) backToTop.style.display = '';
+              } else {
+                section.style.display = 'none';
+                const backToTop = section.nextElementSibling?.classList.contains('nhsuk-back-to-top')
+                  ? section.nextElementSibling : null;
+                if (backToTop) backToTop.style.display = 'none';
+              }
+            });
+          
+            // Now hide nav letters that aren't in lettersToShow
+            navLis.forEach(li => {
+              const letterText = li.textContent.trim().toUpperCase();
+              if (!lettersToShow.has(letterText)) {
+                li.style.display = 'none';
+              } else {
+                li.style.display = '';
+              }
+            });
+          }
       
         /**
          * Handles the search form submission:
