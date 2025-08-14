@@ -25,6 +25,4 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log("wont work here...");
     }
-
-
 });

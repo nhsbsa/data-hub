@@ -12,6 +12,9 @@
 // Data Hub - Custom Styles
 ///////////////////////////////////////////
 
+.flex {
+    display: flex;
+}
 
 .custom-inline {
     display: inline;
@@ -232,4 +235,51 @@ a.nhsuk-account__login--link {
         margin: 0 32px;
     }
 
+}
+
+// A to Z Search Filter (Tags)
+.a-to-z-search-tag, .a-to-z-search-tag .remove-x {    
+    cursor: pointer;
+    text-transform: capitalize;
+}
+ul#searched-keywords {     
+    li {
+        display: inline-block;
+        margin: 0 20px 20px 0;
+    
+        &:first-of-type {
+            margin-left: 0;
+        }
+    } 
+}
+.custom-padding-top-12 {
+    padding-top: 12px;
+}
+
+
+.nhsuk-search__submit {
+    background-color: #007f3b;
+    border: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 4px;
+    float: right;
+    font-size: inherit;
+    height: 52px;
+    line-height: inherit;
+    margin: 0;
+    outline: 0;
+    padding: 8px 8px 0;
+    width: 52px;
+
+    &:hover {
+        background-color: rgb(0, 101.6, 47.2);
+        cursor: pointer;
+    }
+}
+.nhsuk-search__submit .nhsuk-icon__search {
+    fill: #fff;
+    height: 38px;
+    width: 38px;
 }
