@@ -1,0 +1,53 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4-2/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Data products - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        
+        <h1 class="nhsuk-heading-l">Data products</h1>
+        <p>Our data products bring together curated datasets and insights developed by the NHS Business Services Authority. These resources support transparency, research, and informed decision-making across areas like prescriptions, dental services, and ophthalmic care. Each product includes structured, quality-assured data, often available for download or integration.</p>
+        <h2 class="nhsuk-heading-m">Product news</h2>
+        <p class="nhsuk-u-margin-bottom-0">Keep up to date through our <a href="product-news">product news</a> page.</p>
+    </div>
+    <div class="nhsuk-grid-column-full">
+        <hr>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds">
+        <h2 class="nhsuk-heading-m"><a href="data-products/epact/epact">Prescribing and Dispensing Data (ePACT2)</a></h2>
+        <p>ePACT2 provides authorised users with interactive tools to analyse and export detailed prescribing and dispensing data.</p>
+        <p>
+            <a href="product-sign-in?userType=epact">Sign into ePACT2</a>  
+            <a class="nhsuk-u-margin-left-5" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2" target="_blank">Request access to ePACT2 <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a>  
+            <a class="nhsuk-u-margin-left-5" href="data-products/epact/training-material">Training guides <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></p>
+        <hr>
+        <h2 class="nhsuk-heading-m"><a href="data-products/eden/eden">Dental Data (eDEN)</a></h2>
+        <p>eDEN is an online tool that lets users quickly access, view, and export dental data through interactive reports and dashboards.</p>
+        <p><a href="product-sign-in?userType=eden">Sign into eDEN</a>  <a class="nhsuk-u-margin-left-5" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden" target="_blank">Request access to eDEN <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a>  <a class="nhsuk-u-margin-left-5" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/eden-training-hub" target="_blank">Training guides <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></p>
+        <hr>
+        <h2 class="nhsuk-heading-m"><a href="data-products/eops/eops">Ophthalmic Data (eOPS)</a></h2>
+        <p>eOPS is an online tool that enables users to quickly access, visualise, and export ophthalmic data through user-friendly reports and dashboards.</p>
+        <p><a href="product-sign-in?userType=eops">Sign into eOPS</a>  <a class="nhsuk-u-margin-left-5" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eops/registering-eops" target="_blank">Request access to eOPS <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a>  <a class="nhsuk-u-margin-left-5" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eops/eops-training-hub" target="_blank">Training guides <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></p>
+    </div>
+</div>
+{% endblock %}

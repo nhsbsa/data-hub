@@ -89,27 +89,16 @@
     }) }}
     {% endblock %}
 
-    {% block header %}
-    {{ header({}) }}
-    {% endblock %}
-
     <div class="nhsuk-width-container">
         {% block beforeContent %}{% endblock %}
     </div>
 
     {% block main %}
-    <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}}" id="maincontent"
-        role="main">
-        {% block heroContent %}{% endblock %}
-        <div class="nhsuk-width-container-fluid {{ containerClasses }}">
-            {% block content %}{% endblock %}
-        </div>
+    <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0 nhsuk-u-padding-bottom-0" id="maincontent" role="main">
+        {% block content %}{% endblock %}
     </main>
     {% endblock %}
 
-    {% block footer %}
-    {{ footer() }}
-    {% endblock %}
 
     {% block bodyEnd %}{% endblock %}
 
