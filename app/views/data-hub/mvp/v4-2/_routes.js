@@ -5,9 +5,9 @@ const router = express.Router();
 // ===================================
 // Sign in and out routes
 // ===================================
-router.post('/auth/sign-in', (req, res) => {
+router.post('/auth/entra-id/sign-in', (req, res) => {
     req.session.data['signedIn'] = 'yes'
-    res.redirect('my-account'); 
+    res.redirect('../my-account'); 
 });
 router.post(/sign-out/, (req, res) => {
     req.session.data['signedIn'] = 'no'

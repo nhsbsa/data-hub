@@ -20,13 +20,15 @@ Sign in or create an account- {{ serviceName }} - NHSBSA
 <div class="outer">
     <div class="sign-in-box">
         <img src="/images/data-hub/bsa-logo.png" alt="">
-        <p class="nhsuk-u-margin-bottom-2">{{ data['username'] }}</p>
-        <h1 class="nhsuk-heading-m">Enter code</h1>
-        <p>Enter the code we just sent to {{ data['username'] }}.</p>
-        <input type="text" placeholder="Enter code">
-        <div class="buttons">
-            <a class="back" href="enter-password">Back</a> <a class="next" href="../my-account">Next</a>
-        </div>      
+        <form action="sign-in" method="post">
+            <p class="nhsuk-u-margin-bottom-2">{{ data['username'] }}</p>
+            <h1 class="nhsuk-heading-m">Enter code</h1>
+            <p>Enter the code we just sent to {{ data['username'] }}.</p>
+            <input type="text" placeholder="Enter code">
+            <div class="buttons">
+                <a class="back" href="enter-password">Back</a> <button class="next" type="submit">Next</button>
+            </div>
+        </form>
         <div class="boilerplate-text">
             <p class="nhsuk-u-margin-bottom-0 nhsuk-body-s">Welcome to the NHS Business Services Authority</p>
         </div>          
