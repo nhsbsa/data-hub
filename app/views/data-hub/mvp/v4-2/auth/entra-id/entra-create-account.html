@@ -20,12 +20,14 @@ Sign in or create an account- {{ serviceName }} - NHSBSA
 <div class="outer">
     <div class="sign-in-box">
         <img src="/images/data-hub/bsa-logo.png" alt="">
-        <form action="entra-id-sign-in" method="post">
-            <h1 class="nhsuk-heading-m">Sign in</h1>    
-            <input type="email" placeholder="username@nhsbsa.nhs.uk" name="username">
-            <p class="nhsuk-body-s">No account? <a href="entra-create-account">Create one</a></p>
+        <form action="entra-create-account" method="post">
+            <h1 class="nhsuk-heading-m">Create account</h1>    
+            <input type="text" placeholder="Full name" name="full-name">
+            <input type="text" placeholder="Role" name="job-role">
+            <input type="text" placeholder="Organisation" name="organisation">
+            <input type="email" placeholder="Email" name="email-address">
             <div class="buttons">
-                <a class="back" href="../sign-in">Back</a> <button class="next" href="enter-password" type="submit">Next</button>
+                <a class="back" href="../sign-in">Back</a> <button class="next" type="submit">Next</button>
             </div>
         </form>   
         <div class="boilerplate-text">

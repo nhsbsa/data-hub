@@ -21,9 +21,19 @@ Sign in or create an account- {{ serviceName }} - NHSBSA
     <div class="sign-in-box">
         <img src="/images/data-hub/bsa-logo.png" alt="">
         <form action="enter-code" method="post">
-            <p class="nhsuk-u-margin-bottom-2">{{ data['username'] }}</p>
+            <p class="nhsuk-u-margin-bottom-2">
+                {% if data['username'] %}
+                    {{ data['username'] }}
+                {% elif data['email-address'] %}
+                    {{ data['email-address'] }}
+                {% else %}
+                    failed 
+                {% endif %}
+            </p>
             <h1 class="nhsuk-heading-m">Enter code</h1>
-            <p>Enter the code we just sent to {{ data['username'] }}.</p>
+            <p>
+                Enter the code we just sent to {% if data['username'] %}{{ data['username'] }}{% elif data['email-address'] %}{{ data['email-address'] }}{% else %}failed{% endif %}.
+            </p>
             <input type="text" placeholder="Enter code">
             <div class="buttons">
                 <a class="back" href="enter-password">Back</a> <button class="next" type="submit">Next</button>

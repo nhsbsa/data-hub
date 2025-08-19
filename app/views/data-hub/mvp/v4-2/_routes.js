@@ -55,6 +55,9 @@ router.post(/enter-code/, (req, res) => {
         res.redirect('/data-hub/mvp/v4-2/auth/my-account');
     } 
 });
-
+router.post(/entra-create-account/, (req, res) => {
+    const forgottenPassword = 'no'
+    res.redirect('/data-hub/mvp/v4-2/auth/entra-id/create-password');
+});
 
 module.exports = router;
