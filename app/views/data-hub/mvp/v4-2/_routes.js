@@ -41,5 +41,20 @@ router.post(/create-password/, (req, res) => {
 router.post(/entra-id-sign-in/, (req, res) => {
     res.redirect('/data-hub/mvp/v4-2/auth/entra-id/enter-password');
 });
+router.post(/entra-password/, (req, res) => {
+    const forgottenPassword = 'no'
+    res.redirect('/data-hub/mvp/v4-2/auth/entra-id/enter-code');
+});
+router.post(/enter-code/, (req, res) => {
+    const forgottenPassword = req.session.data['forgottenPassword']
+    req.session.data['signedIn'] = 'yes'
+
+    if (forgottenPassword === 'yes'){
+        res.redirect('/data-hub/mvp/v4-2/auth/entra-id/update-password');
+    } else {
+        res.redirect('/data-hub/mvp/v4-2/auth/my-account');
+    } 
+});
+
 
 module.exports = router;
