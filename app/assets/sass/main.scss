@@ -170,8 +170,17 @@ ul.nhsuk-footer__list {
 
 // latest data 
 .latest-data {
-    border: 2px solid #ffffff;
-    padding: 15px
+    border: none;
+    padding: 30px 0 0 0;
+    border-top: 2px solid #ffffff;
+    margin-top: 30px;
+
+    @include nhsuk-media-query ($from: desktop) {
+        border: 2px solid #ffffff;
+        padding: 15px;
+        margin-top: 0;
+    }
+    
 }
 
 // Override breadcrumbs padding bottom
