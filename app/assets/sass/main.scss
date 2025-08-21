@@ -112,7 +112,7 @@ ul.nhsuk-footer__list {
     background-color: $color_nhsuk-yellow;
 
     .nhsuk-header__container {
-        border-bottom: 0;
+        border-bottom: 0;              
     }
 
 }
@@ -373,6 +373,42 @@ ul#searched-keywords {
             background-color: #f2f2f2;
             padding: 24px 40px 24px 40px;
             margin: 76px -44px -44px -44px;
+        }
+    }
+}
+
+.nhsuk-header__logo {
+    display: inline-block;
+
+    @include nhsuk-media-query($from: tablet) {
+        display: block;
+    }
+}
+
+.nhsuk-header__container {
+    display: flex;
+}
+.nhsuk-header__content {
+    width: 80%;
+
+    svg {
+        display: none;
+    }
+
+    .nhsuk-account__login {
+        margin-right: 0;
+    }
+
+    a.nhsuk-account__login--link {
+        padding: 0;
+    }
+    
+    @include nhsuk-media-query($from: tablet) {
+        width: 50%;
+        display: inline-block;
+        
+        svg {
+            display: inline-block;
         }
     }
 }

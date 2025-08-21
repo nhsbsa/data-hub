@@ -9451,3 +9451,38 @@ ul#searched-keywords li:first-of-type {
   padding: 24px 40px 24px 40px;
   margin: 76px -44px -44px -44px;
 }
+
+.nhsuk-header__logo {
+  display: inline-block;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-header__logo {
+    display: block;
+  }
+}
+
+.nhsuk-header__container {
+  display: flex;
+}
+
+.nhsuk-header__content {
+  width: 80%;
+}
+.nhsuk-header__content svg {
+  display: none;
+}
+.nhsuk-header__content .nhsuk-account__login {
+  margin-right: 0;
+}
+.nhsuk-header__content a.nhsuk-account__login--link {
+  padding: 0;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-header__content {
+    width: 50%;
+    display: inline-block;
+  }
+  .nhsuk-header__content svg {
+    display: inline-block;
+  }
+}
