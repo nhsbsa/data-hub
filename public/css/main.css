@@ -9267,7 +9267,12 @@ ul.nhsuk-footer__list {
 }
 
 .nhsuk-breadcrumb {
-  padding-bottom: 24px;
+  padding-bottom: 16px;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-breadcrumb {
+    padding-bottom: 24px;
+  }
 }
 
 .nhsuk-expander-hidden {
@@ -9494,5 +9499,19 @@ ul#searched-keywords li:first-of-type {
   .nhsuk-header__content {
     width: 50%;
     display: inline-block;
+  }
+}
+
+.sign-in-request-access .nhsuk-button--secondary {
+  margin-left: 0;
+}
+@media (min-width: 48em) {
+  .sign-in-request-access .nhsuk-button--secondary {
+    margin-left: 0;
+  }
+}
+@media (min-width: 55.4375em) {
+  .sign-in-request-access .nhsuk-button--secondary {
+    margin-left: 24px;
   }
 }

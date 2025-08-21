@@ -176,7 +176,11 @@ ul.nhsuk-footer__list {
 
 // Override breadcrumbs padding bottom
 .nhsuk-breadcrumb {
-    padding-bottom: 24px;
+    padding-bottom: 16px;
+
+    @include nhsuk-media-query($from: tablet) {
+        padding-bottom: 24px;
+    }
 }
 
 // hide 'Getting started' expander
@@ -418,5 +422,18 @@ ul#searched-keywords {
         width: 50%;
         display: inline-block;
 
+    }
+}
+.sign-in-request-access {
+
+    .nhsuk-button--secondary {
+        margin-left: 0;
+
+        @include nhsuk-media-query($from: 768px) {
+            margin-left: 0;
+        }
+        @include nhsuk-media-query($from: 887px) {
+            margin-left: 24px;
+        }
     }
 }
