@@ -9471,18 +9471,28 @@ ul#searched-keywords li:first-of-type {
 .nhsuk-header__content svg {
   display: none;
 }
+@media (min-width: 40.0625em) {
+  .nhsuk-header__content svg {
+    display: inline-block;
+  }
+}
 .nhsuk-header__content .nhsuk-account__login {
   margin-right: 0;
 }
 .nhsuk-header__content a.nhsuk-account__login--link {
   padding: 0;
 }
+.nhsuk-header__content .custom-sign-out-button {
+  padding: 5px;
+}
+@media (min-width: 40.0625em) {
+  .nhsuk-header__content .custom-sign-out-button {
+    padding: 10px 16px;
+  }
+}
 @media (min-width: 40.0625em) {
   .nhsuk-header__content {
     width: 50%;
-    display: inline-block;
-  }
-  .nhsuk-header__content svg {
     display: inline-block;
   }
 }

@@ -393,6 +393,10 @@ ul#searched-keywords {
 
     svg {
         display: none;
+
+        @include nhsuk-media-query($from: tablet) {
+            display: inline-block;
+        }
     }
 
     .nhsuk-account__login {
@@ -402,13 +406,17 @@ ul#searched-keywords {
     a.nhsuk-account__login--link {
         padding: 0;
     }
+
+    .custom-sign-out-button {
+        padding: 5px;
+        @include nhsuk-media-query($from: tablet) {
+            padding: 10px 16px;
+        }
+    }
     
     @include nhsuk-media-query($from: tablet) {
         width: 50%;
         display: inline-block;
-        
-        svg {
-            display: inline-block;
-        }
+
     }
 }
