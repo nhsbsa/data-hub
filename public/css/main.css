@@ -9363,6 +9363,11 @@ ul#searched-keywords li:first-of-type {
   background-color: rgb(0, 102, 47);
   cursor: pointer;
 }
+@media (min-width: 20em) {
+  .nhsuk-search__submit {
+    position: relative;
+  }
+}
 
 .nhsuk-search__submit .nhsuk-icon__search {
   fill: #fff;

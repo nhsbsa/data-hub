@@ -281,6 +281,10 @@ ul#searched-keywords {
         background-color: rgb(0, 101.6, 47.2);
         cursor: pointer;
     }
+
+    @include nhsuk-media-query ($from: mobile) {
+        position: relative;
+    }
 }
 .nhsuk-search__submit .nhsuk-icon__search {
     fill: #fff;
