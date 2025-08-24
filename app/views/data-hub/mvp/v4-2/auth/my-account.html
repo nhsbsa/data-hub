@@ -33,75 +33,87 @@ text: "Home"
 
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
+        <div class="nhsuk-grid-column-full">
         <h1 class="nhsuk-heading-l">My account</h1>
         <h2 class="nhsuk-heading-m">Access</h2>
-        <ul class="nhsuk-grid-row nhsuk-card-group">
-            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+        {% if not data.userType %}
+            <p>You have not requested access to any data products</p>
+            <p>View our data products to request access:</p>
+            <ul class="nhsuk-list">
+                <li><a href="../data-products/epact/epact">Electronic prescribing analysis and cost tool (ePACT2)</a></li>
+                <li><a href="../data-products/eden/eden">Electronic dental (eDEN)</a></li>
+                <li><a href="../data-products/eops/eops">Electronic ophthalmics (eOPS)</a></li>
+            </ul>
+            <p>You can access our publicly available <a href="../data-products/public-available-data/index">prescribing and dispensing data</a>.</p>
+            <hr>
+        {% else %}            
+            <ul class="nhsuk-grid-row nhsuk-card-group">
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
 
-                {% if data.userType == 'epact' %}
-                    {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                    {% set productURL = '../data-products/epact/epact-loggedin' %}
-                    {% set pendingHeading = 'Electronic dental (eDEN)' %}
-                    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                {% elif data.userType == 'eden' %}
-                    {% set productHeading = 'Electronic dental (eDEN)' %}
-                    {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
-                    {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                {% elif data.userType == 'edenWelsh' %}
-                    {% set productHeading = 'Electronic dental (eDEN)' %}
-                    {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
-                    {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                {% elif data.userType == 'eops' %}
-                    {% set productHeading = 'Electronic ophthalmics (eOPS)' %}
-                    {% set productURL = '../data-products/eops/eops-loggedin' %}
-                    {% set pendingHeading = 'Electronic dental (eDEN)' %}
-                    {% set expiredHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                {% else %}
-                    {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                    {% set productURL = '../data-products/epact/epact-loggedin' %}
-                    {% set pendingHeading = 'Electronic dental (eDEN)' %}
-                    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                {% endif %}
+                    {% if data.userType == 'epact' %}
+                        {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+                        {% set productURL = '../data-products/epact/epact-loggedin' %}
+                        {% set pendingHeading = 'Electronic dental (eDEN)' %}
+                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+                    {% elif data.userType == 'eden' %}
+                        {% set productHeading = 'Electronic dental (eDEN)' %}
+                        {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
+                        {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+                    {% elif data.userType == 'edenWelsh' %}
+                        {% set productHeading = 'Electronic dental (eDEN)' %}
+                        {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
+                        {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+                    {% elif data.userType == 'eops' %}
+                        {% set productHeading = 'Electronic ophthalmics (eOPS)' %}
+                        {% set productURL = '../data-products/eops/eops-loggedin' %}
+                        {% set pendingHeading = 'Electronic dental (eDEN)' %}
+                        {% set expiredHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+                    {% else %}
+                        {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+                        {% set productURL = '../data-products/epact/epact-loggedin' %}
+                        {% set pendingHeading = 'Electronic dental (eDEN)' %}
+                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+                    {% endif %}
 
-                {{ card({
-                    href: productURL,
-                    clickable: "false",
-                    heading: productHeading,
-                    headingClasses: "nhsuk-heading-m",
-                    descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--green\">Active</strong></p>
-                    <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Cancel access</a></p></p>"
-                  }) }}
-                 
-            </li>
-        </ul>
-        <hr class="nhsuk-u-margin-top-0">
-        <h2 class="nhsuk-heading-m">Pending or expired access</h2>
-        <ul class="nhsuk-grid-row nhsuk-card-group">
-            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                    {{ card({
+                        href: productURL,
+                        clickable: "false",
+                        heading: productHeading,
+                        headingClasses: "nhsuk-heading-m",
+                        descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--green\">Active</strong></p>
+                        <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Cancel access</a></p></p>"
+                    }) }}
+                    
+                </li>
+            </ul>
+            <hr class="nhsuk-u-margin-top-0">
+            <h2 class="nhsuk-heading-m">Pending or expired access</h2>
+            <ul class="nhsuk-grid-row nhsuk-card-group">
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
 
-                {{ card({
-                    heading: pendingHeading,
-                    headingLevel: "3",
-                    descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--yellow\">Pending</strong></p>
-                    <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Cancel request</a></p></p>"
-                }) }}
+                    {{ card({
+                        heading: pendingHeading,
+                        headingLevel: "3",
+                        descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--yellow\">Pending</strong></p>
+                        <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Cancel request</a></p></p>"
+                    }) }}
 
-            </li>
-            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                </li>
+                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
 
-                {{ card({
-                    heading: expiredHeading,
-                    headingLevel: "3",
-                    descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--red\">Expired</strong></p>
-                    <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Request access</a></p></p>"
-                }) }}
+                    {{ card({
+                        heading: expiredHeading,
+                        headingLevel: "3",
+                        descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--red\">Expired</strong></p>
+                        <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Request access</a></p></p>"
+                    }) }}
 
-            </li>
-        </ul>
-        <hr class="nhsuk-u-margin-top-0">
+                </li>
+            </ul>
+            <hr class="nhsuk-u-margin-top-0">
+        {% endif %}
     </div>
     <div class="nhsuk-grid-column-full">        
         <h2 class="nhsuk-heading-m">Details</h2>
