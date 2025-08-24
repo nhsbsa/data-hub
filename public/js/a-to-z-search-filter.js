@@ -3,7 +3,7 @@
 // ========================================
 document.addEventListener('DOMContentLoaded', function () {
   // --- Get references to all the important DOM elements ---
-  const form = document.querySelector('form'); // The search form
+  const form = document.querySelector('#keywordSearch'); // The search form
   const searchInput = document.querySelector('#search'); // The search box input
   const sections = document.querySelectorAll('.nhsuk-card.nhsuk-card--feature'); // All alphabetical sections
   const navLis = document.querySelectorAll('#nhsuk-nav-a-z ol > li'); // All nav list items (A–Z)
