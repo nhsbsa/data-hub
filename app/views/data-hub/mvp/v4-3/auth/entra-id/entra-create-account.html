@@ -1,0 +1,39 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4-3/layout-entra-id.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Sign in or create an account- {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block content %}
+
+<div class="outer">
+    <div class="sign-in-box">
+        <img src="/images/data-hub/bsa-logo.png" alt="">
+        <form action="entra-create-account" method="post">
+            <h1 class="nhsuk-heading-m">Create account</h1>    
+            <input type="text" placeholder="Full name" name="full-name">
+            <input type="text" placeholder="Role" name="job-role">
+            <input type="text" placeholder="Organisation" name="organisation">
+            <input type="email" placeholder="Email" name="email-address">
+            <div class="buttons">
+                <a class="back" href="javascript:history.back()">Back</a> <button class="next" type="submit">Next</button>
+            </div>
+        </form>   
+        <div class="boilerplate-text">
+            <p class="nhsuk-u-margin-bottom-0 nhsuk-body-s">Welcome to the NHS Business Services Authority</p>
+        </div>          
+    </div>
+</div>
+
+{% endblock %}

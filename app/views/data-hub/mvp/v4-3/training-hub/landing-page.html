@@ -1,0 +1,119 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4-3/layout-data-hub-hero.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+
+<!-- include mini search to header (generally not included on data area landing page or homepage)-->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Training hub - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/v4-3/homepage",
+            text: "Home"
+        }
+    ]
+}) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-two-thirds">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <h1 class="nhsuk-u-margin-bottom-4">Training hub
+                            </h1>
+                        <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Explore training from the data training team in one place, supporting you to get the best out of data</p>                    
+                        <!-- Show filter at top of HTML -->
+                        {% if 'yes' in showFilter %}
+                        <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
+                            data-module="nhsuk-button" type="submit">
+                            Dental
+                        </button>
+                        <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                            data-module="nhsuk-button" type="submit">
+                            Ophthalmic
+                        </button>
+                        <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                            data-module="nhsuk-button" type="submit">
+                            Prescription
+                        </button>
+                        <button class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                            data-module="nhsuk-button" type="submit">
+                            Reports
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <hr class="nhsuk-u-margin-top-0">
+        <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">Current services</h2>
+        <h3 class="nhsuk-heading-m">
+            <a href="prescribing-dispensing">Prescribing and dispensing data</a>
+        </h3>
+        <p>Prescription data reports and dashboards. You must be an authorised user to access ePACT2.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            {% if data.userType == 'eden' and data.signedIn == 'yes' %}
+                <a href="data-products/eden/eden-loggedin">Electronic dental (eDEN)</a>
+            {% elif data.userType == 'edenWelsh' and data.signedIn == 'yes' %}
+                <a href="data-products/eden/eden-wales-loggedin">Electronic dental (eDEN)</a>
+            {% else %}
+                <a href="data-products/eden/eden">Electronic dental (eDEN)</a>
+            {% endif %}
+        </h3>
+        <p>Electronic dental reports and dashboards. You must be an authorised user to access eDEN.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            {% if data.userType == 'eops' and data.signedIn == 'yes' %}
+                <a href="data-products/eops/eops-loggedin">Electronic ophthalmics (eOPS)</a>
+            {% else %}
+                <a href="data-products/eops/eops">Electronic ophthalmics (eOPS)</a>
+            {% endif %}
+        </h3>
+        <p>Electronic ophthalmic reports and dashboards. You must be an authorised user to access eOPS.</p>
+        <h2 class="nhsuk-heading-l">Accessing other data services</h2>
+        <p>Data Hub is a new service and soon you'll be able to access all data from the NHS Business Services Authority in one place.</p>
+        <p>In the meantime, for all other data -  including the Open Data Portal - <a href="https://www.nhsbsa.nhs.uk/" target="_blank">visit the NHS Business Services Authority's website (opens in a new tab)</a>.</p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-l">Featured</h2>
+        <ul class="nhsuk-list">
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Help and support</a></li>
+            <li><a href="product-news">News</a></li>
+            <li><a href="auth/entra-id/enter-username">Sign in or create account</a></li>            
+            <li><a href="training-material">Training hub</a></li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

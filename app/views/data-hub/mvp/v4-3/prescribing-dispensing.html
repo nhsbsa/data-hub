@@ -1,0 +1,98 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4-3/layout-data-hub-hero.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Prescribing and dispensing data - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+    {{ breadcrumb({
+        items: [
+            {
+                href: "/data-hub/mvp/v4-3/homepage",
+                text: "Home"
+            }
+        ]
+    }) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-two-thirds">
+                                <h1 class="nhsuk-u-margin-bottom-4">Prescribing and dispensing data</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">These services will allow you to access interactive and easy to use prescription data reports and dasboards.</p>
+                                <!-- Show filter at top of HTML -->
+                                {% if 'yes' in showFilter %}
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
+                                    data-module="nhsuk-button" type="submit">
+                                    Reports
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Dashboards
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Latest release
+                                </button>
+                                <button
+                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
+                                    data-module="nhsuk-button" type="submit">
+                                    Prescriptions
+                                </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
+        <h3 class="nhsuk-heading-m">
+            {% if data.userType == 'epact' and data.signedIn == 'yes' %}
+                <a href="data-products/epact/epact-loggedin">Electronic prescribing analysis and cost tool (ePACT2)</a>
+            {% else %}
+                <a href="data-products/epact/epact">Electronic prescribing analysis and cost tool (ePACT2)</a>
+            {% endif %}
+        </h3>
+        <p>Electronic prescribing analysis and cost tool reports and dashboards. You must be an authorised user to access ePACT2.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            <a href="data-products/public-available-data/index">Publicly available data</a>
+        </h3>
+        <p>Public insight portal for accessing and exploring a range of prescribing, organisational and demographic data.</p>
+        <hr>
+    </div>
+</div>
+{% endblock %}

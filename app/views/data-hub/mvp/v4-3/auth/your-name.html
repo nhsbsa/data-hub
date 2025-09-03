@@ -1,0 +1,46 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4-3/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- include mini search box in the header -->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+What is your full name? - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ backLink({
+    href: "javascript:history.back()",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+    
+        <form action="full-name" method="post">
+            <div class="nhsuk-form-group">
+                <label class="nhsuk-label" for="full-name"><h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Create an account</span>What is your full name?</h1>
+                </label> 
+                <input class="nhsuk-input nhsuk-input--width-20" id="full-name" name="full-name" type="text">                
+            </div>
+            <button class="nhsuk-button" type="submit">Continue</button>
+        </form>
+
+    </div>
+</div>
+{% endblock %}
