@@ -15,7 +15,7 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Training guides - {{ serviceName }} - NHSBSA
+Training catalogue - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
@@ -27,11 +27,11 @@ Training guides - {{ serviceName }} - NHSBSA
         },
         {
             href: "/data-hub/mvp/v4-3/prescribing-dispensing",
-            text: "Prescribing and dispensing data"
+            text: "Prescribing and dispensing"
         },
         {
             href: "/data-hub/mvp/v4-3/data-products/public-available-data/index",
-            text: "Public available data"
+            text: "Publicly available"
         }
         ]
     }) }}
@@ -40,7 +40,7 @@ Training guides - {{ serviceName }} - NHSBSA
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Public available data</span>Training guides</h1>
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Public available</span>Training catalogue</h1>
         <p>Access a variety of user guides for getting started, organisation type and functional guides.</p>
     </div>
 </div>
@@ -174,17 +174,17 @@ Training guides - {{ serviceName }} - NHSBSA
 
     <div class="nhsuk-grid-column-three-quarters">
         <div class="nhsuk-grid-row">
-            <div class="nhsuk-grid-column-one-third">
-                <span class="nhsuk-heading-s nh">62 results</span>
+            <div class="nhsuk-grid-column-one-half">
+                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 62 results</span>
             </div>
-            <div class="nhsuk-grid-column-two-thirds custom-sort-by">
+            <div class="nhsuk-grid-column-one-half custom-sort-by">
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label nhsuk-u-margin-right-2" for="select-1">
                         Sort by
                     </label> <select class="nhsuk-select" id="select-1" name="select-1">
                         <option value="1" selected>Updated (newest)</option>
-                        <option value="2">option 2</option>
-                        <option value="3">option 3</option>
+                        <option value="2">Alphabetical</option>           
+                        <option value="2">Most read</option>             
                     </select>
                 </div>
             </div>
