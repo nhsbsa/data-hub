@@ -1,0 +1,84 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4-3/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+
+<!-- include mini search to header (generally not included on data area landing page or homepage)-->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Book a wbinar - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/v4-3/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/v4-3/training-hub/landing-page",
+            text: "Training hub"
+        }
+    ]
+}) }}
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">Online webinars</h1>
+        
+        <p>We offer a free webinar training service to all users. You can book onto these sessions as many times as you need.</p>
+
+        <p>Our webinar sessions are one hour long and we offer 3 different types of sessions.</p> 
+
+        {% call details({
+            text: "Types of online webinars"
+        }) %}
+        
+        <h2 class="nhsuk-heading-s">General Introduction</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae nobis accusantium libero aut nesciunt dolor quos adipisci voluptas laudantium illo. Veniam distinctio recusandae odio earum, fugit quisquam ex! Ratione, vitae iste. Dolores culpa laboriosam fuga eius natus, facilis quam iste temporibus dignissimos doloremque assumenda itaque ratione similique incidunt neque quod?</p>
+
+        <h2 class="nhsuk-heading-s">Building Analysis - Introduction</h2>        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus suscipit animi et eos exercitationem, porro aperiam modi. Libero aperiam magnam, sit odio deserunt obcaecati numquam odit eos expedita molestias? Saepe molestias consequuntur maxime, tempore similique fuga. Et asperiores quas unde quasi quam consequuntur excepturi, expedita neque omnis voluptate explicabo eius!</p>
+
+        <h2 class="nhsuk-heading-s">Bespoke help/training session</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet vitae sint architecto fugit laudantium quaerat culpa consectetur corrupti, voluptatum blanditiis quae alias repellendus nostrum. Totam voluptatem commodi nihil eaque. Vero ullam dolorum id expedita excepturi voluptate alias quibusdam vitae officia, tempora doloremque odit ex placeat soluta aliquam consequuntur minus omnis!</p>
+
+        {% endcall %}
+
+        <p>Our experienced trainers deliver these sessions using MS Teams. The sessions are delivered to a set agenda, but you can let us know if you have any specific topics or reports you would like to cover. You can take part wherever you are as long as you can get online.</p>
+
+        <p>We can share our screen and provide a step-by-step but relaxed training session. We encourage you to ask questions and let us know what you need from ePACT2.</p>
+
+        <h2 class="nhsuk-heading-m">Book an online webinar</h2>
+        <p>Use the booking form to select the session you wish to attend. When booking onto a session, please make sure that you select the date and the time before booking to ensure that you receive a confirmation email.</p>
+        <p>Once you've booked, you'll be emailed an invite from the team which will contain a link. You access the session by selecting the link in the email.</p>
+        <p><a class="nhsuk-u-margin-bottom-2" href="https://outlook.office365.com/book/NHSBSAePACT2trainingwebinars@nhsbsa.nhs.uk/?ismsaljsauthenabled=true" target="_blank">Book an online webinar</a></p>
+
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Featured</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">Training catalogue</a></li>            
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

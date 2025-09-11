@@ -70,29 +70,29 @@
         <hr class="nhsuk-u-margin-top-0">
         <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">Current services</h2>
         <h3 class="nhsuk-heading-m">
-            <a href="prescribing-dispensing">Prescribing and dispensing data</a>
+            <a href="prescribing-dispensing">Prescribing and dispensing</a>
         </h3>
-        <p>Prescription data reports and dashboards. You must be an authorised user to access ePACT2.</p>
+        <p>Prescribing and dispensing data reports and dashboards. You must be an authorised user to access the Electronic prescribing analysis and cost tool (ePACT2).</p>
         <hr>
         <h3 class="nhsuk-heading-m">
             {% if data.userType == 'eden' and data.signedIn == 'yes' %}
-                <a href="data-products/eden/eden-loggedin">Electronic dental (eDEN)</a>
+                <a href="data-products/eden/eden-loggedin">Dental</a>
             {% elif data.userType == 'edenWelsh' and data.signedIn == 'yes' %}
-                <a href="data-products/eden/eden-wales-loggedin">Electronic dental (eDEN)</a>
+                <a href="data-products/eden/eden-wales-loggedin">Dental</a>
             {% else %}
-                <a href="data-products/eden/eden">Electronic dental (eDEN)</a>
+                <a href="data-products/eden/eden">Dental</a>
             {% endif %}
         </h3>
-        <p>Electronic dental reports and dashboards. You must be an authorised user to access eDEN.</p>
+        <p>Electronic dental (eDEN) reports and dashboards. You must be an authorised user to access eDEN.</p>
         <hr>
         <h3 class="nhsuk-heading-m">
             {% if data.userType == 'eops' and data.signedIn == 'yes' %}
-                <a href="data-products/eops/eops-loggedin">Electronic ophthalmics (eOPS)</a>
+                <a href="data-products/eops/eops-loggedin">Ophthalmic</a>
             {% else %}
-                <a href="data-products/eops/eops">Electronic ophthalmics (eOPS)</a>
+                <a href="data-products/eops/eops">Ophthalmic</a>
             {% endif %}
         </h3>
-        <p>Electronic ophthalmic reports and dashboards. You must be an authorised user to access eOPS.</p>
+        <p>Electronic ophthalmic (eOPS) reports and dashboards. You must be an authorised user to access eOPS.</p>
         <h2 class="nhsuk-heading-l">Accessing other data services</h2>
         <p>Data Hub is a new service and soon you'll be able to access all data from the NHS Business Services Authority in one place.</p>
         <p>In the meantime, for all other data -  including the Open Data Portal - <a href="https://www.nhsbsa.nhs.uk/" target="_blank">visit the NHS Business Services Authority's website (opens in a new tab)</a>.</p>
