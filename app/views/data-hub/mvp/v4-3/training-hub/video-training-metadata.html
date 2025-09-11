@@ -1,0 +1,71 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'data-hub/mvp/v4-3/layout-data-hub.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+
+<!-- include mini search to header (generally not included on data area landing page or homepage)-->
+{% set includeMiniSearch = 'no' %}
+<!-- Hero Filter Buttons -->
+{% set showFilter = "no" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+ePACT introduction video - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/v4-3/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/v4-3/training-hub/landing-page",
+            text: "Training hub"
+        },
+        {
+            href: "/data-hub/mvp/v4-3/training-hub/training-catalogue",
+            text: "Training catalogue"
+        }
+    ]
+}) }}
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">ePACT introduction video</h1>
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-2"><span class="nhsuk-u-font-weight-bold">Last updated:</span> 9 September 2025</p>
+        <p class="nhsuk-body-s"><span class="nhsuk-u-font-weight-bold">Completion time:</span> 56 minutes</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/9I6ukuktKYE?si=x-ub-JMGCr1xGcdY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p class="nhsuk-u-margin-top-5"><a href="#">Download video transcript (Word: 550KB)</a></p>
+        <hr>        
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod nihil perspiciatis, reiciendis, qui sunt iste exercitationem possimus mollitia molestiae quos saepe atque porro quis explicabo in? Vitae dolores porro eligendi.</p>
+        <h2 class="nhsuk-heading-m">Lorem, ipsum</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo incidunt quae nisi ducimus! Vitae libero cum asperiores non repellendus, necessitatibus saepe ipsam dolores iusto modi laboriosam quidem animi optio porro accusantium voluptatibus aliquid itaque ducimus temporibus consequuntur illo culpa. Veniam explicabo necessitatibus tempora asperiores distinctio doloremque? Perferendis in quis quia!</p>
+        <h2 class="nhsuk-heading-m">Lorem ipsum dolor sit amet</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quisquam excepturi debitis rerum suscipit ducimus reprehenderit commodi deleniti voluptatum veniam?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt, numquam?</p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Related training</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">e-Learning User guide</a></li>
+            <li><a href="#">e-Learning video tutorial</a></li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}
