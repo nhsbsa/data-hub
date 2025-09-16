@@ -1,0 +1,112 @@
+<!--
+    This is the main layout where you can:
+      - change the header and footer
+      - add custom CSS and JavaScript
+  -->
+
+<!-- Extends the prototype kit template which in turn extends the NHS.UK frontend template -->
+{% extends "template-data-hub.html" %}
+
+{% block head %}
+<!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+<link href="/css/main.css" rel="stylesheet">
+{% endblock %}
+
+<!-- Edit the header -->
+<!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
+{% block header %}
+<header class="nhsuk-header" role="banner" data-module="nhsuk-header">
+    <div class="nhsuk-header__container nhsuk-width-container">
+        <div class="nhsuk-header__service">
+            <a class="nhsuk-header__service-logo" href="/data-hub/mvp/v3/homepage">
+                <svg class="nhsuk-header__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" height="40"
+                    width="100" focusable="false" role="img" aria-label="Data Hub homepage">
+                    <title>Data Hub homepage</title>
+                    <path fill="currentcolor"
+                        d="M200 0v80H0V0h200Zm-27.5 5.5c-14.5 0-29 5-29 22 0 10.2 7.7 13.5 14.7 16.3l.7.3c5.4 2 10.1 3.9 10.1 8.4 0 6.5-8.5 7.5-14 7.5s-12.5-1.5-16-3.5L135 70c5.5 2 13.5 3.5 20 3.5 15.5 0 32-4.5 32-22.5 0-19.5-25.5-16.5-25.5-25.5 0-5.5 5.5-6.5 12.5-6.5a35 35 0 0 1 14.5 3l4-13.5c-4.5-2-12-3-20-3Zm-131 2h-22l-14 65H22l9-45h.5l13.5 45h21.5l14-65H64l-9 45h-.5l-13-45Zm63 0h-18l-13 65h17l6-28H117l-5.5 28H129l13.5-65H125L119.5 32h-20l5-24.5Z" />
+                </svg>
+                <span class="nhsuk-header__service-name">Data Hub</span>
+            </a>
+        </div>
+
+        <div class="nhsuk-account__login">
+            {% if data['signedIn'] == 'yes' %}
+            <a class="nhsuk-account__login--link nhsuk-contents-list__link" href="/data-hub/mvp/{{ version }}/auth/my-account">My
+                account</a>
+            <form class="nhsuk-contents-list__link" action="sign-out" method="post">
+                <button class="custom-sign-out-button" type="submit">Sign out</button>
+            </form>
+            {% else %}
+            <a class="nhsuk-account__login--link" href="/data-hub/mvp/{{ version }}/auth/sign-in">
+                Sign in or create account
+                <svg class="nhsuk-account__login--icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"
+                    height="26" width="26">
+                    <path
+                        d="M16,18.2c-3.1,0-5.7-2.5-5.7-5.7s2.5-5.7,5.7-5.7c3.1,0,5.7,2.5,5.7,5.7 C21.7,15.7,19.1,18.2,16,18.2">
+                    </path>
+                    <path
+                        d="M16,0C7.2,0,0,7.2,0,16s7.2,16,16,16s16-7.2,16-16C32,7.2,24.8,0,16,0 M24.1,27.5V26 c0-3.5-2.5-6.3-5.7-6.3h-4.8C10.5,19.6,8,22.5,8,26v1.6C1.6,23.1,0,14.3,4.5,8S17.7,0,24,4.5S32,17.7,27.5,24 C26.6,25.4,25.4,26.6,24.1,27.5">
+                    </path>
+                </svg></a>
+            {% endif %}
+        </div>
+
+    </div>
+</header>
+{% endblock %}
+
+<!-- Edit the footer -->
+<!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
+{% block footer %}
+{{ footer({
+meta: {
+items: [
+{
+href: "#",
+text: "Accessibility statement"
+},
+{
+href: "#",
+text: "Contact us"
+},
+{
+href: "#",
+text: "Cookies"
+},
+{
+href: "#",
+text: "Privacy policy"
+},
+{
+href: "#",
+text: "Terms and conditions"
+},
+{
+href: "/iteration-history",
+text: "Prototype version history (prototype only)"
+},
+{
+href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+text: "Reset data (prototype only)"
+}
+]
+},
+copyright: {
+text: "NHS Business Services Authority"
+}
+}) }}
+{% endblock %}
+
+{% block bodyEnd %}
+<script src="/nhsuk-frontend/nhsuk-frontend.min.js" type="module"></script>
+<script type="module">
+    import { initAll } from '/nhsuk-frontend/nhsuk-frontend.min.js'
+    initAll()
+</script>
+{% block scripts %}
+<!-- Custom JavaScript files can be added to this file -->
+{% include "includes/scripts.html" %}
+<!-- For adding page specific JavaScript -->
+{% block pageScripts %}{% endblock %}
+{% endblock %}
+{% endblock %}
