@@ -20,27 +20,32 @@
 <!-- Edit the header -->
 <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
 {% block header %}
-{% from 'header/macro.njk' import header %}
-
 {{ header({
-  service: {
-    name: "Product performance"
-  },
-  showNav: "false",
-  showSearch: "false",
-  searchAction: " ",
-  primaryLinks: [
-      {
-        url  : "#",
-        label : 'Home'
-      },
-      {
-        url : '#',
-        label : 'NHSBSA Product metrics'
-      }
-    ]
-  })
-}}
+    logo: {
+      href: "#",
+      ariaLabel: "Data Hub Service"
+    },
+    service: {
+      text: "Data Hub Service",
+      href: "#"
+    },
+    search: {
+      placeholder: "Search",
+      visuallyHiddenLabel: "Search the Data Hub Service"
+    },
+    navigation: {
+      items: [
+            {
+                url  : "#",
+                label : 'Home'
+            },
+            {
+                url : '#',
+                label : 'NHSBSA Product Performance'
+            }
+      ]
+    }
+  }) }}
 {% endblock %}
 
 <!-- Edit the footer -->

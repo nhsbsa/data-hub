@@ -18,4 +18,4 @@ for (let form of forms) {
       }
     });
   });
-}
+}//# sourceMappingURL=auto-store-data.js.map

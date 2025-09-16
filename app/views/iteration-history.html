@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layouts/layout-data-hub.html' %}
+{% extends 'layout.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -16,12 +16,10 @@
 {% endblock %}
 
 {% block beforeContent %}
-<div class="nhsuk-back-link"> <a class="nhsuk-back-link__link" href="javascript:history.back()">
-    <svg class="nhsuk-icon nhsuk-icon__chevron-left" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" height="24" width="24">
-      <path d="M8.5 12c0-.3.1-.5.3-.7l5-5c.4-.4 1-.4 1.4 0s.4 1 0 1.4L10.9 12l4.3 4.3c.4.4.4 1 0 1.4s-1 .4-1.4 0l-5-5c-.2-.2-.3-.4-.3-.7z"></path>
-    </svg>
-    Go back</a>
-</div>
+    <!-- {{ backLink({
+        href: "javascript:history.back()",
+        text: "Back"
+    }) }} -->
 {% endblock %}
 
 <!-- For adding page content -->
@@ -44,13 +42,13 @@
                 <span class="nhsuk-details__summary-text">
                     Version 4
                 </span>
-                <span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-float-right nhsuk-u-margin-top-1">
-                    DESIGN IN PROGRESS
-                </span>
             </summary>
             <div class="nhsuk-details__text">
                 <!-- Version 4.3 -->
                 <h2 class="nhsuk-heading-m">Version 4.3</h2>
+                <strong class="nhsuk-tag nhsuk-tag--blue nhsuk-u-margin-bottom-4">
+                    DESIGN IN PROGRESS
+                </strong>
                 <p>Last updated: 2 September 2025</p>
                 <h2 class="nhsuk-heading-s">Iterations</h2>
                 <ul class="nhsuk-list nhsuk-list--bullet">                    
@@ -79,6 +77,12 @@
                 <hr>
                 <!-- Version 4.2 -->
                 <h2 class="nhsuk-heading-m">Version 4.2</h2>
+                <strong class="nhsuk-tag nhsuk-tag--red nhsuk-u-margin-bottom-4">
+                    USABILITY TESTING REQUIRED
+                </strong>
+                <strong class="nhsuk-tag nhsuk-tag--yellow nhsuk-u-margin-bottom-4">
+                    INTERNAL USABILITY TESTING IN PROGRESS
+                </strong>
                 <p>Last updated: 2 September 2025</p>
                 <h2 class="nhsuk-heading-s">Iterations</h2>
                 <ul class="nhsuk-list nhsuk-list--bullet">                    
@@ -101,8 +105,8 @@
                 <hr>
                 <!-- Version 4.1 -->
                 <h2 class="nhsuk-heading-m">Version 4.1</h2>
-                <strong class="nhsuk-tag nhsuk-tag--yellow nhsuk-u-margin-bottom-4">
-                    IN USABILITY TESTING
+                <strong class="nhsuk-tag nhsuk-tag--green nhsuk-u-margin-bottom-4">
+                    USABILITY TESTING COMPLETE
                 </strong>
                 <p>Last updated: 14 August 2025</p>
                 <h2 class="nhsuk-heading-s">Iterations</h2>
@@ -303,114 +307,6 @@
                             <td role="cell" class="nhsuk-table__cell">
                                 <span class="nhsuk-table-responsive__heading" aria-hidden="true">Link</span><a
                                     href="data-hub/mvp/v1/data-products">Start now</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </details>
-        <hr>
-        <!-- Assumption Based Prototyping -->
-        <h2 class="nhsuk-heading-m">Assumptions</h2>
-        <details class="nhsuk-details nhsuk-expander">
-            <summary class="nhsuk-details__summary">
-                <span class="nhsuk-details__summary-text">
-                    Initial Draft Assumption Based Prototyping
-                </span>
-            </summary>
-            <div class="nhsuk-details__text">
-                <table role="table" class="nhsuk-table-responsive">
-                    <caption class="nhsuk-table__caption nhsuk-u-visually-hidden">Versions</caption>
-                    <thead role="rowgroup" class="nhsuk-table__head">
-                        <tr role="row">
-                            <th role="columnheader" class="" scope="col">
-                                Description
-                            </th>
-                            <th role="columnheader" class="" scope="col">
-                                Last update
-                            </th>
-                            <th role="columnheader" class="" scope="col">
-                                Link
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody class="nhsuk-table__body">
-                        <tr role="row" class="nhsuk-table__row">
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Description </span>
-                                <h2 class="nhsuk-heading-s">New pages</h2>
-                                <ul class="nhsuk-list nhsuk-list--bullet">
-                                    <li>Data Hub registration page (generic registration steps)</li>
-                                    <li>Data Hub sign in page</li>
-                                    <li>Product access request page</li>
-                                </ul>
-                                <h2 class="nhsuk-heading-s">Additionl changes</h2>
-                                <ul class="nhsuk-list nhsuk-list--bullet">
-                                    <li>ePACT2 dashboard content update - Time period, Data Source, Data definitions, Data dictionary, assumptions, geography and Data last refreshed</li>
-                                    <li>Data product pages content updates to sign in / register section, register to request access to products</li>
-                                </ul>
-                            </td>
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Last update </span>14
-                                May 2025
-                            </td>
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Link</span><a
-                                    href="data-hub/assumptions/v1-2/homepage">Start now</a>
-                            </td>
-                        </tr>
-                        <tr role="row" class="nhsuk-table__row">
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Description </span>
-                                <h2 class="nhsuk-heading-s">New pages</h2>
-                                <ul class="nhsuk-list nhsuk-list--bullet">
-                                    <li>Dental Data (eDEN) - Not logged in</li>
-                                    <li>Dental Data (eDEN) - Logged in</li>
-                                    <li>Ophthalmic Data (eOPS) - Not logged in</li>
-                                    <li>Ophthalmic Data (eOPS) - Logged in</li>
-                                    <li>ePACT2 - Dashboard</li>
-                                    <li>ePACT2 - Dashboard full screen</li>
-                                    <li>My account page</li>
-                                    <li>Search results page with filtering</li>
-                                </ul>
-                                <h2 class="nhsuk-heading-s">Additionl changes</h2>
-                                <ul class="nhsuk-list nhsuk-list--bullet">
-                                    <li>Design change to navigation cards within data products (logged in view)</li>
-                                    <li>Layout change to data products page (logged in view)</li>
-                                </ul>
-                            </td>
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Last update </span>13
-                                May 2025
-                            </td>
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Link</span><a
-                                    href="data-hub/assumptions/v1-1/homepage">Start now</a>
-                            </td>
-                        </tr>
-                        <tr role="row" class="nhsuk-table__row">
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Description </span>
-                                <h2 class="nhsuk-heading-s">New pages</h2>
-                                <ul class="nhsuk-list nhsuk-list--bullet">
-                                    <li>Data Hub Homepage</li>
-                                    <li>Explore our data</li>
-                                    <li>Data products</li>
-                                    <li>Prescribing and Dispensing Data (ePACT2) - Not logged in</li>
-                                    <li>Prescribing and Dispensing Data (ePACT2) - Logged in</li>
-                                    <li>Prescribing reports</li>
-                                    <li>Embedded dashboard view</li>
-                                    <li>News and Events</li>
-                                    <li>Article view</li>
-                                </ul>
-                            </td>
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Last update </span>30
-                                April 2025
-                            </td>
-                            <td role="cell" class="nhsuk-table__cell">
-                                <span class="nhsuk-table-responsive__heading" aria-hidden="true">Link</span><a
-                                    href="data-hub/assumptions/v1/homepage">Start now</a>
                             </td>
                         </tr>
                     </tbody>
