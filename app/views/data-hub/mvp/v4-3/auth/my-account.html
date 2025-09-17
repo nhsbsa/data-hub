@@ -2,18 +2,11 @@
 
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
-<!-- Extends the layout from /app/views/layout.html -->
-{% extends 'data-hub/mvp/v4-3/layout-data-hub.html' %}
-<!--
-  In /app/views/layout.html you can:
-    - change the header and footer
-    - add custom CSS and JavaScript
--->
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v4/layout.html' %}
 
-<!-- include mini search box in the header -->
-{% set includeMiniSearch = 'no' %}
-<!-- Hero Filter Buttons -->
-{% set showFilter = "no" %}
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v4-3' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}

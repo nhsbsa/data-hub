@@ -15,16 +15,60 @@
   <!-- Edit the header -->
   <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
   {% block header %}
-  {{ header({
-    logo: {
+    {% if data.signedIn == 'yes' %}
+    {% set accountItems = [] %}
+
+    {% if data['full-name'] and data['job-role'] %}
+      {% set accountItems = accountItems.concat([{
+        text: data['full-name'] ~ " (" ~ data['job-role'] ~ ")",
+        icon: true
+      }]) %}
+    {% else %}
+      {% set accountItems = accountItems.concat([{
+        text: "Florence Nightingale (Senior Information Analyst)",
+        icon: true
+      }]) %}
+    {% endif %}
+    
+    {% set accountItems = accountItems.concat([
+      { text: "My account", href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/my-account" },
+      { text: "Sign out", href: "/data-hub/mvp/" ~ prototypeVersion ~ "/homepage?signedIn=no?userType=" }
+    ]) %}
+    
+    {{ header({
+      logo: {
         href: "#",
-        ariaLabel: "Data Hub"
-    },
-    service: {
-        text: "Data Hub",
-        href: "/"
-    }
-}) }}
+        ariaLabel: "NHS Business Services Authority"
+      },
+      organisation: {
+        name: "Business Services Authority",
+        descriptor: "Data Hub"
+      },
+      account: {
+        items: accountItems
+      }
+    }) }}
+    {% else %}
+        {{ header({
+            logo: {
+            href: "#",
+            ariaLabel: "NHS Business Services Authority"
+            },
+            organisation: {
+                name: "Business Services Authority",
+                descriptor: "Data Hub"
+            },
+            account: {
+            items: [
+                {
+                text: "Sign in or create account",
+                href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/entra-id/enter-username",
+                icon: true
+                }
+            ]
+            }
+        }) }}
+    {% endif %}
   {% endblock %}
   
   <!-- Edit the footer -->
