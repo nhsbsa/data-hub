@@ -34,82 +34,72 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" content="">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="">
+        <title>{% block pageTitle %}NHS.UK prototype kit{% endblock %}</title>
 
-    <title>{% block pageTitle %}NHS.UK prototype kit{% endblock %}</title>
+        <link href="https://www.nhs.uk/" rel="preconnect">
+        <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
 
-    <link href="https://www.nhs.uk/" rel="preconnect">
-    <link href="https://assets.nhs.uk/" rel="preconnect" crossorigin>
+        <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font"
+            crossorigin>
+        <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font"
+            crossorigin>
 
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-55Roman.woff2" rel="preload" as="font"
-        crossorigin>
-    <link type="font/woff2" href="https://assets.nhs.uk/fonts/FrutigerLTW01-65Bold.woff2" rel="preload" as="font"
-        crossorigin>
+        {% block headCSS %}
+        <link href="/css/main.css" rel="stylesheet">
+        {% endblock %}
 
-    {% block headCSS %}
-    <link href="/css/main.css" rel="stylesheet">
-    {% endblock %}
+        {% block customStyles %}
+        {% endblock %}
 
-    {% block customStyles %}
-    {% endblock %}
+        {% block headIcons %}
+        <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
+        <link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
+        <link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
+        <link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
+        <link rel="manifest" href="/assets/manifest.json">
+        {% endblock %}
 
-    {% block headIcons %}
-    <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
-    <link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
-    <link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
-    <link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
-    <link rel="manifest" href="/assets/manifest.json">
-    {% endblock %}
+        {% block head %}{% endblock %}
 
-    {% block head %}{% endblock %}
+    </head>
+    <body class="{{ bodyClasses }}">
 
-</head>
+        <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
+        {% block bodyStart %}{% endblock %}
 
-<body class="{{ bodyClasses }}">
+        {% block skipLink %}
+        {{ skipLink({
+        href: '#maincontent',
+        text: 'Skip to main content'
+        }) }}
+        {% endblock %}
 
-    <script>document.body.className += ' js-enabled' + ('noModule' in HTMLScriptElement.prototype ? ' nhsuk-frontend-supported' : '');</script>
-    {% block bodyStart %}{% endblock %}
+        {% block header %}
+        {{ header({}) }}
+        {% endblock %}
 
-    {% block skipLink %}
-    {{ skipLink({
-    href: '#maincontent',
-    text: 'Skip to main content'
-    }) }}
-    {% endblock %}
-
-    {% block header %}
-    {{ header({}) }}
-    {% endblock %}
-
-    <div class="nhsuk-width-container">
-        {% block beforeContent %}{% endblock %}
-    </div>
-
-    {% block main %}
-    <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0" id="maincontent"
-        role="main">
-        {% block heroContent %}{% endblock %}
-        <div class="nhsuk-width-container {{ containerClasses }}">
-            {% block content %}{% endblock %}
+        <div class="nhsuk-width-container">
+            {% block beforeContent %}{% endblock %}
         </div>
-    </main>
-    {% endblock %}
 
-    {% block footer %}
-    {{ footer() }}
-    {% endblock %}
+        {% block main %}
+        <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0" id="maincontent" role="main">
+            {% block heroContent %}{% endblock %}
+            <div class="nhsuk-width-container {{ containerClasses }}">
+                {% block content %}{% endblock %}
+            </div>
+        </main>
+        {% endblock %}
 
-    {% block bodyEnd %}{% endblock %}
+        {% block footer %}
+        {{ footer() }}
+        {% endblock %}
 
-    <script src="/nhsuk-frontend/nhsuk.min.js" type="module"></script>
-    <script type="module">
-        import { initAll } from '/javascripts/nhsuk-frontend.min.js'
-        initAll()
-    </script>
-</body>
-
+        {% block bodyEnd %}{% endblock %}
+    </body>
 </html>

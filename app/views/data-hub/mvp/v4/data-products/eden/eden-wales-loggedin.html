@@ -2,18 +2,11 @@
 
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
-<!-- Extends the layout from /app/views/layout.html -->
-{% extends 'data-hub/mvp/v4/layout-data-hub-hero.html' %}
-<!--
-  In /app/views/layout.html you can:
-    - change the header and footer
-    - add custom CSS and JavaScript
--->
+<!-- Extends the layout from /app/views/layouts/v2/layout.html -->
+{% extends 'layouts/v2/layout.html' %}
 
-<!-- include mini search box in the header -->
-{% set includeMiniSearch = 'no' %}
-<!-- Hero Filter Buttons -->
-{% set showFilter = "no" %}
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v4' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
@@ -45,29 +38,6 @@ eDEN - {{ serviceName }} - NHSBSA
                                         class="nhsuk-caption-l custom-hero-caption">Data
                                         Products</span>Dental Data (ePACT2)</h1>
                                 <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">The service will allow you to access interactive and easy to use dental data dasboards</p>
-                                <!-- Show filter at top of HTML -->
-                                {% if 'yes' in showFilter %}
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
-                                    data-module="nhsuk-button" type="submit">
-                                    Reports
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Dashboards
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Latest release
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Dental
-                                </button>
-                                {% endif %}
                             </div>
                             <div class="nhsuk-grid-column-one-third">
                                 <div class="latest-data">

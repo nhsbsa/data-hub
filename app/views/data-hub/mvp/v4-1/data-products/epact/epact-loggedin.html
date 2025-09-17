@@ -2,18 +2,11 @@
 
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
-<!-- Extends the layout from /app/views/layout.html -->
-{% extends 'data-hub/mvp/v4-1/layout-data-hub-hero.html' %}
-<!--
-  In /app/views/layout.html you can:
-    - change the header and footer
-    - add custom CSS and JavaScript
--->
+<!-- Extends the layout from /app/views/layouts/v2/layout.html -->
+{% extends 'layouts/v2/layout.html' %}
 
-<!-- include mini search box in the header -->
-{% set includeMiniSearch = 'no' %}
-<!-- Hero Filter Buttons -->
-{% set showFilter = "no" %}
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v4-1' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
@@ -48,29 +41,6 @@ text: "Prescribing and dispensing data"
                                 <h1 class="nhsuk-u-margin-bottom-4">Electronic prescribing analysis and cost tool
                                     (ePACT2)</h1>
                                 <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Access interactive prescription data reports and dashboards. Data is available 6 weeks after the dispensing month.</p>
-                                <!-- Show filter at top of HTML -->
-                                {% if 'yes' in showFilter %}
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
-                                    data-module="nhsuk-button" type="submit">
-                                    Reports
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Dashboards
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Latest release
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Prescriptions
-                                </button>
-                                {% endif %}
                             </div>
                             <div class="nhsuk-grid-column-one-third">
                                 <div class="latest-data">
@@ -91,30 +61,6 @@ text: "Prescribing and dispensing data"
 {% endblock %}
 
 {% block content %}
-<!-- <div class="nhsuk-grid-row" id="getting-started-expander">
-    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-6">
-        <details class="nhsuk-details nhsuk-expander" open>
-            <summary class="nhsuk-details__summary">
-                <span class="nhsuk-details__summary-text">
-                    Getting started
-                </span>
-            </summary>
-            <div class="nhsuk-details__text">
-                <p>Here are some valuable resources to help you get started with Prescribing and dispensing data</p>
-                <ul class="nhsuk-list">
-                    <li><a href="#">Introduction to ePACT2 (video)</a></li>
-                    <li><a href="#">Beginner user guide (PDF: 2Mb)</a></li>
-                    <li><a href="#">Navigating prescribing and dispensing data (video)</a></li>
-                </ul>
-
-                <h2 class="nhsuk-heading-s">Hide this?</h2>
-                <p>If you wish to hide the getting started section, it will be accessible by navigating to <a
-                        href="../../auth/my-account">your account</a>.</p>
-                <button class="nhsuk-button nhsuk-button--secondary" id="hide-getting-started">Hide this</button>
-            </div>
-        </details>
-    </div>
-</div> -->
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
         <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/dashboards">Dashboards</a></h2>        

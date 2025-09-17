@@ -2,18 +2,11 @@
 
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
-<!-- Extends the layout from /app/views/layout.html -->
-{% extends 'data-hub/mvp/v4/layout-data-hub-hero.html' %}
-<!--
-  In /app/views/layout.html you can:
-    - change the header and footer
-    - add custom CSS and JavaScript
--->
+<!-- Extends the layout from /app/views/layouts/v2/layout.html -->
+{% extends 'layouts/v2/layout.html' %}
 
-<!-- include mini search box in the header -->
-{% set includeMiniSearch = 'no' %}
-<!-- Hero Filter Buttons -->
-{% set showFilter = "no" %}
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v4' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
@@ -21,14 +14,14 @@ Prescribing and dispensing data - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-    {{ breadcrumb({
-        items: [
-            {
-                href: "/data-hub/mvp/v4/homepage",
-                text: "Home"
-            }
-        ]
-    }) }}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v4/homepage",
+text: "Home"
+}
+]
+}) }}
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->
@@ -47,38 +40,11 @@ Prescribing and dispensing data - {{ serviceName }} - NHSBSA
                                     and easy to use prescription data reports and dasboards. Data is available 6 weeks
                                     after the
                                     dispensing month</p>
-                                <!-- Show filter at top of HTML -->
-                                {% if 'yes' in showFilter %}
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
-                                    data-module="nhsuk-button" type="submit">
-                                    Reports
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Dashboards
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Latest release
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Prescriptions
-                                </button>
-                                {% endif %}
                             </div>
-                            <!-- <div class="nhsuk-grid-column-one-third">
-                                <a class="nhsuk-button nhsuk-button--secondary custom-float-right" href="#">Request access</a>
-                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
 {% endblock %}
@@ -88,35 +54,20 @@ Prescribing and dispensing data - {{ serviceName }} - NHSBSA
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
         <h3 class="nhsuk-heading-m">
             {% if data.userType == 'epact' and data.signedIn == 'yes' %}
-                <a href="data-products/epact/epact-loggedin">Electronic Prescribing Analysis and Cost Tool (ePACT2)</a>
+            <a href="data-products/epact/epact-loggedin">Electronic Prescribing Analysis and Cost Tool (ePACT2)</a>
             {% else %}
-                <a href="data-products/epact/epact">Electronic Prescribing Analysis and Cost Tool (ePACT2)</a>
+            <a href="data-products/epact/epact">Electronic Prescribing Analysis and Cost Tool (ePACT2)</a>
             {% endif %}
         </h3>
-        <p>ePACT2 provides authorised users with interactive tools to analyse and export detailed prescribing and dispensing data.</p>
+        <p>ePACT2 provides authorised users with interactive tools to analyse and export detailed prescribing and
+            dispensing data.</p>
         <hr>
         <h3 class="nhsuk-heading-m">
             <a href="data-products/public-available-data/index">Publicly available data</a>
         </h3>
-        <p>Public insight portal for accessing and exploring a range of prescribing, organisational and demographic data.</p>
+        <p>Public insight portal for accessing and exploring a range of prescribing, organisational and demographic
+            data.</p>
         <hr>
     </div>
-
-    <!-- <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-7">
-        <h2 class="nhsuk-heading-m">Useful links</h2>
-        <ul class="nhsuk-list">
-            <li><a href="#">Data release calendar</a></li>
-            <li><a href="#">ePACT2 website</a></li>
-            <li><a href="#">How to request prescription data</a></li>
-            <li><a href="../../product-news">Latest ePACT2 news</a></li>
-        </ul>
-        <h2 class="nhsuk-heading-m">Guidance</h2>
-        <ul class="nhsuk-list">
-            <li><a href="#">Book an ePACT2 training webinar</a></li>
-            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>            
-            <li><a href="training-material">Training material</a></li>
-            <li><a href="#">ePACT2 report information</a></li>
-        </ul>   
-    </div> -->
 </div>
 {% endblock %}

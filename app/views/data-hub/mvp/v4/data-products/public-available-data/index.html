@@ -2,18 +2,11 @@
 
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
-<!-- Extends the layout from /app/views/layout.html -->
-{% extends 'data-hub/mvp/v4/layout-data-hub-hero.html' %}
-<!--
-  In /app/views/layout.html you can:
-    - change the header and footer
-    - add custom CSS and JavaScript
--->
+<!-- Extends the layout from /app/views/layouts/v2/layout.html -->
+{% extends 'layouts/v2/layout.html' %}
 
-<!-- include mini search box in the header -->
-{% set includeMiniSearch = 'no' %}
-<!-- Hero Filter Buttons -->
-{% set showFilter = "no" %}
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v4' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
@@ -21,18 +14,18 @@ Public available data - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-    {{ breadcrumb({
-        items: [
-            {
-                href: "/data-hub/mvp/v4/homepage",
-                text: "Home"
-            },
-            {
-                href: "/data-hub/mvp/v4/prescribing-dispensing",
-                text: "Prescribing and dispensing"
-            }
-        ]
-    }) }}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v4/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v4/prescribing-dispensing",
+text: "Prescribing and dispensing"
+}
+]
+}) }}
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->
@@ -46,39 +39,13 @@ Public available data - {{ serviceName }} - NHSBSA
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
                                 <h1 class="nhsuk-u-margin-bottom-4">Publicly available data</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Public insight portal for accessing and exploring a range of prescribing, organisational and demographic data</p>
-                                <!-- Show filter at top of HTML -->
-                                {% if 'yes' in showFilter %}
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
-                                    data-module="nhsuk-button" type="submit">
-                                    Reports
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Dashboards
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Latest release
-                                </button>
-                                <button
-                                    class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0 nhsuk-u-margin-left-3"
-                                    data-module="nhsuk-button" type="submit">
-                                    Prescriptions
-                                </button>
-                                {% endif %}
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Public insight portal for accessing and
+                                    exploring a range of prescribing, organisational and demographic data</p>
                             </div>
-                            <!-- <div class="nhsuk-grid-column-one-third">
-                                <a class="nhsuk-button nhsuk-button--secondary custom-float-right" href="#">Request access</a>
-                            </div> -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 </div>
 {% endblock %}
@@ -104,29 +71,29 @@ Public available data - {{ serviceName }} - NHSBSA
                 </div>
             </li>
         </ul>
-        
+
         {% if data['signedIn'] == 'yes' %}
         {% else %}
-            <h2 class="nhsuk-heading-m">Data Hub account</h2>
-            <p>Sign in or create an account to request access to more data products.</p>
-            <a class="nhsuk-button" href="../../auth/sign-in?userType=Public available data">Sign in or create account</a>
+        <h2 class="nhsuk-heading-m">Data Hub account</h2>
+        <p>Sign in or create an account to request access to more data products.</p>
+        <a class="nhsuk-button" href="../../auth/sign-in?userType=Public available data">Sign in or create account</a>
         {% endif %}
     </div>
 
     <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-7">
         <h2 class="nhsuk-heading-m">Useful links</h2>
         <ul class="nhsuk-list">
-            <li><a href="#">Data release calendar</a></li>            
+            <li><a href="#">Data release calendar</a></li>
             <li><a href="#">How to request prescription data</a></li>
             <li><a href="../../product-news">Latest public available data news</a></li>
         </ul>
         <h2 class="nhsuk-heading-m">Guidance</h2>
         <ul class="nhsuk-list">
             <li><a href="#">Book an public available data training webinar</a></li>
-            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>            
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
             <li><a href="training-material">Training material</a></li>
             <li><a href="#">Public available data report information</a></li>
-        </ul>   
+        </ul>
     </div>
 </div>
 {% endblock %}

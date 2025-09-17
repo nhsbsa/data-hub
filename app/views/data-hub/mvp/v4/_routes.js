@@ -15,6 +15,26 @@ router.post(/sign-out/, (req, res) => {
     res.redirect('/data-hub/mvp/v4/homepage');
 });
 // ===================================
+// Create an account routes
+// ===================================
+router.post(/full-name/, (req, res) => {
+    res.redirect('/data-hub/mvp/v4/auth/job-role');
+});
+router.post(/job-role/, (req, res) => {
+    res.redirect('/data-hub/mvp/v4/auth/associated-organisation');
+});
+router.post(/associated-organisation/, (req, res) => {
+    res.redirect('/data-hub/mvp/v4/auth/your-email');
+});
+router.post(/your-email/, (req, res) => {
+    res.redirect('/data-hub/mvp/v4/auth/check-your-answers');
+});
+router.post(/auth-code/, (req, res) => {
+    res.redirect('/data-hub/mvp/v4/auth/create-password');
+});
+router.post(/create-password/, (req, res) => {
+    res.redirect('/data-hub/mvp/v4/auth/my-account');
+});
 
 
 
