@@ -1,36 +1,48 @@
-{%- from 'skip-link/macro.njk' import skipLink %}
+{% from "nhsuk/macros/attributes.njk" import nhsukAttributes -%}
+{% from "nhsuk/components/skip-link/macro.njk" import skipLink -%}
+{% from "nhsuk/components/header/macro.njk" import header -%}
+{% from "nhsuk/components/footer/macro.njk" import footer -%}
+
+<!-- components -->
 {%- from 'action-link/macro.njk' import actionLink %}
+{%- from 'back-link/macro.njk' import backLink %}
 {%- from 'breadcrumb/macro.njk' import breadcrumb %}
+{%- from 'button/macro.njk' import button %}
 {%- from 'card/macro.njk' import card %}
 {%- from 'character-count/macro.njk' import characterCount %}
-{%- from 'contents-list/macro.njk' import contentsList %}
-{%- from 'details/macro.njk' import details %}
-{%- from 'header/macro.njk' import header %}
-{%- from 'hero/macro.njk' import hero %}
-{%- from 'footer/macro.njk' import footer %}
-{%- from 'do-dont-list/macro.njk' import list %}
-{%- from 'images/macro.njk' import image %}
-{%- from 'inset-text/macro.njk' import insetText %}
-{%- from 'pagination/macro.njk' import pagination %}
-{%- from 'skip-link/macro.njk' import skipLink %}
-{%- from 'tables/macro.njk' import table %}
-{%- from 'warning-callout/macro.njk' import warningCallout %}
-{%- from 'back-link/macro.njk' import backLink %}
-{%- from 'button/macro.njk' import button %}
 {%- from 'checkboxes/macro.njk' import checkboxes %}
+{%- from 'contents-list/macro.njk' import contentsList %}
 {%- from 'date-input/macro.njk' import dateInput %}
+{%- from 'details/macro.njk' import details %}
+{%- from 'do-dont-list/macro.njk' import list %}
 {%- from 'error-message/macro.njk' import errorMessage %}
 {%- from 'error-summary/macro.njk' import errorSummary %}
 {%- from 'fieldset/macro.njk' import fieldset %}
+{%- from 'header/macro.njk' import header %}
+{%- from 'hero/macro.njk' import hero %}
 {%- from 'hint/macro.njk' import hint %}
+{%- from 'images/macro.njk' import image %}
 {%- from 'input/macro.njk' import input %}
+{%- from 'inset-text/macro.njk' import insetText %}
 {%- from 'label/macro.njk' import label %}
+{%- from 'notification-banner/macro.njk' import notificationBanner %}
+{%- from 'pagination/macro.njk' import pagination %}
+{%- from 'panel/macro.njk' import panel with context %}
 {%- from 'radios/macro.njk' import radios %}
 {%- from 'select/macro.njk' import select %}
+{%- from 'skip-link/macro.njk' import skipLink %}
 {%- from 'summary-list/macro.njk' import summaryList %}
+{%- from 'tables/macro.njk' import table %}
 {%- from 'tabs/macro.njk' import tabs %}
 {%- from 'tag/macro.njk' import tag %}
+{%- from 'task-list/macro.njk' import taskList %}
 {%- from 'textarea/macro.njk' import textarea %}
+{%- from 'warning-callout/macro.njk' import warningCallout %}
+
+{% set assetPath = '/nhsuk-frontend/assets' %}
+
+{% set assetPath = assetPath | default("/assets", true) -%}
+{% set themeColor = themeColor | default("#005eb8", true) -%}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,11 +70,11 @@
     {% endblock %}    
 
     {% block headIcons %}
-    <link rel="icon" href="/assets/images/favicon.ico" sizes="48x48">
-    <link rel="icon" href="/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
-    <link rel="mask-icon" href="/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
-    <link rel="apple-touch-icon" href="/assets/images/nhsuk-icon-180.png">
-    <link rel="manifest" href="/assets/manifest.json">
+    <link rel="icon" href="dist/nhsuk/assets/images/favicon.ico" sizes="48x48">
+    <link rel="icon" href="dist/nhsuk/assets/images/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="mask-icon" href="dist/nhsuk/assets/images/nhsuk-icon-mask.svg" color="#005eb8">
+    <link rel="apple-touch-icon" href="dist/nhsuk/assets/images/nhsuk-icon-180.png">
+    <link rel="manifest" href="dist/nhsuk/assets/manifest.json">
     {% endblock %}
 
     {% block head %}{% endblock %}
