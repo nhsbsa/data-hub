@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layouts/v3/layout.html -->
-{% extends 'layouts/v4/layout.html' %}
+{% extends 'layouts/v1/layout.html' %}
 
 <!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
 {% set prototypeVersion = 'v4-3' %}
@@ -23,7 +23,7 @@ Prototype Directory
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
-<div class="nhsuk-grid-row">
+<div class="nhsuk-grid-row nhsuk-u-padding-top-7">
     <div class="nhsuk-grid-column-full">
         <h1 class="nhsuk-heading-l">
             <span class="nhsuk-caption-l">Data Hub</span>
@@ -72,10 +72,14 @@ Prototype Directory
     <div class="nhsuk-grid-column-one-third">
         <h2 class="nhsuk-heading-m">Training</h2>
         <ul class="nhsuk-list">
-            <li><a href="training-material">All Training guides</a></li>
-            <li><a href="data-products/epact/training-material">ePACT Training guides</a></li>
-            <li><a href="data-products/eden/training-material">eDEN Training guides</a></li>
-            <li><a href="data-products/eops/training-material">eOPS Training guides</a></li>
+            <li><a href="training-hub/landing-page">Training hub</a></li>
+            <li><a href="training-hub/training-catalogue">Training catalogue</a></li>
+            <li><a href="training-hub/book-webinar">Online webinars</a></li>
+            <li><a href="training-hub/e-learning-training-metadata">e-Learning meta data (example)</a></li>
+            <li><a href="training-hub/video-training-metadata">video meta data (example)</a></li>
+            <li><a href="data-products/epact/training-material">ePACT Training catalogue</a></li>
+            <li><a href="data-products/eden/training-material">eDEN Training catalogue</a></li>
+            <li><a href="data-products/eops/training-material">eOPS Training catalogue</a></li>
             <li><a href=""></a></li>
         </ul>
         <h2 class="nhsuk-heading-m">News</h2>
