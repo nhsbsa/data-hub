@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layouts/layout-data-hub.html' %}
+{% extends 'layouts/v1/layout.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -15,6 +15,7 @@
 {{ serviceName }}
 {% endblock %}
 
+{% block beforeContent %}
 {{ backLink({
     href: "../index",
     text: "Back"

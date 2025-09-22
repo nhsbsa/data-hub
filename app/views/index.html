@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'layout.html' %}
+{% extends 'layouts/v1/layout.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -18,7 +18,7 @@
 <!-- For adding page content -->
 <!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
 {% block content %}
-<div class="nhsuk-grid-row">
+<div class="nhsuk-grid-row nhsuk-u-padding-top-7">
     <div class="nhsuk-grid-column-full">
 
         <h1 class="nhsuk-heading-xl">
@@ -36,7 +36,7 @@
         <ul class="nhsuk-grid-row nhsuk-card-group">
             <li class="nhsuk-grid-column-full nhsuk-card-group__item">
             {{ card({
-              href: "data-hub/v4-2/homepage",
+              href: "data-hub/mvp/v4-2/homepage",
               primary: "true",
               clickable: "true",
               heading: "View latest prototype",
