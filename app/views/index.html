@@ -65,13 +65,11 @@
     <div class="nhsuk-grid-column-full">
         <hr class="nhsuk-u-margin-top-0">
         <h2 class="nhsuk-heading-m">Template History</h2>        
-        <p>Here you will be able to navigate through various templates that are created to set a standard for ways of doing things i.e. dashboard templates</p>
-        <a class="nhsuk-action-link" href="history/index">
-            <svg class="nhsuk-icon nhsuk-icon--arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-              <path d="M12 2a10 10 0 0 0-10 9h11.7l-4-4a1 1 0 0 1 1.5-1.4l5.6 5.7a1 1 0 0 1 0 1.4l-5.6 5.7a1 1 0 0 1-1.5 0 1 1 0 0 1 0-1.4l4-4H2A10 10 0 1 0 12 2z"/>
-            </svg>
-            <span class="nhsuk-action-link__text">Template history</span>
-          </a>
+        <p>Here you will be able to navigate through various templates that are created to set a standard for ways of doing things i.e. dashboard templates.</p>
+        {{ actionLink({
+            text: "Template history",
+            href: "history/index"
+        }) }}
     </div>
     <div class="nhsuk-grid-column-full">
         <hr class="nhsuk-u-margin-top-0">
