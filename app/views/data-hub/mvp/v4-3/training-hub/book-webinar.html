@@ -35,40 +35,86 @@ Book a wbinar - {{ serviceName }} - NHSBSA
 
         <h1 class="nhsuk-heading-l">Online webinars</h1>
         
-        <p>We offer a free webinar training service to all users. You can book onto these sessions as many times as you need.</p>
-
-        <p>Our webinar sessions are one hour long and we offer 3 different types of sessions.</p> 
+        <p>We offer a free webinar training service to all users. You can book onto these sessions as many times as you need.</p>        
 
         {% call details({
-            summaryText: "Types of online webinars"
+            summaryText: "Electronic prescribing analysis and cost tool (ePACT2) online webinars"
         }) %}
-        
-        <h2 class="nhsuk-heading-s">General Introduction</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae nobis accusantium libero aut nesciunt dolor quos adipisci voluptas laudantium illo. Veniam distinctio recusandae odio earum, fugit quisquam ex! Ratione, vitae iste. Dolores culpa laboriosam fuga eius natus, facilis quam iste temporibus dignissimos doloremque assumenda itaque ratione similique incidunt neque quod?</p>
+            <h2 class="nhsuk-heading-s">General Introduction</h2>
+            <p>A general tour of the ePACT2 system, highlighting the data being used within the system and a demo of some of the pre-built content available in ePACT2. This is an introductory session aimed at new users of ePACT2 operating at any organisational level (National/Regional/ICB/SICBL/Trust/PCN/GP Practice).</p>
 
-        <h2 class="nhsuk-heading-s">Building Analysis - Introduction</h2>        
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus suscipit animi et eos exercitationem, porro aperiam modi. Libero aperiam magnam, sit odio deserunt obcaecati numquam odit eos expedita molestias? Saepe molestias consequuntur maxime, tempore similique fuga. Et asperiores quas unde quasi quam consequuntur excepturi, expedita neque omnis voluptate explicabo eius!</p>
+            <h2 class="nhsuk-heading-s">Introduction to Building Analysis</h2>        
+            <p>This webinar gives instruction on how to build your own analysis in ePACT2 using the data available to registered users of the system. This will include a demonstration of building an analysis and manipulating the results of the analysis into visualisations. This session is aimed at new users to ePACT2 who want to create their own analysis within the system.</p>
 
-        <h2 class="nhsuk-heading-s">Bespoke help/training session</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet vitae sint architecto fugit laudantium quaerat culpa consectetur corrupti, voluptatum blanditiis quae alias repellendus nostrum. Totam voluptatem commodi nihil eaque. Vero ullam dolorum id expedita excepturi voluptate alias quibusdam vitae officia, tempora doloremque odit ex placeat soluta aliquam consequuntur minus omnis!</p>
+            <h2 class="nhsuk-heading-s">Bespoke help/training session</h2>
+            <p>Do you need specific help with something ePACT2 related? Have you attended the General Introduction to ePACT2 webinar and Building an Analysis in ePACT2 webinar (if needed)? If so we can offer a 30 minute 1-2-1 session with one of our experienced trainers. We do ask that you give us as much information as to what you want to cover in advance of the session so that we can ensure you get the most benefit from attending.</p>
+        {% endcall %}
 
+        {% call details({
+            summaryText: "Electonic Dental (eDEN) online webinars"
+        }) %}
+            <p>Our introductory webinar sessions are 45 minutes long and are tailored to 4 different user types:</p>
+            <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>English Dental Commissioners</li>
+                <li>Welsh Dental Commissioners</li>
+                <li>English Dental Providers</li>
+                <li>Welsh Dental Providers</li>
+            </ul>
+        {% endcall %}
+
+        {% call details({
+            summaryText: "Electronic Ophthalmic (eOPS) online webinars"
+        }) %}
+            <p>Our Commissioner level introductory webinar sessions are 45 minutes long will take you through how to access, navigate and filter the eOPS v3 dashboard to the specifics you require, such as a particular commissioning organisation or a specified time period.</p>
         {% endcall %}
 
         <p>Our experienced trainers deliver these sessions using MS Teams. The sessions are delivered to a set agenda, but you can let us know if you have any specific topics or reports you would like to cover. You can take part wherever you are as long as you can get online.</p>
 
-        <p>We can share our screen and provide a step-by-step but relaxed training session. We encourage you to ask questions and let us know what you need from ePACT2.</p>
+        <p>We can share our screen and provide a step-by-step but relaxed training session. We encourage you to ask questions and let us know what you need from ePACT2, eDEN or eOPS.</p>
 
         <h2 class="nhsuk-heading-m">Book an online webinar</h2>
         <p>Use the booking form to select the session you wish to attend. When booking onto a session, please make sure that you select the date and the time before booking to ensure that you receive a confirmation email.</p>
         <p>Once you've booked, you'll be emailed an invite from the team which will contain a link. You access the session by selecting the link in the email.</p>
-        <p><a class="nhsuk-u-margin-bottom-2" href="https://outlook.office365.com/book/NHSBSAePACT2trainingwebinars@nhsbsa.nhs.uk/?ismsaljsauthenabled=true" target="_blank">Book an online webinar</a></p>
+        <!-- <p><a class="nhsuk-u-margin-bottom-2" href="https://outlook.office365.com/book/NHSBSAePACT2trainingwebinars@nhsbsa.nhs.uk/?ismsaljsauthenabled=true" target="_blank">Book an online webinar</a></p> -->
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                {{ card({
+                    href: "https://outlook.office365.com/book/NHSBSAePACT2trainingwebinars@nhsbsa.nhs.uk/?ismsaljsauthenabled=true",
+                    primary: "true",
+                    clickable: "true",
+                    heading: "ePACT2 online webinar",
+                    headingClasses: "nhsuk-heading-m",
+                    description: "Book an online webinar for ePACT2"          
+                }) }}
+            </li>
+            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                {{ card({
+                    href: "https://outlook.office365.com/book/NHSBSAePACT2trainingwebinars@nhsbsa.nhs.uk/?ismsaljsauthenabled=true",
+                    primary: "true",
+                    clickable: "true",
+                    heading: "eDEN online webinar",
+                    headingClasses: "nhsuk-heading-m",
+                    description: "Book an online webinar for eDEN"         
+                }) }}
+            </li>
+            <li class="nhsuk-grid-column-full nhsuk-card-group__item">
+                {{ card({
+                    href: "https://outlook.office365.com/book/NHSBSAePACT2trainingwebinars@nhsbsa.nhs.uk/?ismsaljsauthenabled=true",
+                    primary: "true",
+                    clickable: "true",
+                    heading: "eOPS online webinar",
+                    headingClasses: "nhsuk-heading-m",
+                    description: "Book an online webinar for eOPS"          
+                }) }}
+            </li>
+        </ul>
 
     </div>
 
     <div class="nhsuk-grid-column-one-third">
         <h2 class="nhsuk-heading-m">Featured</h2>
         <ul class="nhsuk-list">
-            <li><a href="#">Training catalogue</a></li>            
+            <li><a href="training-catalogue">Training catalogue</a></li>            
         </ul>
     </div>
 
