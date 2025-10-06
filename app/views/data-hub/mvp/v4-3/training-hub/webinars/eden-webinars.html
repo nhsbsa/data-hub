@@ -38,36 +38,38 @@ Book a wbinar - {{ serviceName }} - NHSBSA
         {% from 'contents-list/macro.njk' import contentsList %}
 
         {{ contentsList({
-        items: [
-            {
-            href: "book-webinar",
-            text: "Online webinars",
-            current: "true"
-            },
-            {
-            href: "webinars/epact-webinars",
-            text: "ePACT2 webinars"
-            },
-            {
-            href: "#",
-            text: "eDEN webinars"
-            }
-            ,
-            {
-            href: "#",
-            text: "eOPS webinars"
-            }
-        ]
-        }) }}
+            items: [
+                {
+                href: "../book-webinar",
+                text: "Online webinars"                
+                },
+                {
+                href: "epact-webinars",
+                text: "ePACT2 webinars"                
+                },
+                {
+                href: "eden-webinars",
+                text: "eDEN webinars",
+                current: "true"
+                }
+                ,
+                {
+                href: "eops-webinars",
+                text: "eOPS webinars"
+                }
+            ]
+            }) }}
         
-        <p>Book free online training sessions whenever you need them.</p>        
-        <p>We run training sessions on MS Teams. You can join from anywhere with internet access. Each session follows a set agenda, but you can ask for specific topics or reports. </p>
-            <p>Our trainers guide you through each step in a relaxed way. You can ask questions and tell us what you need from ePACT2, eDEN or eOPS.</p>
-            
-
-        <h2 class="nhsuk-heading-m">Book an online webinar</h2>
-        <p>Use the booking form to choose your session, date and time. You'll get a confirmation email once it's booked.</p>
-        <p>We'll send you an invite with a link. Select the link in the email to join the session.</p>
+        <h2 class="nhsuk-heading-m">Booking an eDEN webinar</h2>
+            <p>Join our 45 minutes introdutory wbinar made for</p>
+            <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>English dental commissioners</li>
+                <li>Welsh dental commissioners</li>
+                <li>English dental providers</li>
+                <li>Welsh dental providers</li>
+            </ul>
+        <hr>
+        <a class="nhsuk-button" href="#">Book a webinar</a>
     </div>
 
     <div class="nhsuk-grid-column-one-third">

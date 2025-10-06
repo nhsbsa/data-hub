@@ -43,7 +43,7 @@ Training catalogue - {{ serviceName }} - NHSBSA
     <div class="nhsuk-grid-column-one-quarter">
         <h2 class="nhsuk-heading-m">Filters</h2>
         <div class="nhsuk-hint" id="contact-hint">
-            Select multiple options that are relevant to you
+            Select multiple options that are relevant to you.
         </div>
         <div class="nhsuk-form-group">
             <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
@@ -52,9 +52,6 @@ Training catalogue - {{ serviceName }} - NHSBSA
                         Experience level
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
 
                     <div class="nhsuk-checkboxes__item">
@@ -95,15 +92,12 @@ Training catalogue - {{ serviceName }} - NHSBSA
                         Content type
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Interactive training
+                            e-Learning
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
@@ -130,9 +124,6 @@ Training catalogue - {{ serviceName }} - NHSBSA
                         Data tool
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="api" name="data-tool" type="checkbox"
@@ -165,22 +156,23 @@ Training catalogue - {{ serviceName }} - NHSBSA
                 </div>
             </fieldset>
         </div>               
-        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Filter result</a>
+        <a href="#">Clear filters</a>
+        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
     </div>
 
     <div class="nhsuk-grid-column-three-quarters">
         <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-one-half">
-                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 62 results</span>
+                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 50 results</span>
             </div>
             <div class="nhsuk-grid-column-one-half custom-sort-by">
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label nhsuk-u-margin-right-2" for="select-1">
                         Sort by
                     </label> <select class="nhsuk-select" id="select-1" name="select-1">
-                        <option value="1" selected>Updated (newest)</option>
+                        <option value="1" selected>Recently updated</option>                        
+                        <option value="2">Most viewed</option>             
                         <option value="2">Alphabetical</option>           
-                        <option value="2">Most read</option>             
                     </select>
                 </div>
             </div>
@@ -216,7 +208,7 @@ Training catalogue - {{ serviceName }} - NHSBSA
         <hr>
         <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - Reconciling your NHSBSA invoice (PDF: 1.05MB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
         <p>A guide to show you how to reconcile your NHSBSA Invoice using the IPP and Remuneration financial reports.</p>
-
+        <hr>
 
         <!-- pagination -->
         {{ pagination({

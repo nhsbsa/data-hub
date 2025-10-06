@@ -38,36 +38,39 @@ Book a wbinar - {{ serviceName }} - NHSBSA
         {% from 'contents-list/macro.njk' import contentsList %}
 
         {{ contentsList({
-        items: [
-            {
-            href: "book-webinar",
-            text: "Online webinars",
-            current: "true"
-            },
-            {
-            href: "webinars/epact-webinars",
-            text: "ePACT2 webinars"
-            },
-            {
-            href: "#",
-            text: "eDEN webinars"
-            }
-            ,
-            {
-            href: "#",
-            text: "eOPS webinars"
-            }
-        ]
-        }) }}
+            items: [
+                {
+                href: "../book-webinar",
+                text: "Online webinars"                
+                },
+                {
+                href: "epact-webinars",
+                text: "ePACT2 webinars"                
+                },
+                {
+                href: "eden-webinars",
+                text: "eDEN webinars"                
+                }
+                ,
+                {
+                href: "eops-webinars",
+                text: "eOPS webinars",
+                current: "true"
+                }
+            ]
+            }) }}
         
-        <p>Book free online training sessions whenever you need them.</p>        
-        <p>We run training sessions on MS Teams. You can join from anywhere with internet access. Each session follows a set agenda, but you can ask for specific topics or reports. </p>
-            <p>Our trainers guide you through each step in a relaxed way. You can ask questions and tell us what you need from ePACT2, eDEN or eOPS.</p>
+            <h2 class="nhsuk-heading-m">eOPS webinars</h2>
+                <p>When you join our 45 minutes commissioner level webinar, you'll:</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>learn how to access the eOPS v3 dashboard</li>
+                    <li>navigate and filter the data</li>
+                    <li>view information by organisation</li>
+                    <li>select a specific time period</li>
+                </ul>
             
-
-        <h2 class="nhsuk-heading-m">Book an online webinar</h2>
-        <p>Use the booking form to choose your session, date and time. You'll get a confirmation email once it's booked.</p>
-        <p>We'll send you an invite with a link. Select the link in the email to join the session.</p>
+        <hr>
+        <a class="nhsuk-button" href="#">Book a webinar</a>
     </div>
 
     <div class="nhsuk-grid-column-one-third">

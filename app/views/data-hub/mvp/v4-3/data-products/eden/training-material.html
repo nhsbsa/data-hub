@@ -53,7 +53,7 @@ Training guides - {{ serviceName }} - NHSBSA
     <div class="nhsuk-grid-column-one-quarter">
         <h2 class="nhsuk-heading-m">Filters</h2>
         <div class="nhsuk-hint" id="contact-hint">
-            Select multiple options that are relevant to you
+            Select multiple options that are relevant to you.
         </div>
         <div class="nhsuk-form-group">
             <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
@@ -62,18 +62,7 @@ Training guides - {{ serviceName }} - NHSBSA
                         Experience level
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
-
-                    <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
-                            value="email">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Introductory
-                        </label>
-                    </div>
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
@@ -105,15 +94,12 @@ Training guides - {{ serviceName }} - NHSBSA
                         Content type
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Interactive training
+                            e-Learning
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
@@ -140,9 +126,6 @@ Training guides - {{ serviceName }} - NHSBSA
                         Data tool
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="api" name="data-tool" type="checkbox"
@@ -174,8 +157,9 @@ Training guides - {{ serviceName }} - NHSBSA
                     </div>        
                 </div>
             </fieldset>
-        </div>               
-        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Filter result</a>
+        </div>         
+        <a href="#">Clear filters</a>      
+        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
     </div>
 
     <div class="nhsuk-grid-column-three-quarters">
@@ -189,9 +173,9 @@ Training guides - {{ serviceName }} - NHSBSA
                     <label class="nhsuk-label nhsuk-u-margin-right-2" for="select-1">
                         Sort by
                     </label> <select class="nhsuk-select" id="select-1" name="select-1">
-                        <option value="1" selected>Updated (newest)</option>
-                        <option value="2">Alphabetical</option>      
-                        <option value="2">Most read</option>                  
+                        <option value="1" selected>Recently updated</option>                         
+                        <option value="2">Most viewed</option>                
+                        <option value="2">Alphabetical</option>       
                     </select>
                 </div>
             </div>
@@ -222,12 +206,6 @@ Training guides - {{ serviceName }} - NHSBSA
         <h2 class="nhsuk-heading-s"><a href="#" target="_blank">Getting started with eDEN for Welsh dental providers (YouTube video)</a></h2>
         <p>A short video showing welsh dental providers how to navigate to, access and use the dashboards available in the system.</p>
 
-
-        <!-- pagination -->
-        {{ pagination({
-            nextUrl: "#",
-            nextPage: "2 of 5"
-          }) }}
     </div>
 </div>
 {% endblock %}

@@ -44,12 +44,9 @@ Training catalogue - {{ serviceName }} - NHSBSA
             <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
                 <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                     <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
-                        Digital product
+                        Data product
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
 
                     <div class="nhsuk-checkboxes__item">
@@ -90,18 +87,7 @@ Training catalogue - {{ serviceName }} - NHSBSA
                         Experience level
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
-
-                    <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
-                            value="email">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Introductory
-                        </label>
-                    </div>
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
@@ -133,15 +119,12 @@ Training catalogue - {{ serviceName }} - NHSBSA
                         Content type
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
                             value="email">
                         <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            Interactive training
+                            e-Learning
                         </label>
                     </div>
                     <div class="nhsuk-checkboxes__item">
@@ -168,9 +151,6 @@ Training catalogue - {{ serviceName }} - NHSBSA
                         Data tool
                     </h3>
                 </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
                 <div class="nhsuk-checkboxes">
                     <div class="nhsuk-checkboxes__item">
                         <input class="nhsuk-checkboxes__input" id="api" name="data-tool" type="checkbox"
@@ -202,23 +182,24 @@ Training catalogue - {{ serviceName }} - NHSBSA
                     </div>        
                 </div>
             </fieldset>
-        </div>               
-        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Filter result</a>
+        </div>
+        <a href="#">Clear filters</a>
+        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
     </div>
 
     <div class="nhsuk-grid-column-three-quarters">
         <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-one-half">
-                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 62 results</span>
+                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 50 results</span>
             </div>
             <div class="nhsuk-grid-column-one-half custom-sort-by">
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label nhsuk-u-margin-right-2" for="select-1">
                         Sort by
                     </label> <select class="nhsuk-select" id="select-1" name="select-1">
-                        <option value="1" selected>Updated (newest)</option>
-                        <option value="2">Alphabetical</option>         
-                        <option value="2">Most read</option>               
+                        <option value="1" selected>Recently updated</option>
+                        <option value="2">Most viewed</option>
+                        <option value="2">Alphabetical</option>
                     </select>
                 </div>
             </div>
@@ -226,7 +207,7 @@ Training catalogue - {{ serviceName }} - NHSBSA
         <hr class="nhsuk-u-margin-top-0">
 
         <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="e-learning-training-metadata">Electronic prescribing analysis and cost tool (ePACT2) Introduction</a></h2>
-        <p>An intrduction to the Electronic prescribing analysis and cost tool (ePACT2).</p>
+        <p>An introduction to the Electronic prescribing analysis and cost tool (ePACT2).</p>
         <hr>
         <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="https://www.nhsbsa.nhs.uk/sites/default/files/2024-04/ePACT2%20User%20Guide%20-%20Quick%20Start.pdf" target="_blank">ePACT2 - User Guide - Quick Start (PDF: 740KB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
         <p>A guide to help you log into the system.</p>
@@ -254,10 +235,11 @@ Training catalogue - {{ serviceName }} - NHSBSA
         <hr>
         <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="video-training-metadata">ePACT introduction video</a></h2>
         <p>An introduction to ePACT2 dashboards and reports.</p>
+        <hr>
 
         <!-- pagination -->
         {{ pagination({
-            nextUrl: "training-catalogue-2",
+            nextUrl: "#",
             nextPage: "2 of 5"
           }) }}
     </div>

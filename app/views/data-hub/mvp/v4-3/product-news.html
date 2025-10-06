@@ -37,13 +37,13 @@ text: "Home"
         <div class="nhsuk-grid-column-one-quarter">
             <h2 class="nhsuk-heading-m">Filters</h2>
             <div class="nhsuk-hint" id="example-hint">
-                Select all options that are relevant to you.
+                Select multiple options that are relevant to you.
             </div>
             <div class="nhsuk-form-group">
                 <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
                     <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
                         <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
-                            Digital product
+                            Data product
                         </h3>
                     </legend>
                     <div class="nhsuk-checkboxes">
@@ -82,8 +82,8 @@ text: "Home"
                     </div>
                 </fieldset>
             </div>
-            <hr class="nhsuk-section-break nhsuk-section-break--visible">
-            <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Filter result</a>
+            <a href="#">Clear filters</a>
+            <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
         </div>
     {% endif %}
     {% if data['productFlow'] == 'yes' %}
@@ -93,16 +93,16 @@ text: "Home"
     {% endif %}
         <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-one-half">
-                <span class="nhsuk-heading-s nh">Showing 1 to 6 of 6 results</span>
+                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 50 results</span>
             </div>
             <div class="nhsuk-grid-column-one-half custom-sort-by">
                 <div class="nhsuk-form-group">
                     <label class="nhsuk-label nhsuk-u-margin-right-2" for="select-1">
                         Sort by
                     </label> <select class="nhsuk-select" id="select-1" name="select-1">
-                        <option value="1" selected>Updated (newest)</option>
-                        <option value="2">Alphabetical</option>
+                        <option value="1" selected>Recently updated</option>                        
                         <option value="2">Most read</option>               
+                        <option value="2">Alphabetical</option>
                     </select>
                 </div>
             </div>
@@ -145,6 +145,37 @@ text: "Home"
             including the context and reasoning behind the publication, please refer to our recent article.</p>
         <p class="nhsuk-u-margin-bottom-1"><span class="nhsuk-caption-m">Updated: 11 February 2025</span></p>
         <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">Coming soon: NHS volunteering find and apply service - key performance indicators datasets</a></h2>
+        <p>Performance data for the NHS Volunteering Find and Apply Service will soon be published on the NHSBSA Open
+            Data Portal. Available as two separate datasets, these will provide insights into key service metrics for
+            both organisations and volunteers.</p>
+        <p class="nhsuk-u-margin-bottom-1"><span class="nhsuk-caption-m">Updated: 22 April 2025</span></p>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">New ODP datasets now available: BNF codes</a></h2>
+        <p>The British National Formulary (BNF) codes dataset is now available on the NHSBSA Open Data Portal (ODP). The
+            dataset has migrated from being hosted on the Information Services Portal (ISP) to the ODP as part of a
+            drive to improve services and better.</p>
+        <p class="nhsuk-u-margin-bottom-1"><span class="nhsuk-caption-m">Updated: 15 April 2025</span></p>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">Coming Soon: Transition to the English Prescribing Datasets (EPD) with
+                SNOMED CT Codes</a></h2>
+        <p>The NHS Business Services Authority (NHSBSA) is preparing to transition to the English Prescribing Dataset
+            (EPD) with Systematised Nomenclature of Medicine Clinical Terms (SNOMED CT) codes as the primary dataset.
+        </p>
+        <p class="nhsuk-u-margin-bottom-1"><span class="nhsuk-caption-m">Updated: 4 April 2025</span></p>
+        <hr>
+        <h2 class="nhsuk-heading-s"><a href="#">Updated Dataset Now Available: Finalise Secondary Care Medicine Data
+                (SCMD) with Indicative Pricing</a></h2>
+        <p>We’ve updated how the Secondary Care Medicine Data (SCMD) with Indicative Pricing dataset is structured on
+            the NHSBSA Open Data Portal (ODP), making it easier for users to track and analyse medicines stock movement
+            across NHS.</p>
+        <p class="nhsuk-u-margin-bottom-1"><span class="nhsuk-caption-m">Updated: 20 March 2025</span></p>
+        <hr>
+        <!-- pagination -->
+        {{ pagination({
+            nextUrl: "#",
+            nextPage: "2 of 5"
+          }) }}
     </div>
 </div>
 {% endblock %}
