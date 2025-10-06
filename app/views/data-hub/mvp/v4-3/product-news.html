@@ -31,61 +31,66 @@ text: "Home"
     </div>
 </div>
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-one-quarter">
-        <h2 class="nhsuk-heading-m">Filters</h2>
-        <div class="nhsuk-hint nhsuk-u-margin-bottom-2" id="example-hint">
-            Select all options that are relevant to you.
+    {% if data['productFlow'] == 'yes' %}
+
+    {% else %}
+        <div class="nhsuk-grid-column-one-quarter">
+            <h2 class="nhsuk-heading-m">Filters</h2>
+            <div class="nhsuk-hint" id="example-hint">
+                Select all options that are relevant to you.
+            </div>
+            <div class="nhsuk-form-group">
+                <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                    <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                        <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
+                            Digital product
+                        </h3>
+                    </legend>
+                    <div class="nhsuk-checkboxes">
+
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                                value="email">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                                ePACT
+                            </label>
+                        </div>
+
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox"
+                                value="phone">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+                                eDEN
+                            </label>
+                        </div>
+
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox"
+                                value="phone">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="example-3">
+                                eOPS
+                            </label>
+                        </div>
+
+                        <div class="nhsuk-checkboxes__item">
+                            <input class="nhsuk-checkboxes__input" id="example-4" name="example" type="checkbox"
+                                value="phone">
+                            <label class="nhsuk-label nhsuk-checkboxes__label" for="example-4">
+                                Public available data
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <hr class="nhsuk-section-break nhsuk-section-break--visible">
+            <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Filter result</a>
         </div>
-        <div class="nhsuk-form-group">
-            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
-                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
-                    <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
-                        Digital product
-                    </h3>
-                </legend>
-                <div class="nhsuk-hint nhsuk-u-visually-hidden" id="example-hint">
-                    Select all options that are relevant to you.
-                </div>
-                <div class="nhsuk-checkboxes">
-
-                    <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
-                            value="email">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
-                            ePACT
-                        </label>
-                    </div>
-
-                    <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox"
-                            value="phone">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
-                            eDEN
-                        </label>
-                    </div>
-
-                    <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox"
-                            value="phone">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-3">
-                            eOPS
-                        </label>
-                    </div>
-
-                    <div class="nhsuk-checkboxes__item">
-                        <input class="nhsuk-checkboxes__input" id="example-4" name="example" type="checkbox"
-                            value="phone">
-                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-4">
-                            Public available data
-                        </label>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-        <hr class="nhsuk-section-break nhsuk-section-break--visible">
-        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Filter result</a>
-    </div>
-    <div class="nhsuk-grid-column-three-quarters">
+    {% endif %}
+    {% if data['productFlow'] == 'yes' %}
+        <div class="nhsuk-grid-column-full">
+    {% else %}
+        <div class="nhsuk-grid-column-three-quarters">
+    {% endif %}
         <div class="nhsuk-grid-row">
             <div class="nhsuk-grid-column-one-half">
                 <span class="nhsuk-heading-s nh">Showing 1 to 6 of 6 results</span>

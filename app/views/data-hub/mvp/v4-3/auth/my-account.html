@@ -71,8 +71,7 @@ text: "Home"
                     {% endif %}
 
                     {{ card({
-                        href: productURL,
-                        clickable: "false",
+                        href: productURL,                        
                         heading: productHeading,
                         headingClasses: "nhsuk-heading-m",
                         descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--green\">Active</strong></p>
@@ -80,32 +79,19 @@ text: "Home"
                     }) }}
                     
                 </li>
-            </ul>
-            <hr class="nhsuk-u-margin-top-0">
-            <h2 class="nhsuk-heading-m">Pending or expired access</h2>
-            <ul class="nhsuk-grid-row nhsuk-card-group">
-                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-
-                    {{ card({
-                        heading: pendingHeading,
-                        headingLevel: "3",
-                        descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--yellow\">Pending</strong></p>
-                        <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Cancel request</a></p></p>"
-                    }) }}
-
-                </li>
-                <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-
-                    {{ card({
-                        heading: expiredHeading,
-                        headingLevel: "3",
-                        descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--red\">Expired</strong></p>
-                        <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Request access</a></p></p>"
-                    }) }}
-
-                </li>
-            </ul>
-            <hr class="nhsuk-u-margin-top-0">
+            </ul>            
+            {% call details({
+            summaryText: "View your pending or expired access"            
+            }) %}
+                <h2 class="nhsuk-heading-s">{{ pendingHeading }}</h2>
+                <p>Access status: <strong class="nhsuk-tag nhsuk-tag--yellow">Pending</strong></p>
+                <p class="nhsuk-card__description"><a href="#">Cancel request</a></p></p>
+                <hr>
+                <h2 class="nhsuk-heading-s">{{ expiredHeading }}</h2>
+                <p>Access status: <strong class="nhsuk-tag nhsuk-tag--red">Expired</strong></p>
+                <p class="nhsuk-card__description"><a href="#">Request access</a></p></p>
+            {% endcall %}        
+            <hr>
         {% endif %}
     </div>
     <div class="nhsuk-grid-column-full">        
