@@ -8,6 +8,34 @@
 <!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
 {% set prototypeVersion = 'v4-3' %}
 
+<!-- Conditions to decide which cards to show which content -->
+{% if data.userType == 'epact' %}
+    {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+    {% set productURL = '../data-products/epact/epact-loggedin' %}
+    {% set pendingHeading = 'Electronic dental (eDEN)' %}
+    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+{% elif data.userType == 'eden' %}
+    {% set productHeading = 'Electronic dental (eDEN)' %}
+    {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
+    {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+{% elif data.userType == 'edenWelsh' %}
+    {% set productHeading = 'Electronic dental (eDEN)' %}
+    {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
+    {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+{% elif data.userType == 'eops' %}
+    {% set productHeading = 'Electronic ophthalmics (eOPS)' %}
+    {% set productURL = '../data-products/eops/eops-loggedin' %}
+    {% set pendingHeading = 'Electronic dental (eDEN)' %}
+    {% set expiredHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+{% else %}
+    {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+    {% set productURL = '../data-products/epact/epact-loggedin' %}
+    {% set pendingHeading = 'Electronic dental (eDEN)' %}
+    {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
+{% endif %}
+
 <!-- Set the page title -->
 {% block pageTitle %}
 My account - {{ serviceName }} - NHSBSA
@@ -42,34 +70,6 @@ text: "Home"
         {% else %}            
             <ul class="nhsuk-grid-row nhsuk-card-group">
                 <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-
-                    {% if data.userType == 'epact' %}
-                        {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                        {% set productURL = '../data-products/epact/epact-loggedin' %}
-                        {% set pendingHeading = 'Electronic dental (eDEN)' %}
-                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                    {% elif data.userType == 'eden' %}
-                        {% set productHeading = 'Electronic dental (eDEN)' %}
-                        {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
-                        {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                    {% elif data.userType == 'edenWelsh' %}
-                        {% set productHeading = 'Electronic dental (eDEN)' %}
-                        {% set productURL = '../data-products/eden/eden-wales-loggedin' %}
-                        {% set pendingHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                    {% elif data.userType == 'eops' %}
-                        {% set productHeading = 'Electronic ophthalmics (eOPS)' %}
-                        {% set productURL = '../data-products/eops/eops-loggedin' %}
-                        {% set pendingHeading = 'Electronic dental (eDEN)' %}
-                        {% set expiredHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                    {% else %}
-                        {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
-                        {% set productURL = '../data-products/epact/epact-loggedin' %}
-                        {% set pendingHeading = 'Electronic dental (eDEN)' %}
-                        {% set expiredHeading = 'Electronic ophthalmics (eOPS)' %}
-                    {% endif %}
-
                     {{ card({
                         href: productURL,                        
                         heading: productHeading,
@@ -77,8 +77,18 @@ text: "Home"
                         descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--green\">Active</strong></p>
                         <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Cancel access</a></p></p>"
                     }) }}
-                    
                 </li>
+                {% if data.userType == 'eden' %}
+                    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                        {{ card({
+                            href: "https://compass.nhsbsa.nhs.uk/auth/esr.elogin",                        
+                            heading: "Compass",
+                            headingClasses: "nhsuk-heading-m",
+                            descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--green\">Public access</strong></p>
+                            <p class=\"nhsuk-card__description nhsuk-u-margin-top-3\"><a href=\"#\">Cancel access</a></p></p>"
+                        }) }}
+                    </li>
+                {% endif %}
             </ul>            
             {% call details({
             summaryText: "View your pending or expired access"            
