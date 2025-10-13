@@ -38,8 +38,8 @@ Public available data - {{ serviceName }} - NHSBSA
                     <div class="nhsuk-hero__wrapper app-hero__wrapper">
                         <div class="nhsuk-grid-row">
                             <div class="nhsuk-grid-column-two-thirds">
-                                <h1 class="nhsuk-u-margin-bottom-4">Publicly available</h1>
-                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Public insight portal for accessing and exploring a range of prescribing, organisational and demographic data</p>
+                                <h1 class="nhsuk-u-margin-bottom-4">Public data</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Use our public insight portal to access prescribing, organisational and demographic data.</p>
                             </div>
                         </div>
                     </div>
@@ -53,9 +53,12 @@ Public available data - {{ serviceName }} - NHSBSA
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
-        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/a-to-z">Dashboards</a></h2>
+        <h2 class="nhsuk-heading-m"><a href="dashboards/a-to-z">Dashboards</a></h2>
+        <p>Explore dashboards on prescribing, organisational and demographic trends.</p>
         <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
-        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-9"><a href="reports/a-to-z">Reports</a></h2>
+        <h2 class="nhsuk-heading-m"><a href="reports/a-to-z">Reports</a></h2>
+        <p>Read and download reports on healthcare data.</p>
+        <hr>
         {% if data['signedIn'] == 'yes' %}
 
         {% else %}
