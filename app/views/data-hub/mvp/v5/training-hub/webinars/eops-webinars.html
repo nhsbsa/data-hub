@@ -1,0 +1,84 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v4/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Book a webinar - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/v5/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/v5/training-hub/landing-page",
+            text: "Training hub"
+        }
+    ]
+}) }}
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">Live webinars</h1>
+
+        {% from 'contents-list/macro.njk' import contentsList %}
+
+        {{ contentsList({
+            items: [
+                {
+                href: "../book-webinar",
+                text: "What you should know"                
+                },
+                {
+                href: "epact-webinars",
+                text: "ePACT2 webinars"                
+                },
+                {
+                href: "eden-webinars",
+                text: "eDEN webinars"                
+                }
+                ,
+                {
+                href: "eops-webinars",
+                text: "eOPS webinars",
+                current: "true"
+                }
+            ]
+            }) }}
+        
+            <h2 class="nhsuk-heading-m">eOPS webinars</h2>
+                <p>When you join our 45 minutes commissioner level webinar, you'll:</p>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>learn how to access the eOPS v3 dashboard</li>
+                    <li>navigate and filter the data</li>
+                    <li>view information by organisation</li>
+                    <li>select a specific time period</li>
+                </ul>
+            
+        <hr>
+        <a class="nhsuk-button" href="https://outlook.office365.com/book/NHSBSAeOPStraining@nhsbsa.nhs.uk/?ismsaljsauthenabled=true" target="_blank">Book an eOPS webinar (opens in a new tab)</a>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Featured</h2>
+        <ul class="nhsuk-list">
+            <li><a href="training-catalogue">Training catalogue</a></li>            
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

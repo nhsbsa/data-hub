@@ -1,0 +1,96 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v1/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Prototype Directory
+{% endblock %}
+
+{% block beforeContent %}
+{{ backLink({
+    href: "javascript:history.back()",
+    text: "Back"
+  }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row nhsuk-u-padding-top-7">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l">
+            <span class="nhsuk-caption-l">Data Hub</span>
+            Version 4 prototype directory
+        </h1>
+        <hr>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Landing page</h2>
+        <ul class="nhsuk-list">
+            <li><a href="homepage">Homepage</a></li>
+            <li><a href="data-products/epact/epact">ePACT</a></li>
+            <li><a href="data-products/epact/epact-loggedin">ePACT Logged in</a></li>
+            <li><a href="data-products/eden/eden">eDEN</a></li>
+            <li><a href="data-products/eden/eden-loggedin">eDEN Logged in</a></li>
+            <li><a href="data-products/eops/eops">eOPS</a></li>
+            <li><a href="data-products/eops/eops-loggedin">eOPS Logged in</a></li>
+            <li><a href="data-products/public-available-data/index">Public available data</a></li>
+        </ul>
+        <h2 class="nhsuk-heading-m">Navigation</h2>
+        <ul class="nhsuk-list">
+            <li><a href="prescribing-dispensing">Prescribing and dispensing</a></li>
+            <li><a href="data-products/epact/dashboards/dashboards">ePACT dashboard list</a></li>
+            <li><a href="data-products/epact/reports/prescribing-reports">ePACT reports list</a></li>
+        </ul>
+        <h2 class="nhsuk-heading-m">Error screens</h2>
+        <ul class="nhsuk-list">
+            <li><a href="../../../history/template-history/error-screens/v1/403">Unauthorised access</a></li>
+            <li><a href="../../../history/template-history/error-screens/v1/404">Page not found</a></li>
+        </ul>  
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Sign in / registration</h2>
+        <ul class="nhsuk-list">
+            <li><a href="auth/entra-id/enter-username">Sign in (username)</a></li>
+            <li><a href="auth/entra-id/enter-password">Enter password</a></li>
+            <li><a href="auth/entra-id/enter-code">Authentication code</a></li>
+            <li><a href="auth/entra-id/update-password">Forgotten password</a></li>
+            <li><a href="auth/entra-id/create-password">Create password</a></li>
+            <li><a href="auth/entra-id/entra-create-account">Create account</a></li>   
+            <li><a href="auth/my-account">My account</a></li>
+        </ul>
+        <h2 class="nhsuk-heading-m">Dashboards and reports</h2>
+        <ul class="nhsuk-list">
+            <li><a href="data-products/epact/dashboards/premium-priced-generics">ePACT Dashboard</a></li>
+            <li><a href="data-products/epact/dashboards/premium-priced-generics-full-screen">Full screen dashboard</a></li>
+            <li><a href="data-products/epact/reports/premium-priced-generics">ePACT Report</a></li>
+            <li><a href="data-products/epact/reports/premium-priced-generics-full-screen">Full screen report</a></li>
+        </ul>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Training</h2>
+        <ul class="nhsuk-list">
+            <li><a href="training-hub/landing-page">Training hub</a></li>
+            <li><a href="training-hub/training-catalogue">Training catalogue</a></li>
+            <li><a href="training-hub/book-webinar">Live webinars</a></li>
+            <li><a href="training-hub/e-learning-training-metadata">Training meta data</a></li>            
+            <li><a href="data-products/epact/training-material">ePACT Training catalogue</a></li>
+            <li><a href="data-products/eden/training-material">eDEN Training catalogue</a></li>
+            <li><a href="data-products/eops/training-material">eOPS Training catalogue</a></li>
+            <li><a href=""></a></li>
+        </ul>
+        <h2 class="nhsuk-heading-m">News</h2>
+        <ul class="nhsuk-list">
+            <li><a href="product-news">All product news</a></li>
+            <li><a href="news-post">News article</a></li>
+        </ul>       
+    </div>
+</div>
+{% endblock %}
