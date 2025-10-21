@@ -63,6 +63,10 @@ text: "Prescribing and dispensing"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
+        {% if data.userType == 'hot' %}
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/dashboards">Home Oxygen Therapy (HOT)</a></h2>        
+            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+        {% endif %}
         <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/dashboards">Dashboards</a></h2>        
         <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
         <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="reports/prescribing-reports">Prescribing reports</a> </h2>

@@ -10,22 +10,22 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Ministry of Defence - {{ serviceName }} - NHSBSA
+Ministry of Defence (MOD) - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-    {{ breadcrumb({
-        items: [
-            {
-                href: "/data-hub/mvp/v5/homepage",
-                text: "Home"
-            },
-            {
-                href: "/data-hub/mvp/v5/prescribing-dispensing",
-                text: "Prescribing and dispensing"
-            }
-        ]
-    }) }}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v5/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v5/prescribing-dispensing",
+text: "Prescribing and dispensing"
+}
+]
+}) }}
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->
@@ -41,6 +41,15 @@ Ministry of Defence - {{ serviceName }} - NHSBSA
                                 <h1 class="nhsuk-u-margin-bottom-4">Ministry of Defence (MOD)</h1>
                                 <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Users with access can view prescribing and dispensing data dashboards interactive data sets. Data is available 6 weeks after the dispensing month.</p>
                             </div>
+                            <div class="nhsuk-grid-column-one-third">
+                                <div class="latest-data">
+                                    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Latest data</h2>
+                                    <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">Prescription data: <span
+                                            class="nhsuk-u-font-weight-bold">January 2025</span></p>
+                                    <p class="nhsuk-body-s nhsuk-u-margin-bottom-0">Remuneration data: <span
+                                            class="nhsuk-u-font-weight-bold">January 2025</span></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -52,30 +61,12 @@ Ministry of Defence - {{ serviceName }} - NHSBSA
 
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4 sign-in-request-access">
-        <p>Authorised users of MOD are able to:</p>
-        <ul class="nhsuk-list nhsuk-list--bullet">
-            <li>access prescription data through reports and dashboards</li>
-            <li>build custom reports</li>
-            <li>explore prescribing trends and costs</li>
-            <li>export data</li>
-            <li>filter down to individual prescription item and patient level detail</li>
-            <li>view high level data summaries</li>
-        </ul>
-        <hr>
-        {% if data.signedIn == 'yes' %}
-            <h2 class="nhsuk-heading-l">Request access</h2>
-            <p>Requet access to be able to view MOD.</p>         
-            <a class="nhsuk-button" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact/registering-epact">Request access to MOD</a>
-        {% else %}
-        <h2 class="nhsuk-heading-l">Sign in or request access</h2>
-        <p>Sign in to your account using your username and password, or request access to view prescribing and dispensing data.</p>
-        <a class="nhsuk-button" href="../../../auth/entra-id/enter-username?userType=mod">Sign in or create account</a>
-        <a class="nhsuk-button nhsuk-button--secondary" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact/registering-epact">Request access to MOD</a>
-        {% endif %}
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="#">Create analysis tool (opens in a new tab)</a></h2>        
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti atque, voluptatem quaerat impedit velit iste illum earum iure dicta, voluptatibus quo, voluptatum cupiditate explicabo? Cum iusto est architecto mollitia perferendis!</p>
+        <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">       
     </div>
-
-    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-7">
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
         <h2 class="nhsuk-heading-m">Useful links</h2>
         <ul class="nhsuk-list">
             <li><a href="#">Data release calendar</a></li>
@@ -90,7 +81,7 @@ Ministry of Defence - {{ serviceName }} - NHSBSA
             <li><a href="../../training-hub/landing-page">Training hub</a></li>
             <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>                        
             <li><a href="#">ePACT2 report information</a></li>
-        </ul>   
+        </ul>
     </div>
 </div>
 {% endblock %}
