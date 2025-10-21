@@ -58,8 +58,8 @@ Prescribing and dispensing data - {{ serviceName }} - NHSBSA
         </h3>
         <p>Electronic prescribing analysis and cost tool (ePACT) reports and dashboards. You must be an authorised user to access ePACT2.</p>
         <hr>
-        {% if data.userType == 'mod' %}
-            <h3 class="nhsuk-heading-m"><a href="data-products/epact/mod/index">Ministry of Defence (MOD)</a></h3>
+        {% if data.userType == 'mod' and data.signedIn == 'yes' %}
+            <h3 class="nhsuk-heading-m"><a href="data-products/epact/mod/mod-loggedin">Ministry of Defence (MOD)</a></h3>
             <p>Providing data to help Minstry of Defence users track trends, inform decisions and support policy. You must be an authorised user to access Ministry of Defence.</p>
             <hr>            
         {% endif %}
