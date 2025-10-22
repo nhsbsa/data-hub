@@ -1,0 +1,56 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Change log - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "change-log",
+text: "Back"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium Priced Generics Change Log</span>Add comment</h1>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds">
+        <form action="change-log">
+            {{ input({
+            label: {
+                text: "Enter a title"
+            },
+            id: "example",
+            name: "example"
+            }) }}
+            
+            {{ textarea({
+            name: "example",
+            id: "example",
+            label: {
+                text: "Enter your comments"
+            }
+            }) }}
+            {{ button({
+                text: "Post comment"
+            }) }}
+        </form>
+    </div>
+</div>
+{% endblock %}

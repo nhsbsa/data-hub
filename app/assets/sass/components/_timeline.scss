@@ -1,0 +1,60 @@
+.nhsbsa-timeline {
+    list-style: none;
+    padding-left: 45px;
+}
+
+.nhsbsa-timeline__event--action-needed {
+    display: table;
+    background: #e7eaec;
+    padding: 20px 15px;
+}
+
+.nhsbsa-timeline__event {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.nhsbsa-timeline__event:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 13px;
+    bottom: -20px;
+    left: -34px;
+    border-left: 3px solid #005eb8;
+}
+
+.nhsbsa-timeline__event:after {
+    top: 5px;
+}
+
+.nhsbsa-timeline__event:after {
+    content: "";
+    display: block;
+    height: 25px;
+    width: 25px;
+    top: 3px;
+    left: -45px;
+    position: absolute;
+    border-radius: 100%;
+    background: #fff;
+    border: 3px solid #005eb8;
+}
+
+.nhsbsa-timeline__event.most-recent:after {
+    background: #005eb8;
+}
+
+.nhsbsa-timeline__event:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 13px;
+    bottom: -20px;
+    left: -34px;
+    border-left: 3px solid #005eb8;
+}
+
+.nhsbsa-timeline__event.first-log:before {
+    display: none;
+}

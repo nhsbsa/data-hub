@@ -1,0 +1,108 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Change log - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v5/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v5/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/v5/data-products/epact/epact-loggedin",
+text: "Electronic prescribing analysis and cost tool (ePACT)"
+},
+{
+href: "dashboards",
+text: "Dashboards"
+},
+{
+href: "../premium-priced-generics",
+text: "Premium Priced Generics"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium Priced Generics</span>Change log</h1>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <a class="nhsuk-button custom-float-right" href="add-comment">Add a new comment</a>
+    </div>
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-5">        
+        <ul class="nhsuk-list">
+            <li>             
+                {{ card({
+                heading: "New data release",
+                headingLevel: "3",
+                descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
+                <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis perspiciatis repellendus adipisci beatae in assumenda itaque incidunt laborum. Omnis!</p>"
+                }) }}               
+            </li>
+            <li>
+                {{ card({
+                    heading: "Data dictionary update",
+                    headingLevel: "3",
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>"
+                }) }}              
+            </li>
+            <li>
+                {{ card({
+                    heading: "Removed Tables",
+                    headingLevel: "3",
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse alias natus architecto fuga, reprehenderit fugit nesciunt cupiditate, nisi libero similique accusamus, voluptas totam vel assumenda? Vero ea repudiandae deserunt magni labore, neque itaque aliquid placeat ab, nostrum tempore rem et.</p>"
+                }) }}                
+            </li>
+            <li>
+                {{ card({
+                    heading: "New data release",
+                    headingLevel: "3",
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis perspiciatis repellendus adipisci beatae in assumenda itaque incidunt laborum. Omnis!</p>"
+                }) }}                   
+            </li>
+            <li>
+                {{ card({
+                    heading: "Premium Priced Generics",
+                    headingLevel: "3",
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
+                    <p>>Dashboard has been created.</p>"
+                }) }}                
+            </li>
+        </ol>
+
+        <!-- pagination -->
+        {{ pagination({
+            nextUrl: "#",
+            nextPage: "2 of 5"
+          }) }}
+    </div>
+</div>
+{% endblock %}
