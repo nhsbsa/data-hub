@@ -14,19 +14,15 @@ Change log - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-items: [
-{
-href: "change-log",
-text: "Back"
-}
-]
-}) }}
+{{ backLink({
+    href: "change-log",
+    text: "Back"
+  }) }}
 {% endblock %}
 
 
 {% block content%}
-<div class="nhsuk-grid-row">
+<div class="nhsuk-grid-row nhsuk-u-margin-top-4">
     <div class="nhsuk-grid-column-two-thirds">
         <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium Priced Generics Change Log</span>Add comment</h1>
     </div>

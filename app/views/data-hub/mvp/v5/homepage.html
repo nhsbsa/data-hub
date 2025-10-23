@@ -48,9 +48,9 @@
         <p>Prescribing and dispensing data reports and dashboards. You must be an authorised user to access the Electronic prescribing analysis and cost tool (ePACT2).</p>
         <hr>
         <h3 class="nhsuk-heading-m">
-            {% if data.userType == 'eden' and data.signedIn == 'yes' %}
+            {% if (data.userType == 'eden' or data.userType == 'admin') and data.signedIn == 'yes' %}
                 <a href="data-products/eden/eden-loggedin">Dental</a>
-            {% elif data.userType == 'edenWelsh' and data.signedIn == 'yes' %}
+            {% elif ( data.userType == 'edenWelsh' or data.userType == 'admin') and data.signedIn == 'yes' %}
                 <a href="data-products/eden/eden-wales-loggedin">Dental</a>
             {% else %}
                 <a href="data-products/eden/eden">Dental</a>
@@ -59,7 +59,7 @@
         <p>Electronic dental (eDEN) reports and dashboards. You must be an authorised user to access eDEN.</p>
         <hr>
         <h3 class="nhsuk-heading-m">
-            {% if data.userType == 'eops' and data.signedIn == 'yes' %}
+            {% if (data.userType == 'eops' or data.userType == 'admin') and data.signedIn == 'yes' %}
                 <a href="data-products/eops/eops-loggedin">Ophthalmic</a>
             {% else %}
                 <a href="data-products/eops/eops">Ophthalmic</a>

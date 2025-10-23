@@ -73,6 +73,22 @@ text: "Home"
             </ul>
             <p>You can access our Public data <a href="../data-products/public-available-data/index">prescribing and dispensing data</a>.</p>
             <hr>
+        {% elif data.userType == 'admin' %}
+            <h3 class="nhsuk-heading-s">Prescribing and dispensing</h3>
+            <ul class="nhsuk-list">
+                <li><a href="../data-products/epact/epact-loggedin">Electronic prescribing analysis and cost tool (ePACT2)</a></li>
+                <li><a href="../data-products/epact/ministry-of-defence/mod-loggedin">Ministry of Defence</a></li>
+                <li><a href="../data-products/public-available-data/index">Public data</a></li>
+            </ul>
+            <h3 class="nhsuk-heading-s">Dental</h3>
+            <ul class="nhsuk-list">
+                <li><a href="../data-products/eden/eden-loggedin">Electronic dental (eDEN)</a></li>                
+            </ul>
+            <h3 class="nhsuk-heading-s">Ophthalmic</h3>
+            <ul class="nhsuk-list">
+                <li><a href="../data-products/eops/eops-loggedin">Electronic ophthalmics (eOPS)</a></li>
+            </ul>
+            <hr>
         {% else %}            
             <ul class="nhsuk-grid-row nhsuk-card-group">
                 <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
