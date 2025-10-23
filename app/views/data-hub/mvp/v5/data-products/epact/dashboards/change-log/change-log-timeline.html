@@ -46,9 +46,11 @@ text: "Premium Priced Generics"
     <div class="nhsuk-grid-column-two-thirds">
         <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium Priced Generics</span>Change log</h1>
     </div>
-    <div class="nhsuk-grid-column-one-third">
-        <a class="nhsuk-button custom-float-right" href="add-comment">Add a new comment</a>
-    </div>
+    {% if data.userType == 'admin' %}
+        <div class="nhsuk-grid-column-one-third">
+            <a class="nhsuk-button custom-float-right" href="add-comment">Add a new comment</a>
+        </div>
+    {% endif %}
     <div class="nhsuk-grid-column-full">        
         <ol class="nhsbsa-timeline nhsuk-u-margin-top-7">
             <li class="nhsbsa-timeline__event most-recent">
