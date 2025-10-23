@@ -72,6 +72,8 @@ Electronic prescribing analysis and cost tool (ePACT2) - {{ serviceName }} - NHS
         <p>Sign in to your account using your username and password, or request access to view prescribing and dispensing data.</p>
         {% if data.userType == 'hot' %}
             <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=hot">Sign in or create account</a>
+        {% elif data.userType == 'admin' %}
+            <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=admin">Sign in or create account</a>
         {% else %}
             <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=epact">Sign in or create account</a>
         {% endif %}
