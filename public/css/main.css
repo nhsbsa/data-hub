@@ -9770,6 +9770,16 @@ b {
   display: none;
 }
 
+.nhsuk-file-upload {
+  font-size: 1.1875rem;
+  padding: 5px;
+  margin-left: -5px;
+}
+.nhsuk-file-upload:focus {
+  outline: 3px solid #fd0;
+  box-shadow: inset 0 0 0 4px #0b0c0c;
+}
+
 .flex {
   display: flex;
 }
@@ -10164,4 +10174,17 @@ ul#searched-keywords li:first-of-type {
 
 .hero-visible {
   padding-top: 0;
+}
+
+.add-another-training {
+  display: none;
+}
+
+p code {
+  background-color: #ffffff;
+  color: #d14;
+  font-size: 16px;
+  line-height: 1.71429;
+  padding: 2px 8px;
+  word-break: break-word;
 }/*# sourceMappingURL=main.css.map */

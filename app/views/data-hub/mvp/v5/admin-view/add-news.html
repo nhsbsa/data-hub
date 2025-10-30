@@ -1,0 +1,187 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Training catalogue - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+    {
+        href: "/data-hub/mvp/v5/homepage",
+        text: "Home"
+      },
+      {
+        href: "/data-hub/mvp/v5/product-news",
+        text: "News"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l">Create a news article</h1>
+    </div>
+</div>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+        <form action="add-news" method="POST">            
+            {{ input({
+                label: {
+                text: "Enter the authors name"
+                },
+                id: "author",
+                name: "author",
+                classes: "nhsuk-input--width-20",
+                value: data.author
+            }) }}
+
+            {{ input({
+                label: {
+                text: "Enter the estimated reading time"
+                },
+                hint: {
+                    text: "For example, 9 minutes."
+                },
+                id: "readingTime",
+                name: "readingTime",
+                classes: "nhsuk-input--width-20",
+                value: data.readingTime
+            }) }}
+
+            {{ input({
+                label: {
+                text: "Enter a short summary for this news"
+                },
+                hint: {
+                    text: "This will be displayed on the news list as an introduction to the article."
+                },
+                id: "newsIntro",
+                name: "newsIntro",
+                value: data.newsIntro
+            }) }}   
+
+            <h2 class="nhsuk-heading-m">News title and content</h2>
+            {{ input({
+                label: {
+                text: "Enter the title of the news article"
+                },
+                id: "newsTitle",
+                name: "newsTitle",
+                classes: "nhsuk-input--width-20",
+                value: data.newsTitle
+            }) }}        
+
+            {% call details({
+            summaryText: "Markdown guide"
+            }) %}
+            <p>This is a guide to writing markdown.</p>
+            <p>To create headings within the body of the article, you start with <code>## insert-heading</code>, if there are any other headings within a section then you must use the next heading level <code>### insert-heading</code></p>
+            <p>When you are creating paragraphs there is no markdown to include, just add your content.</p>
+            <!-- <p>To create bold text:<br><code>**bold text**</code></p> -->
+            <p>To create ordered lists:<br><code>1. first item</code><br><code>2. second item</code><br><code>3. third item</code></p>
+            <p>To create unordered lists:<br><code>- first item</code><br><code>- second item</code><br><code>- third item</code></p>
+            <p>To create a link:<br><code>[link title](URL)</code></p>
+            {% endcall %}
+
+            {{ textarea({
+            name: "newsBody",
+            id: "newsBody",
+            value: data.newsBody,
+            label: {
+                text: "Enter the news article content"
+            },
+            hint: {
+                text: "This must be entered using markdown language, for support in writing markdown, use the 'Markdown guide' above."
+            }
+            }) }}        
+            <hr>
+
+            <h2 class="nhsuk-heading-m">Related news</h2>
+
+            {{ input({
+                label: {
+                text: "Enter the title of related news"
+                },
+                id: "relatedNews",
+                name: "relatedNews",
+                classes: "nhsuk-input--width-20",
+                value: data.relatedNews
+            }) }}
+            {{ input({
+                label: {
+                text: "Enter the URL to the related news"
+                },
+                id: "relatedNewsURL",
+                name: "relatedNewsURL",
+                classes: "nhsuk-input--width-20",
+                value: data.relatedNewsURL
+            }) }}
+            <p><a href="#">Remove</a></p>
+
+            <div class="add-another-training">
+                <hr>
+                {{ input({
+                    label: {
+                    text: "Enter the title of related news"
+                    },
+                    id: "relatedNewsMore",
+                    name: "relatedNewsMore",
+                    classes: "nhsuk-input--width-20",
+                    value: data.relatedNewsMore
+                }) }}
+                {{ input({
+                    label: {
+                    text: "Enter the URL to the related news"
+                    },
+                    id: "relatedNewsMoreURL",
+                    name: "relatedNewsMoreURL",
+                    classes: "nhsuk-input--width-20",
+                    value: data.relatedNewsMoreURL
+                }) }}
+                <p><a href="#">Remove</a></p>
+            </div>
+            
+            {{ button({
+                text: "Add another",
+                classes: "nhsuk-button--secondary nhsuk-u-margin-bottom-0",
+                id: "add-another-training-button"            
+            }) }}
+            <hr>
+            <div class="nhsuk-button-group">
+                {{ button({
+                    text: "Preview article",
+                    classes: "nhsuk-button",
+                    attributes: {
+                        name: "action",
+                        value: "preview"
+                    }
+                }) }}
+
+                {{ button({
+                    text: "Save as draft",
+                    classes: "nhsuk-button nhsuk-button--secondary",
+                    attributes: {
+                        name: "action",
+                        value: "draft"
+                    }
+                }) }}
+            
+                <a href="../product-news" class="nhsuk-link">Cancel</a>
+            </div>
+        </form>
+
+
+</div>
+{% endblock %}

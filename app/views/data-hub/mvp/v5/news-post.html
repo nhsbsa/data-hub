@@ -31,6 +31,10 @@ Coming soon: NHS volunteering find and apply service - key performance indicator
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
+        {% if data.userType == 'admin' %}
+            <p class="nhsuk-u-margin-bottom-2">Author: Mia Kai</p>
+        {% endif %}
+        <p class="nhsuk-u-margin-bottom-2">Estimated reading time: 7 minutes</p>
         <p>Updated: 22 April 2025</p>
         <hr class="nhsuk-u-margin-top-0">
         <h1 class="nhsuk-heading-l">Coming soon: NHS volunteering find and apply service - key performance indicators datasets</h1>

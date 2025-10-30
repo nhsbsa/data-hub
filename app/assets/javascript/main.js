@@ -25,4 +25,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         console.log("wont work here...");
     }
+
+    const addButton = document.getElementById("add-another-training-button");
+    const trainingSection = document.querySelector(".add-another-training");
+
+    addButton.addEventListener("click", function (event) {
+        event.preventDefault(); // prevents page reload if it's inside a form
+        trainingSection.style.display = "block";
+    });
 });

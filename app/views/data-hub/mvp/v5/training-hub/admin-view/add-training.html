@@ -1,0 +1,142 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Training catalogue - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+    {
+        href: "/data-hub/mvp/v5/homepage",
+        text: "Home"
+      },
+      { 
+        href: "/data-hub/mvp/v5/training-hub/landing-page",
+        text: "Training hub"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
+        <h1 class="nhsuk-heading-l">Add new training</h1>
+    </div>
+</div>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+        {{ input({
+            label: {
+              text: "Enter a title for the training"
+            },
+            id: "training-title",
+            name: "training-title",
+            classes: "nhsuk-input--width-20"
+        }) }}
+
+        {{ textarea({
+        name: "what-you-learn",
+        id: "what-you-learn",
+        label: {
+            text: "What you'll learn"
+        },
+        hint: {
+            text: "Provide information on what the user will learn from this training."
+        }
+        }) }}
+
+        {{ input({
+            label: {
+              text: "Enter the URL to the e-Learning"
+            },
+            id: "elearning-link",
+            name: "elearning-link",
+            classes: "nhsuk-input--width-20"    
+        }) }}
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="file-upload-1">
+              Upload a word document format
+            </label>
+            <div class="nhsuk-hint">
+                The name of this word document should match the training title.
+            </div>
+            <input class="nhsuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+        </div>
+
+        {{ input({
+            label: {
+              text: "Enter the URL to the training YouTube video"
+            },
+            id: "youtube-link",
+            name: "youtube-link",
+            classes: "nhsuk-input--width-20"    
+        }) }}
+
+        <h2 class="nhsuk-heading-m">Related training</h2>
+
+        {{ input({
+            label: {
+              text: "Enter the title of related training"
+            },
+            id: "related-training-title",
+            name: "related-training-title",
+            classes: "nhsuk-input--width-20"
+        }) }}
+        {{ input({
+            label: {
+              text: "Enter the URL to the related training"
+            },
+            id: "related-training-url",
+            name: "related-training-url",
+            classes: "nhsuk-input--width-20"
+        }) }}
+        <p><a href="#">Remove training</a></p>
+
+        <div class="add-another-training">
+            <hr>
+            {{ input({
+                label: {
+                  text: "Enter the title of related training"
+                },
+                id: "related-training-title",
+                name: "related-training-title",
+                classes: "nhsuk-input--width-20"
+            }) }}
+            {{ input({
+                label: {
+                  text: "Enter the URL to the related training"
+                },
+                id: "related-training-url",
+                name: "related-training-url",
+                classes: "nhsuk-input--width-20"
+            }) }}
+            <p><a href="#">Remove training</a></p>
+        </div>
+        
+        {{ button({
+            text: "Add another",
+            classes: "nhsuk-button--secondary",
+            id: "add-another-training-button"
+        }) }}
+    </div>
+    <div class="nhsuk-grid-column-two-thirds">
+        {{ button({
+            text: "Publish training",
+            classes: "nhsuk-button"            
+        }) }}
+
+    </div>        
+</div>
+{% endblock %}

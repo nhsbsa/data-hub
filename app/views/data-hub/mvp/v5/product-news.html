@@ -26,9 +26,12 @@ text: "Home"
 
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
         <h1 class="nhsuk-heading-l">News</h1>
     </div>
+    {% if data.userType == 'admin' %}
+        <a class="nhsuk-button custom-float-right" href="admin-view/add-news">Add new article</a>
+    {% endif %}
 </div>
 <div class="nhsuk-grid-row">
     {% if data['productFlow'] == 'yes' %}
@@ -83,7 +86,11 @@ text: "Home"
                 </fieldset>
             </div>
             <a href="#">Clear filters</a>
-            <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
+            {% if data.userType == 'admin' %}
+                <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-top-4" href="#">Apply filters</a>
+            {% else %}
+                <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
+            {% endif %}
         </div>
     {% endif %}
     {% if data['productFlow'] == 'yes' %}
@@ -108,7 +115,11 @@ text: "Home"
             </div>
         </div>
         <hr class="nhsuk-u-margin-top-0">
-
+        {% if data.newsPublished %}
+            <h2 class="nhsuk-heading-s"><a href="admin-view/published-article?showBanner=no">{{ data.newsTitle }}</a></h2>
+            <p>{{ data.newsIntro }}</p>
+            <hr>
+        {% endif %}
         <h2 class="nhsuk-heading-s"><a href="news-post">Coming soon: NHS volunteering find and apply service - key performance indicators datasets</a></h2>
         <p>Performance data for the NHS Volunteering Find and Apply Service will soon be published on the NHSBSA Open
             Data Portal. Available as two separate datasets, these will provide insights into key service metrics for
