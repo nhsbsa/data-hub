@@ -29,7 +29,7 @@ text: "Home"
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
         <h1 class="nhsuk-heading-l">News</h1>
     </div>
-    {% if data.userType == 'admin' %}
+    {% if data.userType == 'admin' and data.signedIn == 'yes' %}
         <a class="nhsuk-button custom-float-right" href="admin-view/add-news">Add new article</a>
     {% endif %}
 </div>
@@ -86,7 +86,7 @@ text: "Home"
                 </fieldset>
             </div>
             <a href="#">Clear filters</a>
-            {% if data.userType == 'admin' %}
+            {% if data.userType == 'admin' and data.signedIn == 'yes' %}
                 <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-top-4" href="#">Apply filters</a>
             {% else %}
                 <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
