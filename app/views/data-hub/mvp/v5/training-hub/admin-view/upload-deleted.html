@@ -30,6 +30,18 @@ text: "Training hub"
 
 {% block content %}
 <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        {% set html %}
+        <h3 class="nhsuk-notification-banner__heading">
+            Success
+        </h3>
+        <p>File was successfully deleted.</p>        
+        {% endset %}
+        {{ notificationBanner({
+        html: html,
+        type: "success"
+        }) }}   
+      </div>
     <div class="nhsuk-grid-column-two-thirds">
         <h1 class="nhsuk-heading-l">Create new training</h1>
     </div>

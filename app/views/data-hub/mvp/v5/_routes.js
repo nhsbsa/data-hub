@@ -70,7 +70,7 @@ router.post(/entra-create-account/, (req, res) => {
 // ===================================
 // Admin view
 // ===================================
-// POST route that converts Markdown and renders a new page
+// NEWS POST route that converts Markdown and renders a new page
 router.post(/add-new/, (req, res) => {
     const { action } = req.body; // "preview" or "draft"
     const markdown = req.session.data['newsBody'];
@@ -95,6 +95,33 @@ router.post(/add-new/, (req, res) => {
 router.post(/publish-news/, (req, res) => {
     req.session.data['newsPublished'] = "yes";
     res.redirect('published-article')
+})
+
+// TRAINING POST route that converts Markdown and renders a new page
+router.post(/add-training/, (req, res) => {
+    const { action } = req.body; // "preview" or "draft"
+    const markdown = req.session.data['trainingBody'];
+    const trainingMarkdown = md.render(markdown);
+
+    // req.session.data['trainingMarkdown'] = trainingMarkdown;
+
+    // If user clicked "Preview article"
+    if (action === 'preview') {
+        return res.render('data-hub/mvp/v5/training-hub/admin-view/training-preview', { trainingMarkdown });
+    }
+
+    // If user clicked "Save as draft"
+    if (action === 'draft') {
+        // Redirect to drafts page or confirmation
+        return res.render('data-hub/mvp/v5/training-hub/admin-view/draft-training', { trainingMarkdown });
+    }
+
+    // Default fallback
+    res.redirect('/add-training');
+});
+router.post(/publish-training/, (req, res) => {
+    req.session.data['trainingPublished'] = "yes";
+    res.redirect('published-training')
 })
 
 module.exports = router;

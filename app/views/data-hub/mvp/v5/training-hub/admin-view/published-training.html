@@ -1,0 +1,98 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+e-Learning Training - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v5/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v5/training-hub/landing-page",
+text: "Training hub"
+},
+{
+href: "/data-hub/mvp/v5/training-hub/training-catalogue",
+text: "Training catalogue"
+},
+{
+href: "/data-hub/mvp/v5/training-hub/admin-view/add-training",
+text: "Create new training"
+}
+]
+}) }}
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    {% if data.showBanner != 'no' %}
+        <div class="nhsuk-grid-column-full">
+            {% set html %}
+            <h3 class="nhsuk-notification-banner__heading">
+                Training published
+            </h3>
+            <p><a href="add-training">Create more training</a> or <a href="../../homepage">return to home</a>.</p>        
+            {% endset %}
+            {{ notificationBanner({
+            html: html,
+            type: "success"
+            }) }}   
+        </div>
+    {% endif %}
+    <div class="nhsuk-grid-column-full">        
+        <h1 class="nhsuk-heading-l">{{ data.trainingTitle }}</h1>
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-2"><span class="nhsuk-u-font-weight-bold">Last updated:</span> 18
+            September 2025</p>
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-2"><span class="nhsuk-u-font-weight-bold">Author:</span> {{ data.trainingAuthor }}</p>
+        <p class="nhsuk-body-s"><span class="nhsuk-u-font-weight-bold">Edtimated completion time:</span> {{ data.completionTime }}</p>
+        <hr>
+        <h2 class="nhsuk-heading-m">What you'll learn</h2>
+        
+        <p>This training introduces ePACT2, how it uses data and examples of pre-built content.</p>
+
+        <p>After completing this training, you'll be able to:</p>
+
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>log in to ePACT2</li>
+            <li>understand what data is available</li>
+            <li>access support resources</li>
+            <li>find and use dashboards and reports</li>
+        </ul>
+
+        <a class="nhsuk-button nhsuk-u-margin-bottom-0" href="#">Start e-Learning (opens in a new tab)</a>
+
+        <hr>
+        <h2 class="nhsuk-heading-m">More training resources</h2>
+        <p>This training is available in 2 additional formats.</p>
+        <h3 class="nhsuk-heading-s">Word document</h3>
+        <p>Read the content offline.</p>
+        <p class="nhsuk-u-margin-bottom-5"><a
+                href="https://nhsbsauk-my.sharepoint.com/:w:/g/personal/katem_nhsbsa_nhs_uk/ERVg9OkL0_5PqVZxLBVX6NQBd8cLfcXwUliYHVUyNrQZxQ?e=jhIP3Q"
+                target="_blank">ePACT2-Practice-Personally-Administered-Items-Report (Word: 2.2MB)</a></p>
+        <h3 class="nhsuk-heading-s">Video</h3>
+        <p>See how dashboards and reports work.</p>
+        <p><a href="https://www.youtube.com/watch?v=9I6ukuktKYE" target="_blank">YouTube training video (opens in a new tab)</a></p>
+
+        <hr>
+        <h2 class="nhsuk-heading-m nhsuk-u-margin-top-5">Related training</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">{{ data.relatedTrainingTitle }}</a></li>
+            <li><a href="#">{{ data.moreTrainingTitle }}</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

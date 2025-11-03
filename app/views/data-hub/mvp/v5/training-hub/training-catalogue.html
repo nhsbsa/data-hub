@@ -33,8 +33,8 @@ Training catalogue - {{ serviceName }} - NHSBSA
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
         <h1 class="nhsuk-heading-l">Training catalogue</h1>
     </div>
-    {% if data.userType == 'admin' %}
-        <a class="nhsuk-button custom-float-right" href="admin-view/add-training">Add new training</a>
+    {% if data.userType == 'admin' and data.signedIn == 'yes' %}
+        <a class="nhsuk-button custom-float-right" href="admin-view/add-training">Create new training</a>
     {% endif %}
 </div>
 <div class="nhsuk-grid-row">
@@ -212,7 +212,11 @@ Training catalogue - {{ serviceName }} - NHSBSA
             </div>
         </div>
         <hr class="nhsuk-u-margin-top-0">
-
+        {% if data.trainingPublished == 'yes' %}
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="admin-view/published-training?showBanner=no">{{ data.trainingTitle }}</a></h2>
+            <p>{{ data.trainingIntro }}</p>
+            <hr>
+        {% endif %}
         <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="e-learning-training-metadata">Electronic prescribing analysis and cost tool (ePACT2) Introduction</a></h2>
         <p>An introduction to the Electronic prescribing analysis and cost tool (ePACT2).</p>
         <hr>

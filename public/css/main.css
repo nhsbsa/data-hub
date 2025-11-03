@@ -9709,75 +9709,77 @@ b {
   top: 0;
 }
 
-.nhsbsa-timeline {
-  list-style: none;
-  padding-left: 45px;
+.moj-multi-file-upload__dropzone {
+  display: flex;
+  outline: 3px dashed #0b0c0c;
+  padding: 60px 15px;
+  text-align: center;
+  transition: outline-offset 0.1s ease-in-out, background-color 0.1s linear;
 }
 
-.nhsbsa-timeline__event--action-needed {
-  display: table;
-  background: #e7eaec;
-  padding: 20px 15px;
-}
-
-.nhsbsa-timeline__event {
-  position: relative;
-  padding-bottom: 15px;
-}
-
-.nhsbsa-timeline__event:before {
-  content: "";
-  display: block;
+.moj-multi-file-upload__dropzone [type=file] {
+  left: -9999em;
   position: absolute;
-  top: 13px;
-  bottom: -20px;
-  left: -34px;
-  border-left: 3px solid #005eb8;
 }
 
-.nhsbsa-timeline__event:after {
-  top: 5px;
-}
-
-.nhsbsa-timeline__event:after {
-  content: "";
-  display: block;
-  height: 25px;
-  width: 25px;
-  top: 3px;
-  left: -45px;
-  position: absolute;
-  border-radius: 100%;
-  background: #fff;
-  border: 3px solid #005eb8;
-}
-
-.nhsbsa-timeline__event.most-recent:after {
-  background: #005eb8;
-}
-
-.nhsbsa-timeline__event:before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 13px;
-  bottom: -20px;
-  left: -34px;
-  border-left: 3px solid #005eb8;
-}
-
-.nhsbsa-timeline__event.first-log:before {
-  display: none;
-}
-
-.nhsuk-file-upload {
-  font-size: 1.1875rem;
-  padding: 5px;
+.govuk-file-upload {
   margin-left: -5px;
+  max-width: 100%;
+  padding: 5px;
 }
-.nhsuk-file-upload:focus {
-  outline: 3px solid #fd0;
-  box-shadow: inset 0 0 0 4px #0b0c0c;
+
+.govuk-file-upload {
+  color: #0b0c0c;
+}
+
+.moj-multi-file-upload__dropzone p {
+  margin-bottom: 0;
+  margin-right: 10px;
+  padding-top: 7px;
+}
+
+.moj-multi-file-upload__dropzone label {
+  display: inline-block;
+  margin-bottom: 0;
+  width: auto;
+}
+
+.nhsuk-button:before {
+  background: rgba(0, 0, 0, 0);
+  bottom: -4px;
+  content: "";
+  display: block;
+  left: -2px;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+}
+
+.moj-multi-file-upload--dragover {
+  background: #b1b4b6;
+  outline-color: #6f777b;
+}
+
+.moj-multi-file-upload__success {
+  color: #007f3b;
+  font-weight: bold;
+}
+
+.moj-multi-file-upload__success svg {
+  fill: #007f3b;
+  float: left;
+  margin-right: 8px;
+}
+
+ul.nhsuk-summary-list__actions-list.custom-preview-delete {
+  font-weight: normal;
+  display: flex;
+}
+ul.nhsuk-summary-list__actions-list.custom-preview-delete li {
+  margin-bottom: 0;
+}
+ul.nhsuk-summary-list__actions-list.custom-preview-delete li .nhsuk-body-s {
+  margin-bottom: 0;
 }
 
 .flex {
