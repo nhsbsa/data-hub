@@ -19,9 +19,12 @@ You have been signed out - {{ serviceName }} - NHSBSA
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-        <h1 class="nhsuk-heading-l nhsuk-u-margin-top-7">Signed out</h1>
-        <p>You have now been signed out of the data hub.</p>
-        <p><a href="entra-id/enter-username">Sign in</a> or go to the <a href="../homepage">homepage</a>.</p>
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-top-7">You've signed out</h1>
+        <p>You can:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li><a href="entra-id/enter-username">sign in</a></li>
+            <li>go to the <a href="../homepage">homepage</a></li>
+        </ul>        
     </div>
 </div>
 {% endblock %}
