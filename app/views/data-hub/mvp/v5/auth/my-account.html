@@ -62,7 +62,7 @@ text: "Home"
 <div class="nhsuk-grid-row">
         <div class="nhsuk-grid-column-full">
         <h1 class="nhsuk-heading-l">My account</h1>
-        <h2 class="nhsuk-heading-m">Access</h2>
+        <h2 class="nhsuk-heading-m">Current access</h2>
         {% if not data.userType %}
             <p>You have not requested access to any data products</p>
             <p>View our data products to request access:</p>
@@ -77,7 +77,7 @@ text: "Home"
             <h3 class="nhsuk-heading-s">Prescribing and dispensing</h3>
             <ul class="nhsuk-list">
                 <li><a href="../data-products/epact/epact-loggedin">Electronic prescribing analysis and cost tool (ePACT2)</a></li>
-                <li><a href="../data-products/epact/ministry-of-defence/mod-loggedin">Ministry of Defence</a></li>
+                <li><a href="../data-products/epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></li>
                 <li><a href="../data-products/public-available-data/index">Public data</a></li>
             </ul>
             <h3 class="nhsuk-heading-s">Dental</h3>
@@ -86,7 +86,7 @@ text: "Home"
             </ul>
             <h3 class="nhsuk-heading-s">Ophthalmic</h3>
             <ul class="nhsuk-list">
-                <li><a href="../data-products/eops/eops-loggedin">Electronic ophthalmics (eOPS)</a></li>
+                <li><a href="../data-products/eops/eops-loggedin">Electronic ophthalmic (eOPS)</a></li>
             </ul>
             <hr>
         {% else %}            
@@ -132,8 +132,8 @@ text: "Home"
         <div class="nhsuk-grid-column-full">        
             <h2 class="nhsuk-heading-m">Administration access</h2>
             <ul class="nhsuk-list">
-                <li><a href="../admin-view/draft-news">Draft news articles</a></li>
-                <li><a href="../training-hub/admin-view/draft-training">Draft training</a></li>
+                <li><a href="../admin-view/draft-news">News articles (draft)</a></li>
+                <li><a href="../training-hub/admin-view/draft-training">Training (draft)</a></li>
             </ul>
             <hr>
         </div>
@@ -161,7 +161,7 @@ text: "Home"
                     {% if data['job-role'] %}
                     {{ data['job-role'] }}
                     {% else %}
-                    Senior Data Analyst
+                    Senior data analyst
                     {% endif %}
                 </dd>
             </div>
@@ -192,7 +192,7 @@ text: "Home"
                 </dd>
             </div>
         </dl>
-        <p>If any of your details are incorrect or need updating, contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">dataservicessuport@nhsbsa.nhs.uk</a>.</p>
+        <p>Email <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">dataservicessuport@nhsbsa.nhs.uk</a> to update your details.</p>
         <hr>
     </div>
 </div>

@@ -26,15 +26,15 @@ text: "Prescribing and dispensing"
 },
 {
 href: "/data-hub/mvp/v5/data-products/epact/epact-loggedin",
-text: "Electronic prescribing analysis and cost tool (ePACT)"
+text: "ePACT2"
 },
 {
-href: "dashboards",
+href: "../dashboards",
 text: "Dashboards"
 },
 {
 href: "../premium-priced-generics",
-text: "Premium Priced Generics"
+text: "Premium priced generics"
 }
 ]
 }) }}
@@ -44,7 +44,7 @@ text: "Premium Priced Generics"
 {% block content%}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium Priced Generics</span>Change log</h1>
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium priced generics</span>Dashboard updates</h1>
     </div>
     {% if data.userType == 'admin' %}
         <div class="nhsuk-grid-column-one-third">
@@ -57,45 +57,45 @@ text: "Premium Priced Generics"
                 {{ card({
                 heading: "New data release",
                 headingLevel: "3",
-                descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
-                <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis perspiciatis repellendus adipisci beatae in assumenda itaque incidunt laborum. Omnis!</p>"
+                descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Version: </strong>1.3</p>
+                <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                <p>Added prescribing data for October 2025.</p>"
                 }) }}               
             </li>
             <li>
                 {{ card({
                     heading: "Data dictionary update",
                     headingLevel: "3",
-                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
-                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>"
+                    descriptionHtml: "
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>Updated field definitions in the data dictionary.</p>"
                 }) }}              
             </li>
             <li>
                 {{ card({
-                    heading: "Removed Tables",
+                    heading: "Removed tables",
                     headingLevel: "3",
-                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
-                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse alias natus architecto fuga, reprehenderit fugit nesciunt cupiditate, nisi libero similique accusamus, voluptas totam vel assumenda? Vero ea repudiandae deserunt magni labore, neque itaque aliquid placeat ab, nostrum tempore rem et.</p>"
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Francis Lang</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>Removed outdated tables that are no longer in use.</p>"
                 }) }}                
             </li>
             <li>
                 {{ card({
                     heading: "New data release",
                     headingLevel: "3",
-                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
-                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quis perspiciatis repellendus adipisci beatae in assumenda itaque incidunt laborum. Omnis!</p>"
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Version:</strong> 1.2</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>Added prescribing data for Q3 October 2025.</p>"
                 }) }}                   
             </li>
             <li>
                 {{ card({
-                    heading: "Premium Priced Generics",
+                    heading: "Premium priced generics",
                     headingLevel: "3",
-                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Admin</p>
-                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date posted:</strong> 22 October 2025</p>
-                    <p>Dashboard has been created.</p>"
+                    descriptionHtml: "
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>A new dashboard is now available to track prescribing patterns for premium priced generics.</p>"
                 }) }}                
             </li>
         </ol>

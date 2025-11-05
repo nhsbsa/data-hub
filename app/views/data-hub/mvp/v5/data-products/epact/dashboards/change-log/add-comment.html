@@ -14,38 +14,68 @@ Change log - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-{{ backLink({
-    href: "change-log",
-    text: "Back"
-  }) }}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v5/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v5/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/v5/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "../dashboards",
+text: "Dashboards"
+},
+{
+href: "../premium-priced-generics",
+text: "Premium priced generics"
+},
+{
+href: "change-log",
+text: "Dashboard updates"
+}
+]
+}) }}
 {% endblock %}
 
 
 {% block content%}
 <div class="nhsuk-grid-row nhsuk-u-margin-top-4">
     <div class="nhsuk-grid-column-two-thirds">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium Priced Generics Change Log</span>Add comment</h1>
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium priced generics updates</span>Add a comment
+        </h1>
     </div>
     <div class="nhsuk-grid-column-two-thirds">
         <form action="change-log">
             {{ input({
             label: {
-                text: "Enter a title"
+            text: "Enter a title"
             },
             id: "example",
             name: "example"
             }) }}
-            
+
             {{ textarea({
             name: "example",
             id: "example",
             label: {
-                text: "Enter your comments"
+            text: "Enter your comments"
             }
             }) }}
-            {{ button({
-                text: "Post comment"
-            }) }}
+            <div class="nhsuk-button-group">
+                {{ button({
+                  text: "Continue",
+                  classes: "nhsuk-button"
+                }) }}
+              
+                <a href="change-log" class="nhsuk-link">Cancel</a>
+              </div>
         </form>
     </div>
 </div>
