@@ -63,20 +63,22 @@ Electronic prescribing analysis and cost tool (ePACT2) - {{ serviceName }} - NHS
             <li>export data</li>
         </ul>
         <hr>
-        {% if data.signedIn == 'yes' %}
+        {% if data.signedIn == 'yes' and data.userType != 'epact' %}
             <h2 class="nhsuk-heading-l">Request access</h2>
             <p>You need access to view prescription data.</p>         
             <a class="nhsuk-button" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2">Request access to ePACT2</a>
         {% else %}
         <h2 class="nhsuk-heading-l">Sign in or request access</h2>
         <p>Sign in to your account using your username and password, or request access to view prescribing and dispensing data.</p>
-        {% if data.userType == 'hot' %}
-            <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=hot">Sign in or create account</a>
-        {% elif data.userType == 'admin' %}
-            <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=admin">Sign in or create account</a>
-        {% else %}
-            <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=epact">Sign in or create account</a>
-        {% endif %}
+            {% if data.userType == 'hot' %}
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=hot">Sign in or create account</a>
+            {% elif data.userType == 'admin' %}
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=admin">Sign in or create account</a>
+            {% elif data.userType == 'createAnalysis' %}
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=createAnalysis">Sign in or create account</a>
+            {% else %}
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=epact">Sign in or create account</a>
+            {% endif %}
         <a class="nhsuk-button nhsuk-button--secondary" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2">Request access to ePACT</a>
         {% endif %}
     </div>
