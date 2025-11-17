@@ -1,0 +1,166 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v5/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v5/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/v5/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "dashboards",
+text: "Dashboards and reports"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">Create new dashboard or report</h1>
+
+        {{ input({
+            label: {
+              text: "Enter a title"
+            },
+            id: "dashboardReportTitle",
+            name: "dashboard-report-title"
+        }) }}
+
+        {{ input({
+            label: {
+              text: "Enter a version number"
+            },
+            id: "versionNumber",
+            name: "version-number",
+            classes: "nhsuk-input--width-5"
+        }) }}
+
+        {{ textarea({
+            name: "dashboard-report-iframe",
+            id: "dashboard-report-iframe",
+            rows: "3",
+            label: {
+              text: "Paste the iframe to embed the dashboard or report"
+            },
+            hint: {
+              text: "This is the <iframe> code from Power Bi."
+            }
+        }) }}
+
+        {{ input({
+            label: {
+              text: "Provide a link to this in Oracle"
+            },
+            id: "link-to-oracle",
+            name: "link-to-oracle"
+        }) }}
+
+        {{ textarea({
+            name: "metadata-overview",
+            id: "metadata-overview",
+            rows: "5",
+            label: {
+              text: "Enter an overview of this data"
+            }
+        }) }}
+
+        {{ textarea({
+            name: "our-method",
+            id: "our-method",
+            rows: "3",
+            label: {
+              text: "Enter the methodology used for this data"
+            }
+        }) }}
+
+        <div class="nhsuk-form-group">
+            <label class="nhsuk-label" for="file-upload-1">
+              Upload the data dictionary
+            </label>
+            <div id="example-right-size-hint" class="nhsuk-hint">
+                This should be uploaded as a CSV file
+              </div>
+            <input class="nhsuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
+        </div>
+
+        {{ input({
+            label: {
+              text: "Provide the product owner name"
+            },
+            id: "product-owner-name",
+            name: "product-owner-name",
+            classes: "nhsuk-input--width-20"
+        }) }}
+        {{ input({
+            label: {
+              text: "Provide the data steward name"
+            },
+            id: "data-steward-name",
+            name: "data-steward-name",
+            classes: "nhsuk-input--width-20"
+        }) }}
+
+        {{ input({
+            label: {
+              text: "Enter a time period"
+            },
+            id: "time-period",
+            name: "time-period",
+            classes: "nhsuk-input--width-20"
+        }) }}
+
+        {{ textarea({
+            name: "geographical-coverage",
+            id: "geographical-coverage",
+            rows: "2",
+            label: {
+              text: "Enter the geographical coverage"
+            }
+        }) }}
+
+        {{ textarea({
+            name: "data-updated",
+            id: "data-updated",
+            rows: "3",
+            label: {
+              text: "Enter how often is the data updated"
+            }
+        }) }}
+
+        {{ textarea({
+            name: "data-lineage",
+            id: "data-lineage",
+            rows: "3",
+            label: {
+              text: "Enter the data lineage or provenance"
+            }
+        }) }}
+                  
+    </div>
+</div>
+{% endblock %}

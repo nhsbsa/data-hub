@@ -9,6 +9,7 @@
 @import 'components/password-button';
 // @import 'components/timeline';
 @import 'components/moj-file-upload';
+@import 'components/file-upload';
 
 ///////////////////////////////////////////
 // Data Hub - Custom Styles
@@ -285,7 +286,7 @@ ul#searched-keywords {
     line-height: inherit;
     margin: 0;
     outline: 0;
-    padding: 8px 8px 0;
+    padding: 5px 8px 0;
     width: 52px;
 
     &:hover {
@@ -296,6 +297,17 @@ ul#searched-keywords {
     @include nhsuk-media-query ($from: mobile) {
         position: relative;
     }
+    &.nhsuk-button--secondary {        
+        background-color: transparent;
+        box-shadow: none;
+        border-color: #005eb8;
+        border: 2px solid;
+        border-left: 1px;
+        padding-top: 5px;
+    }
+}
+.nhsuk-button--secondary.nhsuk-search__submit .nhsuk-icon__search {
+        fill: #005eb8;    
 }
 .nhsuk-search__submit .nhsuk-icon__search {
     fill: #fff;
