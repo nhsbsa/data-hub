@@ -485,3 +485,10 @@ p {
         word-break: break-word;
     }
 }
+
+// Embed power bi
+.full-height-iframe {
+    width: 100%;
+    height: 100vh;
+    border: 0;
+}
