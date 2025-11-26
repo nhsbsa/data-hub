@@ -1,0 +1,72 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v5' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/v5/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/v5/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/v5/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "../../data-products/epact/dashboards/dashboards",
+text: "Dashboards and reports"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <form action="add-related-resources" method="post">
+            {{ radios({
+                idPrefix: "add-related-resources",
+                name: "add-related-resources",
+                fieldset: {
+                legend: {
+                    text: "Would you like to add any related resources?",
+                    classes: "nhsuk-fieldset__legend--l",
+                    isPageHeading: true
+                }
+                },
+                items: [
+                {
+                    value: "yes",
+                    text: "Yes"
+                },
+                {
+                    value: "no",
+                    text: "No - go to preview"
+                }
+                ]
+            }) }}
+
+            {{ button({
+                text: "Continue"
+            }) }}
+        </form>
+    </div>
+</div>
+{% endblock %}

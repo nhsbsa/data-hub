@@ -124,4 +124,15 @@ router.post(/publish-training/, (req, res) => {
     res.redirect('published-training')
 })
 
+// Would you like to add any related resources?
+router.post(/add-related-resources/, (req, res) => {
+    const addRelatedResources = req.session.data['add-related-resources'];
+
+    if (addRelatedResources === 'yes'){
+        res.redirect('related-resources');
+    } else {
+        res.redirect('dashboard-preview');
+    }
+})
+
 module.exports = router;
