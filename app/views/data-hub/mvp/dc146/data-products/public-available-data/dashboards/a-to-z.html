@@ -1,0 +1,639 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Dashboards - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/prescribing-dispensing",
+            text: "Prescribing and dispensing"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/public-available-data/index",
+            text: "Public data"
+        }
+    ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Public data </span>Dashboards and reports</h1>
+        <!-- Javascript set up to listen for submit of the button -->
+        <!-- FILE: assets/javascript/a-t-z-search-filter.js -->
+        <form id="keywordSearch">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+
+                    <div class="nhsuk-form-group">
+                        <label class="nhsuk-label" for="search">
+                            Searching by keyword
+                        </label>
+                        <div class="nhsuk-hint" id="example-with-hint-text-hint">
+                            <p class="nhsuk-u-margin-bottom-1">Add more than one keyword by using commas. For example: prescribing, diabetes, health.</p>
+                        </div>
+                        <div class="flex">
+                            <input class="nhsuk-input nhsuk-u-padding-left-1 nhsuk-u-padding-right-1" id="search"
+                                name="search" type="text">
+                            <button class="nhsuk-search__submit" type="submit">
+                                <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
+                                    <path
+                                        d="M19.71 18.29l-4.11-4.1a7 7 0 1 0-1.41 1.41l4.1 4.11a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42zM5 10a5 5 0 1 1 5 5 5 5 0 0 1-5-5z">
+                                    </path>
+                                </svg>
+                                <span class="nhsuk-u-visually-hidden">Submit</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+
+        <h3 class="nhsuk-heading-s nhsuk-u-visually-hidden">Searched keywords</h3>
+        <ul id="searched-keywords" class="nhsuk-list"></ul>
+        <p><a href="#" id="clear-all-keywords" class="nhsuk-link nhsuk-u-visually-hidden">Clear all keywords</a></p>
+        <hr class="nhsuk-u-visually-hidden">
+        <nav class="nhsuk-u-margin-bottom-4" id="nhsuk-nav-a-z" role="navigation" aria-label="A to Z Navigation">
+            <!-- A to Z list -->
+            <ol class="nhsuk-list nhsuk-u-clear nhsuk-u-margin-0" role="list">
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#a">A</a>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">B</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">C</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">D</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#e">E</a>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">F</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">G</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">H</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">I</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">J</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">K</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">L</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#m">M</a>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">N</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">O</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#p">P</a>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Q</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#r">R</a>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">S</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">T</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">U</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">                    
+                    <a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#v">V</a>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">W</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">X</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Y</span>
+                </li>
+                <li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1 nhsuk-a-to-z-min-width">
+                    <span
+                        class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">Z</span>
+                </li>
+            </ol>
+        </nav>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="a" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    A
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li><a href="#">Antimicrobial Stewardship - RightCare UTI Focus Pack</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="b" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    B
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="c" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    C
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="d" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    D
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="e" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    E
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li><a href="#">EPS and eRD Utilisation Dashboard</a></li>
+                    <li><a href="#">Evidence Based Interventions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="f" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    F
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="g" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    G
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="h" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    H
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="i" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    I
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="j" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    J
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="k" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    K
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="l" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    L
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="m" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    M
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li><a href="#">Medication Safety Indicators</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="n" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    N
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="o" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    O
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="p" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    P
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">          
+                    <li><a href="example-dashboard">Premium priced generics (example dashboard)</a></li>          
+                    <li><a href="#">Percentage/Items (MO1)</a></li>
+                    <li><a href="#">Patient List Sizes (RF1)</a></li>
+                    <li><a href="#">Practice List Size and GP Count (RF2)</a></li>
+                    <li><a href="#">PCO List Size and GP Count (RF3)</a></li>
+                    <li><a href="#">Prescribing Monitoring Document (PM1)</a></li>
+                    <li><a href="#">Programme Budget Categories (PB2)</a></li>
+                    <li><a href="#">Practice Items (CI1)</a></li>
+                    <li><a href="#">Potential Generic Savings (PG1)</a></li>
+                    <li><a href="#">Percentage Generic Items (VC2)</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="q" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    Q
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="r" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    R
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li><a href="#">Respiratory</a></li>
+                    <li><a href="#">Respiratory - Carbon Impact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="s" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    S
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="t" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    T
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="u" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    U
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="v" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    V
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li><a href="#">Valproate Prescribing in Female Patients Under 55</a></li>                    
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="w" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    W
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="x" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    X
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="y" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    Y
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content nhsuk-card__content--feature">
+                <h2 id="z" class="nhsuk-card__heading nhsuk-card__heading--feature nhsuk-u-font-size-24">
+                    Z
+                </h2>
+                <ul class="nhsuk-list nhsuk-list--border">
+                    <li>There are currently no conditions listed</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="nhsuk-back-to-top">
+            <a class="nhsuk-back-to-top__link" href="#nhsuk-nav-a-z">
+                Back to top
+            </a>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/js/a-to-z-search-filter.js"></script>
+{% endblock %}

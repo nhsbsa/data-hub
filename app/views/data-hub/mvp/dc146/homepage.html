@@ -1,0 +1,96 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-two-thirds">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <h1 class="nhsuk-u-margin-bottom-4">Data Hub
+                            </h1>
+                        <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Find data from NHS Business Services Authority (NHSBSA) in one place. Make better healthcare decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <hr class="nhsuk-u-margin-top-0">
+        <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">Current services</h2>
+        <h3 class="nhsuk-heading-m">
+            <a href="prescribing-dispensing">Prescribing and dispensing</a>
+        </h3>
+        <p>Prescribing and dispensing data reports and dashboards. You must be an authorised user to access the Electronic prescribing analysis and cost tool (ePACT2).</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            <a href="dental-data">Dental</a>
+        </h3>
+        <p>Electronic dental (eDEN) reports and dashboards. You must be an authorised user to access eDEN.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            {% if (data.userType == 'eops' or data.userType == 'admin') and data.signedIn == 'yes' %}
+                <a href="data-products/eops/eops-loggedin">Ophthalmic</a>
+            {% else %}
+                <a href="data-products/eops/eops">Ophthalmic</a>
+            {% endif %}
+        </h3>
+        <p>Electronic ophthalmic (eOPS) reports and dashboards. You must be an authorised user to access eOPS.</p>
+        <hr>
+        <h2 class="nhsuk-heading-l">Accessing other data services</h2>
+        <p>Data Hub is a new service and soon you'll be able to access all data from the NHS Business Services Authority in one place.We're adding more NHSBSA data to the Data Hub.</p>
+        <p>Find other data, including the Open Data Portal, on<a href="https://www.nhsbsa.nhs.uk/" target="_blank">our data services page (opens in a new tab)</a>.</p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-m">Featured</h2>
+        <ul class="nhsuk-list">
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Help and support</a></li>   
+            <li><a href="auth/entra-id/enter-username">Sign in or create an account</a></li>            
+            <li><a href="training-hub/landing-page">Training hub</a></li>
+        </ul>
+        <h2 class="nhsuk-heading-m">News</h2>
+        <ul class="nhsuk-list">
+            <li>
+                <a class="nhsuk-body-s nhsuk-u-margin-bottom-2" href="#">Coming soon: NHS volunteering find and apply service - key performance indicators datasets</a>
+                <p class="nhsuk-body-s">Updated: 22 April 2025</p>
+            </li>
+            <li>
+                <a class="nhsuk-body-s nhsuk-u-margin-bottom-2" href="#">New ODP datasets now available: BNF codes</a>
+                <p class="nhsuk-body-s">Updated: 15 April 2025</p>
+            </li>
+            <li>
+                <a class="nhsuk-body-s nhsuk-u-margin-bottom-2" href="#">Coming Soon: Transition to the English Prescribing Datasets (EPD) with SNOMED CT Codes</a>
+                <p class="nhsuk-body-s">Updated: 4 April 2025</p>
+            </li>
+            <li>
+                <a class="nhsuk-body-s" href="product-news?productFlow=no">Read more news</a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

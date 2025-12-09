@@ -1,0 +1,110 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Dashboard updates - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/dc146/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/dc146/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "../dashboards",
+text: "Dashboards and reports"
+},
+{
+href: "../premium-priced-generics",
+text: "Premium priced generics"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Premium priced generics</span>Dashboard updates</h1>
+    </div>
+    {% if data.userType == 'admin' %}
+        <div class="nhsuk-grid-column-one-third">
+            <a class="nhsuk-button custom-float-right" href="add-comment">Add a new comment</a>
+        </div>
+    {% endif %}
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-5">        
+        <ul class="nhsuk-list">
+            <li>             
+                {{ card({
+                heading: "New data release",
+                headingLevel: "3",
+                descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Version: </strong>1.3</p>
+                <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                <p>Added prescribing data for October 2025.</p>"
+                }) }}               
+            </li>
+            <li>
+                {{ card({
+                    heading: "Data dictionary update",
+                    headingLevel: "3",
+                    descriptionHtml: "
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>Updated field definitions in the data dictionary.</p>"
+                }) }}              
+            </li>
+            <li>
+                {{ card({
+                    heading: "Removed tables",
+                    headingLevel: "3",
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Author:</strong> Francis Lang</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>Removed outdated tables that are no longer in use.</p>"
+                }) }}                
+            </li>
+            <li>
+                {{ card({
+                    heading: "New data release",
+                    headingLevel: "3",
+                    descriptionHtml: "<p class=\"nhsuk-body-s nhsuk-u-margin-bottom-1\"><strong>Version:</strong> 1.2</p>
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>Added prescribing data for Q3 October 2025.</p>"
+                }) }}                   
+            </li>
+            <li>
+                {{ card({
+                    heading: "Premium priced generics",
+                    headingLevel: "3",
+                    descriptionHtml: "
+                    <p class=\"nhsuk-body-s nhsuk-u-margin-bottom-3\"><strong>Date:</strong> 22 October 2025</p>
+                    <p>A new dashboard is now available to track prescribing patterns for premium priced generics.</p>"
+                }) }}                
+            </li>
+        </ol>
+
+        <!-- pagination -->
+        {{ pagination({
+            nextUrl: "#",
+            nextPage: "2 of 5"
+          }) }}
+    </div>
+</div>
+{% endblock %}

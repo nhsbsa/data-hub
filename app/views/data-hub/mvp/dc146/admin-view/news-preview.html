@@ -1,0 +1,93 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ data.newsTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/mvp/dc146/homepage",
+        text: "Home"
+      },
+      {
+          href: "/data-hub/mvp/dc146/product-news",
+          text: "News"
+      },
+      {
+          href: "/data-hub/mvp/dc146/admin-view/add-news",
+          text: "Add news article"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    {% if data['newsPublished'] != 'yes' %}    
+        <div class="nhsuk-grid-column-full">
+            {% set html %}
+            <h2 class="nhsuk-heading-m">This is a preview</h2>              
+                <form class="nhsuk-u-display-inline-block nhsuk-u-margin-right-3" action="publish-news" method="POST">
+                    <!-- create router -->
+                    <button class="nhsuk-button nhsuk-u-margin-bottom-2" type="submit">Publish article</button>
+                </form>                
+                <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" href="add-news">Edit article</a>                
+            {% endset %}
+
+            {{ notificationBanner({
+            html: html
+            }) }}
+
+        </div>    
+    {% elif data['newsPublished'] == 'yes' %}
+        <div class="nhsuk-grid-column-full">
+            <h2 class="nhsuk-heading-l">PUBLISHED</h2>    
+        </div>
+    {% else %}
+    
+    {% endif %}
+    <div class="nhsuk-grid-column-two-thirds">
+        <p class="nhsuk-u-margin-bottom-2">Author: {{ data.author }}</p>
+        <p class="nhsuk-u-margin-bottom-2">Estimated reading time: {{ data.readingTime }}</p>
+        <p>Updated: 22 April 2025</p>
+        <hr class="nhsuk-u-margin-top-0">
+        <h1 class="nhsuk-heading-l">{{ data.newsTitle }}</h1>
+        
+        {{ markdowntohtml | safe }}
+
+        <h2 class="nhsuk-heading-m">Further Information</h2>
+        <p>If you have any queries before the datasets are published, please contact the Open Data team: <a href="#">Data Services Support</a></p>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <div class="nhsuk-inset-text nhsuk-u-margin-top-0">
+            <h2 class="nhsuk-heading-m">Share and subscribe</h2>
+            <ul class="nhsuk-list nhsuk-u-margin-top-4">
+                <li><a href="#">Share article</a></li>
+                <li><a href="#">Subscribe to newsletter</a></li>
+            </ul>
+            {% if data.relatedNews and data.relatedNews %}
+                <hr>
+                <h2 class="nhsuk-heading-m">Related articles</h2>
+                <a href="{{ data.relatedNewsURL }}"><h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2">{{ data.relatedNews }}</h3></a>
+                <p>Posted: 5 April 2025</p>
+                {% if data.relatedNewsMore and data.relatedNewsMoreURL %}
+                    <a href="{{ data.relatedNewsMoreURL }}"><h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2">{{ data.relatedNewsMore }}</h3></a>
+                    <p>Posted: 25 March 2025</p>
+                {% endif %}
+            {% endif %}
+
+          </div>        
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,230 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Training guides - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+    {% if data['signedIn'] == 'yes' %}
+        {{ breadcrumb({
+            items: [
+            {
+                href: "/data-hub/mvp/dc146/homepage",
+                text: "Home"
+            },
+            {
+                href: "/data-hub/mvp/dc146/prescribing-dispensing",
+                text: "Prescribing and dispensing"
+            },
+            {
+                href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+                text: "ePACT2"
+            }
+            ]
+        }) }}
+    {% else %}
+        {{ breadcrumb({
+            items: [
+            {
+                href: "/data-hub/mvp/dc146/homepage",
+                text: "Home"
+            },
+            {
+                href: "/data-hub/mvp/dc146/prescribing-dispensing",
+                text: "Prescribing and dispensing"
+            },
+            {
+                href: "/data-hub/mvp/dc146/data-products/epact/epact",
+                text: "ePACT2"
+            }
+            ]
+        }) }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-bottom-6">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-l">Electronic prescribing analysis and cost tool (ePACT2)</span>Training catalogue</h1>
+    </div>
+</div>
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-quarter">
+        <h2 class="nhsuk-heading-m">Filters</h2>
+        <div class="nhsuk-hint" id="contact-hint">
+            Select multiple options that are relevant to you
+        </div>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading">
+                        Experience level
+                    </h3>
+                </legend>
+                <div class="nhsuk-checkboxes">
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Beginner
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Intermediate
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            Advanced
+                        </label>
+                    </div>                  
+                </div>
+            </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
+                        Content type
+                    </h3>
+                </legend>
+                <div class="nhsuk-checkboxes">
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-1" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-1">
+                            e-Learning
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-3" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-3">
+                            PDF
+                        </label>
+                    </div> 
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="example-2" name="example" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="example-2">
+                            Video
+                        </label>
+                    </div>                                
+                </div>
+            </fieldset>
+        </div>
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="example-hint">
+                <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--s">
+                    <h3 class="nhsuk-fieldset__heading nhsuk-u-margin-top-3">
+                        Data tool
+                    </h3>
+                </legend>
+                <div class="nhsuk-checkboxes">
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="api" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="api">
+                            API
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="create-analysis" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="create-analysis">
+                            Create analysis
+                        </label>
+                    </div> 
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="excel" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="excel">
+                            Excel
+                        </label>
+                    </div>
+                    <div class="nhsuk-checkboxes__item">
+                        <input class="nhsuk-checkboxes__input" id="power-bi" name="data-tool" type="checkbox"
+                            value="email">
+                        <label class="nhsuk-label nhsuk-checkboxes__label" for="power-bi">
+                            Power BI
+                        </label>
+                    </div>        
+                </div>
+            </fieldset>
+        </div>               
+        <a href="#">Clear filters</a>
+        <a class="nhsuk-button nhsuk-u-margin-top-4" href="#">Apply filters</a>
+    </div>
+
+    <div class="nhsuk-grid-column-three-quarters">
+        <div class="nhsuk-grid-row">
+            <div class="nhsuk-grid-column-one-half">
+                <span class="nhsuk-heading-s nh">Showing 1 to 10 of 50 results</span>
+            </div>
+            <div class="nhsuk-grid-column-one-half custom-sort-by">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label nhsuk-u-margin-right-2" for="select-1">
+                        Sort by
+                    </label> <select class="nhsuk-select" id="select-1" name="select-1">
+                        <option value="1" selected>Recently updated</option>
+                        <option value="2">Most viewed</option>             
+                        <option value="2">Alphabetical</option>   
+                    </select>
+                </div>
+            </div>
+        </div>
+        <hr class="nhsuk-u-margin-top-0">
+
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="https://www.nhsbsa.nhs.uk/sites/default/files/2024-04/ePACT2%20User%20Guide%20-%20Quick%20Start.pdf" target="_blank">ePACT2 - Quick start (PDF: 740KB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>How to log into ePACT2.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - Accessing and using dashboards and pre-built reports (PDF: 2.1MB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>How to navigate to, access and use the pre-built content available in the system.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - National reports to get you started (PDF: 520KB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>Useful content for users with national level access.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - National accessing and using financial reports (PDF: 2.25MB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>How to navigate to, access and use the financial reports available in the system to users with National level access.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - ICB reports to get you started (PDF: 664KB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>Useful content for users with ICB level access.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - ICB controlled drug monitoring reports (PDF: 1.1MB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>How to navigate to and use the Controlled Drug Monitoring reports.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - ICB accessing and using financial reports (PDF: 2.5MB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>How to navigate to, access and use the financial reports available in the system to users with ICB level access.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">Introductory webinar for SICBL users (YouTube video) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>A pre-recorded introductory webinar designed to give users a general tour of the system, presented by one of our training team.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - SICBL reports to get you started (PDF: 659KB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>Useful content for users with SICBL level access.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">ePACT2 - Reconciling your NHSBSA invoice (PDF: 1.05MB) <span class="nhsuk-u-visually-hidden">(Opens in a new tab)</span></a></h2>
+        <p>A guide to show you how to reconcile your NHSBSA Invoice using the IPP and Remuneration financial reports.</p>
+        <hr>
+
+        <!-- pagination -->
+        {{ pagination({
+            nextUrl: "#",
+            nextPage: "2 of 5"
+          }) }}
+    </div>
+</div>
+{% endblock %}

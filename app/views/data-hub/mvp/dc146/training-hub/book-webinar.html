@@ -1,0 +1,88 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Book a webinar - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/training-hub/landing-page",
+            text: "Training hub"
+        }
+    ]
+}) }}
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">Live webinars</h1>
+
+        {% from 'contents-list/macro.njk' import contentsList %}
+
+        {{ contentsList({
+        items: [
+            {
+            href: "book-webinar",
+            text: "What you should know",
+            current: "true"
+            },
+            {
+            href: "webinars/epact-webinars",
+            text: "ePACT2 webinars"
+            },
+            {
+            href: "webinars/eden-webinars",
+            text: "eDEN webinars"
+            }
+            ,
+            {
+            href: "webinars/eops-webinars",
+            text: "eOPS webinars"
+            }
+        ]
+        }) }}
+        
+        <p>Book free online training sessions whenever you need them. You'll:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>join sessions online using Microsoft Teams</li>
+            <li>follow a set agenda, with the option to ask for specific topics or reports</li>
+            <li>be guided through each step by our trainers</li>
+            <li>ask questions and tell us what you need from ePACT2, eDEN or eOPS</li>
+        </ul>
+
+        <h2 class="nhsuk-heading-m">How to book an live webinar</h2>
+        <ul class="nhsuk-list nhsuk-list--number">
+            <li>Choose the data product webinar from the links on this page.</li>
+            <li>There is a separate booking form for each product on each page.</li>
+            <li>Use the booking form to choose your session, date and time. You'll get a confirmation email once it's booked.</li>
+            <li>We'll send you an invite with a link. Select the link in the email to join the session.</li>
+        </ul>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Featured</h2>
+        <ul class="nhsuk-list">
+            <li><a href="training-catalogue">Training catalogue</a></li>            
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

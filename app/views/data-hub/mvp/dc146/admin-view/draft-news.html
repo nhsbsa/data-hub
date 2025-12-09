@@ -1,0 +1,56 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ data.newsTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/mvp/dc146/homepage",
+        text: "Home"
+      },
+      {
+          href: "/data-hub/mvp/dc146/auth/my-account",
+          text: "My account"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l">Draft news articles</h1>
+    </div>
+    {% if data.userType == 'admin' %}
+        <a class="nhsuk-button custom-float-right" href="../admin-view/add-news">Create a news article</a>
+    {% endif %}
+    <div class="nhsuk-grid-column-full">
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="add-news">{{ data.newsTitle }}</a></h2>
+        <p>{{ data.newsIntro }}</p>
+        <hr>
+
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">New data is coming soon</a></h2>
+        <p>We will shortly be releasin a large amount of dental data.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">Data dictionaries, what are they?</a></h2>
+        <p>We have reached out to experts to provide some background on what these are.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">The data hub release date</a></h2>
+        <p>A planned release for the new data hub is in place.</p>
+        <hr>
+
+    </div>
+</div>
+{% endblock %}

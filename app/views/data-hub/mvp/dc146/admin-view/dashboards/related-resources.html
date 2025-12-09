@@ -1,0 +1,63 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/dc146/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/dc146/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "../../data-products/epact/dashboards/dashboards",
+text: "Dashboards and reports"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">Add related resources</h1>
+        
+        {{ input({
+            id: "search-resources",
+            name: "serchResources",
+            label: {
+              text: "Search resources"
+            },
+            hint: {
+                text: "This can be training, news or data products."
+            }
+        }) }}
+
+        {{ button({
+            text: "Search"
+        }) }}
+                  
+    </div>
+</div>
+{% endblock %}

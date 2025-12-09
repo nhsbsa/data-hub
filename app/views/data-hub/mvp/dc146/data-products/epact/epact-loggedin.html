@@ -1,0 +1,107 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Electronic prescribing analysis and cost tool (ePACT2) - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/dc146/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/dc146/prescribing-dispensing",
+text: "Prescribing and dispensing"
+}
+]
+}) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-two-thirds">
+                                <h1 class="nhsuk-u-margin-bottom-4">Electronic prescribing analysis and cost tool
+                                    (ePACT2)</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Access interactive prescription data reports and dashboards. Data is available 6 weeks after the dispensing month.</p>
+                            </div>
+                            <div class="nhsuk-grid-column-one-third">
+                                <div class="latest-data">
+                                    <h2 class="nhsuk-heading-xs nhsuk-u-margin-bottom-3">Latest data</h2>
+                                    <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">Prescription data: <span
+                                            class="nhsuk-u-font-weight-bold">January 2025</span></p>
+                                    <p class="nhsuk-body-s nhsuk-u-margin-bottom-0">Remuneration data: <span
+                                            class="nhsuk-u-font-weight-bold">January 2025</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
+        {% if data.userType == 'hot' %}
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/home-oxygen-therapy">Home Oxygen Therapy (HOT)</a></h2>
+            <p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti atque, voluptatem quaerat impedit velit iste illum.</p></p>      
+            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+        {% else %}
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/dashboards">Dashboards and reports</a></h2>        
+            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="#">Financial reports</a></h2>
+            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="#">Pharmacy contract managers reports</a></h2>
+            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-9"><a href="#">Personally administered items (PADM) patient analysis report </a></h2>
+        {% endif %}        
+
+        {% if data.userType == 'createAnalysis' %}
+            <!-- create analysis section -->
+            <h2 class="nhsuk-heading-m">Data exploration tools</h2>
+            <p>A set of tools in Oracle designed to help you search, analyse and organise NHSBSA data, including the analysis tool, catalogue of content and saved searches. The following buttons will open in a new tab.</p>
+            <a href="#" class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-right-3">Create analysis</a>
+            <a href="#" class="nhsuk-button nhsuk-button--secondary">Oracle catalogue</a>
+        {% endif %}
+            
+    </div>
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-m">Useful links</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">Data release calendar</a></li>
+            <li><a href="#">ePACT2 website</a></li>
+            <li><a href="#">How to request prescription data</a></li>
+            <li><a href="../../product-news?productFlow=yes">News</a></li>
+        </ul>
+        <h2 class="nhsuk-heading-m">Guidance</h2>
+        <ul class="nhsuk-list">
+            <li><a href="training-material">Training catalogue</a></li>
+            <li><a href="#">Book an ePACT2 training webinar</a></li>
+            <li><a href="../../training-hub/landing-page">Training hub</a></li>
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>                        
+            <li><a href="#">ePACT2 report information</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

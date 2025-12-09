@@ -1,0 +1,55 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ data.newsTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/mvp/dc146/homepage",
+        text: "Home"
+      },
+      {
+          href: "/data-hub/mvp/dc146/auth/my-account",
+          text: "My account"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l">Draft training</h1>
+    </div>  
+    {% if data.userType == 'admin' %}
+        <a class="nhsuk-button custom-float-right" href="../../training-hub/admin-view/add-training">Create new training</a>
+    {% endif %}  
+    <div class="nhsuk-grid-column-full">        
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="../../training-hub/admin-view/add-training">{{ data.trainingTitle }}</a></h2>
+        <p>{{ data.trainingIntro }}</p>
+        <hr>     
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">How to edit a current dashboard</a></h2>
+        <p>A guide to show you how to edit previously created dashboards.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">How to create a report</a></h2>
+        <p>A guide to show you how to create a new report.</p>
+        <hr>
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-bottom-3"><a href="#">How to check when the data was last refreshed</a></h2>
+        <p>A guide to show you how to check when data was last refreshed (updated).</p>
+        <hr>
+
+    </div>
+</div>
+{% endblock %}

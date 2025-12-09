@@ -1,0 +1,93 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ data.newsTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/mvp/dc146/homepage",
+        text: "Home"
+      },
+      {
+          href: "/data-hub/mvp/dc146/product-news",
+          text: "News"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    {% if data.showBanner != 'no' %}
+        <div class="nhsuk-grid-column-full">
+            {% set html %}
+            <h3 class="nhsuk-notification-banner__heading">
+                News article published
+            </h3>
+            <p><a href="add-news">Create another news article</a> or <a href="../homepage">return to home</a>.</p>        
+            {% endset %}
+            {{ notificationBanner({
+            html: html,
+            type: "success"
+            }) }}   
+        </div>
+    {% endif %}
+    <div class="nhsuk-grid-column-two-thirds">
+        <p class="nhsuk-u-margin-bottom-2">Author: Dean Cobb</p>
+        <p class="nhsuk-u-margin-bottom-2">Estimated reading time: 5 minutes</p>
+        <p>Updated: 22 April 2025</p>
+        <hr class="nhsuk-u-margin-top-0">
+        <h1 class="nhsuk-heading-l">The new data hub</h1>
+        
+        <p>We want to provide a much more efficient way of accessing data via our data hub.</p>
+	
+	    <p>The data hub will provide users with access to multiple data products, information and support.</p>
+	
+	    <h2>What products are available</h2>
+        <ul class="nhsuk-list nhsuk-list--number">
+            <li>ePACT</li>
+            <li>eDEN</li>
+            <li>eOPS</li>
+        </ul>
+
+        <h2>What support can I get</h2>
+	    <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>ePACT Training</li>
+            <li>eDEN Training</li>
+            <li>eOPS Training</li>
+        </ul>
+
+        <h2 class="nhsuk-heading-m">Further Information</h2>
+        <p>If you have any queries before the datasets are published, please contact the Open Data team: <a href="#">Data Services Support</a></p>
+    </div>
+    <div class="nhsuk-grid-column-one-third">
+        <div class="nhsuk-inset-text nhsuk-u-margin-top-0">
+            <h2 class="nhsuk-heading-m">Share and subscribe</h2>
+            <ul class="nhsuk-list nhsuk-u-margin-top-4">
+                <li><a href="#">Share article</a></li>
+                <li><a href="#">Subscribe to newsletter</a></li>
+            </ul>            
+                <hr>
+                <h2 class="nhsuk-heading-m">Related articles</h2>
+                <a href="#"><h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2">Prescribing and dispensing</h3></a>
+                <p>Posted: 5 April 2025</p>
+                <a href="#"><h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2">Dental</h3></a>
+                <p>Posted: 5 April 2025</p>
+                <a href="#"><h3 class="nhsuk-heading-s nhsuk-u-margin-bottom-2">Ophthalmic</h3></a>
+                <p>Posted: 5 April 2025</p>            
+          </div>        
+    </div>
+</div>
+{% endblock %}

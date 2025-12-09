@@ -3,8 +3,8 @@ const express = require('express');
 
 const router = express.Router();
 
-// POST MVP
-
+// Ad-hoc version for developers (new contract of work)
+router.use('/data-hub/mvp/dc146', require('./views/data-hub/mvp/dc146/_routes'));
 
 // MVP Folder
 router.use('/data-hub/mvp/v5', require('./views/data-hub/mvp/v5/_routes'));

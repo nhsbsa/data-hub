@@ -1,0 +1,75 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Prescribing and dispensing data - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+    {{ breadcrumb({
+        items: [
+            {
+                href: "/data-hub/mvp/dc146/homepage",
+                text: "Home"
+            }
+        ]
+    }) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-two-thirds">
+                                <h1 class="nhsuk-u-margin-bottom-4">Dental</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">These services will allow you to access interactive and easy to use dental data reports and dasboards.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
+        <h3 class="nhsuk-heading-m">
+            {% if (data.userType == 'eden' or data.userType == 'admin') and data.signedIn == 'yes' %}
+                <a href="data-products/eden/eden-loggedin">Electonic Dental (eDEN)</a>
+            {% elif ( data.userType == 'edenWelsh' or data.userType == 'admin') and data.signedIn == 'yes' %}
+                <a href="data-products/eden/eden-wales-loggedin">Electonic Dental (eDEN)</a>
+            {% else %}
+                <a href="data-products/eden/eden">Electonic Dental (eDEN)</a>
+            {% endif %}
+        </h3>
+        <p>Electronic prescribing analysis and cost tool (ePACT) reports and dashboards. You must be an authorised user to access ePACT2.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            <a href="data-products/eden/public-data">Public data</a>
+        </h3>
+        <p>Use our public insight portal to access dental, organisational and demographic data.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            <a href="https://www.nhsbsa.nhs.uk/compass">Compass</a>
+        </h3>
+        <p>Use compass to manage contracts and clinician details.</p>
+        <hr>
+    </div>
+</div>
+{% endblock %}

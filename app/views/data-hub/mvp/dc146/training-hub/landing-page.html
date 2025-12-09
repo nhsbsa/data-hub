@@ -1,0 +1,96 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Training hub - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        }
+    ]
+}) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-two-thirds">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <h1 class="nhsuk-u-margin-bottom-4">Training hub
+                            </h1>
+                        <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Our data team provides training to help you use data with confidence.</p>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <hr class="nhsuk-u-margin-top-0">
+        <p>The training hub includes training and support for our data products.</p>
+        <h2 class="nhsuk-heading-m">Access the training hub</h2>
+        <p>The training hub is for anyone registered with NHSBSA Data Services.</p>
+        <p>You can use it to:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>learn how to use dashboards and analysis tools</li>
+            <li>find e-learning, guides and video tutorials </li>
+            <li>book a live webinar for specific data areas</li>
+            <li>get support with our data products</li>
+            <li>see demos of Data Hub content</li>
+            <li>track your learning progress</li>
+        </ul>
+        <h2 class="nhsuk-heading-m">Choose how you want to learn</h2>
+        <ul class="nhsuk-grid-row nhsuk-card-group">
+            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                {{ card({
+                href: "training-catalogue",
+                clickable: "true",
+                heading: "Training catalogue",
+                headingClasses: "nhsuk-heading-m",
+                description: "Find videos, e-learning and guides to help you use our data products."
+                }) }}
+            </li>
+            <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                {{ card({
+                href: "book-webinar",
+                clickable: "true",
+                heading: "Live webinar",
+                headingClasses: "nhsuk-heading-m",
+                description: "Join a live webinar for a step-by-step guide from our training team. "
+                }) }}
+            </li>
+        </ul>
+        <h2 class="nhsuk-heading-m">Help and support</h2>
+        <p>If you need help, email our training team at <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">dataservicessupport@nhsbsa.nhs.uk</a></p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-l">Featured</h2>
+        <ul class="nhsuk-list">            
+            <li><a href="product-news">News</a></li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

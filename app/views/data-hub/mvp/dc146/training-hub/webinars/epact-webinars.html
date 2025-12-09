@@ -1,0 +1,85 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Book a webinar - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/training-hub/landing-page",
+            text: "Training hub"
+        }
+    ]
+}) }}
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-l">Live webinars</h1>
+
+        {% from 'contents-list/macro.njk' import contentsList %}
+
+        {{ contentsList({
+            items: [
+                {
+                href: "../book-webinar",
+                text: "What you should know"                
+                },
+                {
+                href: "epact-webinars",
+                text: "ePACT2 webinars",
+                current: "true"
+                },
+                {
+                href: "eden-webinars",
+                text: "eDEN webinars"
+                }
+                ,
+                {
+                href: "eops-webinars",
+                text: "eOPS webinars"
+                }
+            ]
+            }) }}
+        
+        <h2 class="nhsuk-heading-m">Booking an ePACT2 webinar</h2>
+        <p>Our ePACT2 training is for new users at any level, including national teams, regional organisations, ICBs, SICBLs, trusts, PCNs and GP practices.</p>
+        <p>We offer 3 sessions to help you use ePACT2. You'll:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>learn what ePACT2 is and the data it uses</li>
+            <li>see examples of reports and build your analysis</li>                     
+            <li>turn report results into visualisations</li>
+            <li>get help in a 30 minutes personal session (after attending the first 2 webinars)</li>
+            <li>share your goals in advance</li>
+        </ul>
+        <hr>
+        <a class="nhsuk-button" href="https://outlook.office365.com/book/NHSBSAePACT2trainingwebinars@nhsbsa.nhs.uk/?ismsaljsauthenabled=true" target="_blank">Book an ePACT2 webinar (opens in a new tab)</a>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+        <h2 class="nhsuk-heading-m">Featured</h2>
+        <ul class="nhsuk-list">
+            <li><a href="training-catalogue">Training catalogue</a></li>            
+        </ul>
+    </div>
+
+</div>
+{% endblock %}

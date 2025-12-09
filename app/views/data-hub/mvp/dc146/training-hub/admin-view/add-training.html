@@ -1,0 +1,329 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Training catalogue - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/dc146/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/dc146/training-hub/landing-page",
+text: "Training hub"
+}
+]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l">Create new training</h1>
+    </div>
+</div>
+<div class="nhsuk-grid-row">
+    <form action="add-training" method="POST">
+        <div class="nhsuk-grid-column-three-quarters">
+            {{ input({
+                label: {
+                text: "Enter the authors name"
+                },
+                id: "trainingAuthor",
+                name: "trainingAuthor",
+                classes: "nhsuk-input--width-20",
+                value: data.trainingAuthor
+            }) }}
+
+            {{ input({
+                label: {
+                text: "Enter the estimated completion time"
+                },
+                hint: {
+                    text: "For example, 15 minutes."
+                },
+                id: "completionTime",
+                name: "completionTime",
+                classes: "nhsuk-input--width-20",
+                value: data.completionTime
+            }) }}
+
+            {{ input({
+                label: {
+                text: "Enter a short summary for this news"
+                },
+                hint: {
+                    text: "This will be displayed on the news list as an introduction to the article."
+                },
+                id: "trainingIntro",
+                name: "trainingIntro",
+                value: data.trainingIntro
+            }) }}   
+
+            <hr>
+
+            <h2 class="nhsuk-heading-m">Training title and content</h2>
+            
+            {{ input({
+            label: {
+            text: "Enter a title for the training"
+            },
+            id: "trainingTitle",
+            name: "trainingTitle",
+            classes: "nhsuk-input--width-20",
+            value: data.trainingTitle
+            }) }}
+
+            {% call details({
+            summaryText: "Markdown guide"
+            }) %}
+            <p>This is a guide to writing markdown.</p>
+            <p>To create headings within the body of the article, you start with <code>### insert-heading</code>, if
+                there are any other headings within a section then you must use the next heading level
+                <code>#### insert-heading</code>
+            </p>
+            <p>When you are creating paragraphs there is no markdown to include, just add your content.</p>
+            <!-- <p>To create bold text:<br><code>**bold text**</code></p> -->
+            <p>To create ordered
+                lists:<br><code>1. first item</code><br><code>2. second item</code><br><code>3. third item</code></p>
+            <p>To create unordered
+                lists:<br><code>- first item</code><br><code>- second item</code><br><code>- third item</code></p>
+            <p>To create a link:<br><code>[link title](URL)</code></p>
+            {% endcall %}
+
+            {{ textarea({
+            name: "trainingBody",
+            id: "trainingBody",
+            value: data.trainingBody,
+            label: {
+            text: "What you'll learn"
+            },
+            hint: {
+            text: "Provide information on what the user will learn from this training. Use the markdown guide above for
+            support."
+            }
+            }) }}
+
+            <hr>
+
+            <h2 class="nhsuk-heading-m">Training resources</h2>
+            <p>Upload all files for this training, this should include:</p>
+            <ul class="nhsuk-list nhsuk-list--bullet">
+                <li>articulate files</li>
+                <li>alternative word document</li>
+            </ul>
+
+            <div id="content-to-hide">
+                <div id="uploaded-files-container" class="nhsuk-u-visually-hidden">
+                    <label class="nhsuk-label nhsuk-label--m" for="documents">
+                        Files uploaded
+                    </label>
+                    <p>
+                        Select 'preview' to check the files you've uploaded (previewed files will open in a new tab) or
+                        select 'delete' to remove files from this application.
+                    </p>
+                    <div id="uploaded-files" class="nhsuk-summary-list moj-multi-file-upload__list"></div>
+                </div>
+
+                <!-- File upload input -->
+                <h3 class="nhsuk-heading-s">Upload training files</h3>
+                <div class="moj-multi-file-upload moj-multi-file-upload--enhanced" data-module="moj-multi-file-upload"
+                    data-moj-multi-file-upload-init="">
+                    <div class="moj-multi-file-upload__upload">
+                        <div class="nhsuk-form-group" id="file-upload-container">
+                            <label class="nhsuk-label nhsuk-label--s nhsuk-u-visually-hidden" for="documents">
+                                Upload a file
+                            </label>
+                            <div class="moj-multi-file-upload__dropzone"><input
+                                    class="govuk-file-upload moj-multi-file-upload__input" id="documents"
+                                    name="documents" type="file" multiple="">
+                                <p class="nhsuk-body">Drag and drop files here or</p><label for="documents"
+                                    class="nhsuk-button nhsuk-button--secondary">Choose files</label>
+                                <div class="nhsuk-visually-hidden" aria-live="polite" role="status"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="nhsuk-heading-s">YouTube URL</h3>
+                {{ input({
+                label: {
+                text: "Enter the link to the training on youtube"
+                },
+                id: "youtubeUrl",
+                name: "youtubeUrl",
+                classes: "nhsuk-input--width-20",
+                value: data.youtubeUrl
+                }) }}
+
+                <hr>
+                <h2 class="nhsuk-heading-m">Related training</h2>
+
+                {{ input({
+                label: {
+                text: "Enter the title of related training"
+                },
+                id: "relatedTrainingTitle",
+                name: "relatedTrainingTitle",
+                classes: "nhsuk-input--width-20",
+                value: data.relatedTrainingTitle
+                }) }}
+                {{ input({
+                label: {
+                text: "Enter the URL to the related training"
+                },
+                id: "relatedTrainingUrl",
+                name: "relatedTrainingUrl",
+                classes: "nhsuk-input--width-20",
+                value: data.relatedTrainingUrl
+                }) }}
+                <p><a href="#">Remove training</a></p>
+
+                <div class="add-another-training">
+                    <hr>
+                    {{ input({
+                    label: {
+                    text: "Enter the title of related training"
+                    },
+                    id: "moreTrainingTitlr",
+                    name: "moreTrainingTitlr",
+                    classes: "nhsuk-input--width-20",
+                    value: data.more-moreTrainingTitlr
+                    }) }}
+                    {{ input({
+                    label: {
+                    text: "Enter the URL to the related training"
+                    },
+                    id: "moreTrainingUrl",
+                    name: "moreTrainingUrl",
+                    classes: "nhsuk-input--width-20",
+                    value: data.more-moreTrainingUrl
+                    }) }}
+                    <p><a href="#">Remove training</a></p>
+                </div>
+
+                {{ button({
+                text: "Add another",
+                classes: "nhsuk-button--secondary",
+                id: "add-another-training-button"
+                }) }}
+
+                <div class="nhsuk-button-group">
+                    {{ button({
+                    text: "Preview training",
+                    classes: "nhsuk-button",
+                    attributes: {
+                    name: "action",
+                    value: "preview"
+                    }
+                    }) }}
+
+                    {{ button({
+                    text: "Save as draft",
+                    classes: "nhsuk-button nhsuk-button--secondary",
+                    attributes: {
+                    name: "action",
+                    value: "draft"
+                    }
+                    }) }}
+
+                    <a href="../training-catalogue" class="nhsuk-link">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Toggles content visibility when checkbox is clicked
+
+
+    // Handles file upload functionality
+    document.addEventListener('DOMContentLoaded', function () {
+        const fileInput = document.getElementById('documents');
+        const uploadedFilesContainer = document.getElementById('uploaded-files-container');
+        const fileListContainer = document.getElementById('uploaded-files');
+
+        fileInput.addEventListener('change', function () {
+            if (fileInput.files.length > 0) {
+                uploadedFilesContainer.classList.remove('nhsuk-u-visually-hidden'); // Show the uploaded files section
+            } else {
+                uploadedFilesContainer.classList.add('nhsuk-u-visually-hidden'); // Hide if no files
+            }
+
+            fileListContainer.innerHTML = ''; // Clear the list
+
+            // Iterate through the selected files
+            Array.from(fileInput.files).forEach((file, index) => {
+                const fileRow = document.createElement('div');
+                fileRow.className = 'govuk-summary-list__row moj-multi-file-upload__row';
+
+                // File details
+                const fileDetails = `
+          <dl class="nhsuk-summary-list moj-multi-file-upload__success">
+            <div class="nhsuk-summary-list__row">
+                <dd class="nhsuk-summary-list__value">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                            <path d="M11.4 18.8a2 2 0 0 1-2.7.1h-.1L4 14.1a1.5 1.5 0 0 1 2.1-2L10 16l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z" />
+                    </svg> ${file.name} successfully uploaded
+                </dd>                    
+          `;
+
+
+
+                // Actions (Preview and Delete)
+                const actions = `
+            <dd class="nhsuk-summary-list__actions">
+              <ul class="nhsuk-summary-list__actions-list custom-preview-delete">
+                <li class="nhsuk-summary-list__actions-list-item">
+                  <a class="nhsuk-link nhsuk-body-s" href="#" target="_blank">Preview</a>
+                </li>
+                <li class="nhsuk-summary-list__actions-list-item">
+                  <a class="nhsuk-link nhsuk-body-s" href="upload-deleted">Delete</a>
+                </li>
+              </ul>
+            </dd>
+            </div>
+            </dl>
+          `;
+
+                fileRow.innerHTML = fileDetails + actions;
+                fileListContainer.appendChild(fileRow);
+
+                // Add event listener for delete functionality
+                fileRow.querySelector('[data-index]').addEventListener('click', function () {
+                    removeFile(index);
+                });
+            });
+        });
+
+        // Remove file from input and update the display
+        function removeFile(index) {
+            const dataTransfer = new DataTransfer();
+            Array.from(fileInput.files).forEach((file, i) => {
+                if (i !== index) {
+                    dataTransfer.items.add(file);
+                }
+            });
+
+            fileInput.files = dataTransfer.files;
+            fileInput.dispatchEvent(new Event('change')); // Trigger the change event to update the UI
+        }
+    });
+</script>
+{% endblock %}
+
+{% block pageScripts %}
+<script src="/js/file-upload.js"></script>
+{% endblock %}

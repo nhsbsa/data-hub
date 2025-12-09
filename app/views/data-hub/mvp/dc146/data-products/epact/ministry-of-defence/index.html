@@ -1,0 +1,96 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Ministry of Defence - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+    {{ breadcrumb({
+        items: [
+            {
+                href: "/data-hub/mvp/dc146/homepage",
+                text: "Home"
+            },
+            {
+                href: "/data-hub/mvp/dc146/prescribing-dispensing",
+                text: "Prescribing and dispensing"
+            }
+        ]
+    }) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <div class="nhsuk-grid-row">
+                            <div class="nhsuk-grid-column-two-thirds">
+                                <h1 class="nhsuk-u-margin-bottom-4">Ministry of Defence (MOD)</h1>
+                                <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Users with access can view prescribing and dispensing data dashboards interactive data sets. Data is available 6 weeks after the dispensing month.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4 sign-in-request-access">
+        <p>Authorised users of MOD are able to:</p>
+        <ul class="nhsuk-list nhsuk-list--bullet">
+            <li>access prescription data through reports and dashboards</li>
+            <li>build custom reports</li>
+            <li>explore prescribing trends and costs</li>
+            <li>export data</li>
+            <li>filter down to individual prescription item and patient level detail</li>
+            <li>view high level data summaries</li>
+        </ul>
+        <hr>
+        {% if data.signedIn == 'yes' %}
+            <h2 class="nhsuk-heading-l">Request access</h2>
+            <p>Requet access to be able to view MOD.</p>         
+            <a class="nhsuk-button" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact/registering-epact">Request access to MOD</a>
+        {% else %}
+        <h2 class="nhsuk-heading-l">Sign in or request access</h2>
+        <p>Sign in to your account using your username and password, or request access to view prescribing and dispensing data.</p>
+        <a class="nhsuk-button" href="../../../auth/entra-id/enter-username?userType=mod">Sign in or create account</a>
+        <a class="nhsuk-button nhsuk-button--secondary" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact/registering-epact">Request access to MOD</a>
+        {% endif %}
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-7">
+        <h2 class="nhsuk-heading-m">Useful links</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">Data release calendar</a></li>
+            <li><a href="#">ePACT2 website</a></li>
+            <li><a href="#">How to request prescription data</a></li>
+            <li><a href="../../product-news?productFlow=yes">News</a></li>
+        </ul>
+        <h2 class="nhsuk-heading-m">Guidance</h2>
+        <ul class="nhsuk-list">
+            <li><a href="training-material">Training catalogue</a></li>
+            <li><a href="#">Book an ePACT2 training webinar</a></li>
+            <li><a href="../../training-hub/landing-page">Training hub</a></li>
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>                        
+            <li><a href="#">ePACT2 report information</a></li>
+        </ul>   
+    </div>
+</div>
+{% endblock %}
