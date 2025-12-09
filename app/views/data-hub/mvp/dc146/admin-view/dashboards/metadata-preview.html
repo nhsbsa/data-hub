@@ -1,0 +1,214 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/dc146/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/dc146/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "dashboards",
+text: "Dashboards and reports"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        {% set html %}
+            <h2 class="nhsuk-heading-m">This is a preview</h2>  
+            <div class="nhsuk-button-group">
+                <a class="nhsuk-button nhsuk-u-margin-bottom-2" href="metadata-published">Publish dashboard</a>                            
+                <a class="nhsuk-button nhsuk-button--secondary nhsuk-u-margin-bottom-0" href="create-dashboard">Edit dashboard</a>
+            </div>               
+        {% endset %}
+
+        {{ notificationBanner({
+        html: html
+        }) }}
+        <h1 class="nhsuk-heading-l">Premium priced generics</h1>
+    </div>
+    <div class="nhsuk-grid-column-one-half">
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">
+            <span class="nhsuk-u-font-weight-bold">Data last
+                refreshed:</span> 6 May 2025 at 8:31am
+        </p>
+        <span class="nhsuk-tag nhsuk-tag--white nhsuk-u-margin-bottom-5">
+            Version 1.3
+        </span>
+        <p class="nhsuk-u-margin-bottom-0"><span class="nhsuk-u-visually-hidden">Premium priced generics </span><a href="change-log/change-log">Dashboard updates</a></p>
+    </div>
+    <div class="nhsuk-grid-column-full">
+
+        <div class="sign-in-request-access nhsuk-u-margin-top-5">        
+            <a href="premium-priced-generics-full-screen" target="_blank" class="nhsuk-button nhsuk-u-margin-bottom-0">View the data (opens in new tab)</a>            
+        </div>
+        <hr>
+
+        <p>There's an increasing volume of computerised prescriptions each month where the prescriber has prescribed a generic Drug Tariff Part VIIIA product but also with the name of the branded product or the supplier/ manufacturer added in brackets.</p>
+
+        <p>In these situations, the drug costs charged to the prescriber's budget and reimbursed to the community pharmacy or dispensing practice will be that of the list price of the branded medicine or the specified supplier.</p>
+
+        <p>In many cases this cost will be significantly higher than the Drug Tariff Part VIIIA listed price.</p>
+
+        <p>To help SICBLs monitor this scenario more closely and explore opportunities for review, we've developed this dashboard to highlight the details of practices and drugs where this is most common.</p>
+
+    </div>
+
+    <div class="nhsuk-grid-column-full nhsuk-u-margin-top-3">
+        {% call details({
+        summaryText: "Dashboard information",
+        classes: "nhsuk-expander"
+        }) %}
+        <h3 class="nhsuk-heading-m">Our method</h3>
+        <p>Data includes current spend, potential spend and potential saving, these appear to be provided to us at SICBL
+            level but calculated elsewhere in the dashboard. Potential saving is calculated, detail included in the
+            dictionary.
+        </p>
+        <h3 class="nhsuk-heading-m">Data dictionary</h3>
+        <p>A data dictionary is a document that describes the fields in a dataset, providing explanations of what each field represents, the type of data it contains, and any additional relevant information.</p>
+        <p><a href="#">Download data dictionary (CSV, 2MB)</a></p>
+        <h3 class="nhsuk-heading-m">Data product details</h3>
+        <h4 class="nhsuk-heading-s">Product owner and data steward</h4>
+        <ul class="nhsuk-list">
+            <li>Gareth Gubbage (Product Owner)</li>
+            <li>Ben Holmes (Information Analyst)</li>
+        </ul>
+        <h4 class="nhsuk-heading-s">Time period</h4>
+        <p>January 2014 to March 2025</p>
+        <h4 class="nhsuk-heading-s">Geographic coverage</h4>
+        <p>Limited to organisations held as GP practices in our organisational database.</p>
+        <h4 class="nhsuk-heading-s">Organisational level</h4>
+        <p>Data is available at both practice level and Sub-Integrated Care Board Location (SICBL) level.</p>
+        <h4 class="nhsuk-heading-s">How often is the data updated</h4>
+        <p>Updated monthly, in line with the ePACT2 refresh (usually around the 20th of each month). Includes prescribing of generic-name AMPs (generics with a supplier name) only where a saving is possible.</p>
+        <h4 class="nhsuk-heading-s">Data lineage/provenance</h4>
+        <p>ePACT2 is the source of most of the data.</p>
+
+        <p>No patient information is included in the dashboard. Data is aggregated to practice level. Risk of
+            reidentification of patients is low. Purpose is a cost analysis for NHS organisations. To be used by
+            appropriate NHS professionals.</p>
+        {% endcall %}
+
+        {% call details({
+            summaryText: "Data reuse policy and limitations",
+            classes: "nhsuk-expander"
+            }) %}
+
+            <h3 class="nhsuk-heading-m">Caveats and limitations</h3>
+            <p>Data is limited to GP practices and where we have calculated that there is a potential saving based on
+                the costs of the products prescribed. Comparison of cost appears to be the current price vs the price in
+                the month specified. The data may not be representative of recent changes in price. No suppression has been applied, access
+                to the dashboard is limited to registered users.</p>
+            <h3 class="nhsuk-heading-m">Citing and reusing this data</h3>
+            <p>If you plan on producing a press or broadcast story based upon the data, contact our <a
+                href="mailto:communicationsteam@nhsbsa.nhs.uk">communications team</a>. This is important to
+            ensure that the figures are not misunderstood or misrepresented.</p>
+            <p>The information supplied to you continues to be protected by the copyright, Designs and Patents Act
+            1988 and/or other applicable law. You may use the data freely, provided that you attribute the
+            source.</p>
+            <p>NHS Business Services Authority. "name of dataset" </p>
+            {% endcall %}
+
+        
+            <h3 class="nhsuk-heading-m">Related resources</h3>
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Data products
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <ul class="nhsuk-grid-row nhsuk-card-group">
+                    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                        {{ card({
+                        href: "#",
+                        primary: "true",
+                        clickable: "true",
+                        heading: "Potential Generic Savings Report",
+                        headingClasses: "nhsuk-heading-m",
+                        description: "Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequatur, tempore!"
+                        }) }}
+                    </li>
+                </ul>  
+            </div>
+        </details>
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    Training guides
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <ul class="nhsuk-grid-row nhsuk-card-group">
+                    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                        {{ card({
+                        href: "#",
+                        primary: "true",
+                        clickable: "true",
+                        heading: "Training guides",
+                        headingClasses: "nhsuk-heading-m",
+                        description: "Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequatur, tempore!"
+                        }) }}
+                    </li>
+                    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+                        {{ card({
+                        href: "#",
+                        primary: "true",
+                        clickable: "true",
+                        heading: "user guides",
+                        headingClasses: "nhsuk-heading-m",
+                        description: "Lorem ipsum dolor sit amet consectetur adipisicing
+                        elit. Consequatur, tempore!"
+                        }) }}
+                    </li>
+                </ul> 
+            </div>
+        </details>
+        <details class="nhsuk-details">
+            <summary class="nhsuk-details__summary">
+                <span class="nhsuk-details__summary-text">
+                    News articles
+                </span>
+            </summary>
+            <div class="nhsuk-details__text">
+                <ul class="nhsuk-list">
+                    <li><a href="#">Statistics release</a></li>
+                    <li><a href="#">Premium priced generic blog</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Research</a></li>
+                </ul>
+            </div>
+        </details>
+        <h3 class="nhsuk-heading-m">Contact and feedback</h3>
+        <p>If you have any queries regarding the data provided contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">data services support</a>. If you plan to publish the data include the name of the dataset for reference (this ensures that the figures are not misunderstood or misrepresented).</p>                    
+    </div>
+</div>
+{% endblock %}

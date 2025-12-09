@@ -125,11 +125,16 @@ router.post(/publish-training/, (req, res) => {
 })
 
 // Would you like to add any related resources?
-router.post(/add-related-resources/, (req, res) => {
+router.post(/related-resources-required/, (req, res) => {    
+    res.redirect('add-related-resources');
+})
+
+router.post(/add-related-resources/, (req, res) => {    
+
     const addRelatedResources = req.session.data['add-related-resources'];
 
     if (addRelatedResources === 'yes'){
-        res.redirect('related-resources');
+        res.redirect('search-related-resources');
     } else {
         res.redirect('dashboard-preview');
     }

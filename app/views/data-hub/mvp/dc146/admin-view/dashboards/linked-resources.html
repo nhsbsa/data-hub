@@ -1,0 +1,191 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/dc146/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/dc146/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "../../data-products/epact/dashboards/dashboards",
+text: "Dashboards and reports"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <h1 class="nhsuk-heading-l">Add related resources</h1>
+        <p>Search for resources available on the data hub, or manually enter resources from external sources.</p>
+
+        {{ input({
+            id: "search-resources",
+            name: "searchResources",
+            label: {
+              text: "Search data hub resources"
+            }
+        }) }}        
+
+        {% call details({
+        summaryText: "Add resources manually"
+        }) %}
+            {{ input({
+                id: "resource-title",
+                name: "resourceTitle",
+                label: {
+                text: "What is the title of the resource"
+                }
+            }) }}
+            {{ textarea({
+                name: "resourceDescription",
+                id: "resource-description",
+                rows: "3",
+                label: {
+                  text: "Enter a short description for this resource"
+                }
+              }) }}
+            {{ input({
+                id: "resource-url",
+                name: "resourceURL",
+                label: {
+                  text: "Enter the URL to the resource"
+                }
+            }) }}
+            {{ radios({
+                idPrefix: "filter",
+                name: "filter",
+                fieldset: {
+                  legend: {
+                    text: "What type of resource is this?",
+                    size: "m"
+                  }
+                },                
+                items: [
+                  {
+                    value: "data-product",
+                    text: "Data product"
+                  },
+                  {
+                    value: "training-guide",
+                    text: "Training guide"
+                  },
+                  {
+                    value: "news-article",
+                    text: "News article"
+                  }
+                ]
+              }) }}                    
+        {% endcall %}
+
+        {{ table({
+            responsive: false,
+            panel: false,
+            caption: "Search results",
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: "Title"
+              },
+              {
+                text: "Type"                
+              },
+              {
+                text: "Action"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Premium priced generics release"
+                },
+                {
+                  text: "News"                  
+                },
+                {
+                  html: '<a href="#">Add</a>',
+                  format: "numeric"
+                }
+              ],
+              [
+                {
+                  text: "Price dashboard"
+                },
+                {
+                  text: "Data product"                  
+                },
+                {
+                    html: '<a href="#">Add</a>',
+                  format: "numeric"
+                }
+              ],
+              [
+                {
+                  text: "Premium priced generics training"
+                },
+                {
+                  text: "Training guide"                  
+                },
+                {
+                    html: '<a href="#">Add</a>',
+                  format: "numeric"
+                }
+              ]
+            ]
+          }) }}
+
+          <h2 class="nhsuk-heading-s">Linked resources</h2>
+          {{ summaryList({
+            rows: [
+              {
+                key: {
+                  text: "News"
+                },
+                value: {
+                  text: "Premium priced generics release"
+                },
+                actions: {
+                  items: [
+                    {
+                      href: "results-search-related-resources",
+                      text: "Remove",
+                      visuallyHiddenText: "name"
+                    }
+                  ]
+                }
+              }
+            ]
+          }) }}
+
+        <div class="nhsuk-button-group">
+            <a href="metadata-preview" class="nhsuk-button">Preview</a>
+            <a href="#" class="nhsuk-button nhsuk-button--secondary">Save as draft</a>
+            <a href="#">Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

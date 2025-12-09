@@ -10,30 +10,22 @@
 
 <!-- Set the page title -->
 {% block pageTitle %}
-Premium priced generics - {{ serviceName }} - NHSBSA
+Which data product does this dashboard or report relate to? - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
 {{ breadcrumb({
-items: [
-{
-href: "/data-hub/mvp/dc146/homepage",
-text: "Home"
-},
-{
-href: "/data-hub/mvp/dc146/prescribing-dispensing",
-text: "Prescribing and dispensing"
-},
-{
-href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
-text: "ePACT2"
-},
-{
-href: "../../data-products/epact/dashboards/dashboards",
-text: "Dashboards and reports"
-}
-]
-}) }}
+    items: [
+      {
+        href: "/data-hub/mvp/dc146/homepage",
+        text: "Home"
+      },
+      {
+          href: "/data-hub/mvp/dc146/auth/my-account",
+          text: "My account"
+      }
+    ]
+  }) }}
 {% endblock %}
 
 
