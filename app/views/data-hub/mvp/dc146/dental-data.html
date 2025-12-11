@@ -51,11 +51,11 @@ Prescribing and dispensing data - {{ serviceName }} - NHSBSA
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
         <h3 class="nhsuk-heading-m">
             {% if (data.userType == 'eden' or data.userType == 'admin') and data.signedIn == 'yes' %}
-                <a href="data-products/eden/eden-loggedin">Electonic Dental (eDEN)</a>
+                <a href="data-products/eden/eden-loggedin">Electronic Dental (eDEN)</a>
             {% elif ( data.userType == 'edenWelsh' or data.userType == 'admin') and data.signedIn == 'yes' %}
-                <a href="data-products/eden/eden-wales-loggedin">Electonic Dental (eDEN)</a>
+                <a href="data-products/eden/eden-wales-loggedin">Electronic Dental (eDEN)</a>
             {% else %}
-                <a href="data-products/eden/eden">Electonic Dental (eDEN)</a>
+                <a href="data-products/eden/eden">Electronic Dental (eDEN)</a>
             {% endif %}
         </h3>
         <p>Electronic prescribing analysis and cost tool (ePACT) reports and dashboards. You must be an authorised user to access ePACT2.</p>
