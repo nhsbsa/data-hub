@@ -67,6 +67,12 @@ text: "Home"
         <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
         <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="#">NHSE GOS eligibility dashboard</a></h2>
         <p class="nhsuk-u-margin-bottom-0">Filter and view eligibility reasons by GOS claim type.</p>
+        
+        {% if data.userType == 'admin' and data.signedIn == 'yes' %}
+            <hr>
+            <h2 class="nhsuk-heading-m">Administration</h2>
+            <a href="#" class="nhsuk-button">Create new dashboard or report</a>
+        {% endif %}
     </div>
     <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
         <h2 class="nhsuk-heading-m">Useful links</h2>
@@ -85,7 +91,7 @@ text: "Home"
             <li><a href="training-material">Training catalogue</a></li>
             <li><a href="#">Book an eOPS training webinar</a></li>
             <li><a href="../../training-hub/landing-page">Training hub</a></li>
-            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>                        
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
             <li><a href="#">eOPS dashboard information</a></li>
         </ul>
     </div>

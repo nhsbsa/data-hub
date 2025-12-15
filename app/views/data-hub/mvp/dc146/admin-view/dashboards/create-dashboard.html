@@ -62,16 +62,15 @@ text: "Dashboards and reports"
                 classes: "nhsuk-input--width-5"
             }) }}
 
-            {{ textarea({
-                name: "dashboard-report-iframe",
-                id: "dashboard-report-iframe",
-                rows: "3",
+            {{ input({                
                 label: {
-                text: "Paste the iframe to embed the dashboard or report"
+                text: "Paste the URL to embed the dashboard or report"
                 },
                 hint: {
-                text: "This is the <iframe> code from Power Bi."
-                }
+                text: "This should be provided to you."
+                },
+                name: "dashboard-report-iframe",
+                id: "dashboard-report-iframe"
             }) }}
 
             {{ input({

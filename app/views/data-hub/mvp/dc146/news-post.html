@@ -90,5 +90,17 @@ Coming soon: NHS volunteering find and apply service - key performance indicator
 
           </div>        
     </div>
+    
+    <!-- admin area -->
+    {% if data.userType == 'admin' %}
+        <div class="nhsuk-grid-column-full">
+            <hr>
+            <h2 class="nhsuk-heading-m">Administration actions</h2>
+            <p>Edit this news article to change information.</p>
+            <a href="./admin-view/add-news" class="nhsuk-button nhsuk-button--secondary">Edit news article</a>
+            <p>You can delete this article if no longer needed. You will have the option to confirm this deletion.</p>
+            <a href="./admin-view/article-confirm-delete" class="nhsuk-button nhsuk-button--warning">Delete news article</a>
+        </div>         
+    {% endif %}
 </div>
 {% endblock %}

@@ -197,7 +197,17 @@ text: "Dashboards and reports"
             </div>
         </details>
         <h3 class="nhsuk-heading-m">Contact and feedback</h3>
-        <p>If you have any queries regarding the data provided contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">data services support</a>. If you plan to publish the data include the name of the dataset for reference (this ensures that the figures are not misunderstood or misrepresented).</p>                    
+        <p>If you have any queries regarding the data provided contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">data services support</a>. If you plan to publish the data include the name of the dataset for reference (this ensures that the figures are not misunderstood or misrepresented).</p>
+        
+        <!-- admin area -->
+        {% if data.userType == 'admin' %}
+            <hr>
+            <h2 class="nhsuk-heading-m">Administration actions</h2>
+            <p>Edit this dashboard to change meta data details or change data presented.</p>
+            <a href="../../../admin-view/dashboards/create-dashboard" class="nhsuk-button nhsuk-button--secondary">Edit dashboard</a>
+            <p>You can delete this dashboard if no longer needed. You will have the option to confirm this deletion.</p>
+            <a href="../../../admin-view/dashboards/confirm-delete" class="nhsuk-button nhsuk-button--warning">Delete dashboard</a>            
+        {% endif %}
     </div>
 </div>
 {% endblock %}

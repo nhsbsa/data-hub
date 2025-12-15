@@ -34,6 +34,18 @@ text: "ePACT2"
 
 {% block content %}
 <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        {% if data['dashboardDeleted'] == 'yes' %}    
+            {% set html %}
+            <h2 class="nhsuk-heading-m">Dashboard has been deleted</h2> 
+            <p><span class="nhsuk-u-font-weight-bold">Title:</span> Premium Priced Generics</p>                          
+            {% endset %}
+
+            {{ notificationBanner({
+            html: html
+            }) }}            
+        {% endif %}
+    </div>
     <div class="nhsuk-grid-column-three-quarters">
         <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Electronic prescribing analysis and cost tool
                 (ePACT2)</span>Dashboards and reports</h1>

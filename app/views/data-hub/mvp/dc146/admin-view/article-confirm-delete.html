@@ -1,0 +1,66 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/mvp/dc146/homepage",
+        text: "Home"
+      },
+      {
+          href: "/data-hub/mvp/dc146/product-news",
+          text: "News"
+      },
+      {
+          href: "/data-hub/mvp/dc146/news-post",
+          text: "News article"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">            
+        <div class="nhsuk-form-group">
+            <fieldset class="nhsuk-fieldset" aria-describedby="">
+              <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--l">
+                <h1 class="nhsuk-fieldset__heading">
+                  Are you sure you want to delete?
+                </h1>
+              </legend>
+              <p><span class="nhsuk-u-font-weight-bold">Title:</span> Premium Priced Generics</p>     
+              <div class="nhsuk-radios nhsuk-radios--inline" data-module="nhsuk-radios">
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-inline" name="exampleInline" type="radio" value="yes">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-inline">
+                    Yes
+                  </label>
+                </div>
+                <div class="nhsuk-radios__item">
+                  <input class="nhsuk-radios__input" id="example-inline-2" name="exampleInline" type="radio" value="no">
+                  <label class="nhsuk-label nhsuk-radios__label" for="example-inline-2">
+                    No
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <a href="../product-news?articleDeleted=yes" class="nhsuk-button">Confirm</a>
+    </div>
+</div>
+{% endblock %}
