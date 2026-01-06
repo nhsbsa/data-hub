@@ -67,6 +67,14 @@ text: "Dashboards and reports"
 
             {{ input({
                 label: {
+                text: "Enter a summary"
+                },
+                id: "dashboardSummary",
+                name: "dashboard-summary"                
+            }) }}
+
+            {{ input({
+                label: {
                 text: "Enter a version number"
                 },
                 id: "versionNumber",
@@ -99,6 +107,9 @@ text: "Dashboards and reports"
                 rows: "5",
                 label: {
                 text: "Enter an overview of this data"
+                },
+                hint: {
+                text: "You can add markdown."
                 }
             }) }}
             
@@ -112,6 +123,9 @@ text: "Dashboards and reports"
                 rows: "3",
                 label: {
                 text: "Enter the methodology used for this data (optional)"
+                },
+                hint: {
+                text: "You can add markdown."
                 }
             }) }}
 
@@ -140,6 +154,9 @@ text: "Dashboards and reports"
                 rows: "2",
                 label: {
                 text: "Enter the geographical coverage (optional)"
+                },
+                hint: {
+                text: "You can add markdown."
                 }
             }) }}
 
@@ -149,6 +166,9 @@ text: "Dashboards and reports"
                 rows: "2",
                 label: {
                 text: "Enter the organisational level (optional)"
+                },
+                hint: {
+                text: "You can add markdown."
                 }
             }) }}
 
@@ -158,6 +178,9 @@ text: "Dashboards and reports"
                 rows: "3",
                 label: {
                 text: "Enter how often is the data updated (optional)"
+                },
+                hint: {
+                text: "You can add markdown."
                 }
             }) }}
 
@@ -167,6 +190,9 @@ text: "Dashboards and reports"
                 rows: "3",
                 label: {
                 text: "Enter the data lineage or provenance (optional)"
+                },
+                hint: {
+                text: "You can add markdown."
                 }
             }) }}
 
@@ -179,6 +205,9 @@ text: "Dashboards and reports"
                 rows: "5",
                 label: {
                 text: "Enter the caveats and limitations (optional)"
+                },
+                hint: {
+                text: "You can add markdown."
                 }
             }) }}
 
