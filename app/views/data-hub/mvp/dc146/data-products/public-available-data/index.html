@@ -19,10 +19,6 @@ items: [
 {
 href: "/data-hub/mvp/dc146/homepage",
 text: "Home"
-},
-{
-href: "/data-hub/mvp/dc146/prescribing-dispensing",
-text: "Prescribing and dispensing"
 }
 ]
 }) }}
@@ -54,26 +50,17 @@ text: "Prescribing and dispensing"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-4">
-        <h2 class="nhsuk-heading-m"><a href="dashboards/a-to-z">Dashboards and reports</a></h2>
+        <h2 class="nhsuk-heading-m"><a href="dashboards/a-to-z">Prescription dashboards and reports</a></h2>
         <p>Explore dashboards and reports on prescribing, organisational and demographic trends.</p>
         <hr>
-        <h2 class="nhsuk-heading-m">Open Data Portal</h2>
-        <p>Access the NHSBSA Open Data Portal — where you can explore, filter, and download openly published datasets that promote transparency and support data-driven insight.</p>
-        <ul class="nhsuk-list">
-            <li><a href="https://opendata.nhsbsa.net/theme/community_prescribing_dispensing">Community Prescribing & Dispensing</a></li>
-            <li><a href="https://opendata.nhsbsa.net/theme/dispensing-contractors">Dispensing Contractors</a></li>
-            <li><a href="https://opendata.nhsbsa.net/theme/hospital-provider-medicines">Hospital & Provider Medicines</a></li>
-        </ul>
-        <h2 class="nhsuk-heading-m">Statistical collection</h2>
-        <p>Access Official Statistics produced by the NHSBSA about prescribing and medicines, dispensing contractors, dental activity, and services administered by the NHSBSA.</p>
-        <ul class="nhsuk-list">
-            <li><a href="https://www.nhsbsa.nhs.uk/statistical-collections">Statistical collection</a></li>
-        </ul>
-        <h2 class="nhsuk-heading-m">Data science</h2>
-        <p>Discover how the NHSBSA applies Data Science and Advanced Analytics to support the organisation and the wider NHS. Explore our projects which help tackle health inequalities, enhance service delivery and efficiency, and inform policy through evidence-based insights.</p>
-        <ul class="nhsuk-list">
-            <li><a href="https://www.nhsbsa.nhs.uk/data-science-projects">Data science projects</a></li>
-        </ul>        
+        <h2 class="nhsuk-heading-m"><a href="https://opendata.nhsbsa.net/">Open Data Portal</a></h2>
+        <p>Filter and download open data to help you make better decisions.</p>
+        <hr>
+        <h2 class="nhsuk-heading-m"><a href="https://www.nhsbsa.nhs.uk/statistical-collections">Statistical collection</a></h2>
+        <p>Access official NHSBSA statistics on prescribing and medicines, dispensing contractors, dental activity, and other services we manage.</p>
+        <hr>
+        <h2 class="nhsuk-heading-m"><a href="https://www.nhsbsa.nhs.uk/data-science-projects">Data science</a></h2>
+        <p>See how we use data science and advanced analytics to improve NHS services. Read about projects on health inequalities, prescribing patterns and NHS schemes.</p>        
         {% if data['signedIn'] != 'yes' %}
         <hr>
         <h2 class="nhsuk-heading-m">Data Hub account</h2>
@@ -88,17 +75,11 @@ text: "Prescribing and dispensing"
             <li><a href="#">Data release calendar</a></li>
             <li><a href="#">How to request prescription data</a></li>
             <li><a href="../../product-news?productFlow=yes">News</a></li>
-            <li><a href="https://opendata.nhsbsa.net/">Open Data Portal</a></li>     
-            <li><a href="https://www.nhsbsa.nhs.uk/nhsbsa-statistics-and-data-science">NHSBSA Statistics and data science</a></li>
-            
         </ul>
         <h2 class="nhsuk-heading-m">Guidance</h2>
-        <ul class="nhsuk-list">
-            <li><a href="training-material">Training catalogue</a></li>
-            <li><a href="#">Book an public available data training webinar</a></li>
+        <ul class="nhsuk-list">                        
             <li><a href="../../training-hub/landing-page">Training hub</a></li>
-            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>
-            <li><a href="#">Public available data report information</a></li>
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>            
         </ul>
     </div>
 </div>
