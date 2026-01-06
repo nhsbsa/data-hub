@@ -68,6 +68,12 @@ text: "Dental"
         <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="#">NHS England dentistry dashboard v1</a></h2>
         <p class="nhsuk-u-margin-bottom-0">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias, aliquid.
         </p>
+        
+        {% if data.userType == 'admin' and data.signedIn == 'yes' %}
+            <hr>
+            <h2 class="nhsuk-heading-m">Administration</h2>
+            <a href="#" class="nhsuk-button">Create new dashboard or report</a>
+        {% endif %}
     </div>
     <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
         <h2 class="nhsuk-heading-m">Useful links</h2>
