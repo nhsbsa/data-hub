@@ -9,7 +9,7 @@
 {% set prototypeVersion = 'dc146' %}
 
 <!-- Conditions to decide which cards to show which content -->
-{% if data.userType == 'epact' or data.userType == 'mod' or data.userType == 'hot' %}
+{% if data.userType == 'epact' or data.userType == 'hot' %}
     {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
     {% set productURL = '../data-products/epact/epact-loggedin' %}
     {% set pendingHeading = 'Electronic dental (eDEN)' %}
@@ -29,6 +29,9 @@
     {% set productURL = '../data-products/eops/eops-loggedin' %}
     {% set pendingHeading = 'Electronic dental (eDEN)' %}
     {% set expiredHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
+{% elif data.userType == 'mod' %}
+    {% set productHeading = 'Ministry of Defence (MOD)' %}
+    {% set productURL = '../data-products/epact/ministry-of-defence/mod-loggedin' %}
 {% elif data.userType == 'createAnalysis' %}
     {% set productHeading = 'Electronic prescribing analysis and cost tool (ePACT2)' %}
     {% set productURL = '../data-products/epact/epact-loggedin' %}
