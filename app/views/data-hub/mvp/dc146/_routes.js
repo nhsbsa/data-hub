@@ -136,7 +136,7 @@ router.post(/add-related-resources/, (req, res) => {
     if (addRelatedResources === 'yes'){
         res.redirect('search-related-resources');
     } else {
-        res.redirect('dashboard-preview');
+        res.redirect('metadata-preview');
     }
 })
 
