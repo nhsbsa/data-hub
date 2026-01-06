@@ -42,12 +42,20 @@
         <hr class="nhsuk-u-margin-top-0">
         <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">Current services</h2>
         <h3 class="nhsuk-heading-m">
-            <a href="prescribing-dispensing">Prescribing and dispensing</a>
+            {% if (data.userType == 'epact' or data.userType == 'admin' or data.userType == 'hot' or data.userType == 'mod' or data.userType == 'createAnalysis') and data.signedIn == 'yes' %}
+                <a href="data-products/epact/epact-loggedin">Prescribing and dispensing</a>
+            {% else %}
+                <a href="data-products/epact/epact">Prescribing and dispensing</a>
+            {% endif %}
         </h3>
         <p>Prescribing and dispensing data reports and dashboards. You must be an authorised user to access the Electronic prescribing analysis and cost tool (ePACT2).</p>
         <hr>
         <h3 class="nhsuk-heading-m">
-            <a href="dental-data">Dental</a>
+            {% if (data.userType == 'eden' or data.userType == 'admin') and data.signedIn == 'yes' %}
+                <a href="data-products/eden/eden">Dental</a>
+            {% else %}
+                <a href="data-products/eden/eden-wales-loggedin">Dental</a>
+            {% endif %}
         </h3>
         <p>Electronic dental (eDEN) reports and dashboards. You must be an authorised user to access eDEN.</p>
         <hr>
@@ -60,19 +68,25 @@
         </h3>
         <p>Electronic ophthalmic (eOPS) reports and dashboards. You must be an authorised user to access eOPS.</p>
         <hr>
-        <h2 class="nhsuk-heading-l">Accessing other data services</h2>
-        <p>Data Hub is a new service and soon you'll be able to access all data from the NHS Business Services Authority in one place.We're adding more NHSBSA data to the Data Hub.</p>
-        <p>Find other data, including the Open Data Portal, on<a href="https://www.nhsbsa.nhs.uk/" target="_blank">our data services page (opens in a new tab)</a>.</p>
+        <h3 class="nhsuk-heading-m">            
+            <a href="data-products/eops/eops-loggedin">Public data</a>
+        </h3>
+        <p>View prescribing, dental and dispensing data. Download datasets from our Open Data Portal and read our official statistics and data science reports.</p>
+        <hr>
+        <h2 class="nhsuk-heading-l">Accessing other services</h2>
+        <p>Data Hub is a new platform that brings all our data products together in one place. It’s designed to help you find what you need quickly and easily.</p>
+        <p>Find information about other services on our <a href="https://www.nhsbsa.nhs.uk/" target="_blank">NHSBSA website (opens in a new tab)</a>.</p>
     </div>
 
     <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
         <h2 class="nhsuk-heading-m">Featured</h2>
         <ul class="nhsuk-list">
-            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Help and support</a></li>   
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Help and support</a></li>
+            <li><a href="product-news?productFlow=no">News</a></li>
             <li><a href="auth/entra-id/enter-username">Sign in or create an account</a></li>            
             <li><a href="training-hub/landing-page">Training hub</a></li>
         </ul>
-        <h2 class="nhsuk-heading-m">News</h2>
+        <!-- <h2 class="nhsuk-heading-m">News</h2>
         <ul class="nhsuk-list">
             <li>
                 <a class="nhsuk-body-s nhsuk-u-margin-bottom-2" href="#">Coming soon: NHS volunteering find and apply service - key performance indicators datasets</a>
@@ -89,7 +103,7 @@
             <li>
                 <a class="nhsuk-body-s" href="product-news?productFlow=no">Read more news</a>
             </li>
-        </ul>
+        </ul> -->
     </div>
 
 </div>

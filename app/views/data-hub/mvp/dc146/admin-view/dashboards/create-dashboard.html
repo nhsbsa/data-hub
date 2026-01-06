@@ -39,9 +39,21 @@ text: "Dashboards and reports"
 
 {% block content%}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-full">
+    <div class="nhsuk-grid-column-full">
 
         <h1 class="nhsuk-heading-l">Create new dashboard or report</h1>
+
+        {% call details({
+            summaryText: "Markdown guide"
+            }) %}
+            <p>This is a guide to writing markdown.</p>
+            <p>To create headings within the body of the article, you start with <code>## insert-heading</code>, if there are any other headings within a section then you must use the next heading level <code>### insert-heading</code></p>
+            <p>When you are creating paragraphs there is no markdown to include, just add your content.</p>
+            <!-- <p>To create bold text:<br><code>**bold text**</code></p> -->
+            <p>To create ordered lists:<br><code>1. first item</code><br><code>2. second item</code><br><code>3. third item</code></p>
+            <p>To create unordered lists:<br><code>- first item</code><br><code>- second item</code><br><code>- third item</code></p>
+            <p>To create a link:<br><code>[link title](URL)</code></p>
+            {% endcall %}
 
         <form action="related-resources-required" method="post">
 
@@ -89,42 +101,29 @@ text: "Dashboards and reports"
                 text: "Enter an overview of this data"
                 }
             }) }}
+            
+            <hr>
+
+            <h2 class="nhsuk-heading-m">Dashboard information</h2>
 
             {{ textarea({
                 name: "our-method",
                 id: "our-method",
                 rows: "3",
                 label: {
-                text: "Enter the methodology used for this data"
+                text: "Enter the methodology used for this data (optional)"
                 }
             }) }}
 
             <div class="nhsuk-form-group">
                 <label class="nhsuk-label" for="file-upload-1">
-                Upload the data dictionary
+                Upload the data dictionary (optional)
                 </label>
                 <div id="example-right-size-hint" class="nhsuk-hint">
                     This should be uploaded as a CSV file
                 </div>
                 <input class="nhsuk-file-upload" id="file-upload-1" name="fileUpload1" type="file">
             </div>
-
-            {{ input({
-                label: {
-                text: "Provide the product owner name (optional)"
-                },
-                id: "product-owner-name",
-                name: "product-owner-name",
-                classes: "nhsuk-input--width-20"
-            }) }}
-            {{ input({
-                label: {
-                text: "Provide the data steward name (optional)"
-                },
-                id: "data-steward-name",
-                name: "data-steward-name",
-                classes: "nhsuk-input--width-20"
-            }) }}
 
             {{ input({
                 label: {
@@ -145,6 +144,15 @@ text: "Dashboards and reports"
             }) }}
 
             {{ textarea({
+                name: "organisational-level",
+                id: "organisational-level",
+                rows: "2",
+                label: {
+                text: "Enter the organisational level (optional)"
+                }
+            }) }}
+
+            {{ textarea({
                 name: "data-updated",
                 id: "data-updated",
                 rows: "3",
@@ -159,6 +167,18 @@ text: "Dashboards and reports"
                 rows: "3",
                 label: {
                 text: "Enter the data lineage or provenance (optional)"
+                }
+            }) }}
+
+            <hr>
+            <h2 class="nhsuk-heading-m">Data reuse policy and limitations</h2>
+
+            {{ textarea({
+                name: "caveats-limitations",
+                id: "caveats-limitations",
+                rows: "5",
+                label: {
+                text: "Enter the caveats and limitations (optional)"
                 }
             }) }}
 
