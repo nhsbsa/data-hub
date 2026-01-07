@@ -19,7 +19,7 @@ Dashboards - {{ serviceName }} - NHSBSA
         {
             href: "/data-hub/mvp/dc146/homepage",
             text: "Home"
-        }
+        },
         {
             href: "/data-hub/mvp/dc146/data-products/public-available-data/index",
             text: "Public data"
@@ -30,8 +30,15 @@ Dashboards - {{ serviceName }} - NHSBSA
 
 {% block content %}
 <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-three-quarters">
+        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Public data</span>Prescription dashboards and reports</h1>
+    </div>
+    <div class="nhsuk-grid-column-one-quarter">
+        {% if data.userType == 'admin' and data.signedIn == 'yes' %}
+            <a class="nhsuk-button custom-float-right" href="../../../admin-view/dashboards/create-dashboard">Create new</a>
+        {% endif %}
+    </div>
     <div class="nhsuk-grid-column-full">
-        <h1 class="nhsuk-heading-l"><span class="nhsuk-caption-m">Public data </span>Prescription dashboards and reports</h1>
         <!-- Javascript set up to listen for submit of the button -->
         <!-- FILE: assets/javascript/a-t-z-search-filter.js -->
         <form id="keywordSearch">
@@ -48,7 +55,11 @@ Dashboards - {{ serviceName }} - NHSBSA
                         <div class="flex">
                             <input class="nhsuk-input nhsuk-u-padding-left-1 nhsuk-u-padding-right-1" id="search"
                                 name="search" type="text">
-                            <button class="nhsuk-search__submit" type="submit">
+                            {% if data.userType == 'admin' %}
+                                <button class="nhsuk-search__submit nhsuk-button--secondary" type="submit">
+                            {% else %}
+                                <button class="nhsuk-search__submit" type="submit">
+                            {% endif %}
                                 <svg class="nhsuk-icon nhsuk-icon__search" xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="27" height="27">
                                     <path
@@ -57,7 +68,7 @@ Dashboards - {{ serviceName }} - NHSBSA
                                 </svg>
                                 <span class="nhsuk-u-visually-hidden">Submit</span>
                             </button>
-                        </div>
+                        </div>  
                     </div>
 
                 </div>
