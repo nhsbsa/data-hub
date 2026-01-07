@@ -81,48 +81,47 @@ text: "Dashboards and reports"
 
             {{ input({                
                 label: {
-                text: "Paste the URL to embed the dashboard or report"
+                text: "Paste URL to the legacy Dashboard or report (optional)"
                 },
                 hint: {
                 text: "This should be provided to you."
                 },
-                name: "dashboard-report-iframe",
-                id: "dashboard-report-iframe"
+                name: "link-to-oracle",
+                id: "link-to-oracle"
             }) }}
 
             {{ input({
                 label: {
-                text: "Provide a link to this in Oracle (optional)"
+                text: "Paste URL to the new embedded Power BI dashboard or report (optional)"
                 },
-                id: "link-to-oracle",
-                name: "link-to-oracle"
+                id: "powerbi-dashboard-report",
+                name: "powerbi-dashboard-report"
             }) }}
 
-            {{ textarea({
+            {{ characterCount({
                 name: "metadata-overview",
                 id: "metadata-overview",
-                rows: "5",
+                maxlength: 200,
                 label: {
-                text: "Enter an overview of this data"
+                    text: "Enter an overview of this data"                    
                 },
                 hint: {
-                text: "You can add markdown."
+                    text: "You can add markdown."
                 }
             }) }}
             
             <hr>
 
             <h2 class="nhsuk-heading-m">Dashboard information</h2>
-
-            {{ textarea({
+            {{ characterCount({
                 name: "our-method",
                 id: "our-method",
-                rows: "3",
+                maxlength: 200,
                 label: {
-                text: "Enter the methodology used for this data (optional)"
+                    text: "Enter the methodology used for this data (optional)"                    
                 },
                 hint: {
-                text: "You can add markdown."
+                    text: "You can add markdown."
                 }
             }) }}
 
