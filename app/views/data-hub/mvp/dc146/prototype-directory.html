@@ -14,6 +14,7 @@ Prototype Directory
 {% endblock %}
 
 {% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
 {{ backLink({
     href: "javascript:history.back()",
     text: "Back"

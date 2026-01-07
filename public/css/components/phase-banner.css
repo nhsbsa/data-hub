@@ -1,0 +1,22 @@
+.govuk-phase-banner {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid hsl(204, 3%, 70%);
+}
+
+.govuk-phase-banner__content {
+  font-family: GDS Transport, arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.1428571429;
+  color: #0b0c0c;
+  display: table;
+  margin: 0;
+}
+
+.govuk-phase-banner__text {
+  display: table-cell;
+  vertical-align: middle;
+}/*# sourceMappingURL=phase-banner.css.map */

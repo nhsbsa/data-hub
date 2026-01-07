@@ -1,0 +1,26 @@
+.homepage-govuk-phase-banner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);    
+}
+.govuk-phase-banner {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d8dde0;    
+}
+.govuk-phase-banner__content {
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1.1428571429;    
+    display: table;
+    margin: 0;
+}
+.govuk-phase-banner__text {
+    display: table-cell;
+    vertical-align: middle;
+}
+.govuk-phase-banner__content__tag {
+    font-size: 1rem;
+    line-height: 1.25;
+    margin-right: 10px;
+}

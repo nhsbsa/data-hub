@@ -14,6 +14,7 @@ Which data product does this dashboard or report relate to? - {{ serviceName }} 
 {% endblock %}
 
 {% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
 {{ breadcrumb({
     items: [
       {
