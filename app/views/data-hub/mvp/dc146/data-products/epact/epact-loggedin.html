@@ -66,17 +66,17 @@ text: "Prescribing and dispensing"
         {% if data.userType != 'mod' %}
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/dashboards">Dashboards and reports</a></h2>        
         {% endif %}
-        {% if data.userType == 'hot' %}
+        {% if data.userType == 'createAnalysis' or data.userType == 'admin' %}
+            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="data-exploration-tools">Data exploration tools</a></h2>   
+        {% endif %}
+        {% if data.userType == 'hot' or data.userType == 'admin' %}
             <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/home-oxygen-therapy">Home Oxygen Therapy (HOT)</a></h2>               
         {% endif %}        
 
-        {% if data.userType == 'createAnalysis' %}
-            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="data-exploration-tools">Data exploration tools</a></h2>   
-        {% endif %}
-
-        {% if data.userType == 'mod' %}            
+        {% if data.userType == 'mod' or data.userType == 'admin' %}
+            <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">          
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="../epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></h2>   
         {% endif %}
             

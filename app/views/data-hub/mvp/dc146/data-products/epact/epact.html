@@ -76,8 +76,10 @@ Electronic prescribing analysis and cost tool (ePACT2) - {{ serviceName }} - NHS
                 <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=admin">Sign in or create account</a>
             {% elif data.userType == 'createAnalysis' %}
                 <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=createAnalysis">Sign in or create account</a>
+            {% elif data.userType == 'mod' %}
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=mod">Sign in or create account</a>
             {% else %}
-                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=epact">Sign in or create account</a>
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=epact">Sign in or create account</a>            
             {% endif %}
         <a class="nhsuk-button nhsuk-button--secondary" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2">Request access to ePACT</a>
         {% endif %}
