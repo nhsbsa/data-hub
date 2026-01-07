@@ -75,7 +75,11 @@ text: "Prescribing and dispensing"
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/home-oxygen-therapy">Home Oxygen Therapy (HOT)</a></h2>               
         {% endif %}        
 
-        {% if data.userType == 'mod' or data.userType == 'admin' %}
+        {% if data.userType == 'mod' %}        
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="../epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></h2>   
+        {% endif %}
+
+        {% if data.userType == 'admin' %}
             <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">          
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="../epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></h2>   
         {% endif %}
