@@ -61,24 +61,29 @@ text: "Home"
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
         {% if data.userType != 'mod' %}
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/dashboards">Dashboards and reports</a></h2>        
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="dashboards/dashboards">Dashboards and reports</a></h2> 
+            <p>Check prescribing data and trends. Search by keyword or choose a letter from the A to Z to find what you need.</p>       
         {% endif %}
         {% if data.userType == 'createAnalysis' or data.userType == 'admin' %}
             <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="data-exploration-tools">Data exploration tools</a></h2>   
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="data-exploration-tools">Data exploration tools</a></h2> 
+            <p>Use these tools to explore prescription data. Build custom analyses, check medication costs and create dashboards. You can also save and manage reports.</p>    
         {% endif %}
         {% if data.userType == 'hot' or data.userType == 'admin' %}
             <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="dashboards/home-oxygen-therapy">Home Oxygen Therapy (HOT)</a></h2>               
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="dashboards/home-oxygen-therapy">Home Oxygen Therapy (HOT)</a></h2>  
+            <p>View HOT data and costs to support patient care. Check claims by area, region or supplier. The report shows data from the last 24 months and is updated monthly.</p>             
         {% endif %}        
 
         {% if data.userType == 'mod' %}        
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="../epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></h2>   
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="../epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></h2> 
+            <p>Use prescription data to track trends in military healthcare, support decisions and plan policy. You must be an authorised user to access Ministry of Defence data.</p>  
         {% endif %}
 
         {% if data.userType == 'admin' %}
             <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">          
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-0"><a href="../epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></h2>   
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="../epact/ministry-of-defence/mod-loggedin">Ministry of Defence (MOD)</a></h2>
+            <p>Use prescription data to track trends in military healthcare, support decisions and plan policy. You must be an authorised user to access Ministry of Defence data.</p>     
         {% endif %}
             
     </div>
