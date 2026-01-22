@@ -100,16 +100,6 @@ text: "Home"
                         descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--green\">Active</strong></p>"
                     }) }}
                 </li>
-                {% if data.userType == 'eden' %}
-                    <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
-                        {{ card({
-                            href: "https://www.nhsbsa.nhs.uk/compass",                        
-                            heading: "Compass",
-                            headingClasses: "nhsuk-heading-m",
-                            descriptionHtml: "<p class=\"nhsuk-card__description\">Access status: <strong class=\"nhsuk-tag nhsuk-tag--green\">Public access</strong></p>"
-                        }) }}
-                    </li>
-                {% endif %}
             </ul>
             {% if data.userType == 'epact' or data.userType == 'eden' or data.userType == 'eops' %}
                 {% call details({
