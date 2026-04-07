@@ -62,49 +62,59 @@
             </li>
         </ul>
     </div>
+
+
+
     <div class="nhsuk-grid-column-full">
-        <details class="nhsuk-details nhsuk-expander">
-            <summary class="nhsuk-details__summary">
-                <span class="nhsuk-details__summary-text">
-                    DC146
-                </span>
-            </summary>
-            <div class="nhsuk-details__text">
-                <!-- Version 4.3 -->
-                <!-- <h2 class="nhsuk-heading-m">Version 5</h2> -->                
-                <h2 class="nhsuk-heading-s">Business require</h2>
-                <ul class="nhsuk-list nhsuk-list--bullet">                    
-                    <li>remove admin access</li>
-                    <li>remove admin screens to add news articles</li>
-                    <li>remove admin screens to add training guides</li>
-                    <li>remove admin screens to add dashboards and reports</li>
-                    <li>remove functionality to edit and delete existing news, training, dashboards and reports</li>
-                    <li>remove signposting screen for Prescribing and dispensing / Dental</li>
-                    <li>move public data from Prescribing and dispensing / Dental signposting screen to the homepage and make this generic public data links to the NHSBSA website and Open data portal</li>
-                    <li>training catalogue and book a webinar links on the training hub landing page to now point to the NHSBSA website</li>
-                    <li>remove compass from eDEN access (my account)</li>
-                    <li>remove dashboard updates (change long)</li>
-                </ul>
-                <!-- <h2 class="nhsuk-heading-s">Iterations</h2>
-                <ul class="nhsuk-list nhsuk-list--bullet">                    
-                    <li>...</li>
-                </ul> -->
-                <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
-                <h2 class="nhsuk-heading-s">User type</h2>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=">Data hub only</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=epact">ePACT</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=eden">eDEN</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=edenWelsh">eDEN Welsh</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=eops">eOPS</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=mod">Ministry of Defence</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=hot">Home Oxygen Therapy</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=admin">Administrator</a>
-                <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=createAnalysis">ePACT (create analysis)</a>
-                <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
-                <h2 class="nhsuk-heading-s">Directory</h2>
-                <a href="data-hub/mvp/dc146/prototype-directory">View version directory</a>            
-            </div>
-        </details>
+
+        {% if data.dc146Expander === 'open' %}
+            {% set isDC146Open = true %}
+        {% endif %}
+
+        {% call details({
+            id: 'dc146Expander',
+            summaryText: 'DC146',
+            classes: 'nhsuk-expander',
+            open: isDC146Open
+        }) %}
+
+            <!-- Version 4.3 -->             
+            <h2 class="nhsuk-heading-s">Business require</h2>
+            <ul class="nhsuk-list nhsuk-list--bullet">                    
+                <li>remove admin access</li>
+                <li>remove admin screens to add news articles</li>
+                <li>remove admin screens to add training guides</li>
+                <li>remove admin screens to add dashboards and reports</li>
+                <li>remove functionality to edit and delete existing news, training, dashboards and reports</li>
+                <li>remove signposting screen for Prescribing and dispensing / Dental</li>
+                <li>move public data from Prescribing and dispensing / Dental signposting screen to the homepage and make this generic public data links to the NHSBSA website and Open data portal</li>
+                <li>training catalogue and book a webinar links on the training hub landing page to now point to the NHSBSA website</li>
+                <li>remove compass from eDEN access (my account)</li>
+                <li>remove dashboard updates (change long)</li>
+            </ul>
+
+            <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+            
+            <h2 class="nhsuk-heading-s">User type</h2>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=">Data hub only</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=epact">ePACT</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=eden">eDEN</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=edenWelsh">eDEN Welsh</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=eops">eOPS</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=mod">Ministry of Defence</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=hot">Home Oxygen Therapy</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=admin">Administrator</a>
+            <a class="nhsuk-button" href="data-hub/mvp/dc146/homepage?userType=createAnalysis">ePACT (create analysis)</a>
+            <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+            <h2 class="nhsuk-heading-s">Directory</h2>
+            <a href="data-hub/mvp/dc146/prototype-directory">View version directory</a>       
+
+        {% endcall %}
+
+       
+
+
+
     </div>
     <div class="nhsuk-grid-column-full">
         <hr class="nhsuk-u-margin-top-0">

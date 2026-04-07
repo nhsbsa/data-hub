@@ -7,6 +7,14 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
    */
   const filters = {};
 
+  filters.contains = function( haystack, needle ){
+    let check = false;
+    if( haystack.indexOf( needle ) > -1 ){
+      check = true;
+    }
+    return check;
+  };
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:
