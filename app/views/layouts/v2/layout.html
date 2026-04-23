@@ -36,13 +36,14 @@
 {% endblock %}
 
    {% block main %}
-        <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0" id="maincontent" role="main">            
-            {% block heroContent %}{% endblock %}
-            <div class="nhsuk-width-container {{ containerClasses }}">                
-                {% block content %}{% endblock %}
-            </div>
-        </main>
-        {% endblock %}
+        {% block heroContent %}{% endblock %}
+        <div class="nhsuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
+          {% block beforeContent %}{% endblock %}
+          <main class="nhsuk-main-wrapper {%- if mainClasses %} {{ mainClasses }}{% endif %}" id="maincontent" {%- if mainLang %} lang="{{ mainLang }}"{% endif %}>
+            {% block content %}{% endblock %}
+          </main>
+        </div>
+  {% endblock %}
 
 <!-- Edit the footer -->
 {% block footer %}
