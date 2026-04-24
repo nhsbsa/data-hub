@@ -11262,6 +11262,19 @@ ul.nhsuk-summary-list__actions-list.custom-preview-delete li .nhsuk-body-s {
   box-shadow: inset 0 0 0 4px #0b0c0c;
 }
 
+.nhsuk-main-wrapper {
+  padding-top: 0;
+}
+
+.nhsuk-width-container-fluid + .nhsuk-width-container:has(.nhsuk-main-wrapper) {
+  padding-top: 24px;
+}
+
+@media (min-width: 40.0625em) {
+  .nhsuk-width-container-fluid + .nhsuk-width-container:has(.nhsuk-main-wrapper) {
+    padding-top: 48px;
+  }
+}
 .flex {
   display: flex;
 }
