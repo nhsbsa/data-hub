@@ -29,8 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const addButton = document.getElementById("add-another-training-button");
     const trainingSection = document.querySelector(".add-another-training");
 
-    addButton.addEventListener("click", function (event) {
-        event.preventDefault(); // prevents page reload if it's inside a form
-        trainingSection.style.display = "block";
-    });
+    if( addButton && trainingSection ){
+        addButton.addEventListener("click", function (event) {
+            event.preventDefault(); // prevents page reload if it's inside a form
+            trainingSection.style.display = "block";
+        });
+    }
+
 });

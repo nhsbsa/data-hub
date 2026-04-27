@@ -1,10 +1,9 @@
 <!-- Extends the layout from /docs/views/layouts-templates/ -->
-{% extends "template-dashboard.html" %}
+{#% extends "template-data-hub-full-width.html" %#}
+{% extends "prototype-kit-template.njk" %}
 
 {% block head %}
 <link href="/css/main.css" rel="stylesheet">
-<link href="/css/prism.css" rel="stylesheet">
-<link href="/css/docs.css" rel="stylesheet">
 {% endblock %}
 
 {% block pageTitle %}
@@ -13,6 +12,12 @@ NHS.UK prototype kit
 
 {% block header %}
 {% endblock %}
+
+{% block main %}
+    <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0 nhsuk-u-padding-bottom-0" id="maincontent" role="main">
+        {% block content %}{% endblock %}
+    </main>
+    {% endblock %}
 
 {% block footer %}
 {% endblock %}

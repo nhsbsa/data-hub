@@ -29,9 +29,9 @@
 }
 
 @include nhsuk-media-query($from: tablet) {
- .nhsuk-width-container-fluid + .nhsuk-width-container:has( .nhsuk-main-wrapper ){
-    padding-top: 48px;
-}
+    .nhsuk-width-container-fluid + .nhsuk-width-container:has( .nhsuk-main-wrapper ){
+        padding-top: 48px;
+    }
 }
 
 .flex {
