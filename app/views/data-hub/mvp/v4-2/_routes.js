@@ -9,7 +9,7 @@ router.post('/auth/entra-id/sign-in', (req, res) => {
     req.session.data['signedIn'] = 'yes'
     res.redirect('../my-account'); 
 });
-router.post(/sign-out/, (req, res) => {
+router.get(/sign-out/, (req, res) => {
     req.session.data['signedIn'] = 'no'
     req.session.data['userType'] = ''
     res.redirect('/data-hub/mvp/v4-2/homepage');
@@ -38,10 +38,10 @@ router.post(/create-password/, (req, res) => {
 // ===================================
 // Entra ID (replica)
 // ===================================
-router.post(/entra-id-sign-in/, (req, res) => {
+router.post(/enter-username/, (req, res) => {
     res.redirect('/data-hub/mvp/v4-2/auth/entra-id/enter-password');
 });
-router.post(/entra-password/, (req, res) => {
+router.post(/enter-password/, (req, res) => {
     const forgottenPassword = 'no'
     res.redirect('/data-hub/mvp/v4-2/auth/entra-id/enter-code');
 });

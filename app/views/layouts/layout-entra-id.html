@@ -1,7 +1,8 @@
 {% extends "prototype-kit-template.njk" %}
 
 {% block head %}
-<link href="/css/main.css" rel="stylesheet">
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+  <link href="/assets/sass/main.css" rel="stylesheet">
 {% endblock %}
 
 {% block header %}{% endblock %}
@@ -19,8 +20,7 @@ NHS.UK prototype kit
     {% endblock %}
 
 {% block bodyEnd %}
-{% block scripts %}
-{% include "includes/scripts.html" %}
-{% block pageScripts %}{% endblock %}
-{% endblock %}
+  {{ super() }}
+  <script type="module" src="/assets/javascript/main.js"></script>
+  {% block pageScripts %}{% endblock %}
 {% endblock %}
