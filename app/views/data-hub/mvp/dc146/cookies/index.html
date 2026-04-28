@@ -1,0 +1,171 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+{% set cookieURL = '/data-hub/mvp/'+prototypeVersion+'/cookies/cookie-policy' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}{% endblock %}
+
+{% block headerTop %}
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+
+        const cookieBanner = document.querySelector('#cookiebanner');
+        const confirmationBanner = document.querySelector('#nhsuk-cookie-confirmation-banner');
+
+        document.querySelectorAll('#nhsuk-cookie-banner__link_accept, #nhsuk-cookie-banner__link_reject').forEach(function(el){
+
+            el.addEventListener('click',function(e){
+            
+                cookieBanner.classList.add('hidden');
+                confirmationBanner.classList.remove('hidden');
+                
+                if( e.target.matches('#nhsuk-cookie-banner__link_accept') ){
+                    // ACCEPT
+                    document.querySelector('#nhsuk-accept-banner__message').classList.remove('hidden');
+                } else {
+                    // REJECT
+                    document.querySelector('#nhsuk-reject-banner__message').classList.remove('hidden');
+                }
+
+                e.preventDefault();
+                e.stopPropagation();
+
+            });
+
+        });
+
+    });
+</script>
+
+<div id="nhsuk-cookie-banner">
+  <div class="nhsuk-cookie-banner" id="cookiebanner">
+    <div class="nhsuk-width-container">
+
+            <h2>Cookies on the Data Hub</h2>             
+            <p>We use some essential cookies to make this service work.</p>
+            <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+            <p>You can <a id="nhsuk-cookie-banner__link" href="{{ cookieURL }}">read more about our cookies</a> before you choose.</p>
+
+            <div class="nhsuk-button-group">
+                
+                {{ button({
+                    text: "Accept analytics cookies",
+                    id: 'nhsuk-cookie-banner__link_accept',
+                    href: '#'
+                } ) }}
+
+                {{ button({
+                    text: 'Reject analytics cookies',
+                    id: 'nhsuk-cookie-banner__link_reject',
+                    href: '#'
+                }) }}
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+  <div class="nhsuk-success-banner hidden" id="nhsuk-cookie-confirmation-banner">
+    <div class="nhsuk-width-container">
+      <p id="nhsuk-accept-banner__message" class="hidden">You’ve accepted analytics cookies. You can change your <a href="{{ cookieURL }}">cookie settings</a> at any time.</p>
+      <p id="nhsuk-reject-banner__message" class="hidden">You’ve rejected analytics cookies. You can change your <a href="{{ cookieURL }}">cookie settings</a> at any time.</p>
+    </div>
+  </div>
+
+</div>
+
+{% endblock%}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-full">
+                    {% include "includes/homepage-phase-banner.njk" %}
+                </div>
+                <div class="nhsuk-grid-column-two-thirds">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <h1 class="nhsuk-u-margin-bottom-4">Data Hub
+                            </h1>
+                        <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">Find data from the NHS Business Services Authority (NHSBSA) in one place and make better healthcare decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        <hr class="nhsuk-u-margin-top-0">
+        <h2 class="nhsuk-heading-l nhsuk-u-margin-bottom-5">Current services</h2>
+        <h3 class="nhsuk-heading-m">
+            {% if (data.userType == 'epact' or data.userType == 'admin' or data.userType == 'hot' or data.userType == 'mod' or data.userType == 'createAnalysis') and data.signedIn == 'yes' %}
+                <a href="data-products/epact/epact-loggedin">Prescribing and dispensing</a>
+            {% else %}
+                <a href="data-products/epact/epact">Prescribing and dispensing</a>
+            {% endif %}
+        </h3>
+        <p>Prescribing and dispensing data reports and dashboards. You must be an authorised user to access the Electronic prescribing analysis and cost tool (ePACT2).</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            {% if (data.userType == 'eden' or data.userType == 'admin') and data.signedIn == 'yes' %}
+                <a href="data-products/eden/eden-wales-loggedin">Dental</a>
+            {% else %}
+                <a href="data-products/eden/eden">Dental</a>
+            {% endif %}
+        </h3>
+        <p>Electronic dental (eDEN) reports and dashboards. You must be an authorised user to access eDEN.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">
+            {% if (data.userType == 'eops' or data.userType == 'admin') and data.signedIn == 'yes' %}
+                <a href="data-products/eops/eops-loggedin">Ophthalmic</a>
+            {% else %}
+                <a href="data-products/eops/eops">Ophthalmic</a>
+            {% endif %}
+        </h3>
+        <p>Electronic ophthalmic (eOPS) reports and dashboards. You must be an authorised user to access eOPS.</p>
+        <hr>
+        <h3 class="nhsuk-heading-m">            
+            <a href="data-products/public-available-data/index">Public data</a>
+        </h3>
+        <p>View prescribing, dental and dispensing data. Download datasets from our Open Data Portal and read our official statistics and data science reports.</p>
+        <hr>
+        <h2 class="nhsuk-heading-l">Accessing other services</h2>
+        <p>Data Hub is a new platform that brings all our data products together in one place. It’s designed to help you find what you need quickly and easily.</p>
+        <p>Find information about other services on our <a href="https://www.nhsbsa.nhs.uk/" target="_blank">NHSBSA website (opens in a new tab)</a>.</p>
+    </div>
+
+    <div class="nhsuk-grid-column-one-third nhsuk-u-margin-top-6">
+        <h2 class="nhsuk-heading-m">Featured</h2>
+        <ul class="nhsuk-list">
+            <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Help and support</a></li>
+            <li><a href="product-news?productFlow=no">News</a></li>
+            <li><a href="auth/entra-id/enter-username">Sign in or create an account</a></li>            
+            <li><a href="training-hub/landing-page">Training hub</a></li>
+        </ul>
+    </div>
+
+</div>
+{% endblock %}
