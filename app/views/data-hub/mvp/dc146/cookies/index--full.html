@@ -7,8 +7,10 @@
 
 <!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
 {% set prototypeVersion = 'dc146' %}
+{% set bodyClasses = 'full-cookie-banner' %}
 
-{% set cookieURL = 'https://www.nhsbsa.nhs.uk/our-policies/cookies' %}
+
+{% set cookieURL = '/data-hub/mvp/'+prototypeVersion+'/cookies/cookie-policy' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
@@ -71,7 +73,7 @@
                 <h2>Cookies on the Data Hub</h2>
                 <p>We use some essential cookies to make this service work.</p>
                 <p>We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
-                <p>You can <a id="nhsuk-cookie-banner__link" target="_blank" href="{{ cookieURL }}">read more about our cookies (opens in new tab)</a> before you choose.</p>
+                <p>You can <a id="nhsuk-cookie-banner__link" href="{{ cookieURL }}">read more about our cookies</a> before you choose.</p>
 
                 <div class="nhsuk-button-group">
 
@@ -105,12 +107,12 @@
                 {% endset %}
                 
                 <div id="nhsuk-accept-banner__message" class="hidden">
-                    <p>You’ve accepted analytics cookies. You can change your <a target="_blank" href="{{ cookieURL }}">cookie settings (opens in new tab)</a> at any time.</p>
+                    <p>You’ve accepted analytics cookies. You can change your <a href="{{ cookieURL }}">cookie settings</a> at any time.</p>
                     {{ hideButton | safe }}
                 </div>
 
                 <div id="nhsuk-reject-banner__message" class="hidden">
-                    <p>You’ve rejected analytics cookies. You can change your <a target="_blank" href="{{ cookieURL }}">cookie settings (opens in new tab)</a> at any time.</p>
+                    <p>You’ve rejected analytics cookies. You can change your <a href="{{ cookieURL }}">cookie settings</a> at any time.</p>
                     {{ hideButton | safe }}
                 </div>
 
