@@ -8,7 +8,7 @@ Cookie policy - {{ serviceName }} - NHSBSA
 {{ breadcrumb({
     items: [
       {
-        href: "/data-hub/mvp/dc146/homepage",
+        href: "/data-hub/mvp/dc146/cookies/index--full",
         text: "Home"
       }
     ]
@@ -108,3 +108,52 @@ Cookie policy - {{ serviceName }} - NHSBSA
     </div>
 </div>
 {% endblock %}
+
+
+{% block footer %}
+  {{ footer({
+      meta: {
+          items: [
+          {
+              href: "https://cms.nhsbsa.nhs.uk/accessibility-statement-data-hub",
+              text: "Accessibility statement"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/help-and-support",
+              text: "Contact us"
+          },
+          {
+              href: "cookie-policy",
+              text: "Cookie policy"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/data-hub-privacy-notice",
+              text: "Privacy policy"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions",
+              text: "Terms and conditions"
+          },
+          {
+            href: "https://www.nhsbsa.nhs.uk/",
+            text: "NHS Business Services Authority"
+          },
+          {
+              href: "/iteration-history",
+              text: "Prototype version history (prototype only)"
+          },
+          {
+              href: "/",
+              text: "Prototype index (prototype only)"
+          },
+          {
+              href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+              text: "Reset data (prototype only)"
+          }
+          ]
+      },
+      copyright: {
+          html: copyrightHTML | safe
+      }
+      }) }}      
+  {% endblock %}
