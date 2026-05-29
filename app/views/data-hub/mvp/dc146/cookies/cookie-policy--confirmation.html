@@ -1,0 +1,89 @@
+{% extends 'layouts/v5/layout.html' %}
+
+{% block pageTitle %}
+Cookie policy - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "/data-hub/mvp/dc146/cookies/index--full",
+        text: "Home"
+      },
+      {
+        href: "cookie-policy",
+        text: "Cookie policy"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+      
+
+      <h1>Your cookie settings have been saved</h1>
+      <p>We'll save your settings for a year.</p>
+      <p>We'll ask you if you're still OK with us using cookies when either:</p>
+      <ul>
+        <li>it's been a year since you last saved your settings</li>
+        <li>we add any new cookies or change the cookies we use</li>
+      </ul>
+      <p>You can also <a href="cookie-policy">choose which cookies we use</a> at any time.</p>
+
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+{% block footer %}
+  {{ footer({
+      meta: {
+          items: [
+          {
+              href: "https://cms.nhsbsa.nhs.uk/accessibility-statement-data-hub",
+              text: "Accessibility statement"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/help-and-support",
+              text: "Contact us"
+          },
+          {
+              href: "cookie-policy",
+              text: "Cookie policy"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/data-hub-privacy-notice",
+              text: "Privacy policy"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions",
+              text: "Terms and conditions"
+          },
+          {
+            href: "https://www.nhsbsa.nhs.uk/",
+            text: "NHS Business Services Authority"
+          },
+          {
+              href: "/iteration-history",
+              text: "Prototype version history (prototype only)"
+          },
+          {
+              href: "/",
+              text: "Prototype index (prototype only)"
+          },
+          {
+              href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+              text: "Reset data (prototype only)"
+          }
+          ]
+      },
+      copyright: {
+          html: copyrightHTML | safe
+      }
+      }) }}      
+  {% endblock %}

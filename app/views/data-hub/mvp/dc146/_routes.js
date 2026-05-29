@@ -140,4 +140,9 @@ router.post(/add-related-resources/, (req, res) => {
     }
 })
 
+router.post(/cookie-policy/, (req, res) => {    
+    const destination = 'cookie-policy--confirmation';
+    res.redirect( destination );
+});
+
 module.exports = router;

@@ -15,6 +15,9 @@
   <!-- Edit the header -->
   <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
   {% block header %}
+  
+    {% block headerTop %}{% endblock %}
+
     {% if data.signedIn == 'yes' %}
     {% set accountItems = [] %}
 
@@ -83,6 +86,9 @@
           </main>
         </div>
   {% endblock %}
+
+
+
   
   <!-- Edit copyright HTML for the footer -->
   {% set copyrightHTML %}
