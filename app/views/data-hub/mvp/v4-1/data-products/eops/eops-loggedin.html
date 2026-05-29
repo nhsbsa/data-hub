@@ -37,7 +37,7 @@ text: "Home"
                                 <h1 class="nhsuk-u-margin-bottom-4">Ophthalmic data (eOPS)</h1>
                                 <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">This service allows access to a variety of dashboards, which have been built for NHS England and improvement commissioners based on both user and clinical feedback.</p>
                                 <!-- Show filter at top of HTML -->
-                                {% if 'yes' in showFilter %}
+                                {% if showFilter === 'yes' %}
                                 <button
                                     class="nhsuk-button nhsuk-button--reverse nhsuk-u-margin-top-6 nhsuk-u-margin-bottom-0"
                                     data-module="nhsuk-button" type="submit">

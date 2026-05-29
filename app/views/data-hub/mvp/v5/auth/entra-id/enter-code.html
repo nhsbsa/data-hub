@@ -3,7 +3,7 @@
 <!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
 
 <!-- Extends the layout from /app/views/layout.html -->
-{% extends 'data-hub/mvp/v5/layout-entra-id.html' %}
+{% extends 'layouts/layout-entra-id.html' %}
 <!--
   In /app/views/layout.html you can:
     - change the header and footer
@@ -19,20 +19,20 @@ Sign in or create an account- {{ serviceName }} - NHSBSA
 
 <div class="outer">
     <div class="sign-in-box">
-        <img src="/images/data-hub/bsa-logo.png" alt="">
-        <form action="enter-code" method="post">
+        <img src="/assets/images/data-hub/bsa-logo.png" alt="" />
+        <form method="post">
             <p class="nhsuk-u-margin-bottom-2">
                 {% if data['username'] %}
                     {{ data['username'] }}
                 {% elif data['email-address'] %}
                     {{ data['email-address'] }}
                 {% else %}
-                    failed 
+                    username@nhsbsa.nhs.uk 
                 {% endif %}
             </p>
             <h1 class="nhsuk-heading-m">Enter code</h1>
             <p>
-                Enter the code we just sent to {% if data['username'] %}{{ data['username'] }}{% elif data['email-address'] %}{{ data['email-address'] }}{% else %}failed{% endif %}.
+                Enter the code we just sent to {% if data['username'] %}{{ data['username'] }}{% elif data['email-address'] %}{{ data['email-address'] }}{% else %}username@nhsbsa.nhs.uk{% endif %}.
             </p>
             <input type="text" placeholder="Enter code">
             <div class="buttons">

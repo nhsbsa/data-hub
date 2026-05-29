@@ -46,10 +46,10 @@ router.post(/create-password/, (req, res) => {
 // ===================================
 // Entra ID (replica)
 // ===================================
-router.post(/entra-id-sign-in/, (req, res) => {
+router.post(/enter-username/, (req, res) => {
     res.redirect('/data-hub/mvp/v5/auth/entra-id/enter-password');
 });
-router.post(/entra-password/, (req, res) => {
+router.post(/enter-password/, (req, res) => {
     const forgottenPassword = 'no'
     res.redirect('/data-hub/mvp/v5/auth/entra-id/enter-code');
 });

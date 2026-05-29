@@ -63,7 +63,7 @@ router.post(/sign-in/, (req, res) => {
 });
 
 // Sign out
-router.post(/sign-out/, (req, res) => {
+router.get(/sign-out/, (req, res) => {
     req.session.data['signedIn'] = 'no'
     req.session.data['userType'] = ''
 

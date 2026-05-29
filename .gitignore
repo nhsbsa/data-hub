@@ -1,3 +1,4 @@
 node_modules
 osvscan.md
 .env
+.DS_Store

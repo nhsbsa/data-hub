@@ -1,0 +1,30 @@
+<!-- Extends the layout from /docs/views/layouts-templates/ -->
+{#% extends "template-data-hub-full-width.html" %#}
+{% extends "prototype-kit-template.njk" %}
+
+{% block head %}
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+  <link href="/assets/sass/main.css" rel="stylesheet">
+{% endblock %}
+
+{% block pageTitle %}
+NHS.UK prototype kit
+{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+    <main class="nhsuk-main-wrapper {{ mainClasses }} {{activePage}} nhsuk-u-padding-top-0 nhsuk-u-padding-bottom-0" id="maincontent" role="main">
+        {% block content %}{% endblock %}
+    </main>
+    {% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block bodyEnd %}
+  {{ super() }}
+  <script type="module" src="/assets/javascript/main.js"></script>
+  {% block pageScripts %}{% endblock %}
+{% endblock %}

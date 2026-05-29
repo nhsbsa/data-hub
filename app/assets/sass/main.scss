@@ -16,6 +16,25 @@
 ///////////////////////////////////////////
 // Data Hub - Custom Styles
 ///////////////////////////////////////////
+/// 
+/// 
+///
+
+.nhsuk-main-wrapper {
+    padding-top: 0;
+}
+
+.nhsuk-width-container:empty + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+.nhsuk-width-container-fluid + .nhsuk-width-container:has( .nhsuk-main-wrapper ){
+    padding-top: 24px;
+}
+
+@include nhsuk-media-query($from: tablet) {
+    .nhsuk-width-container:empty + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+    .nhsuk-width-container-fluid + .nhsuk-width-container:has( .nhsuk-main-wrapper ){
+        padding-top: 48px;
+    }
+}
 
 .flex {
     display: flex;

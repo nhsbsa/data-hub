@@ -1,0 +1,43 @@
+<!-- Use this page as the index for your project -->
+
+<!-- 
+
+CONTENT HELD ON:
+https://bsa2468.atlassian.net/wiki/spaces/IN/pages/5480906753/Error+Pages
+
+-->
+
+{% extends 'layouts/v5/layout.html' %}
+
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitleText = 'Page not found' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ pageTitleText }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: "#",
+        text: "Home"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">{{ pageTitleText }}</h1>
+
+        <p>If you typed the web address, check it's correct.</p>
+        <p>If you pasted the web address, check you copied the entire address.</p>
+        <p>If the web address is correct or you selected a link or button, <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">contact us using our email</a>.</p>
+    
+    </div>
+</div>
+{% endblock %}

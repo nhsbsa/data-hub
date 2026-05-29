@@ -12,7 +12,7 @@ router.use((req, res, next) => {
   console.log(req.method + ': ' + req.originalUrl);
 
   // Versions
-  const versions = ['dc146','v2','v3','v4-1','v4-2','v4-3','v5'];
+  const versions = ['dc146','v2','v3','v4','v4-1','v4-2','v4-3','v5'];
 
   // Clear current routes 
   router.stack = router.stack.filter(layer => layer.name !== 'router');
@@ -25,7 +25,7 @@ router.use((req, res, next) => {
     }
   });
 
-  res.locals.version = version;
+  res.locals.prototypeVersion = version; // Mapping to prototypeVersion as Dean used that originally
   res.locals.currentURL = req.originalUrl;
   
   // Load the required routes
