@@ -14,19 +14,23 @@ Ministry of Defence (MOD) - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
-{% include "includes/phase-banner.njk" %}
-{{ breadcrumb({
-items: [
-{
-href: "/data-hub/mvp/dc146/homepage",
-text: "Home"
-},
-{
-href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
-text: "ePACT2"
-}
-]
-}) }}
+    {% include "includes/phase-banner.njk" %}
+    {{ breadcrumb({
+    items: [
+                {
+                    href: "/data-hub/mvp/dc146/homepage",
+                    text: "Home"
+                }
+            ]
+    }) }}
+
+
+    <!--{
+        href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+        text: "ePACT2"
+    }-->
+
+
 {% endblock %}
 
 <!-- heroContent, large blue section at the top of homepage or any data area landing page -->
@@ -71,17 +75,17 @@ text: "ePACT2"
         <h2 class="nhsuk-heading-m">Useful links</h2>
         <ul class="nhsuk-list">
             <li><a href="#">Data release calendar</a></li>
-            <li><a href="#">ePACT2 website</a></li>
-            <li><a href="#">How to request prescription data</a></li>
+            <!--<li><a href="#">ePACT2 website</a></li>-->
+            <li><a href="https://www.nhsbsa.nhs.uk/prescription-data/requesting-our-prescription-data">How to request prescription data</a></li>
             <li><a href="../../product-news?productFlow=yes">News</a></li>
         </ul>
         <h2 class="nhsuk-heading-m">Guidance</h2>
         <ul class="nhsuk-list">
-            <li><a href="training-material">Training catalogue</a></li>
-            <li><a href="#">Book an ePACT2 training webinar</a></li>
+            <!--<li><a href="training-material">Training catalogue</a></li>-->
+            <!--<li><a href="#">Book an ePACT2 training webinar</a></li>-->
             <li><a href="../../training-hub/landing-page">Training hub</a></li>
             <li><a href="https://www.nhsbsa.nhs.uk/help-and-support">Contact us</a></li>                        
-            <li><a href="#">ePACT2 report information</a></li>
+            <!--<li><a href="#">ePACT2 report information</a></li>-->
         </ul>
     </div>
 </div>
