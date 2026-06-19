@@ -51,13 +51,13 @@ Cookie policy - {{ serviceName }} - NHSBSA
                   <thead class="nhsuk-table__head">
                     <tr class="nhsuk-table__row">
                       <th scope="col" class="nhsuk-table__header">
-                        Cookie name
+                        Name
                       </th>
                       <th scope="col" class="nhsuk-table__header">
                         Purpose
                       </th>
                       <th scope="col" class="nhsuk-table__header">
-                        How long it stays on your device
+                        Expires
                       </th>
                     </tr>
                   </thead>
@@ -141,17 +141,18 @@ Cookie policy - {{ serviceName }} - NHSBSA
             {% call details({
                 summaryText: 'List of cookies that measure website use'
             }) %}
-                <table class="nhsuk-table"> 
+                <table class="nhsuk-table">
                   <thead class="nhsuk-table__head">
+                    <p>Google Analytics stores the following cookies on your computer:</p>
                     <tr class="nhsuk-table__row">
                       <th scope="col" class="nhsuk-table__header">
-                        Cookie name
+                        Name
                       </th>
                       <th scope="col" class="nhsuk-table__header">
                         Purpose
                       </th>
                       <th scope="col" class="nhsuk-table__header">
-                        How long it stays on your device
+                        Expires
                       </th>
                     </tr>
                   </thead>
@@ -161,7 +162,7 @@ Cookie policy - {{ serviceName }} - NHSBSA
                         _ga
                       </th>
                       <td class="nhsuk-table__cell">
-                        Google Analytics cookie. Helps distinguish users anonymously to measure how the website is used.
+                        Counts how many people have visited Data Hub and tracks if you have visited before
                       </td>
                       <td class="nhsuk-table__cell">
                         2 years
@@ -169,13 +170,24 @@ Cookie policy - {{ serviceName }} - NHSBSA
                     </tr>
                     <tr class="nhsuk-table__row">
                       <th scope="row" class="nhsuk-table__header">
-                        _ga_
+                        _gid
                       </th>
                       <td class="nhsuk-table__cell">
-                        Google Analytics GA4 cookie. Stores session information for the specific Google Analytics property.
+                        Counts how many people have visited Data Hub and tracks if you have visited before
                       </td>
                       <td class="nhsuk-table__cell">
-                        2 years
+                        24 hours
+                      </td>
+                    </tr>
+                    <tr class="nhsuk-table__row">
+                      <th scope="row" class="nhsuk-table__header">
+                        _gat
+                      </th>
+                      <td class="nhsuk-table__cell">
+                        Limits the rate of page view requests recorded by Google
+                      </td>
+                      <td class="nhsuk-table__cell">
+                        1 minute
                       </td>
                     </tr>
                   </tbody>
