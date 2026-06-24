@@ -10,7 +10,7 @@ https://bsa2468.atlassian.net/wiki/spaces/IN/pages/5480906753/Error+Pages
 {% extends 'layouts/v5/layout.html' %}
 
 {% set prototypeVersion = 'dc146' %}
-{% set pageTitleText = 'You do not have access to this page' %}
+{% set pageTitleText = 'You are not signed in' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
@@ -33,11 +33,8 @@ https://bsa2468.atlassian.net/wiki/spaces/IN/pages/5480906753/Error+Pages
     <div class="nhsuk-grid-column-two-thirds">
         <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-3">{{ pageTitleText }}</h1>
  
-        <p>Check your account to see which data products you can use.</p>
-        <p>If you've already requested for access, we'll reply within 7 days.</p>
-        <p>If you do not have access, <a class="nhsuk-link" href="https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2">request access to ePACT2</a>.</p>
-        <p>If you have access but cannot see the page, <a class="nhsuk-link" href="https://www.nhsbsa.nhs.uk/help-and-support">contact our data services support team</a> for help.</p>
-
+        <p><a class="nhsuk-link" href="https://data-hub-service-5f86de5d8faf.herokuapp.com/data-hub/mvp/dc146/auth/entra-id/enter-username">Sign in or create an account</a> to see which data products you can use.</p>
+        
     </div>
 </div>
 {% endblock %}
