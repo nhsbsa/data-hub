@@ -26,6 +26,16 @@
         }
     }) }}
   {% endblock %}
+
+    {% block main %}
+        <div class="nhsuk-width-container nhsuk-before-content">{% block beforeContent %}{% endblock %}</div>
+        {% block heroContent %}{% endblock %}
+        <div class="nhsuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
+          <main class="nhsuk-main-wrapper {%- if mainClasses %} {{ mainClasses }}{% endif %}" id="maincontent" {%- if mainLang %} lang="{{ mainLang }}"{% endif %}>
+            {% block content %}{% endblock %}
+          </main>
+        </div>
+  {% endblock %}
   
   <!-- Edit the footer -->
   <!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->

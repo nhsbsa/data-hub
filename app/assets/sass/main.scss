@@ -32,7 +32,9 @@
     padding-top: 0;
 }
 
-.nhsuk-width-container:empty + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+.nhsuk-header + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+.nhsuk-width-container:not(:has(.nhsuk-breadcrumb)) + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+.nhsuk-width-container:empty:not(.nhsuk-before-content) + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
 .nhsuk-width-container-fluid + .nhsuk-width-container:has( .nhsuk-main-wrapper ){
     padding-top: 24px;
 }
@@ -44,7 +46,9 @@
 
 @include nhsuk-media-query($from: tablet) {
 
-    .nhsuk-width-container:empty + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+    .nhsuk-header + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+    .nhsuk-width-container:not(:has(.nhsuk-breadcrumb)) + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
+    .nhsuk-width-container:empty:not(.nhsuk-before-content) + .nhsuk-width-container:has( .nhsuk-main-wrapper ),
     .nhsuk-width-container-fluid + .nhsuk-width-container:has( .nhsuk-main-wrapper ){
         padding-top: 48px;
     }

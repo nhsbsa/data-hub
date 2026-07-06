@@ -1,0 +1,73 @@
+<!-- Extends the layout from /views/layout.html -->
+{% extends 'layouts/product-performance/metrics.html' %}
+<!-- 
+  In /views/layout.html you can:
+    - edit the header and footer 
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Content page example - NHS.UK prototype kit
+{% endblock %}
+
+<!-- For adding a back link -->
+<!-- Code examples can be found at https://service-manual.nhs.uk/design-system/components/back-link -->
+{% block beforeContent %}
+    {{ backLink({
+        text: 'Back',
+        href: 'javascript:history.back()'
+    }) }}
+{% endblock %}
+
+<!-- For adding page content -->
+<!-- Page layout code can be found at https://service-manual.nhs.uk/design-system/styles/layout -->
+{% block content %}
+<div class="nhsuk-grid-row">
+
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <span class="nhsuk-caption-l">Baby Loss Certificate</span>
+        <h1 class="nhsuk-heading-xl">Service accessibility</h1>
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+        <div class="nhsuk-card nhsuk-card--secondary">
+            <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                <h2 class="nhsuk-card__heading nhsuk-heading-s">
+                    True compliance
+                </h2>
+                <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-3">76%<span
+                        class="nhsuk-u-visually-hidden">Applicants</span></p>
+                <p class="nhsuk-card__description nhsuk-body-s">
+                    <span class="trend-increased trend-green nhsuk-body-l nhsuk-u-margin-bottom-1">+5.13% </span>
+                    September 2024 to October 2024
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="nhsuk-grid-column-one-half">
+        <div class="nhsuk-card nhsuk-card--secondary">
+            <div class="nhsuk-card__content nhsuk-card__content--secondary">
+                <h2 class="nhsuk-card__heading nhsuk-heading-s">
+                    Accessibility failures
+                </h2>
+                <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-3">3<span
+                        class="nhsuk-u-visually-hidden">Applicants</span></p>
+                <p class="nhsuk-card__description nhsuk-body-s">
+                    <span class="trend-decreased trend-green nhsuk-body-l nhsuk-u-margin-bottom-1">-0.44% </span>
+                    September 2024 to October 2024
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="nhsuk-grid-column-two-thirds">
+        <h2 class="nhsuk-heading-m">Resources</h2>
+        <ul class="nhsuk-list">
+            <li><a href="#">Accessibility report</a></li>
+            <li><a href="#">Accessibility statement</a></li>
+            <li><a href="#">Disproportunate burden</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
