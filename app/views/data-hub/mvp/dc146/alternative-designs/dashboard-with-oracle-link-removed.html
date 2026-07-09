@@ -1,0 +1,68 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+items: [
+{
+href: "/data-hub/mvp/dc146/homepage",
+text: "Home"
+},
+{
+href: "/data-hub/mvp/dc146/prescribing-dispensing",
+text: "Prescribing and dispensing"
+},
+{
+href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+text: "ePACT2"
+},
+{
+href: "dashboards",
+text: "Dashboards and reports"
+}
+]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l">Generic drug decommissioning</h1>
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+        <p class="nhsuk-body-s nhsuk-u-margin-bottom-3">
+            <span class="nhsuk-u-font-weight-bold">Removed:</span> 6 May 2025 at 8:31am
+        </p>
+    </div>
+
+    <div class="nhsuk-grid-column-two-thirds">
+        
+        
+        {{ warningCallout({
+            heading: 'This report has been removed',
+            classes: 'nhsuk-u-margin-top-4 nhsuk-u-margin-bottom-7',
+            html: '<p>This report is no longer be available on the Data Hub. It has been replaced by the <a href="#" class="nhsuk-link">Generic drug commissioning</a> report.</p>'
+        }) }}
+
+        <h2 class="nhsuk-heading-m">Why was this removed?</h2>
+        <p>If you have any questions about why this dashboard was removed or require help please contact our <a href="#">Data Services support team</a>.</p>
+
+    </div>
+
+</div>
+{% endblock %}
