@@ -1,0 +1,193 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout-data-product-footer.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Premium priced generics - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+            text: "ePACT2"
+        }
+    ]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l">Data exploration</h1>
+    </div>
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <h2>Semantic models</h2>
+        <p>Our prescribing and dispensing data can be explored through the following models in Power BI or XXX.</p>
+
+
+    </div>
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <!-- 
+
+        12 month model
+        24 month model
+        10 year model
+
+        BNF drug cost
+        Dispensing submissions
+        PCA monthly and yearly
+        Prescribed item - Level 4
+        Prescribed item - Level 5
+
+        -->
+
+        {% set content_01 %}
+
+            <!-- 12 MONTH MODEL -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            <!--<hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--m" />-->
+
+            <dl class="nhsuk-u-font-size-14">
+                <dt><strong>Primary fact</strong></dt>
+                <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                <dt><strong>Grain</strong></dt>
+                <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+            </dl>
+
+        {% endset %}
+
+
+        {% set content_02 %}
+
+            <!-- 24 MONTH MODEL -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            <!--<hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--m" />-->
+
+            <dl class="nhsuk-u-font-size-14">
+                <dt><strong>Primary fact</strong></dt>
+                <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                <dt><strong>Grain</strong></dt>
+                <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+            </dl>
+
+        {% endset %}
+
+        {% set content_03 %}
+
+            <!-- 10 YEAR MODEL -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            <!--<hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--m" />-->
+
+            <dl class="nhsuk-u-font-size-14">
+                <dt><strong>Primary fact</strong></dt>
+                <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                <dt><strong>Grain</strong></dt>
+                <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+            </dl>
+
+        {% endset %}
+
+        {% set content_04 %}
+
+            <!-- BNF DRUG COST -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            <!--<hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--m" />-->
+
+            <dl class="nhsuk-u-font-size-14">
+                <dt><strong>Primary fact</strong></dt>
+                <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                <dt><strong>Grain</strong></dt>
+                <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+            </dl>
+
+        {% endset %}
+
+
+
+
+            {{ summaryList({
+                rows: [
+                    {
+                        key: { text: '12 month model' },
+                        value: { html: content_01 },
+                        classes: 'nhsuk-u-margin',
+                        actions: { items: [
+                            { 
+                                href: '#',
+                                text: 'Power BI'
+                            },
+                            { 
+                                href: '#',
+                                text: 'Explore my data'
+                            }
+                        ] }
+                    },
+                    {
+                        key: { text: '24 month model' },
+                        value: { html: content_01 },
+                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
+                        actions: { items: [
+                            { 
+                                href: '#',
+                                text: 'Power BI'
+                            },
+                            { 
+                                href: '#',
+                                text: 'Explore my data'
+                            }
+                        ] }
+                    },
+                    {
+                        key: { text: '10 year model' },
+                        value: { html: content_01 },
+                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
+                        actions: { items: [
+                            { 
+                                href: '#',
+                                text: 'Power BI'
+                            },
+                            { 
+                                href: '#',
+                                text: 'Explore my data'
+                            }
+                        ] }
+                    }
+                ]
+            }) }}
+
+    </div>
+</div>
+
+
+{% endblock %}
