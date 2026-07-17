@@ -36,6 +36,15 @@
     vertical-align: bottom;
 }
 
+.nhsuk-link-button {
+    line-height: 2rem;
+}
+
+.nhsuk-summary-list .nhsuk-summary-list__actions-list-item,
+.nhsuk-card .nhsuk-card__action {
+        border: none !important;
+}
+
 .nhsuk-main-wrapper {
     padding-top: 0;
 }
@@ -64,10 +73,6 @@
     .nhsuk-cookie-banner { 
         padding-top: 24px;
         padding-bottom: 24px;
-    }
-
-    .nhsuk-summary-list .nhsuk-summary-list__actions-list-item {
-        border-left: none !important;
     }
 
 }

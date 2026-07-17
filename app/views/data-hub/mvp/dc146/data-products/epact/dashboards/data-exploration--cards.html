@@ -80,7 +80,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
                             },
                             { 
                                 href: '#',
-                                classes: 'nhsuk-link-button',
+                                classes: 'nhsuk-button nhsuk-button--small nhsuk-button--secondary nhsuk-u-margin-0',
                                 text: 'Analyze in Excel'
                             }
                         ] } %}
@@ -90,7 +90,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
         {% set content_01 %}
 
             <!-- 12 MONTH MODEL -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             
             {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -109,7 +109,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
         {% set content_02 %}
 
             <!-- 24 MONTH MODEL -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
             {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -128,7 +128,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
         {% set content_03 %}
 
             <!-- 10 YEAR MODEL -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             
             {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -145,27 +145,28 @@ Premium priced generics - {{ serviceName }} - NHSBSA
 
             <h3>Time based models</h3>
 
-            {{ summaryList({
-                rows: [
-                    {
-                        key: { text: header_01 },
-                        value: { html: content_01 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    },
-                    {
-                        key: { text: header_02 },
-                        value: { html: content_02 },
-                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
-                        actions: action_links
-                    },
-                    {
-                        key: { text: header_03 },
-                        value: { html: content_03 },
-                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
-                        actions: action_links
-                    }
-                ]
+            {{ card({
+                clickable: false,
+                heading: header_01,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_01
+            }) }}
+
+             {{ card({
+                clickable: false,
+                heading: header_02,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_02
+            }) }}
+
+            {{ card({
+                clickable: false,
+                heading: header_03,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_03
             }) }}
 
 
@@ -174,7 +175,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
             {% set content_04 %}
 
                 <!-- BNF DRUG COST -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -193,7 +194,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
             {% set content_05 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -210,7 +211,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
             {% set content_06 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -231,28 +232,31 @@ Premium priced generics - {{ serviceName }} - NHSBSA
 
             <h3>Subject models</h3>
 
-            {{ summaryList({
-                rows: [
-                    {
-                        key: { text: header_04 },
-                        value: { html: content_04 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    },
-                    {
-                        key: { text: header_05 },
-                        value: { html: content_05 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    },
-                     {
-                        key: { text: header_06 },
-                        value: { html: content_06 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    }
-                ]
+             {{ card({
+                clickable: false,
+                heading: header_04,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_04
             }) }}
+
+             {{ card({
+                clickable: false,
+                heading: header_05,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_05
+            }) }}
+
+            {{ card({
+                clickable: false,
+                heading: header_06,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_06
+            }) }}
+
+
 
 
             <h3>Prescribed item models</h3>
@@ -262,7 +266,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
             {% set content_07 %}
 
                 <!-- BNF DRUG COST -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -281,7 +285,7 @@ Premium priced generics - {{ serviceName }} - NHSBSA
             {% set content_08 %}
 
                 <!-- BNF DRUG COST -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p class="nhsuk-u-reading-width">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -297,21 +301,20 @@ Premium priced generics - {{ serviceName }} - NHSBSA
             {% endset %}
 
 
-            {{ summaryList({
-                rows: [
-                    {
-                        key: { text: header_07 },
-                        value: { html: content_07 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    },
-                    {
-                        key: { text: header_08 },
-                        value: { html: content_08 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    }
-                ]
+            {{ card({
+                clickable: false,
+                heading: header_07,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_07
+            }) }}
+
+             {{ card({
+                clickable: false,
+                heading: header_08,
+                headingSize: 'm',
+                actions: action_links,
+                descriptionHtml: content_08
             }) }}
 
 
