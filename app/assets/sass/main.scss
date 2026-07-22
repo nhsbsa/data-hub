@@ -19,14 +19,45 @@
 /// 
 /// 
 ///
-/// 
-///
-/// 
-/// 
+
+
+// FLEX GROUP
+
+
+
+.nhsuk-flex-group {
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 2rem 0;
+}
+
+.nhsuk-flex-group .nhsuk-form-group {
+    margin: 0;
+}
+
+.nhsuk-flex-group .nhsuk-button {
+    margin: 0 0 0 0.625rem;
+    align-self: flex-end;
+    position: relative;
+    top: -4px;
+    width: auto;
+}
+
+.nhsuk-flex-group .nhsuk-button:active {
+    top: 0;
+}
+
+.nhsuk-flex-group .nhsuk-input {
+    flex-grow: 1;  
+}
+
+//
 
 .hidden {
     display: none !important;
 }
+
+
 
 .alert__icon {
     display: inline-block;
@@ -34,6 +65,11 @@
     height: 1.875rem;
     fill: currentcolor;
     vertical-align: bottom;
+}
+
+.nhsuk-body-s .alert__icon {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .nhsuk-link-button {

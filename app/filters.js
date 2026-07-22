@@ -15,6 +15,28 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     return check;
   };
 
+  filters.generateAToZLinks = function( letters ){
+
+    const allLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    let activeLetters = ( /^[A-Z]+$/.test(letters) ) ? letters.split('') : [];
+
+    let html = '<nav class="nhsuk-u-clear"><ol class="nhsuk-list">';
+    allLetters.forEach(function(letter, i){
+      html += '<li class="nhsuk-u-margin-bottom-0 nhsuk-u-float-left nhsuk-u-margin-right-1">';
+      if( activeLetters.indexOf(letter) > -1 ){
+        html += '<a class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block" href="#'+letter+'">'+letter+'</a>';
+      } else {
+        html += '<span class="nhsuk-u-font-size-22 nhsuk-u-padding-2 nhsuk-u-display-block nhsuk-u-secondary-text-color">'+letter+'</span>';
+      }
+      html += '</li>';
+    });
+
+    html += '</ol></nav>';
+
+    return html;
+
+  }
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:
