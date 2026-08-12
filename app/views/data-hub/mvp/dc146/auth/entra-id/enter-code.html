@@ -31,9 +31,9 @@ Sign in or create an account- {{ serviceName }} - NHSBSA
                     username@nhsbsa.nhs.uk
                 {% endif %}
             </p>
-            <h1 class="nhsuk-heading-m">Enter code</h1>
-            <p>
-                Enter the code we just sent to {% if data['username'] %}{{ data['username'] }}{% elif data['email-address'] %}{{ data['email-address'] }}{% else %}username@nhsbsa.nhs.uk{% endif %}.
+            <h1 class="nhsuk-heading-m nhsuk-u-margin-bottom-2">Enter code</h1>
+            <p class="nhsuk-body-s">
+                Enter the code we just sent to {% if data['username'] %}{{ data['username'] }}{% elif data['email-address'] %}{{ data['email-address'] }}{% else %}username@nhsbsa.nhs.uk{% endif %}
             </p>
             <input type="text" placeholder="Enter code">
             <div class="buttons">
