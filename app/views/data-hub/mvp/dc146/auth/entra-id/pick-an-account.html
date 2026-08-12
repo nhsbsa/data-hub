@@ -1,0 +1,116 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layouts/layout-entra-id.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Pick an account - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+    .picker-link {
+        display: block;
+        overflow: hidden;
+        text-decoration: none;
+        color: black;
+        margin-left: -44px;
+        margin-right: -44px;
+        padding: 10px 44px;
+        position: relative;
+        min-height: 68px;
+    }
+
+    .picker-link:visited {
+        color: black;
+    }
+
+    .picker-link:focus,
+    .picker-link:visited:focus,
+    .picker-link:hover {
+        outline: none;
+        border: none;
+        box-shadow: none;
+        color: black;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .picker-link:active {
+        outline: none;
+        border: none;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .picker-link p {
+        color: black !important;
+    }
+
+    .picker-link span > p:only-child {
+        line-height: 48px;
+        vertical-align: middle;
+    }
+
+    .picker-link img {
+        position: absolute;
+        top: 10px;
+        left: 44px;
+    }
+
+    .picker-link > span {
+        display: block;
+        overflow: hidden;
+        margin-left: calc( 44px + 48px + 10px );
+    }
+
+    
+
+    .nhsuk-body-xs {
+        font-size: 0.75rem;
+    }
+
+</style>
+
+<div class="outer">
+    <div class="sign-in-box">
+        <!--<img src="/assets/images/data-hub/bsa-logo.png" alt="" />-->
+        <img style="margin-bottom: 20px;" src="/assets/images/logo-245x36-left.png" alt="" />
+    
+        <form method="post">
+             <h1 class="nhsuk-heading-m nhsuk-u-margin-bottom-2">Pick an account</h1>
+            <p class="nhsuk-body-s">Sign in to Data Hub</p>
+            
+            <a class="picker-link" href="enter-code">
+                <img src="/assets/images/picker-icon.svg" alt="" />
+                <span>
+                    <p class="nhsuk-body-s nhsuk-u-margin-0">James Lattimore</p>
+                    <p class="nhsuk-body-xs nhsuk-u-margin-0">james.lattimore@nhsbsa.nhs.uk <br />Signed in</p>
+                </span>
+            </a>
+
+            <a class="picker-link" href="enter-username">
+                <img src="/assets/images/plus-icon.svg" alt="" />
+                <span>
+                    <p class="nhsuk-body-s nhsuk-u-margin-0">Use another account</p>
+                </span>
+            </a>
+            
+            
+        </form>
+        <!--<div class="boilerplate-text">
+            <p class="nhsuk-u-margin-bottom-0 nhsuk-body-s">Welcome to the NHS Business Services Authority</p>
+        </div>-->          
+    </div>
+</div>
+
+{% endblock %}
