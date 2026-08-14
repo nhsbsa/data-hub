@@ -1,0 +1,249 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitle = 'Dashboard change guide' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+    {{ pageTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+
+    {% include "includes/phase-banner.njk" %}
+
+    {{ breadcrumb({
+        items: [
+            {
+                href: '/data-hub/mvp/dc146/homepage',
+                text: "Home"
+            },
+            {
+                href: '/data-hub/mvp/dc146/data-products/eops/eops-loggedin',
+                text: 'Electronic Ophthalmic (eOPS)'
+            },
+            {
+                href: '/data-hub/mvp/dc146/data-products/eops/dashboards/eops-v3-performer-data',
+                text: 'eOPS Version 3 with performer data'
+            }
+        ]
+        }) 
+    }}
+
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+         
+
+        <div class="nhsuk-u-reading-width">
+
+            <span class="nhsuk-caption-l">eOPS Version 3 with performer data</span>
+            <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
+
+            <h2 class="nhsuk-heading-m">Overview</h2>
+            <p>The Oracle-based report has been migrated to Power BI and redesigned to improve navigation, reporting performance, and access to data. This document provides a summary of key changes and where information can now be found within the new dashboard.</p>
+
+            <h2 class="nhsuk-heading-m">Key changes</h2>
+
+        </div>
+
+        <table>
+            <caption>Dashboard name change</caption>
+            <thead>
+                <tr>
+                    <th>Previous name</th>
+                    <th>New name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>eOPS v3 - with Performer Data</td>
+                    <td>NHS England Ophthalmic Activity Report</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="nhsuk-u-reading-width">
+            <h2 class="nhsuk-heading-m">Measure changes</h2>
+        </div>
+
+        <table>
+            <caption>New measures</caption>
+            <thead>
+                <tr>
+                    <th>Measure</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Year on Year (YoY)</td>
+                    <td>Percentage difference between the current month and the same month in the previous year.</td>
+                </tr>
+                <tr>
+                    <td>Claim value</td>
+                    <td>Calculated claim value for the selected claim.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table>
+            <caption>Removed measures</caption>
+            <thead>
+                <tr>
+                    <th>Measure</th>
+                    <th>Reason</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Claim ID</td>
+                    <td>Temporarily removed to improve dashboard performance. Planned for inclusion in future developments.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="nhsuk-u-reading-width">
+            <h2 class="nhsuk-heading-m">Navigation changes</h2>
+            <p>The report pages have been reorganised to improve navigation and make it easier to access specific data sets. Users familiar with the Oracle report can use the mappings below to find equivalent information in Power BI.</p>
+        </div>
+
+
+
+        <table>
+            <caption>Finding Information in Power BI</caption>
+            <thead>
+                <tr>
+                    <th>Oracle report page</th>
+                    <th>Power BI report page(s)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>NHS Sight Test Summary</td>
+                    <td>NHS Sight Tests by Location; In-Store NHS Sight Test Analysis; Domiciliary Visits Analysis</td>
+                </tr>
+                <tr>
+                    <td>GOS6 Domiciliary Visits Summary</td>
+                    <td>Domiciliary Visits Analysis</td>
+                </tr>
+                <tr>
+                    <td>GOS Referrals from Sight Tests Summary</td>
+                    <td>NHS Sight Tests by Location; NHS Sight Test Data</td>
+                </tr>
+                <tr>
+                    <td>Early Retest Summary</td>
+                    <td>NHS Sight Tests by Location</td>
+                </tr>
+                <tr>
+                    <td>GOS3 Voucher Summary</td>
+                    <td>GOS3 Vouchers by Location; GOS3 Voucher Analyses; GOS3 Voucher Data</td>
+                </tr>
+                <tr>
+                    <td>GOS3 Supplement Summary</td>
+                    <td>GOS3 Supplement Data</td>
+                </tr>
+                <tr>
+                    <td>GOS4 Repair &amp; Replacement Summary</td>
+                    <td>GOS4 Repairs and Replacements by Location; GOS4 Repairs and Replacements Analyses; GOS4 Repairs and Replacements Data</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="nhsuk-u-reading-width">
+            <h2 class="nhsuk-heading-m">New Power BI pages explained</h2>
+        </div>
+
+        
+        <table>
+            <caption>New Power BI pages</caption>
+            <thead>
+                <tr>
+                    <th>Page</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Report Information</td>
+                    <td>New page providing background and contextual information about the report.</td>
+                </tr>
+                <tr>
+                    <td>NHS Sight Tests by Location</td>
+                    <td>Location-level summary information including data previously spread across several Oracle pages.</td>
+                </tr>
+                <tr>
+                    <td>In-Store NHS Sight Test Analysis</td>
+                    <td>Detailed analysis of in-store sight test activity.</td>
+                </tr>
+                <tr>
+                    <td>Domiciliary Visits Analysis</td>
+                    <td>Analysis of domiciliary visit activity.</td>
+                </tr>
+                <tr>
+                    <td>NHS Sight Test Data</td>
+                    <td>Detailed NHS sight test and referral data.</td>
+                </tr>
+                <tr>
+                    <td>GOS3 Vouchers by Location</td>
+                    <td>Location-level voucher reporting.</td>
+                </tr>
+                <tr>
+                    <td>GOS3 Voucher Analyses</td>
+                    <td>Detailed voucher analysis.</td>
+                </tr>
+                <tr>
+                    <td>GOS3 Voucher Data</td>
+                    <td>Detailed voucher records.</td>
+                </tr>
+                <tr>
+                    <td>GOS3 Supplement Data</td>
+                    <td>Supplement claim information.</td>
+                </tr>
+                <tr>
+                    <td>GOS4 Repairs and Replacements by Location</td>
+                    <td>Location-level repairs and replacements information.</td>
+                </tr>
+                <tr>
+                    <td>GOS4 Repairs and Replacements Analyses</td>
+                    <td>Detailed repairs and replacements analysis.</td>
+                </tr>
+                <tr>
+                    <td>GOS4 Repairs and Replacements Data</td>
+                    <td>Detailed repairs and replacements data.</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="nhsuk-u-reading-width">
+            
+        
+            <h2 class="nhsuk-heading-m">At a glance</h2>
+
+            <ul>
+                <li>Improved report navigation</li>
+                <li>Reorganised report pages for easier data access</li>
+                <li>New Year-on-Year (YoY) measure</li>
+                <li>New Claim Value measure</li>
+                <li>New Report Information page</li>
+                <li>Claim ID temporarily removed for performance improvements</li>
+            </ul>
+
+
+        </div>
+
+
+    </div>
+</div>
+{% endblock %}
