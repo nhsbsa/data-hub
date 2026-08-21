@@ -60,7 +60,7 @@ router.post(/enter-code/, (req, res) => {
     if (forgottenPassword === 'yes') {
         res.redirect('/data-hub/mvp/dc146/auth/entra-id/update-password');
     } else {
-        res.redirect('/data-hub/mvp/dc146/auth/my-account');
+        res.redirect('/data-hub/mvp/dc146/homepage');
     }
 });
 router.post(/entra-create-account/, (req, res) => {
