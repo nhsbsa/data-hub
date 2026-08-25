@@ -106,9 +106,9 @@ text: "Home"
             <h2 class="nhsuk-heading-l">Sign in or request access</h2>
             <p>Sign in to your account using your username and password, or request access to view dental data.</p>
             {% if data.userType == 'admin' %}
-                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=admin">Sign in or create account</a>
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=admin">Sign in</a>
             {% else %}
-                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=eden">Sign in or create account</a>
+                <a class="nhsuk-button" href="../../auth/entra-id/enter-username?userType=eden">Sign in</a>
             {% endif %}
             <a class="nhsuk-button nhsuk-button--secondary" href="https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden">Request access to eDEN</a>
         {% endif %}
