@@ -1,0 +1,342 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout-data-product-footer.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitle = 'Explore prescribing and dispensing data' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+            text: "ePACT2"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/data-exploration-tools",
+            text: "Data exploration tools"
+        }
+    ]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
+    </div>
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <hr />
+
+        <h2 class="nhsuk-heading-m">Semantic models</h2>
+        <p>Our prescribing and dispensing data can be explored in a tool of your choice.</p>
+        
+        {{ warningCallout({
+            classes: 'smaller-heading',
+            heading: 'Power BI access requires a valid licence',
+            html: '<p class="nhsuk-body">More information can be found on <a class="nhsuk-link" href="#">Power BI pricing</a></p>'
+        }) }}
+
+    </div>
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <!-- 
+
+        12 month model
+        24 month model
+        10 year model
+
+        BNF drug cost
+        Dispensing submissions
+        PCA monthly and yearly
+        Prescribed item - Level 4
+        Prescribed item - Level 5
+
+        -->
+
+        {% set action_links = { items: [
+                            { 
+                                href: 'fabric',
+                                attributes: { target: '_blank' },
+                                classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-0',
+                                text: 'Fabric'
+                            },
+                            { 
+                                href: '#',
+                                classes: 'nhsuk-button nhsuk-button--small nhsuk-button--secondary nhsuk-u-margin-0',
+                                text: 'Power BI'
+                            }
+                        ] } %}
+
+
+        {% set header_01 = '12 month model' %}
+        {% set content_01 %}
+
+            <!-- 12 MONTH MODEL -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                <dl class="nhsuk-u-font-size-14">
+                    <dt><strong>Time frame</strong></dt>
+                    <dd class="nhsuk-u-margin-0">12 months</dd>
+                    <dt><strong>Primary fact</strong></dt>
+                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                    <dt><strong>Grain</strong></dt>
+                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                </dl>
+            {% endcall %}
+
+        {% endset %}
+
+        {% set header_02 = '24 month model' %}
+        {% set content_02 %}
+
+            <!-- 24 MONTH MODEL -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+            {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                <dl class="nhsuk-u-font-size-14">
+                    <dt><strong>Time frame</strong></dt>
+                    <dd class="nhsuk-u-margin-0">24 months</dd>
+                    <dt><strong>Primary fact</strong></dt>
+                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                    <dt><strong>Grain</strong></dt>
+                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                </dl>
+            {% endcall %}
+
+        {% endset %}
+
+        {% set header_03 = '10 year model' %}
+        {% set content_03 %}
+
+            <!-- 10 YEAR MODEL -->
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            
+            {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                <dl class="nhsuk-u-font-size-14">
+                    <dt><strong>Time frame</strong></dt>
+                    <dd class="nhsuk-u-margin-0">10 years</dd>
+                    <dt><strong>Primary fact</strong></dt>
+                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                    <dt><strong>Grain</strong></dt>
+                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                </dl>
+            {% endcall %}
+
+        {% endset %}
+
+            <h3>Time based models</h3>
+
+            {{ summaryList({
+                rows: [
+                    {
+                        key: { text: header_01 },
+                        value: { html: content_01 },
+                        classes: 'nhsuk-u-margin',
+                        actions: action_links
+                    },
+                    {
+                        key: { text: header_02 },
+                        value: { html: content_02 },
+                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
+                        actions: action_links
+                    },
+                    {
+                        key: { text: header_03 },
+                        value: { html: content_03 },
+                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
+                        actions: action_links
+                    }
+                ]
+            }) }}
+
+
+
+            {% set header_04 = 'BNF drug cost' %}
+            {% set content_04 %}
+
+                <!-- BNF DRUG COST -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">practice_bnf_drug_cost_fact</dd>
+                        <dt><strong>Grain</strong></dt>
+                        <dd class="nhsuk-u-margin-0">bnf-presentation / gender / age / patient / practice / prescriber / m-y</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+            {% set header_05 = 'Dispensing submissions' %}
+            {% set content_05 %}
+
+                <!-- DISPENSING SUBMISSIONS -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">dispensing_submission_fact</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+            {% set header_06 = 'PCA monthly and yearly' %}
+            {% set content_06 %}
+
+                <!-- DISPENSING SUBMISSIONS -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">pca_monthly_yearly_fact</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+
+            
+
+
+
+
+            <h3>Subject models</h3>
+
+            {{ summaryList({
+                rows: [
+                    {
+                        key: { text: header_04 },
+                        value: { html: content_04 },
+                        classes: 'nhsuk-u-margin',
+                        actions: action_links
+                    },
+                    {
+                        key: { text: header_05 },
+                        value: { html: content_05 },
+                        classes: 'nhsuk-u-margin',
+                        actions: action_links
+                    },
+                     {
+                        key: { text: header_06 },
+                        value: { html: content_06 },
+                        classes: 'nhsuk-u-margin',
+                        actions: action_links
+                    }
+                ]
+            }) }}
+
+
+            <h3>Prescribed item models</h3>
+
+
+            {% set header_07 = 'Prescribed item - Level 4' %}
+            {% set content_07 %}
+
+                <!-- BNF DRUG COST -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">prescribed_item_level_4_12m_roll_fact</dd>
+                        <dt><strong>Grain</strong></dt>
+                        <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+            {% set header_08 = 'Prescribed item - Level 5' %}
+            {% set content_08 %}
+
+                <!-- BNF DRUG COST -->
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                
+                {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">prescribed_item_level_5_12m_roll_fact</dd>
+                        <dt><strong>Grain</strong></dt>
+                        <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+
+            {{ summaryList({
+                rows: [
+                    {
+                        key: { text: header_07 },
+                        value: { html: content_07 },
+                        classes: 'nhsuk-u-margin',
+                        actions: action_links
+                    },
+                    {
+                        key: { text: header_08 },
+                        value: { html: content_08 },
+                        classes: 'nhsuk-u-margin',
+                        actions: action_links
+                    }
+                ]
+            }) }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}

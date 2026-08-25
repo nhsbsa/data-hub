@@ -63,8 +63,14 @@ text: "ePACT2"
 {% block content %}
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
-        <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="https://datawarehouse.nhsbsa.nhs.uk/ui/analytics/saw.dll?Answers&SubjectArea=%22ePACT%202%22" target="_blank">Create analysis tool (opens in a new tab)</a></h2>        
+
+        {% if data.iteration === 'inHub' %}
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="dashboards/data-exploration--v2">Explore prescribing and dispensing data</a></h2>        
+        {% else %}
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="https://datawarehouse.nhsbsa.nhs.uk/ui/analytics/saw.dll?Answers&SubjectArea=%22ePACT%202%22" target="_blank">Create analysis tool (opens in a new tab)</a></h2>        
+        {% endif %}
         <p>Build custom reports with prescription data. See prescribing activity, check medication costs and create dashboards.</p>
+        
         <hr class="nhsuk-u-margin-top-5 nhsuk-u-margin-bottom-5">
          <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="https://datawarehouse.nhsbsa.nhs.uk/ui/analytics/saw.dll?catalog" target="_blank">Saved catalogue (opens in a new tab)</a></h2>        
         <p>View and manage your saved analyses. Reopen, edit or share dashboards and reports.</p>

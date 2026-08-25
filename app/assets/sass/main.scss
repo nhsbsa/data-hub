@@ -21,6 +21,19 @@
 ///
 
 
+.nhsuk-card.smaller-heading .nhsuk-card__heading {
+    font-size: 16px;
+    font-size: 1rem;
+}
+@include nhsuk-media-query($from: tablet) {
+    .nhsuk-card.smaller-heading .nhsuk-card__heading {
+        font-size: 19px;
+        font-size: 1.1875rem;
+        line-height: 1.47368;
+    }
+}
+
+
 // FLEX GROUP
 
 
