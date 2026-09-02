@@ -42,21 +42,35 @@
     <div class="nhsuk-grid-column-two-thirds">
 
         <div class="nhsuk-u-reading-width">
-            <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+            <span class="nhsuk-caption-xl">Release notes</span>
+            <h1 class="nhsuk-heading-xl">2028</h1>
         </div>
 
-        <!-- SEPTEMBER 2026 -->
-        {% call details({ summaryText: 'March', classes: 'nhsuk-expander', attributes: { open: true } }) %}
+        <!-- MARCH 2028 -->
+        {% call details({ summary: { html: '<strong>Version 13.0.0</strong> - March 2028' }, classes: 'nhsuk-expander', attributes: { open: true } }) %}
             <div class="nhsuk-u-reading-width">
 
-                <h2 class="nhsuk-heading-s">Updates and improvements</h2>
+                <h2 class="nhsuk-heading-s">New features</h2>
                 <ul class="nhsuk-list nhsuk-list--bullet">
                     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
                     <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
-                    <li>Ut enim ad minim veniam</li>
                 </ul>
 
-                <h2 class="nhsuk-heading-s">You said, we did</h2>
+                <h2 class="nhsuk-heading-s">Bug fixes</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Et dolore magna aliqua Lorem ipsum dolor sit amet</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore</li>
+                    <li>Ut enim ad minim veniam, consectetur adipiscing elit</li>
+                </ul>
+
+                <h2 class="nhsuk-heading-s">Service improvements</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Et dolore magna aliqua Lorem ipsum dolor sit amet</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore</li>
+                    <li>Ut enim ad minim veniam, consectetur adipiscing elit</li>
+                </ul>
+
+                <h2 class="nhsuk-heading-s">Maintenance</h2>
                 <ul class="nhsuk-list nhsuk-list--bullet">
                     <li>Et dolore magna aliqua Lorem ipsum dolor sit amet</li>
                     <li>Sed do eiusmod tempor incididunt ut labore</li>
@@ -68,17 +82,16 @@
 
 
         <!-- AUGUST 2026 -->
-        {% call details({ summaryText: 'February', classes: 'nhsuk-expander' }) %}
+        {% call details({ summary: { html: '<strong>Version 12.5.3</strong> - February 2028' }, classes: 'nhsuk-expander' }) %}
             <div class="nhsuk-u-reading-width">
 
-                <h2 class="nhsuk-heading-s">Updates and improvements</h2>
+                <h2 class="nhsuk-heading-s">New features</h2>
                 <ul class="nhsuk-list nhsuk-list--bullet">
                     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
                     <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
-                    <li>Ut enim ad minim veniam</li>
                 </ul>
 
-                <h2 class="nhsuk-heading-s">You said, we did</h2>
+                <h2 class="nhsuk-heading-s">Bug fixes</h2>
                 <ul class="nhsuk-list nhsuk-list--bullet">
                     <li>Et dolore magna aliqua Lorem ipsum dolor sit amet</li>
                     <li>Sed do eiusmod tempor incididunt ut labore</li>
@@ -89,10 +102,10 @@
         {% endcall %}
 
         <!-- JANUARY -->
-        {% call details({ summaryText: 'January', classes: 'nhsuk-expander' }) %}
+        {% call details({ summary: { html: '<strong>Version 12.5.2</strong> - January 2028' }, classes: 'nhsuk-expander' }) %}
             <div class="nhsuk-u-reading-width">
 
-                <h2 class="nhsuk-heading-s">Updates and improvements</h2>
+                <h2 class="nhsuk-heading-s">Bug fixes</h2>
                 <ul class="nhsuk-list nhsuk-list--bullet">
                     <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
                     <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
