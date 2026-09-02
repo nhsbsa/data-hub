@@ -1,0 +1,110 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitle = 'Release notes' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Release notes - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        }
+    ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+        <div class="nhsuk-u-reading-width">
+            <h1 class="nhsuk-heading-l">Release notes</h1>
+        </div>
+
+        <!-- SEPTEMBER 2026 -->
+        {% call details({ summaryText: "September 2026", classes: "nhsuk-expander", attributes: { open: true } }) %}
+            <div class="nhsuk-u-reading-width">
+
+                <h2 class="nhsuk-heading-s">Updates and improvements</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+                    <li>Ut enim ad minim veniam</li>
+                </ul>
+
+                <h2 class="nhsuk-heading-s">You said, we did</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Et dolore magna aliqua Lorem ipsum dolor sit amet</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore</li>
+                    <li>Ut enim ad minim veniam, consectetur adipiscing elit</li>
+                </ul>
+
+            </div>
+        {% endcall %}
+
+
+        <!-- AUGUST 2026 -->
+        {% call details({ summaryText: "August 2026", classes: "nhsuk-expander" }) %}
+            <div class="nhsuk-u-reading-width">
+
+                <h2 class="nhsuk-heading-s">Updates and improvements</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+                    <li>Ut enim ad minim veniam</li>
+                </ul>
+
+                <h2 class="nhsuk-heading-s">You said, we did</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Et dolore magna aliqua Lorem ipsum dolor sit amet</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore</li>
+                    <li>Ut enim ad minim veniam, consectetur adipiscing elit</li>
+                </ul>
+
+            </div>
+        {% endcall %}
+
+        <!-- JULY 2026 -->
+        {% call details({ summaryText: "July 2026", classes: "nhsuk-expander" }) %}
+            <div class="nhsuk-u-reading-width">
+
+                <h2 class="nhsuk-heading-s">Updates and improvements</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</li>
+                    <li>Ut enim ad minim veniam</li>
+                </ul>
+
+                <h2 class="nhsuk-heading-s">You said, we did</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Et dolore magna aliqua Lorem ipsum dolor sit amet</li>
+                    <li>Sed do eiusmod tempor incididunt ut labore</li>
+                    <li>Ut enim ad minim veniam, consectetur adipiscing elit</li>
+                </ul>
+
+            </div>
+        {% endcall %}
+
+
+
+
+
+
+
+    </div>
+</div>
+{% endblock %}
