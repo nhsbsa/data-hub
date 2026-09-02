@@ -7,11 +7,11 @@
 
 <!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
 {% set prototypeVersion = 'dc146' %}
-{% set pageHeader = 'Release notes' %}
+{% set pageHeader = 'Release notes 2028' %}
 
 <!-- Set the page title -->
 {% block pageTitle %}
-    {{ pageHeader }} - {{ serviceName }} - NHSBSA
+{{ pageHeader }} - {{ serviceName }} - NHSBSA
 {% endblock %}
 
 {% block beforeContent %}
@@ -28,15 +28,25 @@
 
 {% block content %}
 <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
 
+    <div class="nhsuk-grid-column-one-third sidebar">
+        {{ contentsList({
+            items: [
+                { href: '#', text: '2028', current: true },
+                { href: '#', text: '2027' },
+                { href: '#', text: '2026' }
+            ]
+        }) }}
+    </div>
+
+    <div class="nhsuk-grid-column-two-thirds">
 
         <div class="nhsuk-u-reading-width">
             <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
         </div>
 
         <!-- SEPTEMBER 2026 -->
-        {% call details({ summaryText: "September 2026", classes: "nhsuk-expander", attributes: { open: true } }) %}
+        {% call details({ summaryText: 'March', classes: 'nhsuk-expander', attributes: { open: true } }) %}
             <div class="nhsuk-u-reading-width">
 
                 <h2 class="nhsuk-heading-s">Updates and improvements</h2>
@@ -58,7 +68,7 @@
 
 
         <!-- AUGUST 2026 -->
-        {% call details({ summaryText: "August 2026", classes: "nhsuk-expander" }) %}
+        {% call details({ summaryText: 'February', classes: 'nhsuk-expander' }) %}
             <div class="nhsuk-u-reading-width">
 
                 <h2 class="nhsuk-heading-s">Updates and improvements</h2>
@@ -78,8 +88,8 @@
             </div>
         {% endcall %}
 
-        <!-- JULY 2026 -->
-        {% call details({ summaryText: "July 2026", classes: "nhsuk-expander" }) %}
+        <!-- JANUARY -->
+        {% call details({ summaryText: 'January', classes: 'nhsuk-expander' }) %}
             <div class="nhsuk-u-reading-width">
 
                 <h2 class="nhsuk-heading-s">Updates and improvements</h2>
@@ -98,13 +108,15 @@
 
             </div>
         {% endcall %}
-
-
 
 
 
 
 
     </div>
+
 </div>
+
+
+
 {% endblock %}

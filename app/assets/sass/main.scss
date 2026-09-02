@@ -21,6 +21,23 @@
 ///
 
 
+// SIDE BAR
+
+@include nhsuk-media-query($from: tablet) {
+
+        .nhsuk-grid-column-one-third.sidebar {
+           width: 20%;
+        }
+
+        .sidebar + .nhsuk-grid-column-two-thirds {
+           width: 80%;
+        }
+
+}
+
+
+// CARD HEADING
+
 .nhsuk-card.smaller-heading .nhsuk-card__heading {
     font-size: 16px;
     font-size: 1rem;
