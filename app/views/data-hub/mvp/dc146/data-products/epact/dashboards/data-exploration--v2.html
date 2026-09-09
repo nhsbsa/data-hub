@@ -81,25 +81,25 @@
         -->
 
         {% set action_links = { items: [
-                            { 
-                                href: 'fabric',
-                                attributes: { target: '_blank' },
-                                classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-0',
-                                text: 'Fabric'
-                            },
-                            { 
-                                href: '#',
-                                classes: 'nhsuk-button nhsuk-button--small nhsuk-button--secondary nhsuk-u-margin-0',
-                                text: 'Power BI'
-                            }
-                        ] } %}
+                          { 
+                              href: 'fabric',
+                              attributes: { target: '_blank' },
+                              classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-0',
+                              text: 'Fabric'
+                          },
+                          { 
+                              href: '#',
+                              classes: 'nhsuk-button nhsuk-button--small nhsuk-button--secondary nhsuk-u-margin-0',
+                              text: 'Power BI'
+                          }
+                      ] } %}
 
 
         {% set header_01 = '12 month model' %}
         {% set content_01 %}
 
             <!-- 12 MONTH MODEL -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Explore NHS prescribing and dispensing data from the latest 12 months. Best for routine reporting, monitoring recent activity, and answering questions about current trends. Its smaller data range may provide faster query performance.</p>
             
             {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -118,7 +118,7 @@
         {% set content_02 %}
 
             <!-- 24 MONTH MODEL -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Explore NHS prescribing and dispensing data from the latest 24 months. Useful for comparing recent performance over time, including year-on-year analysis and identifying emerging trends.</p>
 
             {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -137,7 +137,7 @@
         {% set content_03 %}
 
             <!-- 10 YEAR MODEL -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Access the full available prescribing and dispensing dataset, covering up to 10 years of NHS activity. Best for long-term trend analysis, strategic planning, market analysis, and understanding changes over time.</p>
             
             {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -183,7 +183,7 @@
             {% set content_04 %}
 
                 <!-- BNF DRUG COST -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Analyse prescribing costs at BNF presentation level rather than individual pack level. This model provides less detail than the 10 Year Model but may perform better for high-volume cost analysis and broad prescribing trends.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -202,7 +202,7 @@
             {% set content_05 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Explore monthly dispensing contractor submissions, including pharmacy activity, reimbursement and remuneration. Useful for understanding dispensing activity, contractor payments, and pharmacy service delivery.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -219,7 +219,7 @@
             {% set content_06 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <p>Access Prescription Cost Analysis (PCA) data used in official national prescribing statistics. This model provides published, aggregated prescribing and cost information and is useful when working with nationally reported figures.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -270,8 +270,8 @@
             {% set header_07 = 'Prescribed item - Level 4' %}
             {% set content_07 %}
 
-                <!-- BNF DRUG COST -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <!-- PRESCRIBED ITEM - LEVEL 4 -->
+                <p>View rolling 12 month prescribing and dispensing data aggregated to commissioner/provider level geography. Designed for analysing longer-term trends across larger areas while smoothing seasonal fluctuations.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -289,8 +289,8 @@
             {% set header_08 = 'Prescribed item - Level 5' %}
             {% set content_08 %}
 
-                <!-- BNF DRUG COST -->
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <!-- PRESCRIBED ITEM - LEVEL 5 -->
+                <p>View rolling 12 month prescribing and dispensing data aggregated to individual practice and local provider level. Useful for monitoring trends over time and comparing patterns while reducing the impact of seasonal variation.</p>
                 
                 {% call details( { summaryText: 'Model information', classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
