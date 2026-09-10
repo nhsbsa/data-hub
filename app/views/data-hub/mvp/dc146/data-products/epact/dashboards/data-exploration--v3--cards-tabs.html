@@ -1,0 +1,373 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout-data-product-footer.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitle = 'Explore prescribing and dispensing data' %}
+
+<!-- MODEL OR DATASET -->
+{% set modelOrDataset = 'semantic model' %}
+{% set modelOrDatasetShort = 'model' %}
+{% set modelOrDatasetDetails = 'Model information' %}
+
+{% if data.modelOrDataset === 'dataset' %}
+    {% set modelOrDataset = 'dataset' %}
+    {% set modelOrDatasetShort = 'dataset' %}
+    {% set modelOrDatasetDetails = 'Dataset information' %}
+{% endif %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+            text: "ePACT2"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/data-exploration-tools",
+            text: "Data exploration tools"
+        }
+    ]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
+    </div>
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <p>Our data has been split into eight {{ modelOrDataset }}s. This allows your queries and reports to run faster.</p>
+        <p>Each {{ modelOrDataset }} has been designed to help with common queries. If you need help to choose which {{ modelOrDataset }} to use contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">data services support</a>.</p>
+
+    </div>
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <!--<hr />-->
+
+        <!-- 
+
+        12 month model
+        24 month model
+        10 year model
+
+        BNF drug cost
+        Dispensing submissions
+        PCA monthly and yearly
+        Prescribed item - Level 4
+        Prescribed item - Level 5
+
+        -->
+
+        {% set action_links = { items: [
+                            { 
+                                href: '#',
+                                attributes: { target: '_blank' },
+                                classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-0',
+                                text: 'Explore this data'
+                            }
+                        ] } %}
+
+
+        {% set header_01 = '12 month ' + modelOrDatasetShort %}
+        {% set content_01 %}
+
+            <!-- 12 MONTH MODEL -->
+            <p class="nhsuk-u-reading-width">Explore NHS prescribing and dispensing data from the latest 12 months. Best for routine reporting, monitoring recent activity, and answering questions about current trends. Its smaller data range may provide faster query performance.</p>
+            
+            {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                <dl class="nhsuk-u-font-size-14">
+                    <dt><strong>Time frame</strong></dt>
+                    <dd class="nhsuk-u-margin-0">12 months</dd>
+                    <dt><strong>Primary fact</strong></dt>
+                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                    <dt><strong>Grain</strong></dt>
+                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                </dl>
+            {% endcall %}
+
+        {% endset %}
+
+        {% set header_02 = '24 month ' + modelOrDatasetShort %}
+        {% set content_02 %}
+
+            <!-- 24 MONTH MODEL -->
+            <p class="nhsuk-u-reading-width">Explore NHS prescribing and dispensing data from the latest 24 months. Useful for comparing recent performance over time, including year-on-year analysis and identifying emerging trends.</p>
+
+            {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                <dl class="nhsuk-u-font-size-14">
+                    <dt><strong>Time frame</strong></dt>
+                    <dd class="nhsuk-u-margin-0">24 months</dd>
+                    <dt><strong>Primary fact</strong></dt>
+                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                    <dt><strong>Grain</strong></dt>
+                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                </dl>
+            {% endcall %}
+
+        {% endset %}
+
+        {% set header_03 = '10 year ' + modelOrDatasetShort %}
+        {% set content_03 %}
+
+            <!-- 10 YEAR MODEL -->
+            <p class="nhsuk-u-reading-width">Access the full available prescribing and dispensing {{ modelOrDatasetShort }}, covering up to 10 years of NHS activity. Best for long-term trend analysis, strategic planning, market analysis, and understanding changes over time.</p>
+            
+            {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                <dl class="nhsuk-u-font-size-14">
+                    <dt><strong>Time frame</strong></dt>
+                    <dd class="nhsuk-u-margin-0">10 years</dd>
+                    <dt><strong>Primary fact</strong></dt>
+                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
+                    <dt><strong>Grain</strong></dt>
+                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                </dl>
+            {% endcall %}
+
+        {% endset %}
+
+
+            {% set time_based_tab_content %}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_01,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_01
+                }) }}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_02,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_02
+                }) }}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_03,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_03
+                }) }}
+
+            {% endset %}
+
+
+
+            {% set header_04 = 'BNF drug cost' %}
+            {% set content_04 %}
+
+                <!-- BNF DRUG COST -->
+                <p class="nhsuk-u-reading-width">Analyse prescribing costs at BNF presentation level rather than individual pack level. This {{ modelOrDatasetShort }} provides less detail than the 10 year {{ modelOrDatasetShort }} but may perform better for high-volume cost analysis and broad prescribing trends.</p>
+                
+                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">practice_bnf_drug_cost_fact</dd>
+                        <dt><strong>Grain</strong></dt>
+                        <dd class="nhsuk-u-margin-0">bnf-presentation / gender / age / patient / practice / prescriber / m-y</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+            {% set header_05 = 'Dispensing submissions' %}
+            {% set content_05 %}
+
+                <!-- DISPENSING SUBMISSIONS -->
+                <p class="nhsuk-u-reading-width">Explore monthly dispensing contractor submissions, including pharmacy activity, reimbursement and remuneration. Useful for understanding dispensing activity, contractor payments, and pharmacy service delivery.</p>
+                
+                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">dispensing_submission_fact</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+            {% set header_06 = 'PCA monthly and yearly' %}
+            {% set content_06 %}
+
+                <!-- PCA MONTHLY AND YEARLY -->
+                <p class="nhsuk-u-reading-width">Access Prescription Cost Analysis (PCA) data used in official national prescribing statistics. This {{ modelAndDatasetShort }} provides published, aggregated prescribing and cost information and is useful when working with nationally reported figures.</p>
+                
+                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">pca_monthly_yearly_fact</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+
+            
+
+
+            {% set subject_tab_content %}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_04,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_04
+                }) }}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_05,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_05
+                }) }}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_06,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_06
+                }) }}
+
+            {% endset %}
+
+
+
+
+            <!--<h3>Prescribed item {{ modelOrDatasetShort }}s</h3>-->
+
+
+            {% set header_07 = 'Prescribed item - Level 4' %}
+            {% set content_07 %}
+
+                <!-- PRESCRIBED ITEM - LEVEL 4 -->
+                <p class="nhsuk-u-reading-width">View rolling 12 month prescribing and dispensing data aggregated to commissioner/provider level geography. Designed for analysing longer-term trends across larger areas while smoothing seasonal fluctuations.</p>
+                
+                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">prescribed_item_level_4_12m_roll_fact</dd>
+                        <dt><strong>Grain</strong></dt>
+                        <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+            {% set header_08 = 'Prescribed item - Level 5' %}
+            {% set content_08 %}
+
+                <!-- PRESCRIBED ITEM - LEVEL 5 -->
+                <p class="nhsuk-u-reading-width">View rolling 12 month prescribing and dispensing data aggregated to individual practice and local provider level. Useful for monitoring trends over time and comparing patterns while reducing the impact of seasonal variation.</p>
+                
+                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                    <dl class="nhsuk-u-font-size-14">
+                        <dt><strong>Time frame</strong></dt>
+                        <dd class="nhsuk-u-margin-0">10 years</dd>
+                        <dt><strong>Primary fact</strong></dt>
+                        <dd class="nhsuk-u-margin-0">prescribed_item_level_5_12m_roll_fact</dd>
+                        <dt><strong>Grain</strong></dt>
+                        <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
+                    </dl>
+                {% endcall %}
+
+            {% endset %}
+
+
+            {% set prescribed_item_tab_content %}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_07,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_07
+                }) }}
+
+                {{ card({
+                    clickable: false,
+                    heading: header_08,
+                    headingSize: 'm',
+                    actions: action_links,
+                    descriptionHtml: content_08
+                }) }}
+
+            {% endset %}
+
+
+
+
+
+                {{ tabs({
+                    items: [
+                    {
+                        label: 'Time based ' + modelOrDatasetShort + 's',
+                        id: 'time-based',
+                        panel: {
+                        html: time_based_tab_content
+                        }
+                        },
+                        {
+                        label: 'Subject ' + modelOrDatasetShort + 's',
+                        id: 'subject',
+                        panel: {
+                            html: subject_tab_content
+                        }
+                        },
+                        {
+                        label: 'Prescribed item ' + modelOrDatasetShort + 's',
+                        id: 'prescribed-item',
+                        panel: {
+                            html: prescribed_item_tab_content
+                        }
+                        }
+                    ]
+                    }) }}
+
+
+
+
+
+
+
+    </div>
+</div>
+
+
+{% endblock %}
