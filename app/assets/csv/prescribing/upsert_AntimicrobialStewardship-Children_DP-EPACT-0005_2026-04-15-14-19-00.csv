@@ -1,0 +1,22 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0005,Antimicrobial Stewardship - Children,PUBLISHED,2026-08-12T15:22:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"This dashboard supports NHS organisations to understand and compare variation in antibiotic prescribing for children aged 0–14 years across England. It helps identify opportunities to optimise antimicrobial use, monitor trends over time, and drive improvements in antimicrobial stewardship.","## About this dashboard
+Antimicrobial resistance (AMR) is a global problem that impacts all countries and all people. The Department of Health and Social Care sets out a 5-year national action plan and a 20-year vision to tackle AMR. The UK 5-year action plan: Tackling antimicrobial resistance 2019 to 2024, focuses on 3 ways to tackle AMR:
+- reducing need for, and unintentional exposure to, antimicrobials
+- optimising use of antimicrobials
+- investing in innovation, supply and access
+
+In the 2019/2020 financial year, around 30 million antibiotic prescription items were dispensed.  Children aged 0 to14 years accounted for 3.6 million (12%) of these items, of which 48% was prescribed to children aged 0 to 4 years.  Amoxicillin is the most prescribed antibiotic to children and accounts for 53% of all antibiotic use in children aged 0 to 4 years old.
+
+The purpose of the ‘Antimicrobial Stewardship dashboard – Children’ is to allow NHS organisations to:
+- see the variation in antibiotic prescribing for children aged 0 to 14 years
+- compare antibiotic prescribing rates over time and between organisations
+- understand how many children are prescribed one or more antibiotics
+- identify and prioritise opportunities for antimicrobial stewardship improvement
+- monitor and report antimicrobial stewardship improvement
+
+The comparators for the dashboard are:
+- ASC01 – Prescribing of antibacterial items per 1,000 children
+- ASC02 – Number of children prescribed antibiotics per 1,000 children
+- ASC03 – Number of children prescribed multiple antibiotics
+- ASC04 – Prescribing of specific antibiotics per 1,000 children
+- ASC05 – Prescribing of UTI related antibiotic items per 1,000 children",,

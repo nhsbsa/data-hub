@@ -1,0 +1,15 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0006,Cost Comparators: NIC\ADQ,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,Compare prescribing costs against average daily doses. View cost efficiency across practices and regions. Identify opportunities to reduce costs without affecting patient care.,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+This report provides insight into prescribing costs by comparing Net Ingredient Cost (NIC) against Average Daily Quantity (ADQ). ADQ is a standardised measure of the average daily dose for a medicine, allowing fair comparison of prescribing volumes across organisations.
+
+The NIC/ADQ report helps SICBLs and practices understand cost efficiency in relation to prescribing volume and dosage. By highlighting variations across organisations, it supports identification of opportunities for cost optimisation without compromising clinical effectiveness. Users can view trends over time and benchmark against national averages, enabling informed decision-making.
+
+The aim of this report is to encourage value-based prescribing by linking cost to therapeutic need. It is particularly useful for identifying areas where prescribing may be excessive or suboptimal relative to dosage norms. While the report provides valuable insights, it should be used alongside clinical guidance to ensure that cost reductions do not compromise patient care.",,

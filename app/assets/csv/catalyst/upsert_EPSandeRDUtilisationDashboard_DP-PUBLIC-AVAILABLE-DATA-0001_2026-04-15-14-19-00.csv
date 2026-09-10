@@ -1,0 +1,35 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0001,EPS and eRD Utilisation Dashboard,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,"This report shows prescribing activity across practices and ICBs. This helps organisations review variation, track performance, and support local actions to increase the safe, effective use of EPS and eRD.","## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+The Electronic Prescription Service (EPS) and electronic Repeat Dispensing (eRD) utilisation reports provide information on the electronic prescription service and electronic repeat dispensing.
+
+Since June 2020, several enhancements have been made to the reports to provide greater focus on eRD prescribing. These changes include:
+- renaming the reports to reflect the growing importance of eRD as a method of prescribing and to inform users that the reports host detailed analysis of eRD activity
+- removing the analysis on EPS Opportunity from the ePACT2 report and the EPS and eRD Prescribing report in Excel
+- adding specific Integrated Care Board (ICB), PCN and Practice level summary pages to the report, which allow users to view eRD performance at each organisational level
+- adding detailed data tables for ICBs and PCNs, which provide EPS and eRD information at practice or prescriber level (prescriber data is available to ICB users only)
+
+Future developments include a Health Innovation Network level summary and data tables, and, in the longer term, a dispensing EPS report.
+
+Further updates will be issued in ePACT2 bulletins, or you can check back on the website for updated information.
+
+These reports are available in ePACT2 and Catalyst (prescribing data) and in Excel (prescribing and dispensing data).
+
+The reports allow GP practices, ICBs, and other bodies to:
+- see the variation in EPS and eRD prescribing across GP practices, within a ICB and across ICBs
+- see trends and variations in EPS and eRD dispensing across dispensers, and within Integrated Care Boards (ICBs)
+- help prioritise potential areas of activity
+- help monitor the impact of initiatives to increase EPS and eRD utilisation
+
+The reports support local interventions to help drive the growth of EPS and eRD so that patients, prescribing organisations such as GP practices, and dispensing organisations such as pharmacies can experience the potential benefits of the increased use of EPS and eRD.
+
+You can access the EPS and eRD utilisation report via ePACT2 or Catalyst. These versions show prescribing information only.
+
+Alternatively, you can download the excel versions of both EPS and eRD prescribing data report and the EPS and eRD dispensing data report below.",,

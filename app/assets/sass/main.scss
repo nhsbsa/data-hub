@@ -20,6 +20,11 @@
 /// 
 ///
 
+.nhsuk-list--border .nhsuk-tag--white {
+    word-wrap: none;
+    margin-bottom: 0.625rem;
+}
+
 
 // SIDE BAR
 
@@ -664,3 +669,44 @@ p {
     height: 100vh;
     border: 0;
 }
+
+
+//
+// V2 FRAG TAGS
+//
+.frag-tag::after {
+    content: "✕";
+    display: inline-block;
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+    vertical-align: baseline;
+}
+
+ul#searched-keywords.v2 li {
+    display: inline-block;
+    margin: 0 0.625rem 0.625rem 0;
+}
+
+ul#searched-keywords.v2 li a {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+ul#searched-keywords.v2 li a .frag-tag {
+    text-transform: none;
+}
+
+ul#searched-keywords.v2 li a:focus .frag-tag {
+    background-color: $nhsuk-focus-colour;
+    border-color: $nhsuk-focus-text-colour;
+    color: $nhsuk-focus-text-colour;
+}  
+
+ul#searched-keywords.v2 li a:hover .frag-tag,
+ul#searched-keywords.v2 li a:active .frag-tag {
+    background-color: #004281;
+    color: #ccdff1;
+}
+
+ 

@@ -1,0 +1,11 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EDEN-0017,CA Report (England),PUBLISHED,2026-07-31T15:22:00,eDEN,DataHub_Dental_Provider_Assurance_User|DataHub_Dental_BSA_Dental_User|DataHub_Dental_Admin,,#,"This dashboard shows dental contract activity in England, helping clinical advisors review data and identify areas that may need further investigation.","## Data Product Overview
+There is a need for clinical advisors to monitor the activity of dental providers within a specific area.  This helps make sure that services are commissioned appropriately and in line with current regulations.
+
+To enable this, a number of dashboards are available within the eDEN system to allow internal NHSBSA users within the clinical advisor and provider assurance teams to access a range of dental data including detailed information extracted from the FP17.
+
+The CRR All Claims (England) v2 dashboard is only available in internal NHSBSA users and can not be accessed by external users.
+
+This dashboard has been developed to provide clinical advisor users with the ability to access data relating to a specific contract for a selected time period and includes a range of metrics relating to the activity of the contract. 
+
+This will aid in the analysis of dental activity and identify areas which may require further investigation.",,

@@ -1,0 +1,18 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0049,Patient Harm,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The Patient Harm dashboard uses eight prescribing indicators to identify patients at risk from potentially hazardous prescribing and related hospital admissions. It supports targeted medication review and monitors real-world effects of risk-reduction, noting associations not direct causation.","## About this dashboard
+Eight prescribing indicators have been selected to help reduce the risk of harms from potentially hazardous prescribing and reduce unplanned hospital admissions. 
+
+For each form of harm, there are 2 indicators:
+1. Count of patients at risk of harm from potentially hazardous prescribing.
+2. Count of patients admitted to hospital for diagnoses associated with potentially hazardous prescribing.
+
+The main purpose of the indicators is to identify patients at risk of harm from potentially hazardous prescribing so that those patients can be reviewed and prescribing changed as appropriate.
+
+The supplementary purpose is to provide an outcome measure of potentially hazardous prescribing. By counting the number of at-risk patients who subsequently experience an associated admission the indicator helps to monitor the real-world impact of prescribing practices and the effectiveness of risk-reduction interventions.
+
+But not all the admissions will necessarily be caused by the prescribing, as the indicators are not adjusted for confounding factors such as frailty, and therefore identify association rather than causation.
+
+### Approach to metric selection
+The indicators were selected by a Short Life Working Group of pharmacists and other clinicians through an assessment of existing indicators on medication safety. Out of all existing medication safety indicators reviewed at the time, these 8 cover the forms of potentially hazardous prescribing with greatest risk of admission.
+
+The indicators selected by the group were originally developed by NHS Digital in response to the World Health Organisation (WHO) global challenge – Medication Without Harm. More information can be found in the [report of the Medication Errors Short Life Working Group](https://www.gov.uk/government/publications/medication-errors-short-life-working-group-report). ",,

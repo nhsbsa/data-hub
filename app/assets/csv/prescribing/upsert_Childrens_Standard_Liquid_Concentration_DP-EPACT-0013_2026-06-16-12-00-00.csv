@@ -1,0 +1,16 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0013,Children's Standard Liquid Concentration,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The Children's Dashboard helps Primary Care staff identify patients on non-standard concentrations of liquid medicines and review them to switch to the national standard, improving patient safety.","## About this dashboard
+Liquid medicines are commonly prescribed for children. For many drugs, there is a range of different concentrations of liquid available. If the concentration is changed and the parents and carers do not adjust the volume to be given, this can lead to dosing errors. Although unlicensed liquid specials are the most variable in terms of the range of concentrations available, there are also a significant number of drugs for which there are a range of licensed liquid concentrations in use.
+
+Dosing errors have been reported in literature and in the NHS National Learning and Reporting System (NRLS). These errors have happened due to accidental switching between liquid concentrations or planned switches being incorrectly understood by parents and carers.
+
+With the aim of improving patient safety, the UK Neonatal and Paediatric Pharmacists Group (NPPG) and the Royal College of Paediatrics and Child Health (RCPCH) have published a [national list of recommended concentrations for a range of oral drugs commonly prescribed as liquid formulations](http://nppg.org.uk/standardised-strengths-of-liquid-medicines-for-children/). This document, first published in 2018, focuses on drugs for which there is not a licensed liquid product available. However, it's planned that the list will expand during 2022 and 2023 to include recommended concentrations for licensed products as well as an extended range of unlicensed products.
+
+If you're registered, you can access the dashboard on ePACT2.
+
+[Children's Standard Liquid Concentration dashboard overview (YouTube Video)](https://www.youtube.com/watch?v=qXJMIA3whkk)
+
+### Purpose of the dashboard
+This dashboard will help staff working in Primary Care to determine the extent to which liquid medicines prescribed for patients under the age of 18 follow the nationally recommended concentration for each drug. This will help prescribers, prescribing advisors and other members of the team identify patients on non-standard concentrations and review them. This will help to switch to the national standard where appropriate. It will also help describe variations in prescribing at a practice, Primary Care Network (PCN) and Sub ICB Location level and identify areas of focus.
+
+The dashboard will be updated to include additional drugs as the national NPPG and RCPCH list is extended.",,

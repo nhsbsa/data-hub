@@ -1,0 +1,15 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0025,Valproate Prescribing in Female Patients Under 55,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,Monitor valproate prescribing for women of childbearing potential. View prescribing indicators and trends. Track usage to support safe prescribing practices.,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+Working in collaboration with NHS England and NHS Improvement Valproate Safety Implementation Group (VSIG), we’ve developed a set of prescribing indicators to track the use of valproate medicines among women of childbearing potential (WCP).
+
+For the purposes of these comparators, WCP are interpreted as females between the ages of 13 and 54 years. Information is also provided on valproate prescribing for girls between the ages of 0 and 12 who may continue treatment in later years.
+
+Valproate prescribing in pregnancy has been shown to increase the risk of physical birth defects and neurodevelopmental disorders in unborn babies. Guidance from MHRA suggests that valproate should not be used in WCP unless other treatments are ineffective or not tolerated. The purpose of the valproate dashboard is to support a reduction in the use of valproate and help prevent unplanned pregnancies in women taking valproate.",,

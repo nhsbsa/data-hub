@@ -1,0 +1,26 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0028,Home Oxygen Therapy (HOT),PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_HOT_ICB_Level|DataHub_HOT_National_Level|DataHub_HOT_SICBL_Level,,#,"The Home Oxygen Therapy (HOT) resource provides transparency over supplier claims, costs, and service delivery for home oxygen services across England. It helps SICBLs, ICBs, and regional teams track payments, ensure correct reimbursement, and boost financial accountability.","## About this dashboard
+The Home Oxygen Therapy (HOT) service arrangements, since December 2010 are catered for by 4 oxygen suppliers (Air Liquide, Baywater Healthcare, BOC Medical and Dolby Vivisol) under the National Framework Agreement. Services include cylinders, concentrators, and liquid oxygen, with 24/7 support and freephone access for patients and for clinically necessary cases urgent orders can be delivered.
+
+Oxygen service suppliers are responsible for submitting timely claims for reimbursement of services provided. Suppliers may submit claims via the NHSBSA, within the first 10 calendar days of the month following the provision of home oxygen therapy. This ensures accurate and timely processing of payments for services rendered.
+
+This resource provides detailed data on Home Oxygen Therapy services across England, helping authorised healthcare organisations make informed decisions and promote transparency.
+
+Authorised users can:
+- View summaries of costs submitted by oxygen suppliers.
+- Access claims data showing oxygen supplied to patients within their own SICBL region, as well as out-of-area supplies.
+- Explore breakdown views by either HOT region or oxygen supplier, offering deeper insight into service delivery.
+These views support Sub Integrated Care Board Locations (SICBLs) and regional teams in monitoring payments made to suppliers for patients registered in their area.
+
+Users with extended access permissions can also view summary cost data at the Integrated Care Board (ICB) level, providing a high-level financial overview.
+
+The Home Oxygen Therapy Report includes five key data views:
+| Data View | Description |
+| --- | --- |
+| SICBL Payment Claim Summary | Overview of total claims submitted to SICBLs |
+| SICBL Payment Claim Summary – In Area Supply | Details of oxygen supplied within the SICBL's own region. |
+| SICBL Payment Claim Summary – Out of Area Supply | Summary table of claims for oxygen supplied to patients outside the SICBL's region. |
+| SICBL Payment Claim – Region Breakdown | Detailed breakdown view of claims for oxygen supplied to patients outside the SICBL's region by region. |
+| SICBL Payment Claim – Supplier Breakdown | Detailed breakdown view of claims for oxygen supplied to patients outside the SICBL's region by supplier. |
+
+The dataset retains a rolling 24 months' worth of data and is updated monthly.",,

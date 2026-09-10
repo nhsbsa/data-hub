@@ -1,0 +1,197 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+{% set pageHeader = 'Browse our reports' %}
+
+
+
+
+<!-- GET THE ITEMS -->
+{% set folders = ['catalyst','dental','ophthalmic','prescribing'] %}
+{% set items = [] %}
+{% for folder in folders %}
+    {% set items = ( 'app/assets/csv/'+folder+'/' ) | getDirectoryFiles | getJSONFromCSVs( items ) %}
+{% endfor %}
+
+<!-- FILTER THE ITEMS BY REPORT TYPES -->
+{% if data.reportTypeFilters %}
+    {% set items = ( data.reportTypeFilters | filterReportsByType( items ) ) %}
+{% endif %}
+
+
+<!-- FILTER THE ITEMS BY SEARCH TERMS -->
+{% if data.searchTerms %}
+    {% set items = ( data.searchTerms | filterReportsBySearchTerm( items ) ) %}
+{% endif %}
+
+{% set items = ( items | sortItemsAlphabetically ) %}
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+
+        <!-- FITLERS -->
+        {% call details( { summaryText: 'Filter by report type', open: ( data.reportTypeFilters and ( ( data.reportTypeFilters | length ) < 4 ) ) } ) %}
+
+         <form method="post" novalidate>
+
+                <div class="nhsuk-flex-group nhsuk-u-margin-bottom-0">
+
+                    {{ checkboxes({
+                        fieldset: {
+                            legend: {
+                                html: '<span class="nhsuk-u-visually-hidden">Select report types to show</span>',
+                                isPageHeading: false
+                            }
+                        },
+                        idPrefix: 'reportTypeFilters',
+                        name: 'reportTypeFilters',
+                        values: data.reportTypeFilters or ['ePACT','eDEN','eOPS','PUBLIC_AVAILABLE_DATA'],
+                        inline: true,
+                        small: true,
+                        items: [
+                            {
+                                text: 'Prescribing and dispensing',
+                                value: 'ePACT'
+                            },
+                            {
+                                text: 'Dental',
+                                value: 'eDEN'
+                            },
+                            {
+                                text: 'Ophthalmic',
+                                value: 'eOPS'
+                            },
+                            {
+                                text: 'Public',
+                                value: 'PUBLIC_AVAILABLE_DATA'
+                            }
+                        ]
+                        }) }}
+
+                    {{ button({ text: 'Apply filters', classes: 'nhsuk-button--secondary nhsuk-button--small' }) }}
+
+                </div>
+
+            </form>
+
+
+        {% endcall %}
+
+        <!-- SEARCH FORM -->
+        <form method="post" novalidate>
+
+            <div class="nhsuk-flex-group">
+
+                {{ input({
+                    label: {
+                        text: 'Search by keyword',
+                        isPageHeading: false
+                    },
+                    hint: {
+                        text: 'Add more than one keyword by using commas. For example: prescribing, diabetes, health'
+                    },
+                    id: 'searchTerm',
+                    name: 'searchTerm'
+                }) }}
+
+                {% set buttonText = 'Search' %}
+                {% if data.searchTerms and ( data.searchTerms | length ) > 0 %}
+                    {% set buttonText = 'Add to search' %}
+                {% endif %}
+
+                {{ button({
+                    text: buttonText,
+                    classes: 'nhsuk-button--small'
+                }) }}
+
+            </div>
+
+        </form>
+
+
+        {% if data.searchTerms and ( data.searchTerms | length ) > 0 %}
+
+            <h2 class="nhsuk-heading-s nhsuk-u-margin-top-4">Searched keywords</h2>
+
+            <ul id="searched-keywords" class="nhsuk-list v2">
+                {% for term in data.searchTerms %}
+                    <li data-keyword="{{ term }}">
+                        <a href="?removeTerms={{ term }}">{{ tag( { text: ( term | lower ), classes: 'nhsuk-tag nhsuk-tag--blue a-to-z-search-tag frag-tag' } ) }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <div id="clear-all-container">
+                <p><a href="?removeTerms=allTerms" id="clear-all-keywords" class="nhsuk-link">Clear all keywords</a></p>
+            </div>
+
+            <hr class="nhsuk-section-break nhsuk-section-break--visible" />
+
+        {% endif %}
+
+        <!-- A TO Z LIST -->
+        {{ items | getActiveLetters | generateAToZLinks | safe }}
+
+        <!-- CARDS -->
+        {% if ( ( items | length ) > 0 ) %}
+            {% for item in items %}
+
+                {% call card({
+                    id: item.letter,
+                    heading: item.letter,
+                    variant: 'feature'
+                }) %}
+
+                    <ol class="nhsuk-list nhsuk-list--border">
+                        {% for report in item.items %}
+                            <li>
+                                <h3 class="nhsuk-u-margin-bottom-2 nhsuk-heading-xs"><a class="nhsuk-link" href="view?id={{ report.data_product_external_id }}&tag={{ report.tag }}">{{ report.data_product_name | safe }}</a></h3>
+                                <p class="nhsuk-u-margin-bottom-2">{{ report.data_product_description | safe }}</p>
+                                {% if report.tag %}{{ tag({ classes: 'nhsuk-tag--white', text: report.tag | getTagText }) }}{% endif %}
+                            </li>
+                        {% endfor %}
+                    </ol>
+
+                {% endcall %}
+
+            {% endfor %}
+        {% else %}
+
+            {% call card({
+                    heading: 'No reports found',
+                    variant: 'feature'
+            }) %}
+            <p>Please try again with different search terms or filters.</p>
+            {% endcall %}
+
+        {% endif %}
+
+
+
+    </div>
+</div>
+{% endblock %}

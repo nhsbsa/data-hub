@@ -1,0 +1,17 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0045,OTC Prescribing,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The OTC Prescribing dashboard supports NHS England guidance by highlighting conditions where over‑the‑counter items should not be routinely prescribed in primary care. It helps commissioners and practices promote self-care, cut low-value prescribing, and optimise NHS resources by spotting change opportunities.","## About this dashboard
+The dashboard focuses on a list of conditions for which over the counter (OTC) items should not be routinely prescribed in primary care.
+
+This is set out in the [NHS England guidance](https://www.england.nhs.uk/medicines-2/conditions-for-which-over-the-counter-items-should-not-routinely-be-prescribed/) on their website. 
+
+The list of conditions includes those that are either:
+- considered to be self-limiting, so they do not need treatment as they’ll heal or be cured of their own accord
+- able to lend themselves to self-care. This means the person who is suffering does not normally need medical advice, they can manage the condition by buying medicine over the counter
+
+There are categories of items included in the dashboard:
+- that can be purchased over the counter, sometimes at a lower cost what it would be through the NHS
+- where there’s little evidence of clinical effectiveness
+
+Some products have been excluded where there would be significant prescribing for long term conditions or would be used to treat a condition, rather than as a preventative measure. For example, in the vitamins and minerals section, iron tablets, high dose vitamin D products and calcium and vitamin D products have not been included from the tag listing.
+
+We’ve suggested proportions that may be self-care for each of the conditions. If you feel these proportions are too high or for commissioners that would like a lower target to start off with, you have the option of selecting 50% of the proportions as a starting point. Once selected, the data will automatically update based on your selection.",,

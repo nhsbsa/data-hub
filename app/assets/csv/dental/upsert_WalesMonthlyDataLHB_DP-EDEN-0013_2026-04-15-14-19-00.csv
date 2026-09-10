@@ -1,0 +1,9 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EDEN-0013,Wales Monthly Data (LHB),PUBLISHED,2026-04-20T15:22:00,eDEN,DataHub_Dental_NHS_Wales_Commissioner|DataHub_Dental_NHS_Wales_Finance|DataHub_Dental_Admin|DataHub_Dental_BSA_Dental_User|DataHub_Dental_Welsh_Government|DataHub_Dental_Provider_Assurance_User,,#,"This dashboard provides monthly dental activity data for Local Health Boards in Wales, helping commissioners review services and download data for analysis.","## Data Product Overview
+There is a need for dental commissioners and providers to monitor the activity of dental providers both nationally and within a specific area. This helps make sure that services are commissioned effectively to maximise the benefit to patients.
+
+To enable this, several dashboards are available within the eDEN system to allow users to access a range of dental data including detailed information extracted from the FP17.
+
+This dashboard has been developed to provide eDEN users with the ability to extract data directly from the system in convenient data tables, to aid commissioners in the analysis of dental activity.
+
+This dashboard provides information relating to Welsh dental activity at national, Local Health Board and contract level for a range of different metrics, allowing users to quickly download data from the system.",,

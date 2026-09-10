@@ -1,0 +1,17 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0016,Prescribing Monitoring - Repeat Dispensing Items,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,View repeat dispensing items by practice and region. Filter to compare volumes and trends. Monitor activity and identify high-volume areas.,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+This report visualises the number of prescription items issued under repeat dispensing arrangements, broken down by practice, contractor, and region. It includes metrics such as item volumes, prescribing trends, and comparative analysis, providing insight into how repeat dispensing is utilised across the NHS. The report is available via ePACT2 for authorised users and Catalyst for aggregated insights, ensuring transparency and supporting service planning.
+
+Purpose:
+The report helps NHS England, commissioners, and contractors monitor repeat dispensing activity, identify high-volume areas, and ensure prescribing aligns with efficiency and safety standards. It supports resource allocation and formulary compliance.
+
+How to Use:
+Users can filter by practice, contractor, or region to review item volumes, compare trends, and identify opportunities for optimisation. Commissioners use it for audit, prescribing efficiency programmes, and capacity planning, while prescribers and contractors can track their own activity and assess clinical appropriateness. Public users can view aggregated insights to understand repeat dispensing patterns.",,

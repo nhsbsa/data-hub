@@ -1,0 +1,26 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0018,Programme Budget Categories (PB2),PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,"Monitor prescribing expenditure across 23 programmes of care including cancer, mental health, and coronary heart disease. Understand NHS spending patterns.","## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+The Department of Health and Social Care (DHSC) has set up a national programme budget project to develop a primary source of information.
+
+This can be used by all bodies, to give a better understanding of NHS expenditure.
+
+The [Department of Health and Social Care’s website](https://www.gov.uk/government/publications/overview-of-the-programme-budgeting-methodology) has more detailed information.
+
+The national programme budget project aims to map some £50bn of NHS expenditure into, currently, 23 programmes of care. Examples of these include:
+- infectious diseases
+- cancer
+- blood disorders
+- mental health problems
+- coronary heart disease
+- problems of the skin
+- falls and problems due to trauma and injuries
+
+Data Services provides information about all English commissioner and provider prescribing expenditure, broken down amongst the 23 categories.",,

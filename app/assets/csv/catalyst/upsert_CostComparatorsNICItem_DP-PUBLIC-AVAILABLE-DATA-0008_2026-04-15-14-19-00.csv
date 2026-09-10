@@ -1,0 +1,15 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0008,Cost Comparators: NIC\Item,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,Compare prescribing costs per item across practices and regions. Identify cost variation and outliers. Find opportunities to reduce costs without affecting care.,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+This report analyses prescribing costs by comparing Net Ingredient Cost per item across organisations. It provides visibility of cost variation at practice, SICBL, and national levels, helping identify outliers and potential savings opportunities.
+
+The NIC/Item report supports informed decision-making on prescribing efficiency by showing how much each item costs on average. Users can benchmark against peers and identify areas where prescribing choices may be driving higher costs.
+
+The aim of this report is to encourage cost-effective prescribing without compromising clinical outcomes. It should be used alongside clinical guidance and other dashboards to ensure that cost reductions do not negatively impact patient care. By providing clear insights into cost per item, the report helps organisations prioritise reviews and implement strategies for improvement.",,

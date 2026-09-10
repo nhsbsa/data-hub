@@ -1,0 +1,17 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0004,Common Information Reports - CI1. Practice Items,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,View prescription volumes by practice and region. Filter to compare activity and trends. Use data to monitor prescribing volumes and identify high-activity areas.,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+This report visualises the total number of prescription items dispensed by each practice, broken down by contractor and region. It includes metrics such as item counts, prescribing trends, and comparative analysis across practices, providing a clear view of overall dispensing activity. The report is accessible via ePACT2 for authorised users and Catalyst for aggregated insights, ensuring transparency and supporting operational planning.
+
+Purpose:
+The report helps NHS England, commissioners, and contractors monitor prescribing volumes at practice level, identify high-activity areas, and support resource allocation. It is a key tool for understanding demand patterns and ensuring efficient service delivery.
+
+How to Use:
+Users can filter by practice, contractor, or region to review item volumes, compare trends, and benchmark performance. Commissioners use it for capacity planning, audit, and prescribing optimisation, while practices and contractors can track their own activity for quality improvement. Public users can view aggregated data to understand prescribing activity across regions.",,

@@ -1,0 +1,37 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+
+{% set pageHeader = 'Explore our data' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+        
+
+    </div>
+</div>
+{% endblock %}

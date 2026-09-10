@@ -1,0 +1,15 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0007,Cost Comparators: NIC\ASTRO PU (Standardised),PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,"Compare prescribing costs adjusted for patient age, sex and temporary residents. View cost variation across practices and regions. Identify improvement opportunities.","## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+The NIC/ASTRO-PU report compares prescribing costs adjusted for population demographics using Age, Sex and Temporary Resident Originated Prescribing Units (ASTRO-PUs). This adjustment allows fair benchmarking between organisations by accounting for differences in patient populations.
+
+The report highlights cost variation across SICBLs and practices, enabling commissioners to assess whether variation is warranted and identify areas for improvement. Users can view trends over time and compare local performance against regional and national benchmarks.
+
+The aim of this report is to support medicines optimisation and equitable resource allocation. By adjusting for demographic factors, it ensures that comparisons reflect true prescribing efficiency rather than population differences. This report should be used to inform discussions on prescribing quality and cost-effectiveness at local and national levels.",,

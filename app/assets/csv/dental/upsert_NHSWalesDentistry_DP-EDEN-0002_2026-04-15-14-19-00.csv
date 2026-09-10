@@ -1,0 +1,11 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EDEN-0002,NHS Wales Dentistry,PUBLISHED,2026-08-04T15:22:00,eDEN,DataHub_Dental_NHS_Wales_Commissioner|DataHub_Dental_NHS_Wales_Finance|DataHub_Dental_Admin|DataHub_Dental_BSA_Dental_User|DataHub_Dental_Welsh_Government|DataHub_Dental_Provider_Assurance_User,,#,"The NHS Wales Dentistry dashboard shows general and orthodontic activity across all contracts. It helps commissioners and providers review trends, compare areas and access up to 7 years of historical data.","## Data Product Overview
+There is a need for dental commissioners and providers to monitor the activity of dental providers both nationally and within a specific area. This helps make sure that services are commissioned effectively to maximise the benefit to patients.
+
+To enable this, several dashboards are available within the eDEN system to allow users to access a range of dental data, including detailed information extracted from the FP17.
+
+This dashboard provides information on general and orthodontic dental activity for all contracts nationally. Data is available at a number of different organisational levels, including national, ICB, contract and performer level within the dashboard.
+
+Data can be accessed for the current financial year, with historical data available for the previous 7 full financial years.
+
+Several download tabs are also available within the dashboard to allow users to easily extract the information from the system.",,

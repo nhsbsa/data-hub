@@ -1,0 +1,17 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0014,Prescribing Monitoring - Out of Hours Care,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,View Out of Hours prescribing activity and costs by practice and region. Filter to compare trends and drug categories. Monitor demand and spending patterns.,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+This report visualises prescribing activity and associated costs for Out of Hours (OOH) care services, including item volumes, drug categories, and contractor-level breakdowns. It highlights trends in OOH prescribing across practices and regions, providing insight into demand and financial impact. The report is available via ePACT2 for authorised users and Catalyst for aggregated insights, supporting transparency and service planning.
+
+Purpose:
+The report helps NHS England, commissioners, and contractors monitor OOH prescribing patterns, identify high-demand areas, and ensure prescribing aligns with clinical and cost-effectiveness standards. It supports resource allocation and formulary compliance.
+
+How to Use:
+Users can filter by practice, contractor, or region to review OOH prescribing activity, compare trends, and identify opportunities for optimisation. Commissioners use it for audit, financial planning, and prescribing efficiency programmes, while prescribers and contractors can track their own activity and ensure adherence to best practice. Public users can view aggregated insights to understand OOH prescribing trends and expenditure.",,

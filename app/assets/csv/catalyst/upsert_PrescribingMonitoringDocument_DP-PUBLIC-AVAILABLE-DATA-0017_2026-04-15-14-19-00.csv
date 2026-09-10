@@ -1,0 +1,22 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0017,Prescribing Monitoring Document,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,View monthly prescribing costs against budgets. Monitor total and cumulative expenditure. Track forecast out-turn and dispensing days for budget management. ,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+PMD provides monthly financial information about prescribing costs against budgets. This allows the drug element of unified budgets to be managed. 
+
+The figures shown on this report are for monitoring purposes only. They do not reflect the actual charge.
+
+Data within the PMD report is updated monthly. Statements are issued every month and show:
+- the indicative prescribing budget for the current financial year (not shown in April or May) 
+- total monthly expenditure 
+- cumulative expenditure (April to current month) 
+- forecast out-turn (based on information provided by the Department of Health and Social Care which is based on a spending pattern, calculated using previous years' spending data). The accuracy is determined by local factors at a local level (not shown in April or May) 
+- the number of dispensing days in the month and year to date
+
+The annual statement produced for March shows the actual expenditure for the financial year.",,

@@ -1,0 +1,85 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0030,ICB IPP Cost Breakdown,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Remuneration_ICB|DataHub_Presc_Remu_Admin|DataHub_Presc_Default_Dashboard_Analysis,,#,"The IPP report provides reimbursement costs for prescribing organisations in England, used to calculate charges for Cash Reports and invoices to hospital trusts, ISHPs, and local
+authorities.","## About this dashboard
+The IPP report:
+- shows the reimbursement costs for each prescribing organisation for prescriptions dispensed by pharmacy and appliance contractors
+- is used by NHS England to calculate the charge shown in the Cash Report for SICBLs
+
+We also use this report to calculate charges to be invoiced to:
+- hospital trusts
+- Independent Sector Healthcare Providers (ISHPs)
+- local authorities
+
+If you have any queries about Cash Report, contact NHS England by email: nhsenglandcash.management@nhs.net
+
+### Report notes
+IPP uses actual cost in rows 1 to 5 of the report. Therefore, payments for containers (Drug Tariff Part IV) and out of pocket (OOP) expenses for identified prescribing are included in these rows.
+
+Payments for containers (Drug Tariff Part IV) and OOP expenses for dentists and national unidentified prescribers are included in 'line 9 - elements for which resources have been retained centrally'.
+
+What's included in IPP reports
+There are 3 views of the report available, depending on your permissions.
+- National (DHSC Only)
+- Integrated Care Boards (ICBs)
+- Commissioner / provider
+
+#### National IPP report
+The National IPP Report is only available to the Department of Health and Social Care and NHSBSA users.
+
+It shows the consolidated figures for relevant organisations.
+
+#### ICB IPP report
+ICB View shows the aggregate area detail.
+
+It's possible to view commissioner / provider report by accessing the 'Comm./Prov Individual Tab' and selecting the required commissioner / provider's name from “drop-down menu”.
+
+Access to the ICB IPP Report is only available to authorised users approved by the named ICB.
+
+#### Commissioner / provider IPP report
+Commissioner / provider view shows the detailed breakdown of reimbursement costs for individual Commissioner/Providers, including Hospital Trusts. 
+
+Access to an individual organisation's IPP report is only available to authorised users approved by the named organisation.
+
+There are 9 lines on the report:
+
+##### Line 1 - Practice / Comm. / Prov. prescribing where the correct practice, cost centre or hospital unit could be identified
+The actual cost of prescribing in the named commissioner / provider by identified practice prescribers, commissioner / provider employed prescribers or hospital units i.e. GP, nurse, supplementary prescribers or hospital units, for the named dispensing month, which have been dispensed in primary care.
+
+##### Line 2 - Pharmacy First Clinical Pathways and Contraception Service drug reimbursement costs
+The actual cost of the supply of medicines within the Advanced Service for Pharmacy First Clinical Pathways (Feb 2024 onwards) and Contraception (April 2025 onwards) for the named dispensing month, which have been dispensed in primary care.
+
+##### Line 3 - Unidentified prescribing where only the commissioner / provider could be identified
+Contains all commissioner / provider prescribing which has been dispensed in primary care that can not be linked to a specific prescriber or hospital unit but can be linked to the named commissioner / provider.
+
+##### Line 4 - Unidentified deputising services where only the commissioner / provider could be identified
+Contains all deputising service prescribing which has been dispensed in primary care that can be linked to the named commissioner / provider.
+
+##### Line 5 - Community Prescribing
+Contains all prescribing issued under a community Nurse Prescribing Contract. Community Nurse Prescribing contracts were discontinued in April 2013 as part of NHS reforms.
+
+##### Line 6 - Adjustments to Charge Statements 
+The actual cost of adjustments caused by, for example, late notification of GP movements, computer-produced prescriptions for a GP still being generated for a previous practice, pricing errors or the Net Ingredient Cost of adjustments for rebates.
+
+##### Line 7 - Lost batch prescriptions (this line is currently not used)
+The actual cost of lost batches as authorised by the commissioner / provider. From April 2013, commissioner / provider no longer authorise lost batches as this is now done by ICBs.
+
+##### Line 8 - Retro Concession Price Adjustment
+The Net Ingredient Cost of adjustments caused by the retrospective top-up payment for concessionary prices. Part II Clause 8 E of the England and Wales Drug Tariff. The retrospective concessionary top-up amount Part VIIIE of the Drug Tariff.
+
+##### Line 9 - Elements for which resources have been retained centrally
+This is the proportional share per commissioner / provider of other costs based on prescribing which can not be directly attributed to practices.
+
+These costs include:
+- VAT
+- nationally unidentified prescribing
+- broken bulk
+- schedule adjustments
+- net cross-boundary costs
+- out of pocket expenses and payments for containers for national unidentified prescribing
+- Urgent Medicine Supply (with effect from December 2016)
+
+The amount of resources retained centrally invoiced or charged to an organisation is a proportion based on actual cost for that month.
+
+If the total actual cost for England in that month is £1000 and your organisation accounted for £100 of that, your organisation would be charged 10% of the centrally retained items value.
+
+All organisations set up on NHSBSA systems to provide prescriptions are charged a proportion of the costs in centrally retained items whether they be SICBLs, hospital trusts, local authorities or independent sector healthcare providers (ISHPs).",,

@@ -1,0 +1,11 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0029,Volume Comparators: Percentage Generic Items (VC2),PUBLISHED,2026-04-20T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,"This data product provides percentage generic items for CD comparators, including data on prescribing and dispensing data, with a focus on cost associated with branded prescribing of generics.","## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+This analysis allows the user to see the proportion of items prescribed and dispensed generically by Region, ICB (Commissioner and Provider views) and Practice. There is a quarterly view and a year on year view.",,

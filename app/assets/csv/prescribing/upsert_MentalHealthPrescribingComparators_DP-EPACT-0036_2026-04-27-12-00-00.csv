@@ -1,0 +1,32 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0036,Mental Health Prescribing Comparators,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The Mental Health Prescribing Comparators dashboard highlights five key safety‑focused prescribing metrics to help identify patients who may need review or closer monitoring. It aids safer mental health prescribing by identifying risks in antidepressants, antipsychotics, lithium, multiple psychotropics, and dementia treatments.","## About this dashboard
+This dashboard shows 5 metrics that focus on safe prescribing. It allows users to identify groups of patients who might need a prescribing review or close physical health monitoring.
+
+The metrics cover:
+- Antidepressants
+- Antipsychotics
+- Lithium and nephrotoxic agents
+- Multiple psychotropics
+- Anti-dementia drugs and antipsychotics
+
+Antidepressants and antipsychotics:
+The first 2 metrics allow users to compare Sub-ICB Locations (SICBLs) prescribing of antidepressants and antipsychotics nationally. They also allow users to compare prescribing between practices within each Sub-ICB Locations (SICBLs).
+
+A number of high risk groups can be identified. These are children aged between 10 and 18, and patients prescribed multiple antidepressants and multiple antipsychotics.
+
+Lithium and nephrotoxic agents:
+The number of unique patients who are co-prescribed lithium and a nephrotoxic medication.
+
+These patients are at high risk and GP practices that are identified should be alerted to this potentially unsafe prescribing.
+
+Multiple psychotropics:
+The number of patients who are prescribed a combination of antidepressants and antipsychotics.
+
+The higher the number of individual medications prescribed the higher the risk of adverse effects.
+
+SICBLs should make sure that the patients identified have the right monitoring in place and that prescribing is reviewed, if appropriate.
+
+Anti-dementia drugs and antipsychotics:
+Patients who are prescribed an anti-dementia medication and have also been prescribed an antipsychotic.
+
+Antipsychotics should only be used when necessary in this population, and for the shortest time possible.",,

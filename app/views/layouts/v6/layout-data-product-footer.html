@@ -1,0 +1,153 @@
+<!--
+    This is the main layout where you can:
+      - change the header and footer
+      - add custom CSS and JavaScript
+  -->
+  
+  <!-- Extends the prototype kit template which in turn extends the NHS.UK frontend template -->
+  {% extends "prototype-kit-template.njk" %}
+  
+  {% block head %}
+  <!-- Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+  <link href="/assets/sass/main.css" rel="stylesheet">
+{% endblock %}
+  
+  <!-- Edit the header -->
+  <!-- Header code examples can be found at https://service-manual.nhs.uk/design-system/components/header -->
+  {% block header %}
+    {% if data.signedIn == 'yes' %}
+    {% set accountItems = [] %}
+
+    {% if data['full-name'] and data['job-role'] %}
+      {% set accountItems = accountItems.concat([{
+        text: data['full-name'] ~ " (" ~ data['job-role'] ~ ")",
+        icon: true
+      }]) %}
+    {% else %}
+      {% set accountItems = accountItems.concat([{
+        text: "Florence Nightingale (Senior Information Analyst)",
+        icon: true
+      }]) %}
+    {% endif %}
+    
+    {% set accountItems = accountItems.concat([
+      { text: "My account", href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/my-account" },
+      { text: "Sign out", href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/signed-out?signedIn=no?userType=" }
+    ]) %}
+    
+    {{ header({
+      logo: {
+        href: "#",
+        ariaLabel: "NHS Business Services Authority"
+      },
+      organisation: {
+        name: "Business Services Authority",
+        descriptor: "Data Hub"
+      },
+      account: {
+        items: accountItems
+      }
+    }) }}
+    {% else %}
+        {{ header({
+            logo: {
+            href: "#",
+            ariaLabel: "NHS Business Services Authority"
+            },
+            organisation: {
+                name: "Business Services Authority",
+                descriptor: "Data Hub"
+            },
+            account: {
+            items: [
+                {
+                text: "Sign in or create an account",
+                href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/entra-id/enter-username",
+                icon: true
+                }
+            ]
+            }
+        }) }}
+    {% endif %}
+  {% endblock %}
+
+
+    {% block main %}
+        <div class="nhsuk-width-container nhsuk-before-content">{% block beforeContent %}{% endblock %}</div>
+        {% block heroContent %}{% endblock %}
+        <div class="nhsuk-width-container {%- if containerClasses %} {{ containerClasses }}{% endif %}">
+          <main class="nhsuk-main-wrapper {%- if mainClasses %} {{ mainClasses }}{% endif %}" id="maincontent" {%- if mainLang %} lang="{{ mainLang }}"{% endif %}>
+            {% block content %}{% endblock %}
+          </main>
+        </div>
+  {% endblock %}
+
+
+  
+  
+  <!-- Edit copyright HTML for the footer -->
+  {% set copyrightHTML %}{% endset %}
+
+
+
+
+  <!-- Edit the footer -->
+  <!-- Footer code examples can be found at https://service-manual.nhs.uk/design-system/components/footer -->
+  {% block footer %}
+  {{ footer({
+      meta: {
+          items: [
+          {
+              href: "https://cms.nhsbsa.nhs.uk/accessibility-statement-data-hub",
+              text: "Accessibility statement"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/help-and-support",
+              text: "Contact us"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/our-policies/cookies",
+              text: "Cookies"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/data-hub-privacy-notice",
+              text: "Privacy policy"
+          },
+          {
+              href: "https://www.nhsbsa.nhs.uk/our-policies/terms-and-conditions",
+              text: "Terms and conditions"
+          },
+          {
+            href: "https://www.nhsbsa.nhs.uk/",
+            text: "NHS Business Services Authority"
+          },
+          {
+            href: "https://www.nhsbsa.nhs.uk/data-hub-end-user-agreement",
+            text: "End User Agreement"
+          },
+          {
+              href: "/iteration-history",
+              text: "Prototype version history (prototype only)"
+          },
+          {
+              href: "/",
+              text: "Prototype index (prototype only)"
+          },
+          {
+              href: "/prototype-admin/reset?returnPage=" + (currentPage | urlencode),
+              text: "Reset data (prototype only)"
+          }
+          ]
+      },
+      copyright: {
+          html: copyrightHTML | safe
+      }
+      }) }}      
+  {% endblock %}
+  
+  {% block bodyEnd %}
+  {{ super() }}
+  <script type="module" src="/assets/javascript/main.js"></script>
+  {% block pageScripts %}{% endblock %}
+{% endblock %}
+  

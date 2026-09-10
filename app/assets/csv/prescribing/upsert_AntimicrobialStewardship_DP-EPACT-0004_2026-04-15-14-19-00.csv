@@ -1,0 +1,11 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0004,Antimicrobial Stewardship,PUBLISHED,2026-08-12T15:22:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"This dashboard supports national and local antimicrobial stewardship by providing prescribing data to monitor progress against key AMR reduction ambitions. It enables organisations to identify variation, support local action, and link directly to national AMR guidance and resources.","## About this dashboard
+In collaboration with NHS Improvement, the antimicrobial stewardship dashboard has been developed to support the national antimicrobial resistance strategy.
+
+The government is committed to leading the international fight against [antimicrobial resistance](https://www.gov.uk/government/publications/uk-5-year-antimicrobial-resistance-strategy-2013-to-2018), and has set new ambitions to support this work.
+
+Following the O’Neill Review of AMR, the government set the following ambitions:
+- 50% reduction of preventable GNBSIs by 2020/21
+- 50% reduction of the number of inappropriate antimicrobial prescriptions by 2020
+
+The antimicrobial stewardship dashboard supports the delivery of both ambitions, providing prescribing data to support local stewardship activity and reporting, and linking to relevant AMR resources such as the [PHE AMR Portal](https://fingertips.phe.org.uk/profile/amr-local-indicators) and NICE guidelines.",,

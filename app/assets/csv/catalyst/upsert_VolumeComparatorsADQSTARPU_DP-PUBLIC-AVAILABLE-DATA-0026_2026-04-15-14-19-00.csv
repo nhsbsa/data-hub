@@ -1,0 +1,17 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-PUBLIC-AVAILABLE-DATA-0026,Volume Comparators: ADQ\STAR PU,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,Compare average daily doses by practice and region. Adjust for patient age and sex differences. View trends by therapeutic group and identify variation.,"## Access information
+To gain access to 'Catalyst', you will be required to input an ID and password:
+ID - NHSBSAGuest
+Password - Password12345
+If the password is locked for any reason the system automatically reinstates the password. This may take up to 20 minutes.
+
+Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
+
+## Data Product Overview
+Prescribing volume is a key indicator of medicines optimisation, but raw item counts can be misleading without adjustment for population demographics. The ADQ/STAR PU report in ePACT2 addresses this by comparing prescribing volume using Average Daily Quantity (ADQ) per Specific Therapeutic Group Age-Sex Related Prescribing Unit (STAR PU).
+
+ADQ provides a standardised measure of the average daily dose for a medicine, while STAR PU adjusts for age and sex differences across patient populations. This combination allows fair benchmarking between practices, SICBLs, and ICBs, highlighting variation in prescribing that may warrant further review.
+
+The report supports antimicrobial stewardship and other therapeutic areas by identifying outliers and promoting rational prescribing. Users can view trends over time and filter by therapeutic group, enabling targeted analysis.
+
+This report aims to encourage value-based prescribing by linking volume to demographic-adjusted need. It helps organisations assess whether prescribing levels are appropriate and identify opportunities for improvement. While the report provides valuable insights, it should be used alongside clinical dashboards and guidance to ensure that interventions do not compromise patient care.",,

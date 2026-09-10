@@ -1,0 +1,26 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0043,Opioid Prescribing Comparators (Snapshot),PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The Opioid Prescribing Comparators dashboard supports local systems in understanding opioid use and dependency‑forming medicine prescribing, following the PHE prescribed medicines review. It helps identify high‑risk patients, target prescribing issues, and measure the impact of interventions to reduce harm from opioids and related medicines.","## About this dashboard
+Opioid prescribing comparators have been developed as part of the work started in response to the Public Health England (PHE) prescribed medicines review.
+
+The report was published by PHE in September 2019. Analysis showed that 11.5 million adults in England (26% of the adult population) between 2017 and 2018 received one or more prescriptions for the following:
+- Antidepressants
+- Opioid pain medicine
+- Gabapentinoids
+- Benzodiazepines
+- ‘Z’ drugs
+
+5.6 million people (13% of the population) received a prescription for an opioid pain medicine.
+
+An implementation programme was started to address this issue. As part of this, NHS England and the Medication Safety Improvement Programme invited Health Innovation Wessex and NHSBSA to develop a set of opioid prescribing comparators to support local work to reduce harm from opioid prescribing for non-cancer patients.
+
+Using the development process first used for the NHSBSA polypharmacy prescribing comparators, Health Innovation Wessex and NHSBSA have worked together with clinicians to develop the NHSBSA opioid prescribing comparators.
+
+This report also includes comparators based on those recommended by the prescribed medicines review that describe the number of patients receiving each of the five dependency and withdrawal forming medicine classes for a short period and over a 12 month period.
+
+The NHSBSA prescribing comparators have been developed to help GP practices, PCNs, ICBs and others to:
+- understand the scale of their local opioid issues
+- understand which areas of opioid prescribing are most problematic locally
+- identify patients who are deemed to be at the greatest risk from harm to be prioritised for a structured medication review
+- measure the impact of any interventions aimed at reducing harm from opioids
+- understand the local scale of use of dependency and withdrawal forming medicines in the short and long term.
+ ",,

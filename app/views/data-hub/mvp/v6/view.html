@@ -1,0 +1,124 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+
+{% if data.id and data.tag %}
+  {% set folders = { PUBLIC_AVAILABLE_DATA: 'catalyst', eDEN: 'dental', eOPS: 'ophthalmic', ePACT: 'prescribing'] %}
+  {% set items = ( 'app/assets/csv/'+folders[data.tag]+'/' ) | getDirectoryFiles | getJSONFromCSVs %}
+  {% set item = data.id | getItemFromID( items ) %}
+{% endif %}
+
+{% set pageHeader = item.data_product_name or 'Report title' %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      },
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/browse',
+        text: 'Browse'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        {% if item.tag %}
+          {{ tag({ classes: 'nhsuk-tag--white nhsuk-u-margin-bottom-2', text: item.tag | getTagText }) }}
+        {% else %}
+          {{ tag({ classes: 'nhsuk-tag--white nhsuk-u-margin-bottom-2', text: 'Report type' }) }}
+        {% endif %}
+        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+
+        {% if item.tag === 'PUBLIC_AVAILABLE_DATA' %}
+
+          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+            {{ button({
+              href: '#',
+              text: 'View dashboard (opens in a new tab)'
+            }) }}
+          </div>
+
+        {% else %}
+
+          {% if data.signedIn === 'yes' %}
+
+            <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+            {{ button({
+              href: '#',
+              text: 'View dashboard (opens in a new tab)'
+            }) }}
+          </div>
+
+          {% else %}
+
+            {% if item.tag === 'ePACT' %}
+              {% set buttonObj = { text: 'Request access to prescribing and dispensing data', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2' } %}
+            {% elif item.tag === 'eDEN' %}
+              {% set buttonObj = { text: 'Request access to dental data', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden' } %}
+            {% elif item.tag === 'eOPS' %}
+              {% set buttonObj = { text: 'Request access to ophthalmic data', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eops/registering-eops' } %}
+            {% else %}
+              {% set buttonObj = { text: 'Request access', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products' } %}
+            {% endif %}
+
+            <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+              {{ button({
+                href: 'auth/entra-id/enter-username?returnURL=' + ( currentURL | urlencode ),
+                text: 'Sign in'
+              }) }}
+              {{ button({
+                href: buttonObj.href,
+                text: buttonObj.text,
+                classes: 'nhsuk-button--secondary'
+              }) }}
+            </div>
+
+          {% endif %}
+
+
+        {% endif %}
+
+        <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+
+        <div class="nhsuk-u-reading-width">
+            {% set content = ( item.data_product_overview | processMarkdown ) %}
+            {% if (( content | length ) > 0 ) %}
+              {{ content | safe }}
+            {% else %}
+              <h2 class="nhsuk-heading-m">About this report</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            {% endif %}
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+
+        <div class="nhsuk-u-reading-width">
+            <h2 class="nhsuk-heading-m">Contact and feedback</h2>
+            <p>If you have any queries regarding the data provided contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">data services support</a>. If you plan to publish the data include the name of the dataset for reference (this ensures that the figures are not misunderstood or misrepresented).</p>
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m" />
+
+        <p class="nhsuk-body-s nhsuk-font-colour-secondary">Page last updated: {{ ( item.data_product_publication_date | formatDateTime ) or '10 September 2026 at 3:22 pm' }}</p>
+
+    </div>
+</div>
+{% endblock %}

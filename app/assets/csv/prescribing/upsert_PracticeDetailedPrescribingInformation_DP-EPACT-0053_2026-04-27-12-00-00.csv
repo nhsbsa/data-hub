@@ -1,0 +1,5 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0053,Practice Detailed Prescribing Information,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"PDPI provides practices with insight into their prescribing patterns and costs, enabling comparison against national and local benchmarks. It supports performance management using data limited to prescribers directly linked to a practice.","## About this dashboard
+PDPI provides information on a practice’s prescribing habits and costs. This enables a practice to compare and manage their prescribing performance against national and commissioner or provider comparators.
+
+The PDPI extract only contains data for prescribers that are directly attached to a practice.",,

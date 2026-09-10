@@ -1,0 +1,28 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0070,Remuneration Recharges,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Remuneration_ICB|DataHub_Presc_Remuneration_National_Level|DataHub_Presc_Remuneration_Regional|DataHub_Presc_Remu_Admin,,#,"This report provides information on remuneration payments for pharmaceutical services supplied by pharmacy and appliance contractors, including payments from the Department of Health and Social Care.","## About this dashboard
+The report:
+- provides information to support the monitoring and management of remuneration payments for pharmaceutical services supplied by pharmacy and appliance contractors
+- only shows payments which relate to remuneration and include payments previously sourced from funding held centrally by the Department of Health and Social Care, known as the global sum
+
+ePACT2 will hold data from April 2018, which will be updated monthly.
+
+The report is split into 2 views, which are:
+- 'all values' - used for information purposes only and provides users with an overall view of remuneration for all the organisations which are linked to them
+- 'recharge values' - showing only the remuneration which the organisation has been charged for
+
+The 'recharge view' is only available to organisations at integrated care board (ICB) level and above.
+
+### Report notes
+All remuneration costs are invoiced to the appropriate organisation with the exception of those relating to Sub Integrated Care Board Locations (SICBL), which are recharged to NHS England.
+
+Where a particular fee or an allowance cannot be directly attributable to a specific commissioner / provider, the activity and associated amount recharged is shared across all commissioner / providers.
+
+The basis for the sharing is in accordance with specified formulae, which are listed in the remuneration report glossary.
+
+The fees column shows the number of identifiable fees which can be directly attributed to a commissioner / provider, cost centre or hospital unit.
+
+Fees are identified from the prescriber number or the commissioner / provider information included on the prescription form.
+
+Fees which cannot be attributed to a particular commissioner / provider are shared and shown under 'national unidentified prescribers'.
+
+Unidentified prescriber shows the fees / allowances attributed to unidentified prescribers where a prescription form (FP10, FP10HP) does not contain enough detail to identify the prescriber but the commissioner / provider can be identified.",,

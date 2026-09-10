@@ -1,0 +1,7 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EDEN-0006,Provider NHS Wales Dentistry,PUBLISHED,2026-07-31T15:22:00,eDEN,DataHub_Dental_Surgery_Provider|DataHub_Dental_Surgery_Practice_Manager|DataHub_Dental_Surgery_Corporate_User|DataHub_Dental_Admin|DataHub_Dental_BSA_Dental_User|DataHub_Dental_Provider_Assurance_User|DataHub_Dental_NHS_Wales_Commissioner,,#,"This dashboard shows contract and performer-level dental activity in Wales, helping providers track performance and download data for service monitoring.","## Data Product Overview
+There is a need for dental providers to monitor their activity and individual contracts within the provider and the performers within the individual contracts. This helps make sure that they are providing the services they are commissioned to deliver and maximise the benefit to patients.
+
+To enable this, a dashboard is available within the eDEN system which allows users to access a range of dental data including detailed information extracted from the FP17.
+
+The dashboard provides information relating to contract dental activity at contract and performer level for a range of different metrics, allowing users to visualise data within the system and quickly download data related to those metrics.",,

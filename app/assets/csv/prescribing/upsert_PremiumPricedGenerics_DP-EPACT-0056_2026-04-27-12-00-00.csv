@@ -1,0 +1,9 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information,
+DP-EPACT-0056,Premium Priced Generics,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"This dashboard highlights instances where generic items are prescribed with a branded name or specific supplier, leading to higher reimbursement costs than the Drug Tariff generic price. It supports SICBLs in identifying cost‑saving opportunities by pinpointing practices and products where this prescribing pattern is most common.","## About this dashboard
+There is a growing volume of computerised prescriptions in which prescribers select a generic Drug Tariff Part VIIIA product, but then include the name of a branded medicine or specific supplier/manufacturer in brackets.
+
+When this occurs, the cost charged to the prescriber's budget and reimbursed to the dispensing pharmacy or practice is based on the list price of the branded item or named supplier, rather than the Drug Tariff generic price.
+
+In many cases, this results in significantly higher costs than if the standard Part VIIIA price had been applied.
+
+To support Sub-Integrated Care Board Locations (SICBLs) in identifying and addressing these instances, this dashboard highlights the practices and products where this prescribing pattern is most common, helping to inform potential review and cost-saving opportunities.",,,

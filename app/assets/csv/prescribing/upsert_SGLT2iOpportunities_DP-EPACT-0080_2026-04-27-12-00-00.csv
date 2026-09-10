@@ -1,0 +1,41 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0080,SGLT2i Opportunities,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The SGLT2i Opportunities dashboard provides a comprehensive view of prescribing patterns for SGLT2 inhibitors across England, supporting medicines optimisation and service improvement at national, regional, and local levels.","## About this dashboard
+The SGLT2i opportunities dashboard provides a comprehensive view of prescribing patterns for SGLT2 inhibitors (SGLT2i) across England, following the introduction of generic dapagliflozin.
+
+Developed by NHS England in collaboration with the NHS Business Services Authority and clinical experts, the dashboard supports medicines optimisation and service improvement at national, regional, and local levels.
+
+### Approach to Metric Selection
+Metrics have been carefully developed to provide a structured and transparent view of prescribing changes. The approach is based on tracking an initial cohort of patients prescribed SGLT2i other than dapagliflozin during a baseline period (April to June 2025).
+
+This cohort is followed over time to monitor switching activity, new initiations and ongoing prescribing patterns. The metrics are designed to be simple, user-focused, and aligned with the best available evidence.
+
+### Dashboard metrics explained
+#### Initial Cohort Size
+Identifies the number of patients prescribed an SGLT2 inhibitor other than dapagliflozin during the baseline period. This group forms the basis for tracking subsequent switching activity.
+
+#### Cohort Switched to Dapagliflozin
+Shows the number of patients from the initial cohort who have received dapagliflozin for the first time in the current month.
+
+#### Cumulative Switchers
+Tracks the total number of patients from the initial cohort who have received dapagliflozin at any point since the baseline period.
+
+#### New Initiations
+Reports the number of patients not in the initial cohort who have started treatment with dapagliflozin or another SGLT2 inhibitor for the first time since April 2025.
+
+#### Prescribing Patterns
+Provides ongoing tracking of patients in the initial cohort, including those who continue to receive other SGLT2i, those who have switched to dapagliflozin and those with no current prescribing.
+
+### Purpose of Metrics
+The dashboard metrics are designed to inform and support local and national medicines optimisation efforts. They enable users to monitor switching activity, assess uptake of dapagliflozin and review prescribing patterns across different settings.
+
+By including comparators, the dashboard also allows benchmarking against regional and national practice, highlighting variations and trends to support evidence‑based service planning and quality improvement. It is a resource for optimisation, not a clinical decision tool.
+
+### How to Use These Metrics
+Users can explore the dashboard to:
+- monitor switching from other SGLT2i to dapagliflozin
+- assess the uptake of dapagliflozin and new initiations
+- review ongoing prescribing patterns within their organisation
+- benchmark against regional and national trends
+- identify opportunities for quality improvement and pathway updates
+
+As the dashboard does not capture clinical indication, users should interpret results in the context of local knowledge, clinical guidance, and patient needs. Clinical judgement and patient discussion remain essential when considering any changes to prescribing.",,

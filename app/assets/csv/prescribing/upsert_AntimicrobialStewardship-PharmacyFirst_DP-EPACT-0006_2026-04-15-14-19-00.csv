@@ -1,0 +1,18 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0006,Antimicrobial Stewardship - Pharmacy First,PUBLISHED,2026-04-20T15:22:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,Monitors antibiotic prescribing patterns to support national efforts to reduce antimicrobial resistance. Allows comparison of prescribing rates across practices and SICBLs.,"## About this dashboard
+Combatting antimicrobial resistance, [the UK’s second five-year national action plan](https://www.gov.uk/government/publications/uk-5-year-action-plan-for-antimicrobial-resistance-2024-to-2029) continues to promote optimal use of antimicrobials in humans to ensure safe and effective patient care by strengthening antimicrobial stewardship programmes. There is also an ambition to reduce UK antimicrobial use in humans by 5% by 2029, and to prevent any increase in Gram-negative blood stream infections in humans from a 2019/2020 baseline.
+
+The Antimicrobial Stewardship - Pharmacy First report is intended to support Integrated Care Board led antimicrobial stewardship following the introduction of the [NHS Pharmacy First](https://www.england.nhs.uk/primary-care/pharmacy/pharmacy-services/pharmacy-first/) service on 31st January 2024. This service is designed to provide people with quick and convenient access to safe and high-quality healthcare. It includes the supply of appropriate medicines via Patient Group Direction for 7 common infections via consultation with a community pharmacy.
+
+The 7 common infection clinical pathways are
+- Acute Otitis Media for children aged 1 to 17 years
+- Acute Sore Throat for adults and children aged 5 years and over
+- Impetigo (non-bullous) for adults and children aged 1 year and over
+- Infected Insect Bites for adults and children aged 1 year and over
+- Shingles for adults aged 18 years and over
+- Acute Sinusitis for adults and children aged 12 years and over
+- Uncomplicated Urinary Tract Infection for women aged 16 to 64 years with suspected lower UTIs
+
+Further detail is published in the [Community Pharmacy advanced service specification: NHS Pharmacy First Service](https://www.england.nhs.uk/publication/community-pharmacy-advanced-service-specification-nhs-pharmacy-first-service/)
+
+While people can access the Pharmacy First service from any participating pharmacy, the Antimicrobial Stewardship - Pharmacy First report reports consultation activity by Integrated Care Board where the person is registered with an NHS General Practice, providing Integrated Care Boards with insight into their population use of the Pharmacy First service. The report will support clinicians and NHS integrated care systems monitor access to infection pathways and monitor exposure to medicines including antimicrobials for defined populations.",,

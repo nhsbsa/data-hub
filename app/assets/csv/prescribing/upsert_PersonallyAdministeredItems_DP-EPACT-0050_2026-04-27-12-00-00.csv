@@ -1,0 +1,22 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EPACT-0050,Personally Administered Items,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The Personally Administered Items Report provides patient‑level visibility of medicines and appliances administered directly by practice staff, supporting accurate reimbursement. It helps practices check claims, spot errors, and follow NHS payment rules while supporting governance and medicines optimisation.","## About this dashboard
+Personally administered items are medicines or appliances prescribed and administered directly by a practice team member, attracting payment under the NHS General Medical Services Statement of Financial Entitlements. The **Personally Administered Items Patient Analysis Report** in ePACT2 provides authorised users with detailed insights into these items at patient level, supporting accurate reimbursement and governance.
+
+The report displays monthly totals for personally administered items across the financial year, with drill-down functionality to view individual items by presentation. It includes details such as BNF code, product description, number of items, and Net Ingredient Cost (NIC). Users can filter by time period and export data for reconciliation or audit purposes.
+
+The aim of this report is to ensure transparency and accuracy in claims for personally administered items. It helps practices validate payments, identify discrepancies, and monitor prescribing trends. While the report provides granular financial and operational data, it should be used alongside other prescribing dashboards to inform medicines optimisation strategies. Its intention is to support compliance with NHS payment rules, reduce errors, and maintain high standards of patient care.
+
+ It provides information on the items personally administered within the practice down to individual item level.
+
+The 2 views available to select are:
+- yearly overview
+- detailed
+
+### Yearly overview
+This shows the totals for items personally administered for each month up to the selected month in data selector.
+Every month is hyperlinked to drill down to the details of individual items personally administered by the practice.
+
+### Detailed
+This shows the details of personally administered items for the selected month directly.
+This is the same view that will be available when user drill downs from yearly view.
+The report provides information on product (including BNF code), number of items and net ingredient cost.",,

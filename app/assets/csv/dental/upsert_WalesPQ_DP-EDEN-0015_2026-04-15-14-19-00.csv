@@ -1,0 +1,12 @@
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+DP-EDEN-0015,Wales PQ,PUBLISHED,2026-07-31T15:22:00,eDEN,DataHub_Dental_NHS_Wales_Commissioner|DataHub_Dental_NHS_Wales_Finance|DataHub_Dental_Admin|DataHub_Dental_BSA_Dental_User|DataHub_Dental_Welsh_Government|DataHub_Dental_Provider_Assurance_User,,#,"This dashboard provides patient questionnaire data for Wales, helping commissioners understand patient experience and download feedback for service improvement.","## Data Product Overview
+There is a need for dental commissioners to be able to monitor the responses submitted by patients of dental providers within a selected Local Health Board.  This allows them to ensure that services as commissioned effectively and to maximise the benefit to patients.
+
+The Wales PQ Dashboard has been developed to support dental commissioners and service leads in understanding patient experiences across Wales. It provides access to responses from patients regarding the dental treatment they have received, helping to inform service quality, patient satisfaction, and commissioning decisions.
+
+Patient feedback is collected via Patient Questionnaires (PQs) and is available within the dashboard at Local Health Board level. The dashboard is structured into three key tabs:
+- Summary Tab: Offers a high-level overview of patient responses across all appointment types, enabling users to quickly assess overall satisfaction and identify broad trends.
+- Urgent Tab: Focuses on feedback from patients who attended urgent dental care appointments, providing insights into access, timeliness, and quality of care in urgent settings.
+- General Tab: Presents responses from patients attending routine/general dental appointments, allowing commissioners to evaluate ongoing service delivery and patient experience.
+
+Users can filter data by LHB and month, allowing the to compare response patterns across regions and time periods. Download options are also available to support further analysis and integration into local reporting.",,

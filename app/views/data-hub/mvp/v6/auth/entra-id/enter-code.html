@@ -1,0 +1,48 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layout.html -->
+{% extends 'layouts/layout-entra-id.html' %}
+<!--
+  In /app/views/layout.html you can:
+    - change the header and footer
+    - add custom CSS and JavaScript
+-->
+
+<!-- Set the page title -->
+{% block pageTitle %}
+Enter code - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block content %}
+
+<div class="outer">
+    <div class="sign-in-box">
+        <img style="margin-bottom: 20px;" src="/assets/images/logo-245x36-left.png" alt="" />
+        <form method="post">
+            <p class="nhsuk-u-margin-bottom-2">
+                {% if data['username'] %}
+                    {{ data['username'] }}
+                {% elif data['email-address'] %}
+                    {{ data['email-address'] }}
+                {% else %}
+                    username@nhsbsa.nhs.uk
+                {% endif %}
+            </p>
+            <h1 class="nhsuk-heading-m nhsuk-u-margin-bottom-2">Enter code</h1>
+            <p class="nhsuk-body-s">
+                Enter the code we just sent to {% if data['username'] %}{{ data['username'] }}{% elif data['email-address'] %}{{ data['email-address'] }}{% else %}username@nhsbsa.nhs.uk{% endif %}
+            </p>
+            <input type="text" placeholder="Enter code">
+            <div class="buttons">
+                <a class="back" href="javascript:history.back()">Back</a> <button class="next" type="submit">Next</button>
+            </div>
+        </form>
+        <!--<div class="boilerplate-text">
+            <p class="nhsuk-u-margin-bottom-0 nhsuk-body-s">Welcome to the NHS Business Services Authority</p>
+        </div>-->          
+    </div>
+</div>
+
+{% endblock %}

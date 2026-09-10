@@ -1,6 +1,5 @@
 // External dependencies
 const express = require('express');
-
 const router = express.Router();
 
 //
@@ -12,7 +11,7 @@ router.use((req, res, next) => {
   console.log(req.method + ': ' + req.originalUrl);
 
   // Versions
-  const versions = ['dc146','v2','v3','v4','v4-1','v4-2','v4-3','v5'];
+  const versions = ['dc146','v2','v3','v4','v4-1','v4-2','v4-3','v5','v6'];
 
   // Clear current routes 
   router.stack = router.stack.filter(layer => layer.name !== 'router');
@@ -37,9 +36,5 @@ router.use((req, res, next) => {
   next();
 
 });
-
-// Assumptions Folder
-// router.use('/data-hub/assumptions/v1-2', require('./views/data-hub/assumptions/v1-2/_routes'));
-// router.use('/data-hub/assumptions/v1-1', require('./views/data-hub/assumptions/v1-1/_routes'));
 
 module.exports = router;
