@@ -65,7 +65,14 @@ text: "ePACT2"
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-margin-top-6">
 
         {% if data.iteration === 'inHub' %}
-            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="dashboards/data-exploration--v3">Explore prescribing and dispensing data</a></h2>        
+
+            {% set link = [
+                'dashboards/data-exploration--v3',
+                'dashboards/data-exploration--v3--cards',
+                'dashboards/data-exploration--v3--cards-tabs'
+            ] | random %}
+
+            <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="{{ link }}">Explore prescribing and dispensing data</a></h2>        
         {% else %}
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="https://datawarehouse.nhsbsa.nhs.uk/ui/analytics/saw.dll?Answers&SubjectArea=%22ePACT%202%22" target="_blank">Create analysis tool (opens in a new tab)</a></h2>        
         {% endif %}
