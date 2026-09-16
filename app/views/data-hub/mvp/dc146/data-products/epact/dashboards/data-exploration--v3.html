@@ -101,7 +101,7 @@
         {% set content_01 %}
 
             <!-- 12 MONTH MODEL -->
-            <p>Explore NHS prescribing and dispensing data from the latest 12 months. Best for routine reporting, monitoring recent activity, and answering questions about current trends. Its smaller data range may provide faster query performance.</p>
+            <p>Explore prescribing and dispensing data from the latest 12 months. Best for routine reporting, monitoring recent activity, and answering questions about current trends. Its smaller data range may provide faster query performance.</p>
             
             {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -120,7 +120,7 @@
         {% set content_02 %}
 
             <!-- 24 MONTH MODEL -->
-            <p>Explore NHS prescribing and dispensing data from the latest 24 months. Useful for comparing recent performance over time, including year-on-year analysis and identifying emerging trends.</p>
+            <p>Explore prescribing and dispensing data from the latest 24 months. Useful for comparing recent performance over time, including year-on-year analysis and identifying emerging trends.</p>
 
             {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
@@ -135,11 +135,11 @@
 
         {% endset %}
 
-        {% set header_03 = '10 year ' + modelOrDatasetShort %}
+        {% set header_03 = 'Full history ' + modelOrDatasetShort %}
         {% set content_03 %}
 
-            <!-- 10 YEAR MODEL -->
-            <p>Access the full available prescribing and dispensing {{ modelOrDatasetShort }}, covering up to 10 years of NHS activity. Best for long-term trend analysis, strategic planning, market analysis, and understanding changes over time.</p>
+             <!-- 10 YEAR MODEL -->
+            <p class="nhsuk-u-reading-width">Access the full available prescribing and dispensing {{ modelOrDatasetShort }}, covering up to 10 years of NHS activity. Best for long-term trend analysis, strategic planning, market analysis, and understanding changes over time.</p>
             
             {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
