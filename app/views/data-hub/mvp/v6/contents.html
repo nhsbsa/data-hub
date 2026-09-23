@@ -1,0 +1,154 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+{% set pageHeader = 'Contents' %}
+
+
+{% set publicItems = ( 'app/assets/csv/catalyst/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
+{% set prescribingItems = ( 'app/assets/csv/prescribing/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
+{% set dentalItems = ( 'app/assets/csv/dental/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
+{% set ophthalmicItems = ( 'app/assets/csv/ophthalmic/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
+
+{% set allItems = publicItems | concat( prescribingItems, dentalItems, opthalmicItems ) | sortItemsAlphabeticallySimple %}
+
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>Contents</h1>
+
+        {% set allContent %}
+
+            {{ table({
+                caption: { html: '<span class="nhsuk-u-visually-hidden">All reports</span>' },
+                firstCellIsHeader: true,
+                head: [
+                    { text: 'Report' },
+                    { text: 'Type' }
+                ],
+                rows: allItems | convertToTableRows
+            }) }}
+
+        {% endset %}
+
+
+        {% set prescribingContent %}
+            
+            {{ table({
+                caption: { html: '<span class="nhsuk-u-visually-hidden">Prescribing and dispensing reports</span>' },
+                firstCellIsHeader: true,
+                head: [
+                    { text: 'Report' },
+                    { text: 'Type' }
+                ],
+                rows: prescribingItems | convertToTableRows
+            }) }}
+
+        {% endset %}
+
+
+        {% set dentalContent %}
+
+            {{ table({
+                caption: { html: '<span class="nhsuk-u-visually-hidden">Dental reports</span>' },
+                firstCellIsHeader: true,
+                head: [
+                    { text: 'Report' },
+                    { text: 'Type' }
+                ],
+                rows: dentalItems | convertToTableRows
+            }) }}
+
+        {% endset %}
+
+
+        {% set ophthalmicContent %}
+            
+            {{ table({
+                caption: { html: '<span class="nhsuk-u-visually-hidden">Ophthalmic reports</span>' },
+                firstCellIsHeader: true,
+                head: [
+                    { text: 'Report' },
+                    { text: 'Type' }
+                ],
+                rows: ophthalmicItems | convertToTableRows
+            }) }}
+
+        {% endset %}
+
+        {% set publicContent %}
+            
+            {{ table({
+                caption: { html: '<span class="nhsuk-u-visually-hidden">Public reports</span>' },
+                firstCellIsHeader: true,
+                head: [
+                    { text: 'Report' },
+                    { text: 'Type' }
+                ],
+                rows: publicItems | convertToTableRows
+            }) }}
+
+        {% endset %}
+
+
+
+
+        {{ tabs({
+            items: [
+                {
+                    label: 'All ('+ ( allItems | length ) +')',
+                    id: 'all-reports',
+                    panel: { html: allContent }
+                },
+                {
+                    label: 'Prescribing and dispensing ('+ ( prescribingItems | length ) +')',
+                    id: 'prescribing-reports',
+                    panel: { html: prescribingContent }
+                },
+                {
+                    label: 'Dental ('+ ( dentalItems | length ) +')',
+                    id: 'dental-reports',
+                    panel: { html: dentalContent }
+                },
+                {
+                    label: 'Ophthalmic ('+ ( ophthalmicItems | length ) +')',
+                    id: 'ophthalmic-reports',
+                    panel: { html: ophthalmicContent }
+                },
+                {
+                    label: 'Public ('+ ( publicItems | length ) +')',
+                    id: 'public-reports',
+                    panel: { html: publicContent }
+                }
+            ]
+            }) }}
+
+
+
+
+    </div>
+</div>
+{% endblock %}

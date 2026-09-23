@@ -16,12 +16,12 @@
 ///////////////////////////////////////////
 // Data Hub - Custom Styles
 ///////////////////////////////////////////
-/// 
-/// 
-///
 
-.nhsuk-list--border .nhsuk-tag--white {
+
+.nhsuk-list--border .nhsuk-tag--white,
+.nhsuk-table__cell .nhsuk-tag {
     word-wrap: none;
+    white-space: nowrap;
     margin-bottom: 0.625rem;
 }
 

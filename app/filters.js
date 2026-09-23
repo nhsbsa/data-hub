@@ -10,6 +10,21 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   const filters = {};
 
   //
+  // CONCAT
+  // Merges as many arrays as you can chuck at it...
+  //
+  filters.concat = function(){
+
+    let concatanated = [];
+    if( arguments.length > 0 ){
+      concatanated = [].concat( ...arguments );
+    }
+
+    return concatanated;
+
+  }
+
+  //
   // GET DIRECTORY FILES
   // Takes a directory and outputs an array of file names with the directory prepended
   //
@@ -96,7 +111,8 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
       const letterArray = [];
 
       items.forEach( function( item ){
-        if( item.data_product_name.toUpperCase().substring(0,1) === letter ){
+
+        if( item && item.data_product_name.toUpperCase().substring(0,1) === letter ){
           letterArray.push( item );
         }
       });
@@ -120,6 +136,53 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     return letterArrays;
 
   };
+
+
+  //
+  // SORT ITEMS ALPHABETICALLY SIMPLE
+  // Takes an array of objects and sorts them by data_product_name
+  //
+  filters.sortItemsAlphabeticallySimple = function( items ){
+    
+    items = ( Array.isArray( items ) && items.length > 0 ) ? items : [];
+
+    items.sort( function(a, b) {
+          return a.data_product_name.localeCompare( b.data_product_name, undefined, { sensitivity: 'base' } )
+    } );
+
+    return items;
+  
+  }
+
+
+  //
+  // CONVERT TO TABLE ROWS
+  // Takes a simple array of objects, and outputs rows for the table component
+  //
+  filters.convertToTableRows = function( items ){
+
+    items = ( Array.isArray( items ) && items.length > 0 ) ? items : [];
+
+    const tableItems = [];
+
+    items.forEach( function( item ){
+
+      if( item ){
+
+        const obj = [
+          { html : '<a href="view?id=' + item.data_product_external_id + '&tag=' + item.tag + '">'+ item.data_product_name +'</a>' },
+          { html : filters.getTag( item.tag ) }
+        ];
+
+        tableItems.push( obj );
+
+      }
+
+    });
+
+    return tableItems;
+
+  }
 
   //
   // CONTAINS
@@ -190,6 +253,38 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     return newText;
 
   };
+
+  //
+  // GET TAG
+  //
+  filters.getTag = function( txt ){
+
+    let newHTML = '';
+
+    if( txt ){
+
+      switch( txt ){
+          case 'ePACT':
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--blue">' + filters.getTagText(txt) + '</strong>';
+            break;
+          case 'eDEN':
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--green">' + filters.getTagText(txt) + '</strong>';
+            break;
+          case 'eOPS':
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--yellow">' + filters.getTagText(txt) + '</strong>';
+            break;
+          case 'PUBLIC_AVAILABLE_DATA':
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--white">' + filters.getTagText(txt) + '</strong>';
+            break;
+        }
+
+      }
+
+      return newHTML;
+
+  }
+
+
 
   //
   // GET ITEM FROM ID

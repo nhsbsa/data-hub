@@ -171,7 +171,7 @@
                             <li>
                                 <h3 class="nhsuk-u-margin-bottom-2 nhsuk-heading-xs"><a class="nhsuk-link" href="view?id={{ report.data_product_external_id }}&tag={{ report.tag }}">{{ report.data_product_name | safe }}</a></h3>
                                 <p class="nhsuk-u-margin-bottom-2">{{ report.data_product_description | safe }}</p>
-                                {% if report.tag %}{{ tag({ classes: 'nhsuk-tag--white', text: report.tag | getTagText }) }}{% endif %}
+                                {% if report.tag %}{{ report.tag | getTag | safe }}{% endif %}
                             </li>
                         {% endfor %}
                     </ol>
