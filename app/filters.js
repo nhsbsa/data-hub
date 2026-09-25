@@ -174,7 +174,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
       if( publicItem ){
 
         const obj = [
-          { html : '<a href="view?id=' + publicItem.data_product_external_id + '&tag=' + publicItem.tag + '">'+ publicItem.data_product_name +'</a>' }
+          { html : '<a href="../view?id=' + publicItem.data_product_external_id + '&tag=' + publicItem.tag + '">'+ publicItem.data_product_name +'</a>' }
         ];
         
         prescribingItems.forEach( function( prescribingItem ){
@@ -188,7 +188,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
               
               
               obj.push(
-                { html : '<a href="view?id=' + prescribingItem.data_product_external_id + '&tag=' + prescribingItem.tag + '">'+ prescribingItem.data_product_name +'</a>' }
+                { html : '<a href="../view?id=' + prescribingItem.data_product_external_id + '&tag=' + prescribingItem.tag + '">'+ prescribingItem.data_product_name +'</a>' }
               );
             } 
 
@@ -225,7 +225,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
       if( item ){
 
         const obj = [
-          { html : '<a href="view?id=' + item.data_product_external_id + '&tag=' + item.tag + '">'+ item.data_product_name +'</a>' },
+          { html : '<a href="../view?id=' + item.data_product_external_id + '&tag=' + item.tag + '">'+ item.data_product_name +'</a>' },
           { html : filters.getTag( item.tag ) }
         ];
 
