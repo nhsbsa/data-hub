@@ -154,6 +154,61 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   
   }
 
+  //
+  // MAKE COMPARISON AND CONVERT TO TABLE ROWS
+  // Takes the public and prescribing objects and compares them, outputting table rows
+  // Sepcifically for this page: /data-hub/mvp/v6/comparison
+  //
+  filters.makeComparisonAndConvertToTableRows = function( publicItems, prescribingItems ){
+
+    publicItems = ( Array.isArray( publicItems ) && publicItems.length > 0 ) ? publicItems : [];
+    prescribingItems = ( Array.isArray( prescribingItems ) && prescribingItems.length > 0 ) ? prescribingItems : [];
+
+    console.log( publicItems );
+    console.log( prescribingItems );
+
+    const tableItems = [];
+
+    publicItems.forEach( function( publicItem ){
+
+      if( publicItem ){
+
+        const obj = [
+          { html : '<a href="view?id=' + publicItem.data_product_external_id + '&tag=' + publicItem.tag + '">'+ publicItem.data_product_name +'</a>' }
+        ];
+        
+        prescribingItems.forEach( function( prescribingItem ){
+
+          if( prescribingItem ){
+
+            console.log( prescribingItem.data_product_name );
+
+            if( publicItem.data_product_name.toLowerCase().trim() === prescribingItem.data_product_name.toLowerCase().trim() ){
+              
+              
+              
+              obj.push(
+                { html : '<a href="view?id=' + prescribingItem.data_product_external_id + '&tag=' + prescribingItem.tag + '">'+ prescribingItem.data_product_name +'</a>' }
+              );
+            } 
+
+          }
+
+        });
+
+        if( obj.length === 1 ){
+          obj.push( { text: '' } );
+        }
+
+        tableItems.push( obj );
+
+      }
+
+    });
+
+    return tableItems;
+
+  }
 
   //
   // CONVERT TO TABLE ROWS
