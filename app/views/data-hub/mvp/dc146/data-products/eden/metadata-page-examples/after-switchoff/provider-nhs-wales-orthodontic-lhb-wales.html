@@ -1,0 +1,88 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+{% set pageHeader = 'Provider NHS Wales orthadontic (LHB/Wales)' %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      },
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/data-products/eden/eden-loggedin',
+        text: 'eDEN'
+      },
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/data-products/eden/eden-dashboards-atoz',
+        text: 'Dashboards and reports'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        {{ tag( { text: 'After Oracle switchoff', classes: 'nhsuk-u-margin-bottom-3', attributes: { style: 'background-color:#007f3b;border-color: #007f3b;' } } ) }}
+
+        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+
+        <div class="nhsuk-u-reading-width">
+          <p>You'll need to sign in to view this dashboard.</p>
+          <div class="nhsuk-button-group">
+            {{ button({
+              text: 'View dashboard (opens in new tab)',
+              href: '#LINK_OPENS_IN_EMBEDDED_POWER_BI'
+            }) }}
+          </div>
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+
+        <div class="nhsuk-u-reading-width">
+
+            <h2 class="nhsuk-heading-m">Related reports</h2>
+            <p>{{ pageHeader }} is part of a group of related reports:</p>
+
+            <ul>
+              <li><a href="provider-nhs-wales-dentistry">Provider NHS Wales dentistry</a></li>
+              <li><a href="provider-nhs-wales-orthodontic">Provider NHS Wales orthodontic</a></li>
+              <li>{{ pageHeader }}<!--<a href="provider-nhs-wales-orthodontic-lhb-wales">Provider NHS Wales orthodontic (LHB/Wales)</a>--></li>
+            </ul>
+
+
+            <h2 class="nhsuk-heading-m">About this dashboard</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+
+        <div class="nhsuk-u-reading-width">
+            <h2 class="nhsuk-heading-m">Contact and feedback</h2>
+            <p>If you have any queries regarding the data provided contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">data services support</a>. If you plan to publish the data include the name of the dataset for reference (this ensures that the figures are not misunderstood or misrepresented).</p>
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m" />
+
+        <p class="nhsuk-body-s nhsuk-font-colour-secondary">Page last updated: 10 September 2026 at 3:22 pm</p>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+{% set pageHeader = 'Wales data (LHB)' %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      },
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/data-products/eden/eden-loggedin',
+        text: 'eDEN'
+      },
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/data-products/eden/eden-dashboards-atoz',
+        text: 'Dashboards and reports'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        {{ tag( { text: 'Dual running', classes: 'nhsuk-u-margin-bottom-3', attributes: { style: 'background-color:#C00;border-color: #C00;' } } ) }}
+
+        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+
+        <div class="nhsuk-u-reading-width">
+          <p>You'll need to sign in to view this dashboard.</p>
+          <div class="nhsuk-button-group">
+            {{ button({
+              text: 'View dashboard (opens in new tab)',
+              href: '#LINK_OPENS_IN_ORACLE'
+            }) }}
+          </div>
+        </div>
+
+        <h2 class="nhsuk-heading-s nhsuk-u-margin-top-4">New design</h2>
+        <p>You can also access this dashboard without signing in. It has a clearer layout to help you find and use data. </p>
+        <div class="nhsuk-button-group">
+          {{ button({
+            text: 'View dashboard (opens in new tab)',
+            classes: 'nhsuk-button--secondary',
+            href: '#LINK_OPENS_IN_EMBEDDED_POWER_BI'
+          }) }}
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+
+        <div class="nhsuk-u-reading-width">
+
+          <h2 class="nhsuk-heading-m">Upcoming changes</h2>
+          <p>Data from <a href="wales-monthly-data-lhb">Wales monthly data (LHB)</a> will be added to this report.</p>
+
+
+          <h2 class="nhsuk-heading-m">About this dashboard</h2>
+          <p>There is a need for dental commissioners and providers to monitor the activity of dental providers both nationally and within a specific area.&nbsp;This helps make sure that services are commissioned effectively to maximise the benefit to patients.</p>
+          <p>To enable this, several dashboards are available within the eDEN system to allow users to access a range of dental data including detailed information extracted from the FP17.</p>
+          <p>This dashboard has been developed to provide eDEN users with the ability to extract data directly from the system in convenient data tables, to aid commissioners in the analysis of dental activity.</p>
+          <p>The dashboard provides information relating to Welsh dental activity at contract national level for all contracts within a specific Local Health Board for a range of different metrics, allowing users to quickly download data from the system.</p>
+
+
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+
+        <div class="nhsuk-u-reading-width">
+            <h2 class="nhsuk-heading-m">Contact and feedback</h2>
+            <p>If you have any queries regarding the data provided contact <a href="mailto:dataservicessupport@nhsbsa.nhs.uk">data services support</a>. If you plan to publish the data include the name of the dataset for reference (this ensures that the figures are not misunderstood or misrepresented).</p>
+        </div>
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m" />
+
+        <p class="nhsuk-body-s nhsuk-font-colour-secondary">Page last updated: 10 September 2026 at 3:22 pm</p>
+
+    </div>
+</div>
+{% endblock %}

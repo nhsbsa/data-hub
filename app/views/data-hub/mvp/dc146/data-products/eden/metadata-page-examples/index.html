@@ -1,0 +1,110 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+
+{% set pageHeader = 'eDEN metadata page examples' %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        
+        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+
+
+        <div class="nhsuk-u-reading-width">
+
+            <h2 class="nhsuk-heading-m">Dual running designs</h2>
+
+            <ul>
+                <li><a href="dual-running/provider-nhs-wales-dentistry">Provider NHS Wales dentistry</a></li>
+                <li><a href="dual-running/provider-nhs-wales-orthodontic">Provider NHS Wales orthodontic</a></li>
+                <li><a href="dual-running/provider-nhs-wales-orthodontic-lhb-wales">Provider NHS Wales orthodontic (LHB/Wales)</a></li>
+            </ul>
+
+            <hr />
+
+            <ul>
+                <li><a href="dual-running/nhs-england-commissioner">NHS England commissioner (to be deleted)</a></li>
+                <li><a href="dual-running/nhs-england-dentistry">NHS England dentistry (to be deleted)</a></li>
+                <li><a href="dual-running/nhs-england-central">NHS England central</a></li>
+                <li><a href="dual-running/england-dental-payments">England dental payments</a></li>
+            </ul>
+
+            <hr />
+
+            <ul>
+                <li><a href="dual-running/wales-monthly-data-lhb">Wales monthly data (LHB) (to be deleted)</a></li>
+                <li><a href="dual-running/wales-data-lhb">Wales data (LHB)</a></li>
+            </ul>
+
+            <hr />
+
+             <ul>
+                <li><a href="dual-running/wales-monthly-data-provider">Wales monthly data (Provider) (to be deleted)</a></li>
+                <li><a href="dual-running/wales-data-provider">Wales data (Provider)</a></li>
+            </ul>
+
+            <hr />
+
+
+
+
+            <h2 class="nhsuk-heading-m">After Oracle switchoff designs</h2>
+
+            <ul>
+                <li><a href="after-switchoff/provider-nhs-wales-dentistry">Provider NHS Wales dentistry</a></li>
+                <li><a href="after-switchoff/provider-nhs-wales-orthodontic">Provider NHS Wales orthodontic</a></li>
+                <li><a href="after-switchoff/provider-nhs-wales-orthodontic-lhb-wales">Provider NHS Wales orthodontic (LHB/Wales)</a></li>
+            </ul>
+
+            <hr />
+
+            <ul>
+                <li><a href="after-switchoff/nhs-england-commissioner">NHS England commissioner</a></li>
+                <li><a href="after-switchoff/england-dental-payments">England dental payments</a></li>
+            </ul>
+
+            <hr />
+
+            <ul>
+                <li><a href="dual-running/wales-data-lhb">Wales data (LHB)</a></li>
+            </ul>
+
+            <hr />
+
+            <ul>
+                <li><a href="dual-running/wales-data-lhb">Wales data (Provider)</a></li>
+            </ul>
+
+            <hr />
+
+        </div>
+
+
+        
+    </div>
+</div>
+{% endblock %}
