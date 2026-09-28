@@ -1,7 +1,7 @@
 import csv
 import os
 
-folder = "/Users/JALAT/GIT/data-hub/app/assets/csv/prescribing"
+folder = "/Users/JALAT/GIT/data-hub/app/assets/csv/catalyst"
 
 for filename in os.listdir(folder):
     if filename.endswith(".csv"):
@@ -12,9 +12,12 @@ for filename in os.listdir(folder):
             rows = list(reader)
             fieldnames = reader.fieldnames
 
-        if "oracle_dashboard_link" in fieldnames:
+        if "data_product_name" in fieldnames:
             for row in rows:
-                row["oracle_dashboard_link"] = "#"
+                value = row.get("data_product_name", "")
+
+                if value.endswith(" -catalyst"):
+                    row["data_product_name"] = value.removesuffix(" -catalyst")
 
             with open(filepath, "w", newline="", encoding="utf-8") as f:
                 writer = csv.DictWriter(f, fieldnames=fieldnames)

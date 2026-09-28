@@ -1,5 +1,5 @@
 data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
-DP-PUBLIC-AVAILABLE-DATA-0015,Prescribing Monitoring - Repeat Dispensing Cost,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,View repeat dispensing costs by practice and region. Filter to compare patterns and identify high-cost areas. Monitor expenditure and item volumes.,"## Access information
+DP-PUBLIC-AVAILABLE-DATA-0015,Prescribing Monitoring - Repeat Dispensing Cost,PUBLISHED,2026-07-30T15:22:00,PUBLIC_AVAILABLE_DATA,,,#,"The Repeat Dispensing Cost Report provides insights into the financial impact of repeat dispensing arrangements, enabling practices and commissioners to monitor and analyse expenditure on repeat dispensing items.","## Access information
 To gain access to 'Catalyst', you will be required to input an ID and password:
 ID - NHSBSAGuest
 Password - Password12345
@@ -7,11 +7,9 @@ If the password is locked for any reason the system automatically reinstates the
 
 Note that your browser may give you warning that this is part of a data breach. As this is a publicly available user name and password you do not need to take any action and can login using the provided generic user ID and password.
 
-## Data Product Overview
-This report visualises the costs associated with repeat dispensing prescriptions, including total expenditure, item volumes, and contractor-level breakdowns. It highlights trends in repeat dispensing activity across practices and regions, providing insight into financial impact and prescribing behaviour. The report is available via ePACT2 for authorised users and Catalyst for aggregated insights, supporting transparency and cost management.
+## About this dashboard
+Repeat dispensing is an important mechanism for managing long-term medication needs efficiently, reducing workload for prescribers and improving patient convenience. The Repeat Dispensing Cost Report in ePACT2 provides authorised users with detailed insights into the financial impact of repeat dispensing arrangements. It captures data on prescriptions issued under repeat dispensing schemes, including those processed electronically via EPS, and calculates associated costs based on Net Ingredient Cost (NIC).
 
-Purpose:
-The report helps NHS England, commissioners, and contractors monitor repeat dispensing costs, identify high-cost areas, and ensure prescribing aligns with efficiency and safety standards. It supports budget planning and formulary compliance.
+This report enables practices, SICBLs, and commissioners to monitor monthly and cumulative expenditure on repeat dispensing items. Users can filter data by time period and organisation, supporting targeted analysis and benchmarking against regional and national averages. The report also helps identify trends in repeat dispensing utilisation, which can inform medicines optimisation strategies and financial planning.
 
-How to Use:
-Users can filter by practice, contractor, or region to review repeat dispensing patterns, compare costs, and identify opportunities for optimisation. Commissioners use it for financial planning, audit, and prescribing efficiency programmes, while prescribers and contractors can track their own activity and explore cost-saving alternatives. Public users can view aggregated insights to understand repeat dispensing trends and expenditure.",,
+The aim of this report is to promote transparency and accountability in repeat dispensing costs. It helps organisations assess whether repeat dispensing is being used appropriately and whether cost variations are clinically justified. While the report provides valuable financial insights, it should be used alongside other prescribing dashboards to ensure that efficiency measures do not compromise patient safety. Its intention is to support discussions within local health economies, inform improvement initiatives, and reduce unwarranted variation in prescribing practices.",,

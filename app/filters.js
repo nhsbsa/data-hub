@@ -320,16 +320,16 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
       switch( txt ){
           case 'ePACT':
-            newHTML = '<strong class="nhsuk-tag nhsuk-tag--blue">' + filters.getTagText(txt) + '</strong>';
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--blue">' + filters.getTagText(txt) + '</strong><strong class="nhsuk-tag">Restricted</strong>';
+            break;
+          case 'PUBLIC_AVAILABLE_DATA':
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--blue">' + filters.getTagText('ePACT') + '</strong>';
             break;
           case 'eDEN':
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--green">' + filters.getTagText(txt) + '</strong>';
             break;
           case 'eOPS':
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--yellow">' + filters.getTagText(txt) + '</strong>';
-            break;
-          case 'PUBLIC_AVAILABLE_DATA':
-            newHTML = '<strong class="nhsuk-tag nhsuk-tag--white">' + filters.getTagText(txt) + '</strong>';
             break;
         }
 
