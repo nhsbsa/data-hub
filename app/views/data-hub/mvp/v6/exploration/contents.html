@@ -10,12 +10,12 @@
 {% set pageHeader = 'Contents' %}
 
 
-{% set publicItems = ( 'app/assets/csv/catalyst/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
-{% set prescribingItems = ( 'app/assets/csv/prescribing/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
-{% set dentalItems = ( 'app/assets/csv/dental/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
-{% set ophthalmicItems = ( 'app/assets/csv/ophthalmic/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
+{% set publicItems = ( 'app/assets/csv/catalyst/' ) | getDirectoryFiles | getJSONFromCSVs | stripNullValuesFromArray | sortItemsAlphabeticallySimple %}
+{% set prescribingItems = ( 'app/assets/csv/prescribing/' ) | getDirectoryFiles | getJSONFromCSVs | stripNullValuesFromArray | sortItemsAlphabeticallySimple %}
+{% set dentalItems = ( 'app/assets/csv/dental/' ) | getDirectoryFiles | getJSONFromCSVs | stripNullValuesFromArray | sortItemsAlphabeticallySimple %}
+{% set ophthalmicItems = ( 'app/assets/csv/ophthalmic/' ) | getDirectoryFiles | getJSONFromCSVs | stripNullValuesFromArray | sortItemsAlphabeticallySimple %}
 
-{% set allItems = publicItems | concat( prescribingItems, dentalItems, opthalmicItems ) | sortItemsAlphabeticallySimple %}
+{% set allItems = publicItems | mergeArrays( prescribingItems, dentalItems, ophthalmicItems ) | sortItemsAlphabeticallySimple %}
 
 
 
@@ -40,11 +40,22 @@
 
         <h1>Contents</h1>
 
+        <textarea>{{ allItems | dump }}</textarea>
+
         {% set allContent %}
+
+            <style>
+
+                .nhsuk-table__cell {
+                    white-space: nowrap;
+                }
+
+            </style>
 
             {{ table({
                 caption: { html: '<span class="nhsuk-u-visually-hidden">All reports</span>' },
                 firstCellIsHeader: true,
+                responsive: true,
                 head: [
                     { text: 'Report' },
                     { text: 'Type' }
@@ -60,6 +71,7 @@
             {{ table({
                 caption: { html: '<span class="nhsuk-u-visually-hidden">Prescribing and dispensing reports</span>' },
                 firstCellIsHeader: true,
+                responsive: true,
                 head: [
                     { text: 'Report' },
                     { text: 'Type' }
@@ -75,6 +87,7 @@
             {{ table({
                 caption: { html: '<span class="nhsuk-u-visually-hidden">Dental reports</span>' },
                 firstCellIsHeader: true,
+                responsive: true,
                 head: [
                     { text: 'Report' },
                     { text: 'Type' }
@@ -90,6 +103,7 @@
             {{ table({
                 caption: { html: '<span class="nhsuk-u-visually-hidden">Ophthalmic reports</span>' },
                 firstCellIsHeader: true,
+                responsive: true,
                 head: [
                     { text: 'Report' },
                     { text: 'Type' }
@@ -104,6 +118,7 @@
             {{ table({
                 caption: { html: '<span class="nhsuk-u-visually-hidden">Public reports</span>' },
                 firstCellIsHeader: true,
+                responsive: true,
                 head: [
                     { text: 'Report' },
                     { text: 'Type' }

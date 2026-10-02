@@ -1,3 +1,4 @@
+const { report } = require('process');
 const { structuredClone } = require('worker_threads');
 
 module.exports = function (env) { /* eslint-disable-line func-names,no-unused-vars */
@@ -10,17 +11,36 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   const filters = {};
 
   //
-  // CONCAT
+  // STRIP NULL VALUES FROM ARRAY
+  //
+  filters.stripNullValuesFromArray = function( arrayToStrip ){
+
+    const noNullArray = [];
+
+    arrayToStrip.forEach( function( item ){
+
+      if( item && item.tag ){
+        noNullArray.push( item );
+      }
+
+    });
+
+    return noNullArray;
+
+  }
+
+  //
+  // MERGE ARRAYS
   // Merges as many arrays as you can chuck at it...
   //
-  filters.concat = function(){
+  filters.mergeArrays = function(){
 
-    let concatanated = [];
+    let merged = [];
     if( arguments.length > 0 ){
-      concatanated = [].concat( ...arguments );
+        merged = Array.from(arguments).flat();
     }
 
-    return concatanated;
+    return filters.stripNullValuesFromArray( merged );
 
   }
 
@@ -111,9 +131,12 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
       const letterArray = [];
 
       items.forEach( function( item ){
-
-        if( item && item.data_product_name.toUpperCase().substring(0,1) === letter ){
-          letterArray.push( item );
+        if( item ){
+          // Text might have <mark> at the front of the string...
+          const firstLetter = filters.getFirstLetter( item.data_product_name );
+          if( firstLetter.toUpperCase() === letter ){
+            letterArray.push( item );
+          }
         }
       });
 
@@ -122,6 +145,8 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
         letterArray.sort( function(a, b) {
           return a.data_product_name.localeCompare( b.data_product_name, undefined, { sensitivity: 'base' } )
         } );
+
+        
 
         letterArrays.push({
           letter: letter,
@@ -154,6 +179,43 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   
   }
 
+
+  //
+  // REMOVE PRESCRIBING DUPLICATES
+  //
+  filters.removePrescribingDuplicates = function(publicItems, prescribingItems) {
+
+  publicItems = Array.isArray(publicItems) ? publicItems : [];
+  prescribingItems = Array.isArray(prescribingItems) ? prescribingItems : [];
+
+  const newPrescribingItems = [];
+
+  prescribingItems.forEach(function(prescribingItem) {
+
+    let foundMatch = false;
+
+    if (prescribingItem && prescribingItem.data_product_name) {
+
+      publicItems.forEach(function(publicItem) {
+
+        if ( publicItem.data_product_name.toLowerCase().trim() === prescribingItem.data_product_name.toLowerCase().trim() ) {
+          foundMatch = true;
+        }
+
+      });
+
+      if (!foundMatch) {
+        newPrescribingItems.push(prescribingItem);
+      }
+
+    }
+
+  });
+
+  return newPrescribingItems;
+
+};
+
   //
   // MAKE COMPARISON AND CONVERT TO TABLE ROWS
   // Takes the public and prescribing objects and compares them, outputting table rows
@@ -163,9 +225,6 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
     publicItems = ( Array.isArray( publicItems ) && publicItems.length > 0 ) ? publicItems : [];
     prescribingItems = ( Array.isArray( prescribingItems ) && prescribingItems.length > 0 ) ? prescribingItems : [];
-
-    console.log( publicItems );
-    console.log( prescribingItems );
 
     const tableItems = [];
 
@@ -180,8 +239,6 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
         prescribingItems.forEach( function( prescribingItem ){
 
           if( prescribingItem ){
-
-            console.log( prescribingItem.data_product_name );
 
             if( publicItem.data_product_name.toLowerCase().trim() === prescribingItem.data_product_name.toLowerCase().trim() ){
               
@@ -326,10 +383,10 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--blue">' + filters.getTagText('ePACT') + '</strong>';
             break;
           case 'eDEN':
-            newHTML = '<strong class="nhsuk-tag nhsuk-tag--green">' + filters.getTagText(txt) + '</strong>';
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--green">' + filters.getTagText(txt) + '</strong><strong class="nhsuk-tag">Restricted</strong>';
             break;
           case 'eOPS':
-            newHTML = '<strong class="nhsuk-tag nhsuk-tag--yellow">' + filters.getTagText(txt) + '</strong>';
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--yellow">' + filters.getTagText(txt) + '</strong><strong class="nhsuk-tag">Restricted</strong>';
             break;
         }
 
@@ -355,6 +412,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
         if( report.data_product_external_id && report.data_product_external_id === id ){
           item = report;
         }
+
       });
 
     }
@@ -363,12 +421,35 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
   };
 
+
+   //
+  // GET ITEM FROM ID
+  //
+  filters.getItemFromTitle = function( title, items ){
+    
+    let item = { error: 'No report found with title: ' + title };
+
+    if( Array.isArray( items ) && items.length > 0 ){
+
+      items.forEach( function( report ){
+
+        if( report.data_product_name && report.data_product_name === title ){
+          item = report;
+        }
+
+      });
+
+    }
+
+    return item;
+
+  };
+
+
   //
   // FORMAT DATE TIME
   //
   filters.formatDateTime = function formatDateTime(dateInput) {
-
-    console.log( dateInput );
 
     const date = ( dateInput instanceof Date ) ? dateInput : new Date(dateInput);
 
@@ -413,8 +494,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
     let filteredItems = [];
 
-    console.log( 'FILTERING' );
-    console.log( searchTerms );
+    console.log( 'FILTERING BY SEARCH TERMS: ' + searchTerms.join(', ') );
 
     if( Array.isArray(items) && items.length > 0 && Array.isArray( searchTerms ) && searchTerms.length > 0 ){
 
@@ -427,12 +507,14 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
           if( searchTermNameIndex > -1 || searchTermDescriptionIndex > -1 ){
 
+              const regex = new RegExp(searchTerm, 'gi');
+
             if( searchTermNameIndex > -1 ){
-              item.data_product_name = item.data_product_name.substring(0,searchTermNameIndex) + '<mark>' + item.data_product_name.substring(searchTermNameIndex,searchTermNameIndex+searchTerm.length) + '</mark>' + item.data_product_name.substring(searchTermNameIndex+searchTerm.length);
+              item.data_product_name = item.data_product_name.replace( regex, '<mark>$&</mark>');
             }
 
             if( searchTermDescriptionIndex > -1 ){
-              item.data_product_description = item.data_product_description.substring(0,searchTermDescriptionIndex) + '<mark>' + item.data_product_description.substring(searchTermDescriptionIndex,searchTermDescriptionIndex+searchTerm.length) + '</mark>' + item.data_product_description.substring(searchTermDescriptionIndex+searchTerm.length);
+              item.data_product_description = item.data_product_description.replace( regex, '<mark>$&</mark>');
             }
 
             if( !filters.arrayContainsReport( item.data_product_external_id, filteredItems ) ){
@@ -444,6 +526,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
         });
 
       });
+
     } else {
       filteredItems = items;
     }
@@ -452,6 +535,13 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
   };
 
+  //
+  // GET FIRST LETTER
+  //
+  filters.getFirstLetter = function(str) {
+    const match = str.match(/[A-Za-z]/);
+    return match ? match[0] : null;
+  }
 
   //
   // ARRAY CONTAINS REPORT
@@ -476,6 +566,8 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   //
   filters.filterReportsByType = function( reportTypeFilters, items ){
 
+    console.log('FILTERING BY TYPE: ' + reportTypeFilters.join(', ') );
+
     items = ( Array.isArray( items ) && items.length > 0 ) ? items : [];
 
     const newItems = [];
@@ -485,7 +577,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
       items.forEach(function( item ){
         if( reportTypeFilters.indexOf( item.tag ) > -1 ){
           newItems.push( item );
-        }
+        } 
       });
 
     }
@@ -493,7 +585,6 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     return newItems;
 
   }
-
 
   return filters;
 };

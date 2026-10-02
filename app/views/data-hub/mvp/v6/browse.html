@@ -10,27 +10,31 @@
 {% set pageHeader = 'Browse our reports' %}
 
 
-
-
 <!-- GET THE ITEMS -->
-{% set folders = ['catalyst','dental','ophthalmic','prescribing'] %}
-{% set items = [] %}
-{% for folder in folders %}
-    {% set items = ( 'app/assets/csv/'+folder+'/' ) | getDirectoryFiles | getJSONFromCSVs( items ) %}
-{% endfor %}
+{% set publicItems = ( 'app/assets/csv/catalyst/' ) | getDirectoryFiles | getJSONFromCSVs %}
+{% set prescribingItems = ( 'app/assets/csv/prescribing/' ) | getDirectoryFiles | getJSONFromCSVs %}
+{% set prescribingItems = publicItems | removePrescribingDuplicates( prescribingItems ) %}
+{% set dentalItems = ( 'app/assets/csv/dental/' ) | getDirectoryFiles | getJSONFromCSVs %}
+{% set ophthalmicItems = ( 'app/assets/csv/ophthalmic/' ) | getDirectoryFiles | getJSONFromCSVs %}
+
+{% set allItems = publicItems | mergeArrays( prescribingItems, dentalItems, ophthalmicItems ) %}
 
 <!-- FILTER THE ITEMS BY REPORT TYPES -->
 {% if data.reportTypeFilters %}
-    {% set items = ( data.reportTypeFilters | filterReportsByType( items ) ) %}
+    {% set allItems = ( data.reportTypeFilters | filterReportsByType( allItems ) ) %}
 {% endif %}
 
 
 <!-- FILTER THE ITEMS BY SEARCH TERMS -->
 {% if data.searchTerms %}
-    {% set items = ( data.searchTerms | filterReportsBySearchTerm( items ) ) %}
+    {% set allItems = ( data.searchTerms | filterReportsBySearchTerm( allItems ) ) %}
 {% endif %}
 
-{% set items = ( items | sortItemsAlphabetically ) %}
+{% set postFilterItems = allItems %}
+
+{% set allItems = ( allItems | sortItemsAlphabetically ) %}
+
+
 
 <!-- Set the page title -->
 {% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
@@ -52,6 +56,14 @@
     <div class="nhsuk-grid-column-full">
 
         <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+        {% if ( ( postFilterItems | length ) > 0 ) %} 
+            {% if ( ( postFilterItems | length ) === 1 ) %}
+                <span class="nhsuk-caption-l">1 report found</span>
+            {% else %}
+                <span class="nhsuk-caption-l">{{ postFilterItems | length }} reports found</span>
+            {% endif %}
+        {% endif %}
+
 
         <!-- FITLERS -->
         {% call details( { summaryText: 'Filter by report type', open: ( data.reportTypeFilters and ( ( data.reportTypeFilters | length ) < 4 ) ) } ) %}
@@ -154,11 +166,11 @@
         {% endif %}
 
         <!-- A TO Z LIST -->
-        {{ items | getActiveLetters | generateAToZLinks | safe }}
+        {{ allItems | getActiveLetters | generateAToZLinks | safe }}
 
         <!-- CARDS -->
-        {% if ( ( items | length ) > 0 ) %}
-            {% for item in items %}
+        {% if ( ( allItems | length ) > 0 ) %}
+            {% for item in allItems %}
 
                 {% call card({
                     id: item.letter,

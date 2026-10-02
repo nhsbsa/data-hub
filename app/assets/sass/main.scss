@@ -18,12 +18,30 @@
 ///////////////////////////////////////////
 
 
-.nhsuk-list--border .nhsuk-tag--white,
+.nhsuk-list--border .nhsuk-tag,
 .nhsuk-table__cell .nhsuk-tag {
-    word-wrap: none;
     white-space: nowrap;
     margin-bottom: 0.625rem;
 }
+
+.nhsuk-tag--blue + .nhsuk-tag {
+    color: #ccdff1;
+}
+
+.nhsuk-tag--green + .nhsuk-tag {
+    background-color: #004c23;
+    border-color: #004c23;
+    color: #cce5d8;
+}
+
+.nhsuk-tag--yellow + .nhsuk-tag {
+    background-color: #4d4712;
+    border-color: #4d4712;
+    color: #fff59d;
+}
+
+
+
 
 
 // SIDE BAR
