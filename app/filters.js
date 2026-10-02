@@ -574,6 +574,11 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
     if( Array.isArray(reportTypeFilters) &&  reportTypeFilters.length > 0 ){
 
+      // Returning Prescribing and dispensing AND Public at the same time now...
+      if( reportTypeFilters.indexOf('ePACT') > -1 ){
+        reportTypeFilters.push( 'PUBLIC_AVAILABLE_DATA' );
+      }
+
       items.forEach(function( item ){
         if( reportTypeFilters.indexOf( item.tag ) > -1 ){
           newItems.push( item );
