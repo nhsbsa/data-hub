@@ -584,7 +584,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
     items = ( Array.isArray( items ) && items.length > 0 ) ? items : [];
 
-    const newItems = [];
+    let newItems = [];
 
     if( Array.isArray(otherFilters) &&  otherFilters.length > 0 ){
 
@@ -612,6 +612,10 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
       });
 
+    } else {
+
+      newItems = items;
+    
     }
 
     return newItems;
@@ -633,7 +637,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     if( Array.isArray(reportTypeFilters) &&  reportTypeFilters.length > 0 ){
 
       // Returning Prescribing and dispensing AND Public at the same time now...
-      if( reportTypeFilters.indexOf('ePACT') > -1 ){
+      if( reportTypeFilters.indexOf('ePACT') > -1 && reportTypeFilters.indexOf('PUBLIC_AVAILABLE_DATA') === -1 ){
         reportTypeFilters.push( 'PUBLIC_AVAILABLE_DATA' );
       }
 
