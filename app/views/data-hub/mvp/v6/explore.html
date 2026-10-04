@@ -1,37 +1,76 @@
-<!-- Use this page as the index for your project -->
+{% extends '../dc146/data-products/epact/dashboards/data-exploration--v3.html' %}
 
-<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+{% block header %}
 
-<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
-{% extends 'layouts/v6/layout.html' %}
+    {% set prototypeVersion = 'v6' %}
+    {% set pageHeader = 'Explore our data' %}
+  
+    {% block headerTop %}{% endblock %}
 
-<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
-{% set prototypeVersion = 'v6' %}
+    {% if data.signedIn == 'yes' %}
+    {% set accountItems = [] %}
 
-{% set pageHeader = 'Explore our data' %}
-
-<!-- Set the page title -->
-{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+    {% if data['full-name'] and data['job-role'] %}
+      {% set accountItems = accountItems.concat([{
+        text: data['full-name'] + ' (' + data['job-role'] + ')',
+        icon: true
+      }]) %}
+    {% else %}
+      {% set accountItems = accountItems.concat([{
+        text: 'Florence Nightingale (Senior Information Analyst)',
+        icon: true
+      }]) %}
+    {% endif %}
+    
+    {% set accountItems = accountItems.concat([
+      { text: 'My account', href: '/data-hub/mvp/' + prototypeVersion + '/auth/my-account' },
+      { text: 'Sign out', href: '/data-hub/mvp/' + prototypeVersion + '/auth/signed-out?signedIn=no&userType=' }
+    ]) %}
+    
+    {{ header({
+      logo: {
+        href: '/data-hub/mvp/v6/',
+        ariaLabel: 'NHS Business Services Authority'
+      },
+      organisation: {
+        name: 'Business Services Authority',
+        descriptor: 'Data Hub'
+      },
+      account: {
+        items: accountItems
+      }
+    }) }}
+    {% else %}
+        {{ header({
+            logo: {
+            href: '/data-hub/mvp/v6/',
+            ariaLabel: 'NHS Business Services Authority'
+            },
+            organisation: {
+                name: 'Business Services Authority',
+                descriptor: 'Data Hub'
+            },
+            account: {
+            items: [
+                      {
+                        text: 'Sign in',
+                        href: '/data-hub/mvp/' + prototypeVersion + '/auth/entra-id/enter-username?returnURL=' + ( currentURL | urlencode ),
+                        icon: true
+                      }
+                    ]
+            }
+        }) }}
+    {% endif %}
+  {% endblock %}
 
 {% block beforeContent %}
-{{ breadcrumb({
-    items: [
-      {
-        href: '/data-hub/mvp/'+prototypeVersion+'/',
-        text: 'Home'
-      }
-    ]
-  }) }}
-{% endblock %}
-
-
-{% block content %}
-<div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-full">
-
-        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
-        
-
-    </div>
-</div>
+    {% include "includes/phase-banner.njk" %}
+    {{ breadcrumb({
+        items: [
+            {
+                href: "/data-hub/mvp/v6/",
+                text: "Home"
+            }
+        ]
+    }) }}
 {% endblock %}

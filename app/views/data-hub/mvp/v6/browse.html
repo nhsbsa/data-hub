@@ -29,7 +29,6 @@
     {% set allItems = ( data.otherFilters | filterReportsByOther( allItems ) ) %}
 {% endif %}
 
-
 <!-- FILTER THE ITEMS BY SEARCH TERMS -->
 {% if data.searchTerms %}
     {% set allItems = ( data.searchTerms | filterReportsBySearchTerm( allItems ) ) %}
