@@ -1,4 +1,4 @@
-data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information,is_finance
 DP-EPACT-0001,Alerts,PUBLISHED,2026-08-12T16:46:00+00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,This dashboard shows prescribing linked to national drug alerts and safety reviews. It helps authorised users spot potential risks and unwarranted variation in prescribing across England. ,"## About this dashboard
 
 Prescribing safety is a key priority for the NHS, as inappropriate or high-risk prescribing can lead to avoidable harm, hospital admissions, and increased healthcare costs. The Alerts report contains data on prescribing that has been specifically highlighted as part of a national drug alert or safety review.
@@ -15,4 +15,4 @@ There are 3 metrics for this data:
 
 **02 December 2019:** A comparator for co-prescribing of oxycodone and amitriptyline has been released in response to the following report: [Regulation 28 Report to Prevent Future Deaths](https://www.judiciary.uk/wp-content/uploads/2019/11/Graham-Saffery-2019-0301_Redacted.pdf)
 
-**20 November 2023:** A comparator for co-prescribing of warfarin and tramadol has been released in response to the following report: [Susan Gladstone: Prevention of future deaths report - Courts and Tribunals Judiciary](https://www.judiciary.uk/prevention-of-future-death-reports/susan-gladstone-prevention-of-future-deaths-report/#related_content)",,
+**20 November 2023:** A comparator for co-prescribing of warfarin and tramadol has been released in response to the following report: [Susan Gladstone: Prevention of future deaths report - Courts and Tribunals Judiciary](https://www.judiciary.uk/prevention-of-future-death-reports/susan-gladstone-prevention-of-future-deaths-report/#related_content)",,,

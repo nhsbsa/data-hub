@@ -1,4 +1,4 @@
-data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information,is_finance
 DP-EPACT-0030,ICB IPP Cost Breakdown,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Remuneration_ICB|DataHub_Presc_Remu_Admin|DataHub_Presc_Default_Dashboard_Analysis,,#,"The IPP report provides reimbursement costs for prescribing organisations in England, used to calculate charges for Cash Reports and invoices to hospital trusts, ISHPs, and local
 authorities.","## About this dashboard
 The IPP report:
@@ -82,4 +82,4 @@ The amount of resources retained centrally invoiced or charged to an organisatio
 
 If the total actual cost for England in that month is £1000 and your organisation accounted for £100 of that, your organisation would be charged 10% of the centrally retained items value.
 
-All organisations set up on NHSBSA systems to provide prescriptions are charged a proportion of the costs in centrally retained items whether they be SICBLs, hospital trusts, local authorities or independent sector healthcare providers (ISHPs).",,
+All organisations set up on NHSBSA systems to provide prescriptions are charged a proportion of the costs in centrally retained items whether they be SICBLs, hospital trusts, local authorities or independent sector healthcare providers (ISHPs).",,,TRUE

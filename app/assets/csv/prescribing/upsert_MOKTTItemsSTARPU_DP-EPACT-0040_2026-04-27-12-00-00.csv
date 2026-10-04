@@ -1,4 +1,4 @@
-data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information,is_finance
 DP-EPACT-0040,MO KTT - Items\STAR PU,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The MO KTT Items/Star PU dashboard shows NHS community prescribing costs per weighted population at various organisational levels, with comparisons within the quarter, quarter-on-quarter, and year-on-year. It supports consistent benchmarking and trend analysis of practice‑linked FP10 prescribing in England, with clearly defined inclusions and exclusions for accurate interpretation.","## About this dashboard
 Charts are presented with their associated data to provide a high level view of prescribing at:
 - regional office
@@ -23,4 +23,4 @@ The data excludes:
 
 ###Comparators using PU weightings in the calculation
 Practices that have prescribing, but do not have a list size, will be included in the data and have a comparator value of '0' as there is no list size to make the calculations.
-Practices that have not prescribed, and do have a list size, will not be listed at all in the practice level data for that comparator. However, the list sizes for those practices with no prescribing will contribute to the list size and therefore comparator value in reports at a higher level (commissioner / provider level)",,
+Practices that have not prescribed, and do have a list size, will not be listed at all in the practice level data for that comparator. However, the list sizes for those practices with no prescribing will contribute to the list size and therefore comparator value in reports at a higher level (commissioner / provider level)",,,

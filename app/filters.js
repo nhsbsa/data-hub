@@ -347,15 +347,19 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
       switch( txt ){
         case 'ePACT':
+        case 'prescribing':
           newText = 'Prescribing and dispensing';
           break;
         case 'eDEN':
+        case 'dental':
           newText = 'Dental';
           break;
         case 'eOPS':
+        case 'ophthalmic':
           newText = 'Ophthalmic';
           break;
         case 'PUBLIC_AVAILABLE_DATA':
+        case 'public':
           newText = 'Public';
           break;
       }
@@ -380,13 +384,21 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--blue">' + filters.getTagText(txt) + '</strong><strong class="nhsuk-tag">Restricted</strong>';
             break;
           case 'PUBLIC_AVAILABLE_DATA':
+          case 'prescribing':
+          case 'public':
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--blue">' + filters.getTagText('ePACT') + '</strong>';
             break;
           case 'eDEN':
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--green">' + filters.getTagText(txt) + '</strong><strong class="nhsuk-tag">Restricted</strong>';
             break;
+          case 'dental':
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--green">' + filters.getTagText(txt) + '</strong>';
+            break;
           case 'eOPS':
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--yellow">' + filters.getTagText(txt) + '</strong><strong class="nhsuk-tag">Restricted</strong>';
+            break;
+          case 'ophthalmic':
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--yellow">' + filters.getTagText(txt) + '</strong>';
             break;
         }
 
@@ -487,6 +499,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
   }
 
+
   //
   // FILTER REPORTS BY SEARCH TERM
   //
@@ -559,6 +572,51 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     return check;
 
   };
+
+
+  //
+  // FILTER REPORTS BY OTHER
+  // Currently only sorting by finance and public
+  // 
+  filters.filterReportsByOther = function( otherFilters, items ){
+
+    console.log('FILTERING BY OTHER: ' + otherFilters.join(', ') );
+
+    items = ( Array.isArray( items ) && items.length > 0 ) ? items : [];
+
+    const newItems = [];
+
+    if( Array.isArray(otherFilters) &&  otherFilters.length > 0 ){
+
+      items.forEach( function( item ){
+
+        if( otherFilters.indexOf('public') > -1 && otherFilters.indexOf('finance') > -1){
+
+          if( item.tag === 'PUBLIC_AVAILABLE_DATA' && item.is_finance === 'TRUE'  ){
+            newItems.push( item );
+          }
+
+        } else {
+
+          if( otherFilters.indexOf('public') > -1 && item.tag === 'PUBLIC_AVAILABLE_DATA' ){
+            newItems.push( item );
+          }
+
+          if( otherFilters.indexOf('finance') > -1 && item.is_finance === 'TRUE' ){
+            newItems.push( item );
+          }
+
+
+        }
+
+
+      });
+
+    }
+
+    return newItems;
+
+  }
 
 
   //

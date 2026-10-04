@@ -40,12 +40,15 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">{{ pageHeader }}</h1>
+
         {% if item.tag %}
-          {{ item.tag | getTag | safe }}
+          {{ item.tag | getTag | safe }}{% if item.is_finance %} {{ tag({ text: 'Finance', colour: 'white' }) }}{% endif %}
         {% else %}
           {{ tag({ classes: 'nhsuk-tag--white', text: 'Report type' }) }}
         {% endif %}
-        <h1 class="nhsuk-heading-l nhsuk-u-margin-top-2">{{ pageHeader }}</h1>
+
+        <hr />
 
         {% if item.tag === 'PUBLIC_AVAILABLE_DATA' %}
 

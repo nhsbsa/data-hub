@@ -1,4 +1,4 @@
-data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information,is_finance
 DP-EPACT-0028,Home Oxygen Therapy (HOT),PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_HOT_ICB_Level|DataHub_HOT_National_Level|DataHub_HOT_SICBL_Level,,#,"The Home Oxygen Therapy (HOT) resource provides transparency over supplier claims, costs, and service delivery for home oxygen services across England. It helps SICBLs, ICBs, and regional teams track payments, ensure correct reimbursement, and boost financial accountability.","## About this dashboard
 The Home Oxygen Therapy (HOT) service arrangements, since December 2010 are catered for by 4 oxygen suppliers (Air Liquide, Baywater Healthcare, BOC Medical and Dolby Vivisol) under the National Framework Agreement. Services include cylinders, concentrators, and liquid oxygen, with 24/7 support and freephone access for patients and for clinically necessary cases urgent orders can be delivered.
 
@@ -23,4 +23,4 @@ The Home Oxygen Therapy Report includes five key data views:
 | SICBL Payment Claim – Region Breakdown | Detailed breakdown view of claims for oxygen supplied to patients outside the SICBL's region by region. |
 | SICBL Payment Claim – Supplier Breakdown | Detailed breakdown view of claims for oxygen supplied to patients outside the SICBL's region by supplier. |
 
-The dataset retains a rolling 24 months' worth of data and is updated monthly.",,
+The dataset retains a rolling 24 months' worth of data and is updated monthly.",,,

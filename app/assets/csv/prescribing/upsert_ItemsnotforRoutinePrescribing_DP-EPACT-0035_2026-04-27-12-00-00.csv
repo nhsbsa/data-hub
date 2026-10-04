@@ -1,4 +1,4 @@
-data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information,is_finance
 DP-EPACT-0035,Items not for Routine Prescribing,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Default_Dashboard|DataHub_Presc_Default_Dashboard_Analysis|DataHub_Presc_IoM_Guernsey_Alderney|DataHub_Presc_Prescriber_GP_Practice|DataHub_Presc_Prescriber_Level_Access,,#,"The Items not for routine prescribing dashboard helps SICBLs spot and manage treatments with low clinical value, poor cost-effectiveness, or low NHS funding priority. It helps to reduce unwarranted variation, promote proper resource use, and support safer, more effective prescribing in primary care.","## About this dashboard
 This ‘Items not for routine prescribing’ report is based on guidelines for an initial list of 18 treatments, drawn up with family doctors and pharmacists, which fall into one or more of these categories:
 - products of low clinical effectiveness, where there is a lack of robust evidence of clinical effectiveness or there are significant safety concerns
@@ -19,4 +19,4 @@ Please note that wherever patient figures are reported, a single patient may app
 Sub-ICB Locations (SICBLs) (previously CCG) demographic impact assessment
 View our Patient Demographic data by CCG (Excel: 1.9MB).
 
-Includes details for a number of different drug collections showing the number of patients who have been prescribed particular medicines. Within each of the datasets the values have been grouped by patient age/gender.",,
+Includes details for a number of different drug collections showing the number of patients who have been prescribed particular medicines. Within each of the datasets the values have been grouped by patient age/gender.",,,

@@ -1,4 +1,4 @@
-data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information
+data_product_external_id,data_product_name,data_product_status,data_product_publication_date,tag,roles,data_product_dashboard_link,oracle_dashboard_link,data_product_description,data_product_overview,data_product_information,data_reuse_policy_information,is_finance
 DP-EPACT-0069,Remuneration National Summary,PUBLISHED,2026-08-12T12:00:00,ePACT,DataHub_Presc_Remuneration_National_Level|DataHub_Presc_Remuneration_Regional|DataHub_Presc_Remu_Admin,,#,"The Remuneration National Summary provides information on remuneration payments for pharmaceutical services supplied by pharmacy and appliance contractors, covering data from April 2018.","## About this dashboard
 The report:
 - provides information to support the monitoring and management of remuneration payments for pharmaceutical services supplied by pharmacy and appliance contractors
@@ -25,4 +25,4 @@ Fees are identified from the prescriber number or the commissioner / provider in
 
 Fees which cannot be attributed to a particular commissioner / provider are shared and shown under 'national unidentified prescribers'.
 
-Unidentified prescriber shows the fees / allowances attributed to unidentified prescribers where a prescription form (FP10, FP10HP) does not contain enough detail to identify the prescriber but the commissioner / provider can be identified.",,
+Unidentified prescriber shows the fees / allowances attributed to unidentified prescribers where a prescription form (FP10, FP10HP) does not contain enough detail to identify the prescriber but the commissioner / provider can be identified.",,,TRUE

@@ -24,6 +24,11 @@
     {% set allItems = ( data.reportTypeFilters | filterReportsByType( allItems ) ) %}
 {% endif %}
 
+<!-- FILTER THE ITEMS BY OTHER -->
+{% if data.otherFilters %}
+    {% set allItems = ( data.otherFilters | filterReportsByOther( allItems ) ) %}
+{% endif %}
+
 
 <!-- FILTER THE ITEMS BY SEARCH TERMS -->
 {% if data.searchTerms %}
@@ -64,13 +69,29 @@
             {% endif %}
         {% endif %}
 
+        <!-- SHOULD I OPEN THE DETAILS EXPANDER LOGIC -->
+        {% set openDetails = false %}
+        
+        {% if data.reportTypeFilters and ( ( data.reportTypeFilters | length ) < 3 ) %}
+            {% set openDetails = true %}
+        {% endif %}
+
+        {% if data.otherFilters and ( ( data.otherFilters | length ) > 0 ) %}
+             {% set openDetails = true %}   
+        {% endif %}
 
         <!-- FITLERS -->
-        {% call details( { summaryText: 'Filter by report type', open: ( data.reportTypeFilters and ( ( data.reportTypeFilters | length ) < 4 ) ) } ) %}
+        {% call details( { summaryText: 'Filter reports', open: openDetails } ) %}
+
+        <style>
+
+            .nhsuk-form-group:first-of-type{
+                margin-bottom: 0;
+            }
+
+        </style>
 
          <form method="post" novalidate>
-
-                <div class="nhsuk-flex-group nhsuk-u-margin-bottom-0">
 
                     {{ checkboxes({
                         fieldset: {
@@ -81,28 +102,54 @@
                         },
                         idPrefix: 'reportTypeFilters',
                         name: 'reportTypeFilters',
-                        values: data.reportTypeFilters or ['ePACT','eDEN','eOPS','PUBLIC_AVAILABLE_DATA'],
+                        values: data.reportTypeFilters or ['ePACT','eDEN','eOPS'],
                         inline: true,
                         small: true,
                         items: [
                             {
-                                text: 'Prescribing and dispensing',
+                                html: 'prescribing' | getTag,
                                 value: 'ePACT'
                             },
                             {
-                                text: 'Dental',
+                                html: 'dental' | getTag,
                                 value: 'eDEN'
                             },
                             {
-                                text: 'Ophthalmic',
+                                html: 'ophthalmic' | getTag,
                                 value: 'eOPS'
                             }
+
                         ]
                         }) }}
 
-                    {{ button({ text: 'Apply filters', classes: 'nhsuk-button--secondary nhsuk-button--small' }) }}
+                        {{ checkboxes({
+                            fieldset: {
+                                legend: {
+                                    html: '<span class="nhsuk-u-visually-hidden">Select other filters</span>',
+                                    isPageHeading: false
+                                }
+                            },
+                            idPrefix: 'otherFilters',
+                            name: 'otherFilters',
+                            values: data.otherFilters,
+                            inline: true,
+                            small: true,
+                            items: [
+                                {
+                                    text: 'Only finance reports',
+                                    value: 'finance'
+                                },
+                                {
+                                    html: 'Only public reports',
+                                    value: 'public'
+                                }
+                            ]
+                        }) }}
 
-                </div>
+
+
+                    {{ button({ text: 'Apply filters', classes: 'nhsuk-u-margin-bottom-0 nhsuk-button--secondary nhsuk-button--small' }) }}
+
 
             </form>
 
@@ -179,7 +226,7 @@
                             <li>
                                 <h3 class="nhsuk-u-margin-bottom-2 nhsuk-heading-xs"><a class="nhsuk-link" href="view?id={{ report.data_product_external_id }}&tag={{ report.tag }}">{{ report.data_product_name | safe }}</a></h3>
                                 <p class="nhsuk-u-margin-bottom-2">{{ report.data_product_description | safe }}</p>
-                                {% if report.tag %}{{ report.tag | getTag | safe }}{% endif %}
+                                {% if report.tag %}{{ report.tag | getTag | safe }}{% endif %}{% if report.is_finance %} {{ tag({ text: 'Finance', colour: 'white' }) }}{% endif %}
                             </li>
                         {% endfor %}
                     </ol>
