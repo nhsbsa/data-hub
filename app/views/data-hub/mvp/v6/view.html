@@ -9,9 +9,11 @@
 {% set prototypeVersion = 'v6' %}
 
 {% if data.id and data.tag %}
+  
   {% set folders = { PUBLIC_AVAILABLE_DATA: 'catalyst', eDEN: 'dental', eOPS: 'ophthalmic', ePACT: 'prescribing'] %}
   {% set items = ( 'app/assets/csv/'+folders[data.tag]+'/' ) | getDirectoryFiles | getJSONFromCSVs %}
   {% set item = data.id | getItemFromID( items ) %}
+
 {% endif %}
 
 {% set pageHeader = item.data_product_name or 'Report title' %}
@@ -48,58 +50,158 @@
           {{ tag({ classes: 'nhsuk-tag--white', text: 'Report type' }) }}
         {% endif %}
 
-        <hr />
+    </div>
+</div>
+
+
+<!-- CARD SECTION -->
+    
+    <ul class="nhsuk-grid-row nhsuk-card-group nhsuk-u-margin-top-6">
+      <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+
+
 
         {% if item.tag === 'PUBLIC_AVAILABLE_DATA' %}
 
-          <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {{ button({
-              href: '#',
-              text: 'View dashboard (opens in a new tab)'
-            }) }}
-          </div>
+          {% call card( { heading: { text: 'Public report', size: 'm' }, classes: 'nhsuk-grid-column-one-half' } ) %}
+
+            <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+              {{ button({
+                href: '#',
+                text: 'View report (opens in a new tab)'
+              }) }}
+            </div>
+
+          {% endcall %}
 
         {% else %}
 
           {% if data.signedIn === 'yes' %}
 
-            <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-            {{ button({
-              href: '#',
-              text: 'View dashboard (opens in a new tab)'
-            }) }}
-          </div>
+            {% call card( { heading: { text: 'Restricted report', size: 'm' }, classes: 'nhsuk-grid-column-one-half' } ) %}
+
+              <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+                {{ button({
+                  href: '#',
+                  text: 'View report (opens in a new tab)'
+                }) }}
+              </div>
+
+            {% endcall %}
 
           {% else %}
 
             {% if item.tag === 'ePACT' %}
-              {% set buttonObj = { text: 'Request access to prescribing and dispensing data', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2' } %}
+              {% set buttonObj = { html: 'Request access<span class="nhsuk-u-visually-hidden"> to prescribing and dispensing data</span>', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2' } %}
             {% elif item.tag === 'eDEN' %}
-              {% set buttonObj = { text: 'Request access to dental data', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden' } %}
+              {% set buttonObj = { html: 'Request access<span class="nhsuk-u-visually-hidden"> to dental data</span>', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden' } %}
             {% elif item.tag === 'eOPS' %}
-              {% set buttonObj = { text: 'Request access to ophthalmic data', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eops/registering-eops' } %}
+              {% set buttonObj = { html: 'Request access<span class="nhsuk-u-visually-hidden"> to ophthalmic data</span>', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eops/registering-eops' } %}
             {% else %}
-              {% set buttonObj = { text: 'Request access', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products' } %}
+              {% set buttonObj = { html: 'Request access', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products' } %}
             {% endif %}
 
-            <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
-              {{ button({
-                href: 'auth/entra-id/enter-username?returnURL=' + ( currentURL | urlencode ),
-                text: 'Sign in'
-              }) }}
-              {{ button({
-                href: buttonObj.href,
-                text: buttonObj.text,
-                classes: 'nhsuk-button--secondary'
-              }) }}
-            </div>
+
+            {% call card( { heading: { text: 'Restricted report', size: 'm' }, classes: 'nhsuk-grid-column-one-half' } ) %}
+
+              <p>You need to sign in to view this report.</p>
+
+              <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+                {{ button({
+                  href: 'auth/entra-id/enter-username?returnURL=' + ( currentURL | urlencode ),
+                  text: 'Sign in'
+                }) }}
+                {{ button({
+                  href: buttonObj.href,
+                  html: buttonObj.html,
+                  classes: 'nhsuk-button--secondary'
+                }) }}
+              </div>
+
+            {% endcall %}
 
           {% endif %}
 
 
         {% endif %}
 
-        <hr class="nhsuk-section-break nhsuk-section-break--visible nhsuk-section-break--l" />
+        </li>
+
+
+  <!-- BOTH VERSIONS -->
+
+  {% if item.tag === 'PUBLIC_AVAILABLE_DATA'  %}
+    
+
+  {% set prescribingItems = 'app/assets/csv/prescribing/' | getDirectoryFiles | getJSONFromCSVs %}
+
+  {% if ( item.data_product_name | restrictedReportExists( prescribingItems ) ) %}
+
+
+  
+
+  <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
+      
+      {% if data.signedIn === 'yes' %}
+
+            {% call card( { heading: { text: 'Restricted report', size: 'm' }, classes: 'nhsuk-grid-column-one-half' } ) %}
+
+              <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+                {{ button({
+                  href: '#',
+                  text: 'View report (opens in a new tab)'
+                }) }}
+              </div>
+
+            {% endcall %}
+
+          {% else %}
+
+            {% if item.tag === 'ePACT' %}
+              {% set buttonObj = { html: 'Request access<span class="nhsuk-u-visually-hidden"> to prescribing and dispensing data</span>', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/registering-epact2' } %}
+            {% elif item.tag === 'eDEN' %}
+              {% set buttonObj = { html: 'Request access<span class="nhsuk-u-visually-hidden"> to dental data</span>', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eden/registering-eden' } %}
+            {% elif item.tag === 'eOPS' %}
+              {% set buttonObj = { html: 'Request access<span class="nhsuk-u-visually-hidden"> to ophthalmic data</span>', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products/eops/registering-eops' } %}
+            {% else %}
+              {% set buttonObj = { html: 'Request access', href: 'https://www.nhsbsa.nhs.uk/access-our-data-products' } %}
+            {% endif %}
+
+
+            {% call card( { heading: { text: 'Restricted report', size: 'm' }, classes: 'nhsuk-grid-column-one-half' } ) %}
+
+              <p>You need to sign in to view this report.</p>
+
+              <div class="nhsuk-button-group nhsuk-u-margin-bottom-0">
+                {{ button({
+                  href: 'auth/entra-id/enter-username?returnURL=' + ( currentURL | urlencode ),
+                  text: 'Sign in'
+                }) }}
+                {{ button({
+                  href: buttonObj.href,
+                  html: buttonObj.html,
+                  classes: 'nhsuk-button--secondary'
+                }) }}
+              </div>
+
+            {% endcall %}
+
+            </li>
+
+          {% endif %}
+
+      {% endif %}
+
+  {% endif %}
+
+
+
+</ul>
+
+
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
 
         <div class="nhsuk-u-reading-width">
             {% set content = ( item.data_product_overview | processMarkdown ) %}

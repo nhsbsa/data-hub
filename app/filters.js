@@ -653,5 +653,34 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
   }
 
+  //
+  // RESTRICTED REPORT EXISTS
+  //
+  filters.restrictedReportExists = function( title, prescribingItems ){
+
+    console.log('CHECKING: ' + title);
+
+    let check = false;
+
+    if( Array.isArray(prescribingItems) && prescribingItems.length > 0 ){
+
+      prescribingItems.forEach( function( item ){
+
+        if( item.data_product_name.toLowerCase().trim() === title.toLowerCase().trim() ){
+          console.log( item );
+          check = true;
+        }
+
+      });
+
+    }
+
+    console.log('DECISION: '+check);
+
+    return check;
+
+    
+  }
+
   return filters;
 };
