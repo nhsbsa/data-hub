@@ -1,5 +1,5 @@
 module.exports = {
 
-    modelOrDataset: 'model' // model,dataset
+    modelOrDataset: 'dataset' // model,dataset
 
 }
