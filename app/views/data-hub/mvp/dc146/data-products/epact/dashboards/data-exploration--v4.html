@@ -47,7 +47,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <p>Our prescribing and dispensing data is available in 8 datasets. Each dataset is designed for different reporting and analysis needs.</p>
+        <p>Our prescribing and dispensing data is available in various datasets. Each dataset is designed for different reporting and analysis needs.</p>
         <p>To explore a dataset, you will need to sign in.</p>
         
     
@@ -83,7 +83,7 @@
                       ] } %}
 
 
-        {% set header_01 = '12 month dataset' %}
+        {% set header_01 = '12-month dataset' %}
         {% set content_01 %}
 
             <!-- 12 MONTH MODEL -->
@@ -93,8 +93,6 @@
                 <dl class="nhsuk-u-font-size-14">
                     <dt><strong>Time frame</strong></dt>
                     <dd class="nhsuk-u-margin-0">12 months</dd>
-                    <dt><strong>Primary fact</strong></dt>
-                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
                     <dt><strong>Grain</strong></dt>
                     <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
                 </dl>
@@ -102,7 +100,7 @@
 
         {% endset %}
 
-        {% set header_02 = '24 month dataset' %}
+        {% set header_02 = '24-month dataset' %}
         {% set content_02 %}
 
             <!-- 24 MONTH MODEL -->
@@ -112,8 +110,6 @@
                 <dl class="nhsuk-u-font-size-14">
                     <dt><strong>Time frame</strong></dt>
                     <dd class="nhsuk-u-margin-0">24 months</dd>
-                    <dt><strong>Primary fact</strong></dt>
-                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
                     <dt><strong>Grain</strong></dt>
                     <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
                 </dl>
@@ -131,8 +127,6 @@
                 <dl class="nhsuk-u-font-size-14">
                     <dt><strong>Time frame</strong></dt>
                     <dd class="nhsuk-u-margin-0">10 years</dd>
-                    <dt><strong>Primary fact</strong></dt>
-                    <dd class="nhsuk-u-margin-0">form_item_element_combined_fact</dd>
                     <dt><strong>Grain</strong></dt>
                     <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
                 </dl>
@@ -167,7 +161,7 @@
 
 
 
-            {% set header_04 = 'BNF drug cost' %}
+            {% set header_04 = 'Full history dataset (BNF level)' %}
             {% set content_04 %}
 
                 <!-- BNF DRUG COST -->
@@ -177,8 +171,6 @@
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Primary fact</strong></dt>
-                        <dd class="nhsuk-u-margin-0">practice_bnf_drug_cost_fact</dd>
                         <dt><strong>Grain</strong></dt>
                         <dd class="nhsuk-u-margin-0">bnf-presentation / gender / age / patient / practice / prescriber / m-y</dd>
                     </dl>
@@ -186,7 +178,7 @@
 
             {% endset %}
 
-            {% set header_05 = 'Dispensing submissions' %}
+            {% set header_05 = 'Monthly dispensing activities' %}
             {% set content_05 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
@@ -213,8 +205,6 @@
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Primary fact</strong></dt>
-                        <dd class="nhsuk-u-margin-0">pca_monthly_yearly_fact</dd>
                     </dl>
                 {% endcall %}
 
@@ -255,7 +245,7 @@
             <h3>Prescribed item datasets</h3>
 
 
-            {% set header_07 = 'Prescribed item - Level 4' %}
+            {% set header_07 = '12-month rolling (provider level)' %}
             {% set content_07 %}
 
                 <!-- PRESCRIBED ITEM - LEVEL 4 -->
@@ -265,8 +255,6 @@
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Primary fact</strong></dt>
-                        <dd class="nhsuk-u-margin-0">prescribed_item_level_4_12m_roll_fact</dd>
                         <dt><strong>Grain</strong></dt>
                         <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
                     </dl>
@@ -274,7 +262,7 @@
 
             {% endset %}
 
-            {% set header_08 = 'Prescribed item - Level 5' %}
+            {% set header_08 = '12-month rolling (practice level)' %}
             {% set content_08 %}
 
                 <!-- PRESCRIBED ITEM - LEVEL 5 -->
@@ -284,8 +272,6 @@
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Primary fact</strong></dt>
-                        <dd class="nhsuk-u-margin-0">prescribed_item_level_5_12m_roll_fact</dd>
                         <dt><strong>Grain</strong></dt>
                         <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
                     </dl>
