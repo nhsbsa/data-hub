@@ -47,23 +47,26 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <p>
-        Our prescribing and dispensing data is available in several datasets. Each dataset is designed for different reporting and analysis needs.
-        </p>
-        
+        <p>Our prescribing and dispensing data is available in several datasets. Each dataset is designed for different reporting and analysis needs.</p>
         <p>You need to sign in to explore the data.</p>
-        
-        <p>
-        If you need help choosing a dataset or need training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.
-        </p>
+        <p>If you need help choosing a dataset or need training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
+    
+        {% set warningText %}
+            <p>More information can be found on <a class="nhsuk-link" href="#">pricing</a>.</p>
+            <p>If you do not want to buy a licence, you can still run a paginated report and import the data into a program of your choice from that.</p>
+        {% endset %}
+
+         {{ warningCallout({
+            classes: 'smaller-heading',
+            heading: 'Explore this data access requires a valid pro licence',
+            html: warningText
+        }) }}
+    
     </div>
 </div>
 
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
-
-        <hr />
-
         <!-- 
 
         12 month model
@@ -72,7 +75,7 @@
 
         BNF drug cost
         Dispensing submissions
-        PCA monthly and yearly
+        PCA monthly and yearly - INTERNAL ONLY, SO NOT DISPLAYING FOR NOW
         Prescribed item - Level 4
         Prescribed item - Level 5
 
@@ -82,13 +85,23 @@
                           { 
                               href: 'fabric',
                               attributes: { target: '_blank' },
-                              classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-0',
+                              classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-left-0 nhsuk-u-margin-bottom-2',
                               text: 'Explore this data'
+                          },
+                          {
+                            href: '#',
+                            text: 'Run a paginated report'
                           }
                       ] } %}
 
 
-        {% set header_01 = '12-month dataset' %}
+        {% set header_01 %}
+            12-month dataset
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">12 months</dd>
+            </dl>
+        {% endset %}
         {% set content_01 %}
 
             <!-- 12 MONTH MODEL -->
@@ -102,161 +115,102 @@
                 <li>patient attributes</li>
                 <li>prescription form attributes</li>
                 </ul>
-            {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                <dl class="nhsuk-u-font-size-14">
-                    <dt><strong>Time frame</strong></dt>
-                    <dd class="nhsuk-u-margin-0">12 months</dd>
-                </dl>
-            {% endcall %}
 
         {% endset %}
 
-        {% set header_02 = '24-month dataset' %}
+        {% set header_02 %}
+            24-month dataset
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">24 months</dd>
+            </dl>
+        {% endset %}
         {% set content_02 %}
 
             <!-- 24 MONTH MODEL -->
-            <p>Use this dataset to compare prescribing and dispensing activity over the latest 24 months. Choose this dataset when you need year-on-year comparisons or trends that require more than 12 months of data. </p>
-
-            {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                <dl class="nhsuk-u-font-size-14">
-                    <dt><strong>Time frame</strong></dt>
-                    <dd class="nhsuk-u-margin-0">24 months</dd>
-                    
-                </dl>
-            {% endcall %}
+            <p>Use this dataset to compare prescribing and dispensing activity over the latest 24 months. Choose this dataset when you need year-on-year comparisons or trends that require more than 12 months of data.</p>
 
         {% endset %}
 
-        {% set header_03 = 'Full history dataset' %}
+        {% set header_03 %}
+            Full history dataset
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">10 years</dd>
+            </dl>
+        {% endset %}
         {% set content_03 %}
 
-             <!-- Full history MODEL -->
+             <!-- FULL HISTORY DATASET -->
              <p class="nhsuk-u-reading-width"> Use this dataset to analyse all available prescribing and dispensing activity. It includes data held under the data retention policy and supports long-term trend, strategic and market analysis.</p>
-            
-            {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                <dl class="nhsuk-u-font-size-14">
-                    <dt><strong>Time frame</strong></dt>
-                    <dd class="nhsuk-u-margin-0">10 years</dd>
-                    
-                </dl>
-            {% endcall %}
 
         {% endset %}
 
 
-            {{ summaryList({
-                rows: [
-                    {
-                        key: { text: header_01 },
-                        value: { html: content_01 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    },
-                    {
-                        key: { text: header_02 },
-                        value: { html: content_02 },
-                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
-                        actions: action_links
-                    },
-                    {
-                        key: { text: header_03 },
-                        value: { html: content_03 },
-                        classes: 'nhsuk-u-margin-top-4 nhsuk-u-padding-bottom-4',
-                        actions: action_links
-                    }
-                ]
-            }) }}
 
-
-
-            {% set header_04 = 'Full history dataset (BNF level)' %}
+        {% set header_04 %}
+            Full history dataset (BNF level)
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">10 years</dd>
+            </dl>
+        {% endset %}
             {% set content_04 %}
 
                 <!-- BNF DRUG COST -->
                 <p>Use this dataset to analyse prescribing costs at British National Formulary (BNF) presentation level instead of individual pack level. It contains less detail than the full history dataset. It may run faster when analysing large amounts of cost data and broad prescribing trends.</p>
                 <p>This dataset does not include available supplier information for:</p>
-                    <ul>
+                <ul>
                     <li>prescribed drugs or appliances at BNF presentation level</li>
                     <li>dispensed drugs or appliances at BNF presentation level</li>
-                    </ul>
-                                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                    <dl class="nhsuk-u-font-size-14">
-                        <dt><strong>Time frame</strong></dt>
-                        <dd class="nhsuk-u-margin-0">10 years</dd>
-                        
-                    </dl>
-                {% endcall %}
+                </ul>
 
             {% endset %}
 
-            {% set header_05 = 'Monthly dispensing activities' %}
+        {% set header_05 %}
+            Monthly dispensing activities
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">10 years</dd>
+            </dl>
+        {% endset %}
             {% set content_05 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
                 <p>Use this dataset to analyse monthly submissions from dispensing contractors, including pharmacy activity, reimbursement and remuneration.</p>
                     <p>The dataset includes data about:</p>
-                        <ul>
+                    <ul>
                         <li>dispensing organisations</li>
                         <li>dispensing fees</li>
                         <li>submission volumes</li>
-                        </ul>
-                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                    <dl class="nhsuk-u-font-size-14">
-                        <dt><strong>Time frame</strong></dt>
-                        <dd class="nhsuk-u-margin-0">10 years</dd>
-                        
-                    </dl>
-                {% endcall %}
+                    </ul>
 
             {% endset %}
 
-            {% set header_06 = 'PCA monthly and yearly' %}
+        {% set header_06 %}
+            PCA monthly and yearly
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">10 years</dd>
+            </dl>
+        {% endset %}
             {% set content_06 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
                 <p>Use this dataset to analyse published prescribing and cost information from Prescription Cost Analysis (PCA). The data is aggregated and used in official national prescribing statistics.</p>
-                
-                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                    <dl class="nhsuk-u-font-size-14">
-                        <dt><strong>Time frame</strong></dt>
-                        <dd class="nhsuk-u-margin-0">10 years</dd>
-                    </dl>
-                {% endcall %}
-
-            {% endset %}
-
-
             
 
-
-
-            {{ summaryList({
-                rows: [
-                    {
-                        key: { text: header_04 },
-                        value: { html: content_04 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    },
-                    {
-                        key: { text: header_05 },
-                        value: { html: content_05 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    },
-                     {
-                        key: { text: header_06 },
-                        value: { html: content_06 },
-                        classes: 'nhsuk-u-margin',
-                        actions: action_links
-                    }
-                ]
-            }) }}
-
-
+            {% endset %}
           
 
-            {% set header_07 = '12-month rolling dataset (provider level)' %}
+
+            {% set header_07 %}
+            12-month rolling dataset (provider level)
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">10 years</dd>
+            </dl>
+        {% endset %}
             {% set content_07 %}
 
                 <!-- PRESCRIBED ITEM - LEVEL 4 -->
@@ -271,17 +225,16 @@
                     <li>patient attributes</li>
                     <li>prescription form attributes</li>
                     </ul>
-                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                    <dl class="nhsuk-u-font-size-14">
-                        <dt><strong>Time frame</strong></dt>
-                        <dd class="nhsuk-u-margin-0">10 years</dd>
-                        
-                    </dl>
-                {% endcall %}
 
             {% endset %}
 
-            {% set header_08 = '12-month rolling dataset (practice level)' %}
+             {% set header_08 %}
+            12-month rolling dataset (practice level)
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">10 years</dd>
+            </dl>
+        {% endset %}
             {% set content_08 %}
 
                 <!-- PRESCRIBED ITEM - LEVEL 5 -->
@@ -295,29 +248,53 @@
                     <li>patient attributes</li>
                     <li>prescription form attributes</li>
                     </ul>
-                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
-                    <dl class="nhsuk-u-font-size-14">
-                        <dt><strong>Time frame</strong></dt>
-                        <dd class="nhsuk-u-margin-0">10 years</dd>
-                        
-                    </dl>
-                {% endcall %}
 
             {% endset %}
 
 
             {{ summaryList({
+                classes: 'dataset-list',
                 rows: [
                     {
-                        key: { text: header_07 },
-                        value: { html: content_07 },
-                        classes: 'nhsuk-u-margin',
+                        key: { html: header_01 },
+                        value: { html: content_01 },
+                        classes: '',
                         actions: action_links
                     },
                     {
-                        key: { text: header_08 },
+                        key: { html: header_02 },
+                        value: { html: content_02 },
+                        classes: '',
+                        actions: action_links
+                    },
+                    {
+                        key: { html: header_03 },
+                        value: { html: content_03 },
+                        classes: '',
+                        actions: action_links
+                    },
+                    {
+                        key: { html: header_04 },
+                        value: { html: content_04 },
+                        classes: '',
+                        actions: action_links
+                    },
+                    {
+                        key: { html: header_05 },
+                        value: { html: content_05 },
+                        classes: '',
+                        actions: action_links
+                    },
+                    {
+                        key: { html: header_07 },
+                        value: { html: content_07 },
+                        classes: '',
+                        actions: action_links
+                    },
+                    {
+                        key: { html: header_08 },
                         value: { html: content_08 },
-                        classes: 'nhsuk-u-margin',
+                        classes: '',
                         actions: action_links
                     }
                 ]

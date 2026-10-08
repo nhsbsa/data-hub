@@ -40,7 +40,25 @@
     color: #fff59d;
 }
 
+// DATASET LIST
 
+.dataset-list {
+    margin-top: 40px;
+}
+
+ .dataset-list .nhsuk-summary-list__row:first-child {
+    border-top: 1px solid #d8dde0;
+    padding-top: 1rem;
+}
+
+@include nhsuk-media-query($from: tablet) {
+
+    .dataset-list .nhsuk-summary-list__row > * {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+
+}
 
 
 
