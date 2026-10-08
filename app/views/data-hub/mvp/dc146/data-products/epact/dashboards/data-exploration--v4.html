@@ -47,10 +47,15 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
 
-        <p>Our prescribing and dispensing data is available in various datasets. Each dataset is designed for different reporting and analysis needs.</p>
-        <p>To explore a dataset, you will need to sign in.</p>
+        <p>
+        Our prescribing and dispensing data is available in several datasets. Each dataset is designed for different reporting and analysis needs.
+        </p>
         
-    
+        <p>You need to sign in to explore the data.</p>
+        
+        <p>
+        If you need help choosing a dataset or need training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.
+        </p>
     </div>
 </div>
 
@@ -63,7 +68,7 @@
 
         12 month model
         24 month model
-        10 year model
+        Full history year model
 
         BNF drug cost
         Dispensing submissions
@@ -87,14 +92,20 @@
         {% set content_01 %}
 
             <!-- 12 MONTH MODEL -->
-            <p>Explore prescribing and dispensing data from the latest 12 months. Best for routine reporting, monitoring recent activity, and answering questions about current trends. Its smaller data range may provide faster query performance.</p>
-            
+            <p>Use this dataset to analyse prescribing and dispensing activity over the latest 12 months. It is suitable for routine reporting and monitoring recent trends. Queries may run faster because the dataset covers a shorter period.</p>
+            <p>You can analyse data using:</p>
+                <ul>
+                <li>prescribing organisation attributes</li>
+                <li>dispensing organisation attributes</li>
+                <li>detailed prescribed drug or appliance attributes</li>
+                <li>detailed dispensed drug or appliance attributes</li>
+                <li>patient attributes</li>
+                <li>prescription form attributes</li>
+                </ul>
             {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
                     <dt><strong>Time frame</strong></dt>
                     <dd class="nhsuk-u-margin-0">12 months</dd>
-                    <dt><strong>Grain</strong></dt>
-                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
                 </dl>
             {% endcall %}
 
@@ -104,14 +115,13 @@
         {% set content_02 %}
 
             <!-- 24 MONTH MODEL -->
-            <p>Explore prescribing and dispensing data from the latest 24 months. Useful for comparing recent performance over time, including year-on-year analysis and identifying emerging trends.</p>
+            <p>Use this dataset to compare prescribing and dispensing activity over the latest 24 months. Choose this dataset when you need year-on-year comparisons or trends that require more than 12 months of data. </p>
 
             {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
                     <dt><strong>Time frame</strong></dt>
                     <dd class="nhsuk-u-margin-0">24 months</dd>
-                    <dt><strong>Grain</strong></dt>
-                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                    
                 </dl>
             {% endcall %}
 
@@ -120,21 +130,19 @@
         {% set header_03 = 'Full history dataset' %}
         {% set content_03 %}
 
-             <!-- 10 YEAR MODEL -->
-             <p class="nhsuk-u-reading-width">Access all available prescribing and dispensing data in this {{ modelOrDatasetShort }}, covering data held under our data retention policy. Best for long-term trend analysis, strategic planning, market analysis, and understanding changes over time.</p>
+             <!-- Full history MODEL -->
+             <p class="nhsuk-u-reading-width"> Use this dataset to analyse all available prescribing and dispensing activity. It includes data held under the data retention policy and supports long-term trend, strategic and market analysis.</p>
             
             {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                 <dl class="nhsuk-u-font-size-14">
                     <dt><strong>Time frame</strong></dt>
                     <dd class="nhsuk-u-margin-0">10 years</dd>
-                    <dt><strong>Grain</strong></dt>
-                    <dd class="nhsuk-u-margin-0">item / gender / age / patient / practice / prescriber / month-year</dd>
+                    
                 </dl>
             {% endcall %}
 
         {% endset %}
 
-            <h3>Time based datasets</h3>
 
             {{ summaryList({
                 rows: [
@@ -165,14 +173,17 @@
             {% set content_04 %}
 
                 <!-- BNF DRUG COST -->
-                <p>Analyse prescribing costs at BNF presentation level rather than individual pack level. This {{ modelOrDatasetShort }} provides less detail than the 10 year {{ modelOrDatasetShort }} but may perform better for high-volume cost analysis and broad prescribing trends.</p>
-                
-                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
+                <p>Use this dataset to analyse prescribing costs at British National Formulary (BNF) presentation level instead of individual pack level. It contains less detail than the full history dataset. It may run faster when analysing large amounts of cost data and broad prescribing trends.</p>
+                <p>This dataset does not include available supplier information for:</p>
+                    <ul>
+                    <li>prescribed drugs or appliances at BNF presentation level</li>
+                    <li>dispensed drugs or appliances at BNF presentation level</li>
+                    </ul>
+                                {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Grain</strong></dt>
-                        <dd class="nhsuk-u-margin-0">bnf-presentation / gender / age / patient / practice / prescriber / m-y</dd>
+                        
                     </dl>
                 {% endcall %}
 
@@ -182,14 +193,18 @@
             {% set content_05 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
-                <p>Explore monthly dispensing contractor submissions, including pharmacy activity, reimbursement and remuneration. Useful for understanding dispensing activity, contractor payments, and pharmacy service delivery.</p>
-                
+                <p>Use this dataset to analyse monthly submissions from dispensing contractors, including pharmacy activity, reimbursement and remuneration.</p>
+                    <p>The dataset includes data about:</p>
+                        <ul>
+                        <li>dispensing organisations</li>
+                        <li>dispensing fees</li>
+                        <li>submission volumes</li>
+                        </ul>
                 {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Primary fact</strong></dt>
-                        <dd class="nhsuk-u-margin-0">dispensing_submission_fact</dd>
+                        
                     </dl>
                 {% endcall %}
 
@@ -199,7 +214,7 @@
             {% set content_06 %}
 
                 <!-- DISPENSING SUBMISSIONS -->
-                <p>Access Prescription Cost Analysis (PCA) data used in official national prescribing statistics. This {{ modelOrDataset }} provides published, aggregated prescribing and cost information and is useful when working with nationally reported figures.</p>
+                <p>Use this dataset to analyse published prescribing and cost information from Prescription Cost Analysis (PCA). The data is aggregated and used in official national prescribing statistics.</p>
                 
                 {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
@@ -214,9 +229,6 @@
             
 
 
-
-
-            <h3>Subject datasets</h3>
 
             {{ summaryList({
                 rows: [
@@ -242,21 +254,28 @@
             }) }}
 
 
-            <h3>Prescribed item datasets</h3>
-
+          
 
             {% set header_07 = '12-month rolling dataset (provider level)' %}
             {% set content_07 %}
 
                 <!-- PRESCRIBED ITEM - LEVEL 4 -->
-                <p>View rolling 12 month prescribing and dispensing data aggregated to commissioner/provider level geography. Designed for analysing longer-term trends across larger areas while smoothing seasonal fluctuations.</p>
-                
+                <p> Use this dataset to analyse prescribing and dispensing activity using rolling 12-month totals. Data is grouped by commissioner or provider area. It can help you identify longer-term trends while reducing the effect of seasonal changes.</p>
+                <p>Analyse costs and volumes by:</p>
+                    <ul>
+                    <li>commissioner or provider area</li>
+                    <li>prescribing organisation attributes</li>
+                    <li>dispensing organisation attributes</li>
+                    <li>detailed prescribed drug or appliance attributes</li>
+                    <li>detailed dispensed drug or appliance attributes</li>
+                    <li>patient attributes</li>
+                    <li>prescription form attributes</li>
+                    </ul>
                 {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Grain</strong></dt>
-                        <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
+                        
                     </dl>
                 {% endcall %}
 
@@ -266,14 +285,21 @@
             {% set content_08 %}
 
                 <!-- PRESCRIBED ITEM - LEVEL 5 -->
-                <p>View rolling 12 month prescribing and dispensing data aggregated to individual practice and local provider level. Useful for monitoring trends over time and comparing patterns while reducing the impact of seasonal variation.</p>
-                
+                <p>Use this dataset to analyse prescribing and dispensing activity using rolling 12-month totals. Data is grouped by individual practice and local provider. It can help you monitor trends, compare patterns and reduce the effect of seasonal changes.</p>
+                <p>Analyse costs and volumes by:</p>
+                    <ul>
+                    <li>practice-level prescribing organisation attributes</li>
+                    <li>dispensing organisation attributes</li>
+                    <li>detailed prescribed drug or appliance attributes</li>
+                    <li>detailed dispensed drug or appliance attributes</li>
+                    <li>patient attributes</li>
+                    <li>prescription form attributes</li>
+                    </ul>
                 {% call details( { summaryText: modelOrDatasetDetails, classes: 'nhsuk-u-margin-bottom-2' } ) %}
                     <dl class="nhsuk-u-font-size-14">
                         <dt><strong>Time frame</strong></dt>
                         <dd class="nhsuk-u-margin-0">10 years</dd>
-                        <dt><strong>Grain</strong></dt>
-                        <dd class="nhsuk-u-margin-0">item / gender / age / practice / prescriber / rolling-12-month</dd>
+                        
                     </dl>
                 {% endcall %}
 
