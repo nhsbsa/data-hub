@@ -51,16 +51,38 @@
         <p>You need to sign in to explore the data.</p>
         <p>If you need help choosing a dataset or need training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
     
-        {% set warningText %}
-            <p>More information on pricing can be found on the <a class="nhsuk-link" href="https://www.microsoft.com/en-gb/power-platform/products/power-bi/pricing">Microsoft</a> site.</p>
-            <p>If you do not want to buy a licence, you can still run a paginated report and import the data into a program of your choice from that.</p>
-        {% endset %}
 
-         {{ warningCallout({
-            classes: 'smaller-heading',
-            heading: 'Explore this data requires a valid pro licence',
-            html: warningText
-        }) }}
+        {% if data.useWarningTextComponent === 'true' %}
+
+            <!-- WARNING TEXT COMPONENT VERSION -->
+
+            {% set warningTextHTML %}
+                <p>More information on pricing can be found on the <a class="nhsuk-link" href="https://www.microsoft.com/en-gb/power-platform/products/power-bi/pricing">Microsoft</a> site.</p>
+                <p>If you do not want to buy a licence, you can still run a paginated report and then import the data into a program of your choice.</p>
+            {% endset %}
+
+            {{ warningCallout({
+                classes: 'smaller-heading',
+                heading: 'Explore this data requires a valid pro licence',
+                html: warningTextHTML
+            }) }}
+
+        {% else %}
+
+            <!-- INSET TEXT VERSION -->
+            {% set insetTextHTML %}
+                <h2 class="nhsuk-heading-s">Explore this data requires a valid pro licence</h2>
+                <p>More information on pricing can be found on the <a class="nhsuk-link" href="https://www.microsoft.com/en-gb/power-platform/products/power-bi/pricing">Microsoft</a> site.</p>
+                <p>If you do not want to buy a licence, you can still run a paginated report and then import the data into a program of your choice.</p>
+            {% endset %}
+
+            {{ insetText({
+                html: insetTextHTML
+            }) }}
+
+
+        {% endif %}
+
     
     </div>
 </div>
