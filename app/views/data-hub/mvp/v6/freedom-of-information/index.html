@@ -1,0 +1,46 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+{% set pageHeader = 'Freedom of information requests' %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>{{ pageHeader }}</h1>
+
+        <div class="nhsuk-u-reading-width">
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        </div>
+
+
+
+    </div>
+</div>
+{% endblock %}
