@@ -57,13 +57,13 @@
             <!-- WARNING TEXT COMPONENT VERSION -->
 
             {% set warningTextHTML %}
-                <p>More information on pricing can be found on the <a class="nhsuk-link" href="https://www.microsoft.com/en-gb/power-platform/products/power-bi/pricing">Microsoft</a> site.</p>
-                <p>If you do not want to buy a licence, you can still run a paginated report and then import the data into a program of your choice.</p>
+                <p>You can build a report and export the data for use in a program of your choice without a licence.</p>
+                <p>If your organisation has given you a Power BI Pro licence, you can also explore our datasets directly in Fabric.</p>
             {% endset %}
 
             {{ warningCallout({
                 classes: 'smaller-heading',
-                heading: 'Explore this data requires a valid pro licence',
+                heading: 'Using Power BI in Fabric requires a Power BI Pro licence',
                 html: warningTextHTML
             }) }}
 
@@ -71,9 +71,11 @@
 
             <!-- INSET TEXT VERSION -->
             {% set insetTextHTML %}
-                <h2 class="nhsuk-heading-s">Explore this data requires a valid pro licence</h2>
-                <p>More information on pricing can be found on the <a class="nhsuk-link" href="https://www.microsoft.com/en-gb/power-platform/products/power-bi/pricing">Microsoft</a> site.</p>
-                <p>If you do not want to buy a licence, you can still run a paginated report and import the data into a program of your choice.</p>
+                <h2 class="nhsuk-heading-xs">Using Power BI in Fabric requires a Power BI Pro licence</h2>
+                
+                <p>You can build a report and export the data for use in a program of your choice without a licence.</p>
+                <p>If your organisation has given you a Power BI Pro licence, you can also explore our datasets directly in Fabric.</p>
+                
             {% endset %}
 
             {{ insetText({
@@ -105,14 +107,14 @@
 
         {% set action_links = { items: [
                           { 
-                              href: 'fabric',
+                              href: '#',
                               attributes: { target: '_blank' },
                               classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-left-0 nhsuk-u-margin-bottom-2',
-                              text: 'Explore this data'
+                              text: 'Build a report'
                           },
                           {
-                            href: '#',
-                            text: 'Run a paginated report'
+                            href: 'fabric',
+                            text: 'Open in Fabric'
                           }
                       ] } %}
 
