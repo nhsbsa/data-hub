@@ -52,7 +52,7 @@
         <p>If you need help choosing a dataset or need training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
     
 
-        {% if data.useWarningTextComponent === 'true' %}
+        {% if data.showMessage === 'warning' %}
 
             <!-- WARNING TEXT COMPONENT VERSION -->
 
@@ -63,15 +63,15 @@
 
             {{ warningCallout({
                 classes: 'smaller-heading',
-                heading: 'You need a Power BI Pro licence to open datasets in Power BI.',
+                heading: 'You need a Power BI Pro licence to open datasets in Power BI',
                 html: warningTextHTML
             }) }}
 
-        {% else %}
+        {% elif data.showMessage === 'inset' %}
 
             <!-- INSET TEXT VERSION -->
             {% set insetTextHTML %}
-                <h2 class="nhsuk-heading-xs">You need a Power BI Pro licence to open datasets in Power BI.</h2>
+                <h2 class="nhsuk-heading-xs">You need a Power BI Pro licence to open datasets in Power BI</h2>
                 
                 <p>If you do not have a licence, you can still use Build a report to export data.</p>
                 <p>We do not offer Power BI licences or subscriptions. Your organisation will need to provide this for you.</p>
