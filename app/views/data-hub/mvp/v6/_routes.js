@@ -3,6 +3,22 @@ const express = require('express');
 const router = express.Router();
 
 //
+// EDIT METADATA PAGE
+//
+router.get( /edit-metadata-page/, ( req, res ) => {
+
+    // Make sure we're signed in
+    if( req.session.data.signedIn !== 'yes' ){
+        req.session.data.signedIn = 'yes';
+    }
+
+    res.render( req.originalUrl.split('?')[0].replace(/^\//, '') + '.html', {
+        data: req.session.data
+    });
+
+});
+
+//
 // BROWSE (POST)
 //
 router.post( /browse/, (req, res) => {
@@ -37,6 +53,8 @@ router.post( /browse/, (req, res) => {
 //
 router.get( /browse/, (req, res) => {
 
+    console.log( 'HELLO' );
+
     if( req.session.data.removeTerms && req.session.data.searchTerms ){
 
         if( req.session.data.removeTerms === 'allTerms' ){
@@ -51,7 +69,7 @@ router.get( /browse/, (req, res) => {
 
     } else {
 
-        res.render('app/views/data-hub/mvp/v6/browse');
+        res.render( req.originalUrl.split('?')[0].replace(/^\//, ''));
 
     }
 
@@ -59,7 +77,7 @@ router.get( /browse/, (req, res) => {
 
 
 //
-//.ENTRA SCREENS
+// ENTRA SCREENS
 //
 router.post(/enter-username/, (req, res) => {
     res.redirect('enter-password');
@@ -70,23 +88,8 @@ router.post(/enter-password/, (req, res) => {
 });
 
 router.post(/enter-code/, (req, res) => {
-
-    console.log( req.session.data.returnURL );
-
-    req.session.data['signedIn'] = 'yes';
+    req.session.data.signedIn = 'yes';
     res.redirect( req.session.data.returnURL || '../../' );
-
-    /*
-    const forgottenPassword = req.session.data['forgottenPassword'];
-    req.session.data['signedIn'] = 'yes';
-
-    if (forgottenPassword === 'yes') {
-        res.redirect('update-password');
-    } else {
-        
-    }
-    */
-
 });
 
 

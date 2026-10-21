@@ -1,0 +1,482 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+
+{% if data.id and data.tag %}
+  
+  {% set folders = { PUBLIC_AVAILABLE_DATA: 'catalyst', eDEN: 'dental', eOPS: 'ophthalmic', ePACT: 'prescribing'] %}
+  {% set items = ( 'app/assets/csv/'+folders[data.tag]+'/' ) | getDirectoryFiles | getJSONFromCSVs %}
+  {% set item = data.id | getItemFromID( items ) %}
+
+{% endif %}
+
+{% if item %}
+  {% set pageHeader = 'Edit report page' %}
+  {% set buttonText = 'Update report page' %}
+{% else %}
+  {% set pageHeader = 'Create report page' %}
+  {% set buttonText = 'Create report page' %}
+{% endif %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        {% if item.data_product_name %}<span class="nhsuk-caption-l">{{ item.data_product_name }}</span>{% endif %}
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">{{ pageHeader }}</h1>
+
+        <!--
+
+          MANDATORY FIELDS
+
+          data_product_external_id  
+          data_product_name
+          data_product_status
+          data_product_publication_date
+          tag
+          roles
+          data_product_description (Blurb on the A-Z page)
+          data_product_overview [Data Product Information (Visible externally)]
+
+        -->
+
+
+        <form method="post" novalidate>
+
+          <!-- STATUS -->
+
+          {{ radios({
+            fieldset: {
+              legend: {
+                text: 'Status',
+                isPageHeading: false
+              }
+            },
+            idPrefix: 'dataProductStatus',
+            name: 'dataProductStatus',
+            value: ( data.dataProductStatus or 'DRAFT' ),
+            inline: true,
+            small: true,
+            items: [
+              {
+                value: 'DRAFT',
+                text: 'Draft'
+              },
+              {
+                value: 'PUBLISHED',
+                text: 'Published'
+              }
+            ]
+          }) }}
+
+
+          <!-- TITLE -->
+
+          {{ input({
+            label: {
+              text: 'Name'
+            },
+            id: 'dataProductName',
+            name: 'dataProductName',
+            value: ( data.name or item.data_product_name ),
+            width: 30
+          }) }}
+
+          <!-- CATEGORIES -->
+
+          {{ checkboxes({
+            fieldset: {
+              legend: {
+                text: 'Categories',
+                isPageHeading: false
+              }
+            },
+            idPrefix: 'dataProductCategories',
+            name: 'dataProductCategories',
+            value: ( data.dataProductCategories or item.tag ),
+            inline: true,
+            small: true,
+            items: [
+              {
+                value: 'ePACT',
+                html: 'prescribing' | getTag
+              },
+              {
+                value: 'eDEN',
+                html: 'dental' | getTag
+              },
+              {
+                value: 'eOPS',
+                html: 'ophthalmic' | getTag
+              },
+              {
+                value: 'finance',
+                html: 'Finance' | getTag
+              }
+            ]
+          }) }}
+
+
+          <!-- ID -->
+
+          {{ input({
+            label: {
+              text: 'External ID'
+            },
+            hint: {
+              text: 'For example DP-EPACT-0021'
+            },
+            id: 'dataProductID',
+            name: 'dataProductID',
+            value: ( data.dataProductID or item.data_product_external_id ),
+            width: 20
+          }) }}
+
+          <!-- PUBLICATION DATE -->
+
+          {{ dateInput({
+          fieldset: {
+            legend: {
+              text: 'Publication date',
+              isPageHeading: false
+            }
+          },
+          id: 'dataProductPublicationDate',
+          namePrefix: 'dataProuctPublicationDate',
+          day: {
+            width: 2,
+            autocomplete: 'day',
+            value: data.dataProductPublicationDate
+          },
+          month: {
+            width: 2,
+            autocomplete: 'month',
+            value: data.dataProductPublicationDate
+          },
+          year: {
+            width: 4,
+            autocomplete: 'year',
+            value: data.dataProductPublicationDate
+          }
+        }) }}
+
+          <!-- DESCRIPTION -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ textarea({
+              label: {
+                text: 'Description',
+                isPageHeading: false
+              },
+              rows: '3',
+              hint: {
+                text: 'This text appears on the A-Z search page'
+              },
+              id: 'dataProductDescription',
+              name: 'dataProductDescription',
+              value: ( data.dataProductDescription or item.data_product_description )
+            }) }}
+
+          </div>
+
+
+          <!-- OVERVIEW -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ textarea({
+              label: {
+                text: 'Overview',
+                isPageHeading: false
+              },
+              rows: '10',
+              hint: {
+                html: 'You can use <a href="https://www.markdownguide.org/basic-syntax/">Markdown</a> in this field'
+              },
+              id: 'dataProductOverview',
+              name: 'dataProductOverview',
+              value: ( data.dataProductOverview or item.data_product_overview )
+            }) }}
+
+          </div>
+
+
+
+
+
+
+
+          <style>
+
+            input[name="dataProductPrescribingRoles"] + .nhsuk-checkboxes__label,
+            input[name="dataProductDentalRoles"] + .nhsuk-checkboxes__label,
+            input[name="dataProductOphthalmicRoles"] + .nhsuk-checkboxes__label,
+            input[name="dataProductHOTRoles"] + .nhsuk-checkboxes__label,
+            input[name="dataProductMODRoles"] + .nhsuk-checkboxes__label {
+              color: #4c6272;
+            }
+
+            input[name="dataProductPrescribingRoles"]:checked + .nhsuk-checkboxes__label,
+            input[name="dataProductDentalRoles"]:checked + .nhsuk-checkboxes__label,
+            input[name="dataProductOphthalmicRoles"]:checked + .nhsuk-checkboxes__label,
+            input[name="dataProductHOTRoles"]:checked + .nhsuk-checkboxes__label,
+            input[name="dataProductMODRoles"]:checked + .nhsuk-checkboxes__label {
+              font-weight: bold !important;
+              color: #212b32;
+            }
+
+          </style>
+          
+
+          
+          <!-- PRESCRIBING ROLES CONDITIONAL -->
+
+          {% set prescribingRolesHTML %}
+            
+            {{ checkboxes({
+              fieldset: {
+                legend: {
+                  text: 'Prescribing roles',
+                  isPageHeading: false,
+                  classes: 'nhsuk-u-visually-hidden'
+                }
+              },
+              idPrefix: 'dataProductPrescribingRoles',
+              name: 'dataProductPrescribingRoles',
+              value: data.dataProductPrescribingRoles,
+              small: true,
+              items: [
+                { value: 'EPACT_REMU_CENTRALLY_RETAINED_ITEMS_ONLY', html: 'DataHub Presc Remu Centrally Retained Items' },
+                { value: 'EPACT_REMU_ICB', html: 'DataHub Presc Remuneration ICB' },
+                { value: 'EPACT_REMU_NATIONAL_LEVEL', html: 'DataHub Presc Remuneration National Level' },
+                { value: 'EPACT_REMU_PROVIDER', html: 'DataHub Presc Remuneration Provider' },
+                { value: 'EPACT_REMU_REGIONAL', html: 'DataHub Presc Remuneration Regional' },
+                { value: 'EPACT_REMU_UNRESTRICTED_USER', html: 'DataHub Presc Remu Admin' },
+                { value: 'EPACT2_DEFAULT_DASHBOARD_ACCESS_ONLY', html: 'DataHub Presc Default Dashboard' },
+                { value: 'EPACT2_DEFAULT_DASHBOARD_AND_ANALYSIS', html: 'DataHub Presc Default Dashboard Analysis' },
+                { value: 'PHARMACY_CONTRACT', html: 'DataHub Presc Pharmacy Contract' },
+                { value: 'EPACT2_IOM_USER', html: 'DataHub Presc IoM Guernsey Alderney' },
+                { value: 'EPACT2_NHS_NUMBER_SEARCH', html: 'DataHub Presc NHS Number Search' },
+                { value: 'EPACT2_PRESCRIBER_GP_PRACTICE', html: 'DataHub Presc Prescriber GP Practice' },
+                { value: 'EPACT2_PRESCRIBER_LEVEL_ACCESS', html: 'DataHub Presc Prescriber Level Access' },
+                { value: 'EPACT2_PRESCRIPTION_SEARCH', html: 'DataHub Presc Prescription Search' },
+                { value: 'DATAHUB_PRESC_ADMIN', html: 'DataHub Presc Admin' }
+              ]
+            }) }}
+
+          {% endset %}
+
+          <!-- DENTAL ROLES CONDITIONAL -->
+          {% set dentalRolesHTML %}
+            
+            {{ checkboxes({
+              fieldset: {
+                legend: {
+                  text: 'Dental roles',
+                  isPageHeading: false,
+                  classes: 'nhsuk-u-visually-hidden'
+                }
+              },
+              idPrefix: 'dataProductDentalRoles',
+              name: 'dataProductDentalRoles',
+              value: data.dataProductDentalRoles,
+              small: true,
+              items: [
+                { value: 'DENTAL_BSA_DENTAL_USER', html: 'DataHub Dental BSA Dental User' },
+                { value: 'DENTAL_BSA_IS_USER', html: 'DataHub Dental Admin' },
+                { value: 'DENTAL_DH_SC_NHSE_CENTRAL_TEAM', html: 'DataHub Dental DHSC NHSE Central' },
+                { value: 'DENTAL_ISLE_OF_MAN_COMMISSIONER', html: 'DataHub Dental Isle of Man Commissioner' },
+                { value: 'DENTAL_NHS_ENGLAND_COMMISSIONER', html: 'DataHub Dental NHSE Commissioner' },
+                { value: 'DENTAL_NHS_ENGLAND_FINANCE', html: 'DataHub Dental NHSE Finance' },
+                { value: 'DENTAL_NHS_WALES_COMMISSIONER', html: 'DataHub Dental NHS Wales Commissioner' },
+                { value: 'DENTAL_NHS_WALES_FINANCE', html: 'DataHub Dental NHS Wales Finance' },
+                { value: 'DENTAL_PA_USER', html: 'DataHub Dental Provider Assurance User' },
+                { value: 'DENTAL_WELSH_GOVERNMENT', html: 'DataHub Dental Welsh Government' },
+                { value: 'DENTAL_DS_CORP_FULL', html: 'DataHub Dental Surgery Corporate User' },
+                { value: 'DENTAL_DS_PRAC_MAN', html: 'DataHub Dental Surgery Practice Manager' },
+                { value: 'DENTAL_DS_PROVIDER', html: 'DataHub Dental Surgery Provider' }
+              ]
+            }) }}
+
+          {% endset %}
+
+          <!-- OPHTHALMIC ROLES CONDITIONAL -->
+          {% set ophthalmicRolesHTML %}
+            
+            {{ checkboxes({
+              fieldset: {
+                legend: {
+                  text: 'Ophthalmic roles',
+                  isPageHeading: false,
+                  classes: 'nhsuk-u-visually-hidden'
+                }
+              },
+              idPrefix: 'dataProductOphthalmicRoles',
+              name: 'dataProductOphthalmicRoles',
+              value: data.dataProductOphthalmicRoles,
+              small: true,
+              items: [
+                { value: 'OPHTHALMIC_ADMIN', html: 'DataHub Ophthalmic Admin' },
+                { value: 'OPHTHALMIC_USER_RO', html: 'DataHub Ophthalmic User' }
+              ]
+            }) }}
+
+          {% endset %}
+
+          <!-- HOT ROLES CONDITIONAL -->
+          {% set hotRolesHTML %}
+            
+            {{ checkboxes({
+              fieldset: {
+                legend: {
+                  text: 'HOT roles',
+                  isPageHeading: false,
+                  classes: 'nhsuk-u-visually-hidden'
+                }
+              },
+              idPrefix: 'dataProductHOTRoles',
+              name: 'dataProductHOTRoles',
+              value: data.dataProductHOTRoles,
+              small: true,
+              items: [
+              { value: 'HOT_ICB_LEVEL', html: 'DataHub HOT ICB Level' },
+              { value: 'HOT_NATIONAL_LEVEL', html: 'DataHub HOT National Level' },
+              { value: 'HOT_SICBL_LEVEL', html: 'DataHub HOT SICBL Level' }
+              ]
+            }) }}
+
+          {% endset %}
+
+          <!-- MOD ROLES CONDITIONAL -->
+          {% set modRolesHTML %}
+            
+            {{ checkboxes({
+              fieldset: {
+                legend: {
+                  text: 'MOD roles',
+                  isPageHeading: false,
+                  classes: 'nhsuk-u-visually-hidden'
+                }
+              },
+              idPrefix: 'dataProductMODRoles',
+              name: 'dataProductMODRoles',
+              value: data.dataProductMODRoles,
+              small: true,
+              items: [
+                { value: 'MOD_MOD_ADMIN', html: 'DataHub MOD Admin' },
+                { value: 'MOD_MOD_USER_RO', html: 'DataHub MOD User - Read Only' },
+                { value: 'MOD_MOD_USER_RW', html: 'DataHub MOD User - Read and Write' }
+              ]
+            }) }}
+
+          {% endset %}
+
+
+
+
+
+        {{ checkboxes({
+            fieldset: {
+              legend: {
+                text: 'Roles',
+                isPageHeading: false
+              }
+            },
+            idPrefix: 'dataProductRoles',
+            name: 'dataProductRoles',
+            value: data.dataProductRoles,
+            small: true,
+            items: [
+              { value: 'ROLES_PRESCRIBING', html: 'Prescribing and dispensing roles', conditional: { html: prescribingRolesHTML } },
+              { value: 'ROLES_DENTAL', html: 'Dental roles', conditional: { html: dentalRolesHTML } },
+              { value: 'ROLES_OPHTHALMIC', html: 'Opthalmic roles', conditional: { html: ophthalmicRolesHTML } },
+              { value: 'ROLES_MOD', html: 'Ministry of Defence (MoD) roles', conditional: { html: modRolesHTML } },
+              { value: 'ROLES_HOT', html: 'Home Oxygen Therapy (HOT) roles', conditional: { html: hotRolesHTML } }
+            ]
+          }) }}
+
+          
+
+
+          <script>
+            
+            document.addEventListener('DOMContentLoaded', function(){
+
+              // SET CHANGE 
+              document.querySelectorAll( 'input[name="dataProductRoles"]' ).forEach( function( el ){
+
+                el.addEventListener( 'change', function( e ){
+
+                  const nextState = e.target.checked;
+
+                  let nextName = '';
+                  
+                  switch( e.target.getAttribute('value') ){
+                    case 'ROLES_PRESCRIBING':
+                      nextName = 'dataProductPrescribingRoles';
+                      break;
+                    case 'ROLES_DENTAL':
+                      nextName = 'dataProductDentalRoles';
+                      break;
+                    case 'ROLES_OPHTHALMIC':
+                      nextName = 'dataProductOphthalmicRoles';
+                      break;
+                    case 'ROLES_MOD':
+                      nextName = 'dataProductMODRoles';
+                      break;
+                    case 'ROLES_HOT':
+                      nextName = 'dataProductHOTRoles';
+                      break;
+                  }
+
+                  if( nextName ){
+
+                    document.querySelectorAll('input[name='+nextName+']').forEach( function( nextEl ){
+                      nextEl.checked = e.target.checked;
+                    });
+
+                  }
+
+                });
+
+              });
+
+            });
+
+          </script>
+
+          
+
+          {{ button({
+            text: buttonText
+          }) }}
+
+
+        </form>
+
+
+
+
+       
+    </div>
+</div>
+{% endblock %}

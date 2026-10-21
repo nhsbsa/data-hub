@@ -341,7 +341,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   //
   filters.getTagText = function( txt ){
 
-    let newText = '';
+    let newText = txt;
 
     if( txt ){
 
@@ -399,6 +399,9 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
             break;
           case 'ophthalmic':
             newHTML = '<strong class="nhsuk-tag nhsuk-tag--yellow">' + filters.getTagText(txt) + '</strong>';
+            break;
+          default:
+            newHTML = '<strong class="nhsuk-tag nhsuk-tag--white">' + txt + '</strong>';
             break;
         }
 
