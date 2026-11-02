@@ -1,0 +1,70 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageHeader = "What's new" %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+    {{ pageHeader }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        }
+    ]
+}) }}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+        <div class="nhsuk-u-reading-width">
+            <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+        </div>
+
+        <!-- SEPTEMBER 2026 -->
+        {% call details({ summary: { html: 'September 2026' }, classes: 'nhsuk-expander', attributes: { open: true } }) %}
+            <div class="nhsuk-u-reading-width">
+
+                <h2 class="nhsuk-heading-s">Bug fixes</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Corrected content that was unclear or inaccurate</li>
+                    <li>Fixed navigation and broken link issues</li>
+                    <li>Fixed access issues affecting some Data Exploration users</li>
+                    <li>Fixed an issue with displaying the latest data</li>
+                </ul>
+
+                <h2 class="nhsuk-heading-s">Service improvements</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Made labels and messages easier to understand</li>
+                    <li>Improved dashboard descriptions to make information more consistent</li>
+                    <li>Updated the phase banner to show that the Data Hub has moved from Alpha to Beta</li>
+                    <li>Updated links to NHSBSA news pages</li>
+                </ul>
+
+                <h2 class="nhsuk-heading-s">Maintenance</h2>
+                <ul class="nhsuk-list nhsuk-list--bullet">
+                    <li>Improved platform stability and reliability</li>
+                    <li>Updated user roles and permissions</li>
+                </ul>
+
+            </div>
+        {% endcall %}
+
+
+    </div>
+</div>
+{% endblock %}
