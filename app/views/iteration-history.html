@@ -36,13 +36,49 @@
         <p>Based on user feedback, we continue to iterate the prototype to fulfil the needs of our users.</p>
 
         <h2 class="nhsuk-heading-m">Post MVP (SOW2)</h2>
+
+
+        {% call details({
+            summary: { html: 'Version 6&nbsp;&nbsp;<span class="nhsuk-tag nhsuk-tag--blue">In progress</span>' },
+            classes: 'nhsuk-expander'
+        }) %}
+
+       <h2 class="nhsuk-heading-s">Identified in user research</h2>
+
+       <ul>
+        <li>Browse more information on reports before sign in, including report names and metadata</li>
+        <li>Ability to filter report types</li>
+        <li>Marking search terms within the Browse reports page to demonstrate why a result is being shown</li>
+       </ul>
+
+      <h2 class="nhsuk-heading-s">GDS guidance</h2>
+
+       <ul>
+        <li>Moving the sign in screen to the metadata page</li>
+        <li>Simplifying the site structure to allow easier navigation</li>
+       </ul>
+
+       <h2 class="nhsuk-heading-s">Business needs</h2>
+
+       <ul>
+        <li>Data exploration tools page (semantic models/datasets)</li>
+        <li>Updated admin screens</li>
+       </ul>
+
+
+       <h2 class="nhsuk-heading-s">Directory</h2>
+        <p><a href="data-hub/mvp/v6/prototype-directory">View version directory</a></p>
+            
+        {{ button( { text: 'Launch version 6', href: 'data-hub/mvp/v6/' }  ) }}
+            
+
+        {% endcall %}
+
+
         <details class="nhsuk-details nhsuk-expander">
             <summary class="nhsuk-details__summary">
                 <span class="nhsuk-details__summary-text">
                     Version 5
-                </span>
-                <span class="nhsuk-tag nhsuk-tag--blue nhsuk-u-float-right nhsuk-u-margin-top-1">
-                    DESIGN IN PROGRESS
                 </span>
             </summary>
             <div class="nhsuk-details__text">
