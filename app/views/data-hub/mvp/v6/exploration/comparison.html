@@ -33,16 +33,40 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1>Comparison</h1>
+        <h1 class="nhsuk-heading-l">Comparison</h1>
+
+        <style>
+          a:hover .nhsuk-tag--green {
+            background-color: #004c23;
+            border-color: #004c23;
+            color: #cce5d8;
+          }
+
+          a:has(.nhsuk-tag--green):focus,
+          a:has(.nhsuk-tag--green):active {
+              box-shadow: none;
+          }
+
+          a:focus .nhsuk-tag--green,
+          a:active .nhsuk-tag--green {
+            background-color: #ffeb3b !important;
+            border-color: #ffeb3b !important;
+            color: #212b32 !important;
+            box-shadow: 0 -2px #ffeb3b, 0 4px #212b32;
+          }
+
+        </style>
+
+        {% set tableRows = publicItems | makeComparisonAndConvertToTableRows( prescribingItems ) %}
 
         {{ table({
                 caption: { html: '<span class="nhsuk-u-visually-hidden">Comparison of public and prescribing reports</span>' },
                 firstCellIsHeader: false,
                 head: [
-                    { text: 'Public' },
-                    { text: 'Prescribing' }
+                    { text: 'Prescribing', colspan: 2 },
+                    { text: 'Public' }
                 ],
-                rows: publicItems | makeComparisonAndConvertToTableRows( prescribingItems )
+                rows: tableRows
         }) }}
 
 

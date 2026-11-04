@@ -188,6 +188,10 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   publicItems = Array.isArray(publicItems) ? publicItems : [];
   prescribingItems = Array.isArray(prescribingItems) ? prescribingItems : [];
 
+  const processName = function( currentName ){
+    return currentName.split('\\').join().toLowerCase().trim();
+  }
+
   const newPrescribingItems = [];
 
   prescribingItems.forEach(function(prescribingItem) {
@@ -198,7 +202,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
       publicItems.forEach(function(publicItem) {
 
-        if ( publicItem.data_product_name.toLowerCase().trim() === prescribingItem.data_product_name.toLowerCase().trim() ) {
+        if ( processName( publicItem.data_product_name ) === processName( prescribingItem.data_product_name ) ) {
           foundMatch = true;
         }
 
@@ -226,42 +230,96 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     publicItems = ( Array.isArray( publicItems ) && publicItems.length > 0 ) ? publicItems : [];
     prescribingItems = ( Array.isArray( prescribingItems ) && prescribingItems.length > 0 ) ? prescribingItems : [];
 
+    const processName = function( currentName ){
+      return currentName.split('\\').join('').split('-').join('-').split('/').join('').toLowerCase().trim();
+    }
+
+    const publicReports = this.ctx.data.publicReports;
+
     const tableItems = [];
 
-    publicItems.forEach( function( publicItem ){
+    prescribingItems.forEach( function( prescribingItem ){
 
-      if( publicItem ){
+      // First pass (matching with prescribing items)
+      if( prescribingItem && prescribingItem.data_product_name ){
 
         const obj = [
-          { html : '<a href="../view?id=' + publicItem.data_product_external_id + '&tag=' + publicItem.tag + '">'+ publicItem.data_product_name +'</a>' }
+          { html : '<a href="../view?id=' + prescribingItem.data_product_external_id + '&tag=' + prescribingItem.tag + '">'+ prescribingItem.data_product_name +'</a>' },
+          { html : '' },
+          { html : '' }
         ];
-        
-        prescribingItems.forEach( function( prescribingItem ){
 
-          if( prescribingItem ){
-
-            if( publicItem.data_product_name.toLowerCase().trim() === prescribingItem.data_product_name.toLowerCase().trim() ){
-              
-              
-              
-              obj.push(
-                { html : '<a href="../view?id=' + prescribingItem.data_product_external_id + '&tag=' + prescribingItem.tag + '">'+ prescribingItem.data_product_name +'</a>' }
-              );
-            } 
-
+        // Check if this report is mentioned on:
+        // https://www.nhsbsa.nhs.uk/access-our-data-products/epact2/dashboards-and-specifications
+        //
+        publicReports.forEach(function( publicReport, i ){
+          if( publicReport && publicReport.title ){
+            const prescribingItemName = prescribingItem.data_product_name;
+            const alts = publicReport.alt.split('|');
+            if( processName( prescribingItemName ) === processName( publicReport.title ) || alts.indexOf( prescribingItemName ) > -1 ){
+              obj[1].html = '<a href="'+publicReport.link+'"><span class="nhsuk-tag nhsuk-tag--green">On site</span></a>';
+            }
           }
-
         });
-
-        if( obj.length === 1 ){
-          obj.push( { text: '' } );
-        }
+        
+        // Check if there's an existing Catalyst dashboard with the same name
+        publicItems.forEach( function( publicItem ){
+          if( publicItem && publicItem.data_product_name ){
+            if( processName( publicItem.data_product_name ) === processName( prescribingItem.data_product_name ) ){
+              obj[2].html = '<a href="../view?id=' + publicItem.data_product_external_id + '&tag=' + publicItem.tag + '">'+ publicItem.data_product_name +'</a>';
+            } 
+          }
+        });
 
         tableItems.push( obj );
 
       }
 
     });
+
+    console.log( tableItems.length );
+
+      // Second pass (left over public items)
+      publicItems.forEach( function( publicItem ){
+         if( publicItem && publicItem.data_product_name ){
+
+           const obj = [
+             { html : '' },
+             { html : '' },
+             { html : '<a href="../view?id=' + publicItem.data_product_external_id + '&tag=' + publicItem.tag + '">'+ publicItem.data_product_name +'</a>' }
+           ];
+
+           let check = true;
+
+           tableItems.forEach(function( tableItem ){
+             if( tableItem && tableItem[2] ){
+               if( tableItem[2].html.indexOf( publicItem.data_product_name ) > -1 ){
+                 check = false;
+               }
+             }
+           });
+
+          if( check ){
+            publicReports.forEach(function( publicReport ){
+            if( publicReport && publicReport.title ){
+                
+                const publicItemName = publicItem.data_product_name;
+                const alts = publicReport.alt.split('|');
+
+                if( processName( publicItemName ) === processName( publicReport.title ) || alts.indexOf( publicItemName ) > -1 ){
+                  obj[1].html = '<a href="'+publicReport.link+'"><span class="nhsuk-tag nhsuk-tag--green">On site</span></a>';
+                }
+              }
+            });
+
+            tableItems.push( obj );
+          }
+
+           
+         }
+       });
+
+       console.log( tableItems.length );
 
     return tableItems;
 
