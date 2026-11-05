@@ -1,6 +1,18 @@
 module.exports = {
 
-    modelOrDataset: 'dataset', // model,dataset
+    
+    // Setttings
+    settings: {
+
+        // DC146
+        dc146: {
+            modelOrDataset: 'dataset', // model,dataset
+        },
+
+        // V6
+        v6: {}
+         
+    },
 
     publicReports: [
 

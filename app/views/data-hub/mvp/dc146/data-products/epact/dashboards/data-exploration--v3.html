@@ -15,7 +15,7 @@
 {% set modelOrDatasetShort = 'model' %}
 {% set modelOrDatasetDetails = 'Model information' %}
 
-{% if data.modelOrDataset === 'dataset' %}
+{% if data.settings[prototypeVersion].modelOrDataset === 'dataset' %}
     {% set modelOrDataset = 'dataset' %}
     {% set modelOrDatasetShort = 'dataset' %}
     {% set modelOrDatasetDetails = 'Dataset information' %}
