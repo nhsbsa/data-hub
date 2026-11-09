@@ -1,7 +1,16 @@
 module.exports = {
 
+    //
+    // GLOBALS
+    //
+    debug: 'false',
     
-    // Setttings
+    signedIn: 'no',
+    userType: '',
+
+    //
+    // VERSION SPECIFIC SETTINGS
+    // 
     settings: {
 
         // DC146

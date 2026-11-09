@@ -64,18 +64,38 @@
     </div>
 
 
-
     <div class="nhsuk-grid-column-full">
 
-        {% if data.dc146Expander === 'open' %}
-            {% set isDC146Open = true %}
-        {% endif %}
+        {% call details({
+            id: 'v6Expander',
+            summaryText: 'Version 6',
+            classes: 'nhsuk-expander'
+        }) %}
+
+            <!-- Version 6 -->
+            <p class="nhsuk-body">The first post-MVP version. Focusing on admin systems and restructuring.</p>
+
+            <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-4">
+
+            <div class="nhsuk-button-group">
+                {{ button({ text: 'Default', href: 'data-hub/mvp/v6/?userType=' }) }}
+                {{ button({ text: 'Admin', href: 'data-hub/mvp/v6/?userType[]=admin' }) }}
+            </div>
+
+        {% endcall %}
+
+    </div>
+
+
+
+
+
+    <div class="nhsuk-grid-column-full">
 
         {% call details({
             id: 'dc146Expander',
             summaryText: 'DC146',
-            classes: 'nhsuk-expander',
-            open: isDC146Open
+            classes: 'nhsuk-expander'
         }) %}
 
             <!-- Version DC146 -->

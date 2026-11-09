@@ -32,7 +32,7 @@
     
     {% set accountItems = accountItems.concat([
       { text: "My account", href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/my-account" },
-      { text: "Sign out", href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/signed-out?signedIn=no?userType=" }
+      { text: "Sign out", href: "/data-hub/mvp/" ~ prototypeVersion ~ "/auth/signed-out?signedIn=no&userType=&returnURL=" + ( currentURL | urlencode ) }
     ]) %}
     
     {{ header({

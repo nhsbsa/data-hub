@@ -56,6 +56,31 @@
 
 
 {% block content %}
+
+{% if data.userType | containsUserType('admin') and data.signedIn === 'yes' %}
+  <!-- ADMIN OPTIONS -->
+  <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+          {% call notificationBanner({ title: 'Admin options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
+
+            <div class="nhsuk-button-group">
+
+              {{ button({
+                href: 'admin/edit-metadata-page?id=&tag=',
+                text: 'Create new page',
+                classes: 'nhsuk-button--admin nhsuk-button--small'
+              }) }}
+
+            </div>
+
+          {% endcall %}
+
+      </div>
+  </div>
+{% endif %}
+
+
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 

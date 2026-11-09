@@ -12,6 +12,32 @@ router.get( /edit-metadata-page/, ( req, res ) => {
         req.session.data.signedIn = 'yes';
     }
 
+    // Clear variables if creating new page
+    if( !req.session.data.id && !req.session.data.tag ){
+        
+        const fields = [
+            'dataProductStatus',
+            'dataProductID',
+            'dataProductName',
+            'dataProductPublicationDate',
+            'dataProductDescription',
+            'dataProductOverview',
+            'dataProductRoles',
+            'dataProductDashboardLink',
+            'oracleDashboardLink',
+            'dataProductCategories',
+            'dataProductPrescribingRoles',
+            'dataProductDentalRoles',
+            'dataProductOphthalmicRoles',
+            'dataProductMODRoles',
+            'dataProductHOTRoles'
+        ];
+        fields.forEach( function( field ){
+            delete req.session.data[field];
+        } );
+
+    }
+
     res.render( req.originalUrl.split('?')[0].replace(/^\//, '') + '.html', {
         data: req.session.data
     });
@@ -53,8 +79,6 @@ router.post( /browse/, (req, res) => {
 //
 router.get( /browse/, (req, res) => {
 
-    console.log( 'HELLO' );
-
     if( req.session.data.removeTerms && req.session.data.searchTerms ){
 
         if( req.session.data.removeTerms === 'allTerms' ){
@@ -75,6 +99,20 @@ router.get( /browse/, (req, res) => {
 
 });
 
+
+//
+// EDIT METADATA PAGE
+//
+router.post(/edit-metadata-page/, (req, res) => {
+
+    const id = req.session.data.id || '';
+    const tag = req.session.data.tag || '';
+
+    const destination = '../view?id=' + id + '&tag=' + tag; 
+
+    res.redirect( destination );
+
+});
 
 //
 // ENTRA SCREENS

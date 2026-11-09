@@ -18,6 +18,43 @@
 ///////////////////////////////////////////
 
 
+// ADMIN - NOTIFICATION BANNER TWEAKS
+
+.nhsuk-notification-banner--warning {
+    border-color: #d5281b;
+}
+
+.nhsuk-notification-banner--warning .nhsuk-notification-banner__header {
+    background-color: #d5281b;
+}
+
+.nhsuk-notification-banner .nhsuk-button-group .nhsuk-button--small:last-child {
+    margin-bottom: 4px;
+}
+
+@include nhsuk-media-query($from: tablet) {
+    .nhsuk-notification-banner .nhsuk-button-group .nhsuk-button--small {
+        margin-bottom: 4px;
+    }
+}
+
+.nhsuk-notification-banner .nhsuk-button--admin {
+    background-color: #005eb8;
+}
+
+.nhsuk-notification-banner .nhsuk-button--admin:hover,
+.nhsuk-notification-banner .nhsuk-button--admin:active {
+    background-color: #003087;
+} 
+
+
+// TAGS
+
+.nhsuk-tag {
+    white-space: nowrap;
+    max-width: none;
+}
+
 .nhsuk-list--border .nhsuk-tag,
 .nhsuk-table__cell .nhsuk-tag {
     white-space: nowrap;

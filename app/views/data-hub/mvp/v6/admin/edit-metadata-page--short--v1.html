@@ -10,7 +10,7 @@
 
 {% if data.id and data.tag %}
   
-  {% set folders = { PUBLIC_AVAILABLE_DATA: 'catalyst', eDEN: 'dental', eOPS: 'ophthalmic', ePACT: 'prescribing'] %}
+  {% set folders = { PUBLIC_AVAILABLE_DATA: 'catalyst', eDEN: 'dental', eOPS: 'ophthalmic', ePACT: 'prescribing' } %}
   {% set items = ( 'app/assets/csv/'+folders[data.tag]+'/' ) | getDirectoryFiles | getJSONFromCSVs %}
   {% set item = data.id | getItemFromID( items ) %}
 
@@ -72,7 +72,7 @@
             },
             idPrefix: 'dataProductStatus',
             name: 'dataProductStatus',
-            value: ( data.dataProductStatus or 'DRAFT' ),
+            value: ( data.dataProductStatus or item.data_product_status ),
             inline: true,
             small: true,
             items: [
@@ -102,6 +102,10 @@
 
           <!-- CATEGORIES -->
 
+          {% if item.tag %}
+            {% set tags = item.tag | processCategoriesFromTag( item.is_finance ) %}
+          {% endif %}
+
           {{ checkboxes({
             fieldset: {
               legend: {
@@ -111,20 +115,20 @@
             },
             idPrefix: 'dataProductCategories',
             name: 'dataProductCategories',
-            value: ( data.dataProductCategories or item.tag ),
+            values: ( data.dataProductCategories or tags ),
             inline: true,
             small: true,
             items: [
               {
-                value: 'ePACT',
+                value: 'EPACT',
                 html: 'prescribing' | getTag
               },
               {
-                value: 'eDEN',
+                value: 'EDEN',
                 html: 'dental' | getTag
               },
               {
-                value: 'eOPS',
+                value: 'EOPS',
                 html: 'ophthalmic' | getTag
               },
               {
@@ -153,30 +157,65 @@
           <!-- PUBLICATION DATE -->
 
           {{ dateInput({
-          fieldset: {
-            legend: {
-              text: 'Publication date',
-              isPageHeading: false
+            fieldset: {
+              legend: {
+                text: 'Publication date',
+                isPageHeading: false
+              }
+            },
+            id: 'dataProductPublicationDate',
+            namePrefix: 'dataProductPublicationDate',
+            values: data.dataProductPublicationDate or ( item.data_product_publication_date | processDateForInput ),
+            day: {
+              width: 2,
+              autocomplete: 'day'
+            },
+            month: {
+              width: 2,
+              autocomplete: 'month'
+            },
+            year: {
+              width: 4,
+              autocomplete: 'year'
             }
-          },
-          id: 'dataProductPublicationDate',
-          namePrefix: 'dataProuctPublicationDate',
-          day: {
-            width: 2,
-            autocomplete: 'day',
-            value: data.dataProductPublicationDate
-          },
-          month: {
-            width: 2,
-            autocomplete: 'month',
-            value: data.dataProductPublicationDate
-          },
-          year: {
-            width: 4,
-            autocomplete: 'year',
-            value: data.dataProductPublicationDate
-          }
         }) }}
+
+
+
+
+          <!-- DASHBOARD LINK -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ input({
+              label: {
+                text: 'Dashboard link',
+                isPageHeading: false
+              },
+              id: 'dataProductDashboardLink',
+              name: 'dataProductDashboardLink',
+              value: ( data.dataProductDashboardLink or item.data_product_dashboard_link )
+            }) }}
+
+          </div>
+
+          <!-- ORACLE LINK -->
+          <div class="nhsuk-u-reading-width">
+
+            {{ input({
+              label: {
+                text: 'Oracle link',
+                isPageHeading: false
+              },
+              id: 'oracleDashboardLink',
+              name: 'oracleDashboardLink',
+              value: ( data.oracleDashboardLink or item.oracle_dashboard_link )
+            }) }}
+
+          </div>
+
+
+
 
           <!-- DESCRIPTION -->
 
@@ -210,7 +249,7 @@
               },
               rows: '10',
               hint: {
-                html: 'You can use <a href="https://www.markdownguide.org/basic-syntax/">Markdown</a> in this field'
+                html: 'You can use <a target="_blank" href="https://www.markdownguide.org/basic-syntax/">Markdown (opens in a new tab)</a> in this field'
               },
               id: 'dataProductOverview',
               name: 'dataProductOverview',

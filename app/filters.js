@@ -29,6 +29,32 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
   }
 
+
+  //
+  // CONTAINS USER TYPE
+  // Pass a variable, is it an array, does it contain the specified user type?
+  //
+  filters.containsUserType = function( arr, userType ){
+
+    console.log('CHECKING FOR: ' + userType);
+    console.log( arr );
+
+    let check = false;
+
+    if( Array.isArray( arr ) && arr.length > 0 ){
+      if( arr.indexOf(userType) > -1 ){
+        check = true;
+      }
+    } else if( typeof arr === 'string' ){
+      if( arr === userType ){
+        check = true;
+      }
+    }
+
+    return check;
+
+  }
+
   //
   // MERGE ARRAYS
   // Merges as many arrays as you can chuck at it...
@@ -742,6 +768,52 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
     
   }
+
+
+
+
+  //
+  // PROCESS CATEGORIES FROM TAG
+  //
+  filters.processCategoriesFromTag = function( tag, isFinance ){
+
+    const categories = [];
+
+    if( tag ){
+
+      if( tag === 'PUBLIC_AVAILABLE_DATA' ){
+        categories.push( 'EPACT' );
+      } else {
+        categories.push( tag );
+      }
+
+      if( isFinance === 'TRUE' ){
+        categories.push( 'finance' );
+      }
+
+    }
+
+    return categories;
+
+  }
+
+
+  //
+  // PROCESS DATE FOR INPUT
+  //
+  filters.processDateForInput = function( inputDate ){
+
+    const date = new Date( inputDate );
+
+    return {
+      year: date.getUTCFullYear(),
+      month: date.getUTCMonth() + 1,
+      day: date.getUTCDate()
+    };
+
+  };
+
+
 
   return filters;
 };

@@ -39,6 +39,39 @@
 
 
 {% block content %}
+
+
+{% if data.userType | containsUserType('admin') and data.signedIn === 'yes' %}
+  <!-- ADMIN OPTIONS -->
+  <div class="nhsuk-grid-row">
+      <div class="nhsuk-grid-column-full">
+
+          {% call notificationBanner({ title: 'Admin options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
+
+            <div class="nhsuk-button-group">
+
+              {{ button({
+                href: 'admin/edit-metadata-page?id='+data.id + '&tag='+data.tag,
+                text: 'Edit page',
+                classes: 'nhsuk-button--admin nhsuk-button--small'
+              }) }}
+
+              {{ button({
+                href: 'admin/delete-page?id='+data.id + '&tag='+data.tag,
+                text: 'Delete page',
+                classes: 'nhsuk-button--secondary nhsuk-button--small'
+              }) }}
+
+            </div>
+
+          {% endcall %}
+
+      </div>
+  </div>
+{% endif %}
+
+
+
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
@@ -50,13 +83,17 @@
           {{ tag({ classes: 'nhsuk-tag--white', text: 'Report type' }) }}
         {% endif %}
 
+
+        <hr class="nhsuk-section-break nhsuk-section-break--m" />
+
     </div>
 </div>
 
 
+
 <!-- CARD SECTION -->
     
-    <ul class="nhsuk-grid-row nhsuk-card-group nhsuk-u-margin-top-6">
+    <ul class="nhsuk-grid-row nhsuk-card-group">
       <li class="nhsuk-grid-column-one-half nhsuk-card-group__item">
 
 
