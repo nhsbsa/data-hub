@@ -47,10 +47,34 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-reading-width">
 
-        <p>Our prescribing and dispensing data is available to <a href="data-exploration--v4--differences">query and download in different ways</a>.</p>
-        <p>You need to sign in to access this dataset.</p>
+        <p>Our prescribing and dispensing data is available in a 24-month dataset to explore.</p>
+        
+        {% call details( { summary: 'What you can do with each licence type' } ) %}
+            
+            <p>With a <strong>free Power BI licence</strong>, you can:</p>
+ 
+            <ul>
+                <li>explore the data</li>
+                <li>create a data exploration</li>
+                <li>save your exploration in My Workspace, if an admin has set it up for this</li>
+                <li>reopen and reuse saved explorations</li>
+                <li>save an exploration as a Power BI report</li>
+                <li>export data from the Power BI report to Excel, PowerPoint or PDF</li>
+            </ul>
+            
+            <p>Additionally, with a <strong>Pro Power BI licence</strong>, you can:</p>
+            
+            <ul>
+                <li>save a report into a shared workspace</li>
+                <li>share a report</li>
+            </ul>
+
+        {% endcall %}
+        
         <p>If you need help or training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
     
+        
+
     </div>
 </div>
 
