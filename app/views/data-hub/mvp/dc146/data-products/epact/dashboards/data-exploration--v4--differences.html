@@ -1,0 +1,59 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout-data-product-footer.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitle = 'Accessing our prescribing and dispensing dataset' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+            text: "ePACT2"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/data-exploration-tools",
+            text: "Data exploration tools"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/dashboards/data-exploration--v4--single",
+            text: "Explore prescribing and dispensing data"
+        }
+    ]
+}) }}
+{% endblock %}
+
+
+{% block content%}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+        <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
+    </div>
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        
+    </div>
+</div>
+
+
+{% endblock %}

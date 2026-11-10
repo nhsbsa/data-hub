@@ -66,11 +66,7 @@ text: "ePACT2"
 
         {% if data.iteration === 'inHub' %}
 
-            {% set link = [
-                'dashboards/data-exploration--v3',
-                'dashboards/data-exploration--v3--cards',
-                'dashboards/data-exploration--v3--cards-tabs'
-            ] | random %}
+            {% set link = 'dashboards/data-exploration--v4' %}
 
             <h2 class="nhsuk-heading-m nhsuk-u-margin-bottom-3"><a href="{{ link }}">Explore prescribing and dispensing data</a></h2>        
         {% else %}
