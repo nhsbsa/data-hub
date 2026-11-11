@@ -1,0 +1,121 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout-data-product-footer.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitle = 'About our data exploration tools' %}
+{% set modelOrDatasetDetails = 'Dataset details' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: "/data-hub/mvp/dc146/homepage",
+            text: "Home"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/epact-loggedin",
+            text: "ePACT2"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/data-exploration-tools",
+            text: "Data exploration tools"
+        },
+        {
+            href: "/data-hub/mvp/dc146/data-products/epact/dashboards/data-exploration--v4--single",
+            text: "Explore prescribing and dispensing data"
+        }
+    ]
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds nhsuk-u-reading-width">
+
+        <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
+
+        <p>Our dataset is accessible through two methods.</p>
+
+        <h2 class="nhsuk-heading-m">Find and save data</h2>
+        <p>Find and save data lets you create your own paginated reports. These can then be printed or exported for use in other software.</p>
+        <p>This option is best if you want to:</p>
+
+        <ul>
+            <li>view an existing report</li>
+            <li>download a report as PDF, Excel or CSV</li>
+            <li>print a report</li>
+            <li>access detailed tabular data</li>
+            <li>produce information for meetings, audits or record keeping</li>
+        </ul>
+
+        <h3 class="nhsuk-heading-s">With a free Power BI licence</h3>
+
+        <p>You can:</p>
+        <ul>
+            <li>open and view available paginated reports</li>
+            <li>export reports in supported formats</li>
+            <li>print reports</li>
+        </ul>
+
+        <h3 class="nhsuk-heading-s">With a Power BI Pro licence</h3>
+        <p>You can do everything available with a free licence. Depending on how your organisation has configured Power BI, you may also be able to share access to reports and collaborate with other users.</p>
+
+        <h2 class="nhsuk-heading-m">Explore this data</h2>
+        <p>Explore this data lets you interact with the dataset and create your own view of the information.</p>
+
+        <p>This option is best if you want to:</p>
+
+        <ul>
+            <li>answer a specific question using the data</li>
+            <li>create your own charts and tables</li>
+            <li>compare trends and patterns</li>
+            <li>build your own reports</li>
+            <li>create measures and calculations</li>
+        </ul>
+
+
+        <h3 class="nhsuk-heading-s">With a free Power BI licence</h3>
+
+        <li>You can:</li>
+        <ul>
+            <li>explore and filter the data</li>
+            <li>create reports and visualisations</li>
+            <li>create measures and calculations</li>
+            <li>save reports to My Workspace</li>
+            <li>export data from visuals, where enabled</li>
+        </ul>
+
+        <p>You cannot:</p>
+        <ul>
+            <li>share reports with other users</li>
+            <li>save reports to a shared workspace</li>
+            <li>collaborate on reports with colleagues<li>
+        </ul>
+
+        <h3 class="nhsuk-heading-s">With a Power BI Pro licence</h3>
+
+        <p>You can do everything available with a free licence, and also:</p>
+        <ul>
+            <li>save reports to shared workspaces</li>
+            <li>share reports with other users</li>
+            <li>collaborate with colleagues on reports and dashboards</li>
+        </ul>
+
+    </div>
+</div>
+
+
+{% endblock %}

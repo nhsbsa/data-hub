@@ -28,7 +28,7 @@
             text: "ePACT2"
         },
         {
-            href: "/data-hub/mvp/dc146/data-products/epact/data-exploration-tools",
+            href: "/data-hub/mvp/dc146/data-products/epact/dashboards/data-exploration--v4--single",
             text: "Data exploration tools"
         }
     ]
@@ -47,9 +47,15 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds nhsuk-u-reading-width">
 
-        <p>Our prescribing and dispensing data is available in a 24-month dataset to explore.</p>
+        <p>Our prescribing and dispensing data is available to explore in two different ways:</p>
+
+        <ul>
+            <li>Find and save data lets you create your own paginated reports. These can then be exported for use in other software</li>
+            <li>Explore this data lets you interact with the dataset and create your own view of the information</li>
+        </ul>
+        <p><a href="data-exploration--v4--single--differences">Find out more about what each tool allows you to do</a></p>
         
-        {% call details( { summary: 'What you can do with each licence type' } ) %}
+        {#% call details( { summary: 'What you can do with each licence type' } ) %}
             
             <p>With a free Power BI licence, you can:</p>
  
@@ -69,7 +75,7 @@
                 <li>share a report</li>
             </ul>
 
-        {% endcall %}
+        {% endcall %#}
         
         <p>If you need help or training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
     
