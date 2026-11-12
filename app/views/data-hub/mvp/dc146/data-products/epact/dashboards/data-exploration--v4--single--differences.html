@@ -50,10 +50,9 @@
         <div class="nhsuk-u-reading-width">
 
             <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
-            
             <p>Our prescribing and dispensing data is available to explore in 2 different ways:</p>
 
-        </div>
+
 
 
         <!-- FIND AND SAVE DATA CONTENT -->
@@ -61,28 +60,44 @@
         {% set findAndSaveDataContent %}
 
             <h2 class="nhsuk-heading-m">Find and save data</h2>
-            <p>Find and save data lets you create your own paginated reports. These can then be printed or exported for use in other software.</p>
+
+            <p>Find and save data lets you create your own paginated reports. These can then be saved, and exported for use in other software.</p>
             <p>This option is best if you want to:</p>
 
             <ul>
                 <li>view an existing report</li>
                 <li>download a report as PDF, Excel or CSV</li>
-                <li>print a report</li>
                 <li>access detailed tabular data</li>
                 <li>produce information for meetings, audits or record keeping</li>
             </ul>
 
-            <h3 class="nhsuk-heading-s">With a free Power BI licence</h3>
+           
+            {{ list({
+                heading: 'What you can do',
+                icon: 'tick',
+                items: [
+                    { text: 'open and view available paginated reports' },
+                    { text: 'export reports in supported formats' },
+                    { text: 'save reports to run them again' }
+                ]
+            }) }}
 
-            <p>You can:</p>
-            <ul>
-                <li>open and view available paginated reports</li>
-                <li>export reports in supported formats</li>
-                <li>print reports</li>
-            </ul>
+            {{ list({
+                heading: "What you can't do",
+                icon: 'cross',
+                prefixText: ' ',
+                items: [
+                    { text: 'share access to reports or collaborate with other users within the tool or shared workspace' }
+                ]
+            }) }}
 
-            <h3 class="nhsuk-heading-s">With a Power BI Pro licence</h3>
-            <p>You can do everything available with a free licence. Depending on how your organisation has configured Power BI, you may also be able to share access to reports and collaborate with other users.</p>
+            {% call card( ) %}
+
+                <h3 class="nhsuk-heading-s">If you already have a Power BI Pro licence</h3>
+                <p>If you have a Power BI Pro licence through your organisation, you may also be able to share reports and collaborate with others, depending on your access permissions.</p>
+
+            {% endcall %}
+
 
         {% endset %}
 
@@ -94,8 +109,8 @@
         {% set exploreThisDataContent %}
 
             <h2 class="nhsuk-heading-m">Explore this data</h2>
-            <p>Explore this data lets you interact with the dataset and create your own view of the information.</p>
 
+            <p>Explore this data lets you interact with the dataset and create your own view of the information.</p>
             <p>This option is best if you want to:</p>
 
             <ul>
@@ -107,81 +122,93 @@
             </ul>
 
 
-            <h3 class="nhsuk-heading-s">With a free Power BI licence</h3>
 
-            <p>You can:</p>
-            <ul>
-                <li>explore and filter the data</li>
-                <li>create reports and visualisations</li>
-                <li>create measures and calculations</li>
-                <li>save reports to My Workspace</li>
-                <li>export data from visuals, where enabled</li>
-            </ul>
+            {{ list({
+                heading: 'What you can do',
+                icon: 'tick',
+                items: [
+                    { text: 'explore and filter the data' },
+                    { text: 'create reports and visualisations' },
+                    { text: 'create measures and calculations' },
+                    { text: 'save reports to My Workspace' },
+                    { text: 'export data from visuals, where enabled' }
+                ]
+            }) }}
 
-            <p>You cannot:</p>
-            <ul>
-                <li>share reports with other users</li>
-                <li>save reports to a shared workspace</li>
-                <li>collaborate on reports with colleagues</li>
-            </ul>
+            {{ list({
+                heading: "What you can't do",
+                icon: 'cross',
+                prefixText: ' ',
+                items: [
+                    { text: 'share reports with other users' },
+                    { text: 'save reports to a shared workspace' },
+                    { text: 'collaborate on reports with colleagues' }
+                ]
+            }) }}
 
-            <h3 class="nhsuk-heading-s">With a Power BI Pro licence</h3>
+            {% call card() %}
 
-            <p>You can do everything available with a free licence, and also:</p>
-            <ul>
-                <li>save reports to shared workspaces</li>
-                <li>share reports with other users</li>
-                <li>collaborate with colleagues on reports and dashboards</li>
-            </ul>
+                <h3 class="nhsuk-heading-s">If you already have a Power BI Pro licence</h3>
+                <p>If you have a Power BI Pro licence through your organisation, you may also be able to save reports to shared workspaces, share reports and collaborate with colleagues, depending on your access permissions.</p>
+
+            {% endcall %}
 
         {% endset %}
 
 
 
 
-        {% if data.useTabs === 'true' %}
+        {% if data.useTabs === 'false' %}
 
-            <!-- TABBED VERSION -->
+            <!-- STATIC CONTENT -->
+
+            {{ findAndSaveDataContent | safe }}
+            {{ exploreThisDataContent | safe }}
+
+
+        {% else %}
+
+           <!-- TABBED VERSION -->
             {{ tabs({
                 items: [
                 {
                     label: 'Find and save data',
                     id: 'findAndSavetData',
-                    panel: { html: '<div class="nhsuk-u-reading-width">' + findAndSaveDataContent + '</div>'  }
+                    panel: { html: findAndSaveDataContent  }
                 },
                   {
                     label: 'Explore this data',
                     id: 'exploreThisData',
-                    panel: { html: '<div class="nhsuk-u-reading-width">' + exploreThisDataContent + '</div>'  }
+                    panel: { html:  exploreThisDataContent  }
                 }
                 ]
             }) }}
 
-
-        {% else %}
-
-            <!-- STATIC CONTENT -->
-            <div class="nhsuk-u-reading-width">
-
-                {{ findAndSaveDataContent | safe }}
-                {{ exploreThisDataContent | safe }}
-
-            </div>
-
         {% endif %}
 
+            {% set warningHTML %}
+                <p>You can access our data exploration tools without a licence. If you need a Power BI Pro licence, this would be provided by your organisation.</p>
+                <p>Our training and support teams aren't able to help with Power BI Pro features or issues. For help with those, speak to your IT team.</p>
+            {% endset %}
+        
+            {{ warningCallout({
+                heading: 'Power BI licences and support',
+                html: warningHTML
+            }) }}
 
 
-        {{ warningCallout({
-            heading: 'Power BI licences and product support',
-            html: '<div class="nhsuk-u-reading-width"><p class="nhsuk-body">Pro Power BI licences are provided by your organisation. If you would like access, you will need to speak to someone in your organisation.</p>
-                   <p class="nhsuk-body nhsuk-u-margin-bottom-0">Also, our training and support teams can not help with queries on Pro Power BI functionality or issues.</p></div>'
-        }) }}
+            <h2 class="nhsuk-heading-m">Power BI training materials</h2>
+            <p>Microsoft also offers free training and guidance for Power BI, including step-by-step learning paths and in-depth articles on all its features:</p>
+            <ul>
+                <li><a target="_blank" href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi">Power BI training on Microsoft Learn (opens in a new tab)</a></li>
+                <li><a target="_blank" href="https://learn.microsoft.com/en-us/power-bi/">Power BI documentation (opens in a new tab)</a></li>
+            </ul>
+            
+            <h2 class="nhsuk-heading-m">How to get help</h2>
+            <p>If you need help or training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
 
-        <h2 class="nhsuk-heading-m">Getting help</h2>
-        <p>If you need help or training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
 
-       
+       </div>
 
     </div>
 </div>
