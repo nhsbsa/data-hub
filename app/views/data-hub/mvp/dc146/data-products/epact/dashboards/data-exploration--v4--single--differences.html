@@ -7,7 +7,7 @@
 
 <!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
 {% set prototypeVersion = 'dc146' %}
-{% set pageTitle = 'About our data exploration tools' %}
+{% set pageTitle = 'Compare the data exploration tools' %}
 {% set modelOrDatasetDetails = 'Dataset details' %}
 
 <!-- Set the page title -->
@@ -50,8 +50,7 @@
         <div class="nhsuk-u-reading-width">
 
             <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
-            <p>Our prescribing and dispensing data is available to explore in 2 different ways:</p>
-
+            <p>See what each tool offers and choose the one that meets your needs.</p>
 
 
 
@@ -61,42 +60,34 @@
 
             <h2 class="nhsuk-heading-m">Find and save data</h2>
 
-            <p>Find and save data lets you create your own paginated reports. These can then be saved, and exported for use in other software.</p>
-            <p>This option is best if you want to:</p>
-
-            <ul>
-                <li>view an existing report</li>
-                <li>download a report as PDF, Excel or CSV</li>
-                <li>access detailed tabular data</li>
-                <li>produce information for meetings, audits or record keeping</li>
-            </ul>
+            <p>Use this tool to view detailed prescribing and dispensing data in reports.</p>
+           
 
            
             {{ list({
                 heading: 'What you can do',
                 icon: 'tick',
                 items: [
-                    { text: 'open and view available paginated reports' },
-                    { text: 'export reports in supported formats' },
-                    { text: 'save reports to run them again' }
+                    { text: 'open and view available reports' },
+                    { text: 'create detailed tables and reports' },
+                    { text: 'download reports as PDF, Excel or CSV files' },
+                    { text: 'prepare information for meetings, audits or your records' },
+                    { text: 'print reports or save them to use offline' }
                 ]
             }) }}
 
+    <!-- Hiding this until we make a decision on what is tested that users with Pro licences can do with regards to sharing reports. 
+
             {{ list({
-                heading: "What you can't do",
+                heading: "What you cannot do",
                 icon: 'cross',
                 prefixText: ' ',
                 items: [
-                    { text: 'share access to reports or collaborate with other users within the tool or shared workspace' }
+                    { text: 'You cannot share reports with other users in the tool or a shared workspace.' }
                 ]
             }) }}
 
-            {% call card( ) %}
-
-                <h3 class="nhsuk-heading-s">If you already have a Power BI Pro licence</h3>
-                <p>If you have a Power BI Pro licence through your organisation, you may also be able to share reports and collaborate with others, depending on your access permissions.</p>
-
-            {% endcall %}
+      -->
 
 
         {% endset %}
@@ -110,48 +101,33 @@
 
             <h2 class="nhsuk-heading-m">Explore this data</h2>
 
-            <p>Explore this data lets you interact with the dataset and create your own view of the information.</p>
-            <p>This option is best if you want to:</p>
-
-            <ul>
-                <li>answer a specific question using the data</li>
-                <li>create your own charts and tables</li>
-                <li>compare trends and patterns</li>
-                <li>build your own reports</li>
-                <li>create measures and calculations</li>
-            </ul>
-
-
+            <p>Use this tool to analyse prescribing and dispensing data and create your own reports and visualisations.</p>
+           
 
             {{ list({
                 heading: 'What you can do',
                 icon: 'tick',
                 items: [
-                    { text: 'explore and filter the data' },
-                    { text: 'create reports and visualisations' },
-                    { text: 'create measures and calculations' },
+                    { text: 'create custom measures and calculations' },
+                    { text: 'explore trends and compare data across organisations, medicines and different periods' },
+                    { text: 'filter data to answer specific questions' },
+                    { text: 'create charts, tables and reports to support decision-making' },
                     { text: 'save reports to My Workspace' },
-                    { text: 'export data from visuals, where enabled' }
+                    { text: 'export data from visualisations' }
                 ]
             }) }}
-
+    <!-- same reasoning as above for hiding this section until we make a decision on what is tested that users with Pro licences can do with regards to sharing reports.
             {{ list({
-                heading: "What you can't do",
+                heading: "What you cannot do",
                 icon: 'cross',
                 prefixText: ' ',
                 items: [
-                    { text: 'share reports with other users' },
-                    { text: 'save reports to a shared workspace' },
-                    { text: 'collaborate on reports with colleagues' }
+                    { text: 'share or edit reports with other users' },
+                    { text: 'save reports to a shared workspace' }
+                    
                 ]
             }) }}
-
-            {% call card() %}
-
-                <h3 class="nhsuk-heading-s">If you already have a Power BI Pro licence</h3>
-                <p>If you have a Power BI Pro licence through your organisation, you may also be able to save reports to shared workspaces, share reports and collaborate with colleagues, depending on your access permissions.</p>
-
-            {% endcall %}
+      -->
 
         {% endset %}
 
@@ -186,29 +162,25 @@
 
         {% endif %}
 
-            {% set warningHTML %}
-                <p>You can access our data exploration tools without a licence. If you need a Power BI Pro licence, this would be provided by your organisation.</p>
-                <p>Our training and support teams aren't able to help with Power BI Pro features or issues. For help with those, speak to your IT team.</p>
-            {% endset %}
-        
-            {{ warningCallout({
-                heading: 'Power BI licences and support',
-                html: warningHTML,
-                headingLevel: 2
-            }) }}
+        {% call card() %}
+            <h2 class="nhsuk-heading-m">Additional Power BI features</h2>
+            <p>You do not need a licence to use the data exploration tools.</p>
+            <p>A Power BI Pro licence and the right access permissions may let you share reports or save them in shared workspaces.</p>
+            <p>Contact your organisation to get a licence or find out which features you can use. For help, contact your organisation’s IT team.</p>
+            <p>Our training and support teams cannot help with Power BI Pro features.</p>
+        {% endcall %}
 
-
-            <h2 class="nhsuk-heading-m">Power BI training materials</h2>
-            <p>Microsoft also offers free training and guidance for Power BI, including step-by-step learning paths and in-depth articles on all its features:</p>
+            <h2 class="nhsuk-heading-m">Power BI training </h2>
+            <p>Microsoft provides free Power BI training and guidance.</p>
             <ul>
-                <li><a target="_blank" href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi">Power BI training on Microsoft Learn (opens in a new tab)</a></li>
+                <li><a target="_blank" href="https://learn.microsoft.com/en-us/training/powerplatform/power-bi">Training for Power BI (opens in a new tab)</a></li>
                 <li><a target="_blank" href="https://learn.microsoft.com/en-us/power-bi/">Power BI documentation (opens in a new tab)</a></li>
             </ul>
             
 
             <div class="nhsuk-u-reading-width">
-                <h2 class="nhsuk-heading-m">How to get help</h2>
-                <p>If you need help or training on our data exploration tools, email: <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
+                <h2 class="nhsuk-heading-m">Get help and training</h2>
+                <p>For help with the data exploration tools or training on how to use them, email <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
             </div>
 
        </div>
