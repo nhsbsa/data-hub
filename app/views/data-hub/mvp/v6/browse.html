@@ -17,7 +17,7 @@
 {% set dentalItems = ( 'app/assets/csv/dental/' ) | getDirectoryFiles | getJSONFromCSVs %}
 {% set ophthalmicItems = ( 'app/assets/csv/ophthalmic/' ) | getDirectoryFiles | getJSONFromCSVs %}
 
-{% set allItems = publicItems | mergeArrays( prescribingItems, dentalItems, ophthalmicItems ) %}
+{% set allItems = publicItems | mergeArrays( prescribingItems, dentalItems, ophthalmicItems ) | removeDraftsIfSignedOut( data.signedIn, data.userType ) %}
 
 <!-- FILTER THE ITEMS BY REPORT TYPES -->
 {% if data.reportTypeFilters %}
@@ -33,6 +33,7 @@
 {% if data.searchTerms %}
     {% set allItems = ( data.searchTerms | filterReportsBySearchTerm( allItems ) ) %}
 {% endif %}
+
 
 {% set postFilterItems = allItems %}
 
@@ -58,26 +59,45 @@
 {% block content %}
 
 {% if data.userType | containsUserType('admin') and data.signedIn === 'yes' %}
-  <!-- ADMIN OPTIONS -->
-  <div class="nhsuk-grid-row">
-      <div class="nhsuk-grid-column-full">
 
-          {% call notificationBanner({ title: 'Admin options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
 
-            <div class="nhsuk-button-group">
 
-              {{ button({
-                href: 'admin/edit-metadata-page?id=&tag=',
-                text: 'Create new page',
-                classes: 'nhsuk-button--admin nhsuk-button--small'
-              }) }}
+ <!-- ADMIN OPTIONS -->
+ <div class="nhsuk-grid-row">
+     <div class="nhsuk-grid-column-full">
 
+        {% if data.pageDeleted === 'true' %}
+
+            <div class="nhsuk-notification-banner nhsuk-notification-banner--success nhsuk-u-margin-bottom-4" data-module="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-nhsuk-notification-banner-init="">
+                <div class="nhsuk-notification-banner__header">
+                    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                        <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+                    </svg> 
+                    You successfully deleted "{{ data.deletedPageTitle or 'Report title' }}"
+                    </h2>
+                </div>
             </div>
 
-          {% endcall %}
+        {% endif %}
 
-      </div>
-  </div>
+         {% call notificationBanner({ title: 'Administration options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
+
+           <div class="nhsuk-button-group">
+
+             {{ button({
+               href: 'admin/edit-metadata-page?id=&tag=&pageUpdated=&pageCreated=&pageDeleted=',
+               text: 'Create new page',
+               classes: 'nhsuk-button--admin nhsuk-button--small'
+             }) }}
+
+           </div>
+
+         {% endcall %}
+
+     </div>
+ </div>
+
 {% endif %}
 
 
@@ -117,6 +137,8 @@
 
          <form method="post" novalidate>
 
+                    
+
                     {{ checkboxes({
                         fieldset: {
                             legend: {
@@ -146,6 +168,26 @@
                         ]
                         }) }}
 
+
+                        {% set checkBoxOptions = [
+                                {
+                                    text: 'Only finance reports',
+                                    value: 'finance'
+                                },
+                                {
+                                    html: 'Only public reports',
+                                    value: 'public'
+                                }
+                            ]
+                        %}
+
+                        {% if data.signedIn === 'yes' and data.userType | containsUserType('admin') %}
+                              {% set checkBoxOptions = ( checkBoxOptions.push( {
+                                    html: 'Only drafts',
+                                    value: 'draft'
+                                } ), checkBoxOptions ) %}
+                        {% endif %}
+
                         {{ checkboxes({
                             fieldset: {
                                 legend: {
@@ -158,16 +200,7 @@
                             values: data.otherFilters,
                             inline: true,
                             small: true,
-                            items: [
-                                {
-                                    text: 'Only finance reports',
-                                    value: 'finance'
-                                },
-                                {
-                                    html: 'Only public reports',
-                                    value: 'public'
-                                }
-                            ]
+                            items: checkBoxOptions
                         }) }}
 
 
@@ -248,7 +281,7 @@
                     <ol class="nhsuk-list nhsuk-list--border">
                         {% for report in item.items %}
                             <li>
-                                <h3 class="nhsuk-u-margin-bottom-2 nhsuk-heading-xs"><a class="nhsuk-link" href="view?id={{ report.data_product_external_id }}&tag={{ report.tag }}">{{ report.data_product_name | safe }}</a></h3>
+                                <h3 class="nhsuk-u-margin-bottom-2 nhsuk-heading-xs">{% if report.data_product_status === 'DRAFT' %}{{ tag({ text: 'Draft', colour: 'white', classes: 'nhsuk-tag--draft' }) }} {% endif %}<a class="nhsuk-link" href="view?id={{ report.data_product_external_id }}&tag={{ report.tag }}&status={{ report.data_product_status }}">{{ report.data_product_name | safe }}</a></h3>
                                 <p class="nhsuk-u-margin-bottom-2">{{ report.data_product_description | safe }}</p>
                                 {% if report.tag %}{{ report.tag | getTag | safe }}{% endif %}{% if report.is_finance %} {{ tag({ text: 'Finance', colour: 'white' }) }}{% endif %}
                             </li>

@@ -48,6 +48,23 @@
 } 
 
 
+.nhsuk-notification-banner__title .nhsuk-icon {
+    height: 1em;
+    width: 1em;
+    margin-left: -0.5em;
+    display: inline-block;
+}
+
+@include nhsuk-media-query($from: tablet) {
+    .nhsuk-notification-banner__title .nhsuk-icon {
+        height: 1.25em;
+        width: 1.25em;
+        margin-left: -0.5em;
+        display: inline-block;
+    }
+}
+
+
 // TAGS
 
 .nhsuk-tag {
@@ -75,6 +92,18 @@
     background-color: #4d4712;
     border-color: #4d4712;
     color: #fff59d;
+}
+
+.nhsuk-tag--draft {
+    border-style: dashed;
+    font-size: inherit;
+    font-size: 0.75em;
+    vertical-align: middle;
+    margin-top: -0.2em;
+}
+
+h3 .nhsuk-tag--draft {
+    margin-top: 0;
 }
 
 // DATASET LIST

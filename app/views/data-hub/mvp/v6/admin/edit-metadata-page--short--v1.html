@@ -19,9 +19,11 @@
 {% if item %}
   {% set pageHeader = 'Edit report page' %}
   {% set buttonText = 'Update report page' %}
+  {% set updatedOrCreated = 'updated' %}
 {% else %}
   {% set pageHeader = 'Create report page' %}
   {% set buttonText = 'Create report page' %}
+  {% set updatedOrCreated = 'created' %}
 {% endif %}
 
 
@@ -59,7 +61,7 @@
         -->
 
 
-        <form method="post" novalidate>
+        <form method="post" action="?updatedOrCreated={{ updatedOrCreated }}" novalidate>
 
           <!-- STATUS -->
 

@@ -172,13 +172,10 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
           return a.data_product_name.localeCompare( b.data_product_name, undefined, { sensitivity: 'base' } )
         } );
 
-        
-
         letterArrays.push({
           letter: letter,
           items: letterArray
         });
-
 
       }
 
@@ -205,14 +202,51 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   
   }
 
+  //
+  // REMOVE DRAFTS IF NEEDED
+  //
+  filters.removeDraftsIfSignedOut = function( items, signedIn, userType ){
+
+    console.log( signedIn );
+
+    signedIn = ( ['yes','no'].indexOf( signedIn ) > -1 ) ? signedIn : 'no';
+    items = ( Array.isArray(items) ) ? items : [];
+
+    let isAdmin = false;
+    if( Array.isArray( userType ) && userType.indexOf( 'admin' ) > -1 ){
+      isAdmin = true;
+    } else if( typeof userType === 'string' && userType === 'admin' ) {
+      isAdmin = true;
+    }
+
+    const filteredItems = [];
+    items.forEach(function( item ){
+
+      let check = true;
+      if( item && item.data_product_status && item.data_product_status === 'DRAFT' ){
+        check = false;
+        if( signedIn === 'yes' && isAdmin ){
+          check = true;
+        }
+      }
+
+      if( check ){
+        filteredItems.push( item );
+      }
+
+    });
+
+    return filteredItems;
+
+  }
 
   //
   // REMOVE PRESCRIBING DUPLICATES
   //
   filters.removePrescribingDuplicates = function(publicItems, prescribingItems) {
 
-  publicItems = Array.isArray(publicItems) ? publicItems : [];
-  prescribingItems = Array.isArray(prescribingItems) ? prescribingItems : [];
+  publicItems = ( Array.isArray(publicItems) ) ? publicItems : [];
+  prescribingItems = ( Array.isArray(prescribingItems) ) ? prescribingItems : [];
 
   const processName = function( currentName ){
     return currentName.split('\\').join().toLowerCase().trim();
@@ -677,6 +711,47 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
 
       items.forEach( function( item ){
 
+        // public, finance, draft
+        let checks = [];
+
+        // Public
+        if( otherFilters.indexOf('public') > -1 ){
+          if( item.tag === 'PUBLIC_AVAILABLE_DATA' ){
+            checks.push( true );
+          } else {
+            checks.push( false );
+          }
+        } else {
+          checks.push( true );
+        }
+
+        // Finance
+        if( otherFilters.indexOf('finance') > -1 ){
+          if( item.is_finance === 'TRUE' ){
+            checks.push( true );
+          } else {
+            checks.push( false );
+          }
+        } else {
+          checks.push( true );
+        }
+
+        // Draft
+        if( otherFilters.indexOf('draft') > -1 ){
+          if( item.data_product_status === 'DRAFT' ){
+            checks.push( true );
+          } else {
+            checks.push( false );
+          }
+        } else {
+          checks.push( true );
+        }
+
+        if( checks.indexOf( false ) === -1 ){
+          newItems.push( item );
+        }
+
+        /*
         if( otherFilters.indexOf('public') > -1 && otherFilters.indexOf('finance') > -1){
 
           if( item.tag === 'PUBLIC_AVAILABLE_DATA' && item.is_finance === 'TRUE'  ){
@@ -694,7 +769,8 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
           }
 
 
-        }
+        }*/
+
 
 
       });

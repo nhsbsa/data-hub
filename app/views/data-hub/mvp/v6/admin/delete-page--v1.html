@@ -32,18 +32,15 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-       <span class="nhsuk-caption-l">{{ item.data_product_name or 'Report title' }}</span>
-       <h1 class="nhsuk-heading-l">Delete page</h1>
+       <h1 class="nhsuk-heading-l">Delete "{{ item.data_product_name or 'Report title' }}"?</h1>
        
 
-        {% call notificationBanner({ title: 'You cannot undo this action', classes: 'nhsuk-u-padding-bottom-0 nhsuk-notification-banner--warning' } ) %}
-
-            <p>Are you sure you want to continue?</p>
+        {% call notificationBanner({ title: 'You cannot undo this action', classes: 'nhsuk-u-padding-bottom-0' } ) %}
 
             <div class="nhsuk-button-group">
 
               {{ button({
-                href: '../browse',
+                href: '../browse?pageDeleted=true&deletedPageTitle=' + ( item.data_product_name or 'Report title' ) | urlencode,
                 text: 'Yes, delete this page',
                 classes: 'nhsuk-button--warning nhsuk-button--small'
               }) }}

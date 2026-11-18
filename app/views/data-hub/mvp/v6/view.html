@@ -46,18 +46,39 @@
   <div class="nhsuk-grid-row">
       <div class="nhsuk-grid-column-full">
 
-          {% call notificationBanner({ title: 'Admin options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
+
+          {% if data.pageCreated === 'true' or data.pageUpdated === 'true' %}
+
+            <div class="nhsuk-notification-banner nhsuk-notification-banner--success nhsuk-u-margin-bottom-4" data-module="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-nhsuk-notification-banner-init="">
+                <div class="nhsuk-notification-banner__header">
+                    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                        <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+                    </svg> 
+                    {% if data.pageCreated === 'true' %}
+                      You successfully created the page
+                    {% elif data.pageUpdated === 'true' %}
+                      You successfully updated the page
+                    {% endif %}
+                    </h2>
+                </div>
+            </div>
+
+        {% endif %}
+
+
+          {% call notificationBanner( { title: 'Administration options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
 
             <div class="nhsuk-button-group">
 
               {{ button({
-                href: 'admin/edit-metadata-page?id='+data.id + '&tag='+data.tag,
+                href: 'admin/edit-metadata-page?id='+data.id + '&tag='+data.tag + '&pageUpdated=&pageCreated=&pageDeleted=',
                 text: 'Edit page',
                 classes: 'nhsuk-button--admin nhsuk-button--small'
               }) }}
 
               {{ button({
-                href: 'admin/delete-page?id='+data.id + '&tag='+data.tag,
+                href: 'admin/delete-page?id='+data.id + '&tag='+data.tag + '&pageUpdated=&pageCreated=&pageDeleted=',
                 text: 'Delete page',
                 classes: 'nhsuk-button--secondary nhsuk-button--small'
               }) }}
@@ -75,7 +96,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">{{ pageHeader }}</h1>
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">{% if item.data_product_status === 'DRAFT' %}{{ tag({ text: 'Draft', colour: 'white', classes: 'nhsuk-tag--draft' }) }} {% endif %}{{ pageHeader }}</h1>
 
         {% if item.tag %}
           {{ item.tag | getTag | safe }}{% if item.is_finance %} {{ tag({ text: 'Finance', colour: 'white' }) }}{% endif %}

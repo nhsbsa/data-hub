@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 
+
 //
 // EDIT METADATA PAGE
 //
@@ -107,8 +108,16 @@ router.post(/edit-metadata-page/, (req, res) => {
 
     const id = req.session.data.id || '';
     const tag = req.session.data.tag || '';
+    const updatedOrCreated = req.session.data.updatedOrCreated || 'updated'
 
-    const destination = '../view?id=' + id + '&tag=' + tag; 
+    let extra = '';
+    if( updatedOrCreated === 'created' ){
+        extra = '&pageCreated=true';
+    } else {
+        extra = '&pageUpdated=true';
+    }
+
+    const destination = '../view?id=' + id + '&tag=' + tag + extra;
 
     res.redirect( destination );
 
