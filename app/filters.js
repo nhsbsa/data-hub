@@ -9,6 +9,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
    * @type {Object}
    */
   const filters = {};
+  
 
   //
   // STRIP NULL VALUES FROM ARRAY
