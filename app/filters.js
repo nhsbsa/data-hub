@@ -9,7 +9,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
    * @type {Object}
    */
   const filters = {};
-  
+
 
   //
   // STRIP NULL VALUES FROM ARRAY
@@ -887,6 +887,33 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
       month: date.getUTCMonth() + 1,
       day: date.getUTCDate()
     };
+
+  };
+
+
+
+  //
+  // GET PAGE HEADER FROM REPORT TYPES 
+  //
+  filters.getPageHeaderFromReportTypes = function( reportTypes ){
+
+    reportTypes = ( Array.isArray( reportTypes ) ) ? reportTypes : [];
+
+    let pageHeader = 'Browse our reports';
+
+    if( reportTypes.indexOf( 'ePACT' ) > -1 && reportTypes.length === 1 ){
+      pageHeader = 'Browse prescribing and dispensing reports';
+    } if( reportTypes.indexOf( 'PUBLIC_AVAILABLE_DATA' ) > -1 && reportTypes.length === 1 ){
+      pageHeader = 'Browse prescribing and dispensing reports';
+    } if( reportTypes.indexOf( 'ePACT' ) > -1 && reportTypes.indexOf( 'PUBLIC_AVAILABLE_DATA' ) > -1 && reportTypes.length === 2 ){
+      pageHeader = 'Browse prescribing and dispensing reports';
+    } else if( reportTypes.indexOf( 'eDEN' ) > -1 && reportTypes.length === 1 ){
+      pageHeader = 'Browse dental reports'
+    } else if( reportTypes.indexOf( 'eOPS' ) > -1 && reportTypes.length === 1 ){
+      pageHeader = 'Browse ophthalmic reports';
+    }
+
+    return pageHeader;
 
   };
 

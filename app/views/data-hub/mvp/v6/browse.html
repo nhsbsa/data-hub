@@ -7,7 +7,7 @@
 
 <!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
 {% set prototypeVersion = 'v6' %}
-{% set pageHeader = 'Browse our reports' %}
+{% set pageHeader = ( data.reportTypeFilters | getPageHeaderFromReportTypes ) or 'Browse our reports' %}
 
 
 <!-- GET THE ITEMS -->
@@ -33,7 +33,6 @@
 {% if data.searchTerms %}
     {% set allItems = ( data.searchTerms | filterReportsBySearchTerm( allItems ) ) %}
 {% endif %}
-
 
 {% set postFilterItems = allItems %}
 
@@ -116,7 +115,7 @@
         <!-- SHOULD I OPEN THE DETAILS EXPANDER LOGIC -->
         {% set openDetails = false %}
         
-        {% if data.reportTypeFilters and ( ( data.reportTypeFilters | length ) < 3 ) %}
+        {% if data.reportTypeFilters and ( ( data.reportTypeFilters | length ) < 4 ) %}
             {% set openDetails = true %}
         {% endif %}
 

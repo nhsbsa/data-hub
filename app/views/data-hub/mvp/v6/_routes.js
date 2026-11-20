@@ -90,13 +90,9 @@ router.get( /browse/, (req, res) => {
 
         delete req.session.data.removeTerms;
 
-        res.redirect('browse');
-
-    } else {
-
-        res.render( req.originalUrl.split('?')[0].replace(/^\//, ''));
-
     }
+
+    res.render( req.originalUrl.split('?')[0].replace(/^\//, ''), { data: req.session.data } );
 
 });
 
