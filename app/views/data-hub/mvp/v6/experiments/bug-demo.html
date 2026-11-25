@@ -1,0 +1,107 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+{% set pageHeader = 'Bug demo' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        <h1>{{ pageHeader }}</h1>
+
+        <div class="nhsuk-u-reading-width">
+            <p>Enter a few lines of text in each textarea, then press Output example.</p>
+            <p>When the page reloads, the inputted values are passed back into the textareas. Notice how the component version indents everything by two spaces, even though the outputted value doesn't show that in the card component.</p>
+        </div>
+
+    </div>
+</div>
+
+<form method="post" novalidate>
+
+<div class="nhsuk-grid-row">
+
+            <div class="nhsuk-grid-column-one-half">
+                <div class="nhsuk-form-group">
+                    <label class="nhsuk-label" for="dummyMarkdown">
+                         Dummy content (static version)
+                    </label>
+                    <textarea class="nhsuk-textarea" id="dummyContent" name="dummyContent" rows="4">{{ data.dummyContent }}</textarea>
+                </div>
+            </div>
+
+            <div class="nhsuk-grid-column-one-half">
+                {{ textarea({
+                    label: {
+                        text: 'Dummy content (component version)',
+                        isPageHeading: false
+                    },
+                    rows: '4',
+                    id: 'dummyContent2',
+                    name: 'dummyContent2',
+                    value: data.dummyContent2
+                }) }}
+            </div>
+
+</div>
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+          {{ button( {
+            text: 'Output example'
+          }) }}
+
+
+    </div>
+</div>
+
+ </form>
+
+
+{% if data.dummyContent or data.dummyContent2 %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-one-half">
+        
+        {% call card( { summaryHtml: 'Static output' } ) %}
+            <p>{{ data.dummyContent | nl2br | safe }}</p>
+        {% endcall %}
+
+    </div>
+
+    <div class="nhsuk-grid-column-one-half">
+        
+        {% call card( { summaryHtml: 'Component output' } ) %}
+            <p>{{ data.dummyContent2 | nl2br | safe }}</p>
+        {% endcall %}
+
+    </div>
+</div>
+
+{% endif %}
+
+
+{% endblock %}
