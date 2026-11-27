@@ -19,7 +19,10 @@ module.exports = {
         },
 
         // V6
-        v6: {}
+        v6: {
+            allowListFunctionality: 'true',
+            allowContentFunctionality: 'false'
+        }
          
     },
 

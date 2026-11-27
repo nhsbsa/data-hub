@@ -1,0 +1,177 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v5/layout-data-product-footer.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'dc146' %}
+{% set pageTitle = 'Compare the data exploration tools' %}
+{% set modelOrDatasetDetails = 'Dataset details' %}
+
+<!-- Set the page title -->
+{% block pageTitle %}
+{{ pageTitle }} - {{ serviceName }} - NHSBSA
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+        {
+            href: '/data-hub/mvp/v6/',
+            text: 'Home'
+        },
+        {
+            href: '/data-hub/mvp/v6/explore',
+            text: 'Explore our data'
+        }
+    ]
+}) }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+
+
+        <div class="nhsuk-u-reading-width">
+
+            <h1 class="nhsuk-heading-l">{{ pageTitle }}</h1>
+            <p>See what each tool offers and choose the one that meets your needs.</p>
+
+
+
+        <!-- FIND AND SAVE DATA CONTENT -->
+
+        {% set findAndSaveDataContent %}
+
+            <h2 class="nhsuk-heading-m">Find and save data</h2>
+
+            <p>Use this tool to create and save detailed prescribing and dispensing data or reports.</p>
+           
+
+           
+            {{ list({
+                heading: 'What you can do',
+                icon: 'tick',
+                items: [
+                    { text: 'create and save detailed tables and reports so you can run them again later' },
+                    { text: 'download reports as PDF, Excel or CSV files' },
+                    { text: 'save reports to My Workspace' },
+                    { text: 'prepare information for meetings, audits or your records' },
+                    { text: 'print reports or export the data' }
+                ]
+            }) }}
+
+    <!-- Hiding this until we make a decision on what is tested that users with Pro licences can do with regards to sharing reports. 
+
+            {{ list({
+                heading: "What you cannot do",
+                icon: 'cross',
+                prefixText: ' ',
+                items: [
+                    { text: 'You cannot share reports with other users in the tool or a shared workspace.' }
+                ]
+            }) }}
+
+      -->
+
+
+        {% endset %}
+
+
+
+
+        <!-- EXPLORE THIS DATA CONTENT -->
+
+        {% set exploreThisDataContent %}
+
+            <h2 class="nhsuk-heading-m">Explore this data</h2>
+
+            <p>Use this tool to analyse prescribing and dispensing data and create your own reports and visualisations.</p>
+           
+
+            {{ list({
+                heading: 'What you can do',
+                icon: 'tick',
+                items: [
+                    { text: 'create custom measures and calculations' },
+                    { text: 'filter data to answer specific questions' },
+                    { text: 'create charts, tables and reports to support decision-making' },
+                    { text: 'export data from a Power BI report' },
+                    { text: 'create visualisations' }
+                ]
+            }) }}
+    <!-- same reasoning as above for hiding this section until we make a decision on what is tested that users with Pro licences can do with regards to sharing reports.
+            {{ list({
+                heading: "What you cannot do",
+                icon: 'cross',
+                prefixText: ' ',
+                items: [
+                    { text: 'share or edit reports with other users' },
+                    { text: 'save reports to a shared workspace' }
+                    
+                ]
+            }) }}
+      -->
+
+        {% endset %}
+
+
+
+
+        {% if data.useTabs === 'false' %}
+
+            <!-- STATIC CONTENT -->
+
+            {{ findAndSaveDataContent | safe }}
+            {{ exploreThisDataContent | safe }}
+
+
+        {% else %}
+
+           <!-- TABBED VERSION -->
+            {{ tabs({
+                items: [
+                {
+                    label: 'Find and save data',
+                    id: 'findAndSavetData',
+                    panel: { html: findAndSaveDataContent  }
+                },
+                  {
+                    label: 'Explore this data',
+                    id: 'exploreThisData',
+                    panel: { html:  exploreThisDataContent  }
+                }
+                ]
+            }) }}
+
+        {% endif %}
+
+        {% call card() %}
+            <h2 class="nhsuk-heading-m">Additional Power BI features</h2>
+            <p>You do not need a Power BI Pro licence to use the data exploration tools.</p>
+                <p>We designed our tools to work alongside your organisation's Microsoft environment.</p>
+            <p>You may be able to share reports with other people, depending on their organisation's permissions.</p>
+        
+            <p>Our training and support teams cannot help with these Power BI Pro features. We can help you understand and use the prescribing and dispensing data in the Data Hub.</p>
+        {% endcall %}
+
+            <div class="nhsuk-u-reading-width">
+                <h2 class="nhsuk-heading-m">Get help and training</h2>
+                <p>For help with the data exploration tools or training on how to use them, email <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk">DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
+                <p>You can also visit the <a href="https://www.nhsbsa.nhs.uk/data-services-training-hub">Data Services training hub</a> for guides, training and support materials about our data products.</p>
+            </div>
+
+       </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

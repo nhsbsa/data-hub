@@ -1,0 +1,132 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+
+{% set pageHeader = 'Explore our data' %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+      <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
+
+       <div class="nhsuk-u-reading-width">
+        
+            <p>There are 2 ways to explore prescribing and dispensing data:</p>
+
+            <ul>
+                <li><strong>Find and save data</strong> lets you create detailed reports and export them as PDF, Excel or CSV files</li>
+                <li><strong>Explore this data</strong> lets you analyse data and create custom charts, tables and reports</li>
+            </ul>
+
+            {% if data.signedIn !== 'yes' %}
+              <p>You will need to be signed in to use either of these tools.</p>
+            {% endif %}
+
+            <p><a href="/data-hub/mvp/v6/explore/compare">Compare the data exploration tools</a></p>
+            
+        </div>
+
+
+      {% if data.signedIn === 'yes' %}
+
+        {% set action_links = { items: [
+            { 
+                href: '#',
+                attributes: { target: '_blank' },
+                classes: 'nhsuk-button nhsuk-button--small nhsuk-u-margin-left-0 nhsuk-u-margin-bottom-2',
+                text: 'Find and save data'
+            },
+            {
+              href: '#',
+              text: 'Explore this data'
+            }
+        ] } %}
+
+      {% else %}
+
+      
+        {% set action_links = { items: [
+            { 
+                href: '/data-hub/mvp/' + prototypeVersion + '/auth/entra-id/enter-username?returnURL=' + ( currentURL | urlencode ),
+                classes: 'nhsuk-button nhsuk-button--small',
+                text: 'Sign in'
+            }
+        ] } %}
+  
+
+      {% endif %}
+
+
+
+       {% set header_24 %}
+            24-month dataset
+            <dl class="nhsuk-u-font-size-14 nhsuk-flex-group">
+                <dt class="nhsuk-u-font-weight-normal">Time frame:</dt>
+                <dd class="nhsuk-u-margin-left-1 nhsuk-u-font-weight-normal">24 months</dd>
+            </dl>
+        {% endset %}
+
+        {% set content_24 %}
+
+            <!-- 24 MONTH MODEL -->
+            <p>Use this dataset to compare prescribing and dispensing activity over the latest 24 months.</p>
+            <p>You can analyse data using:</p>
+            <ul>
+                <li>prescribing organisation attributes</li>
+                <li>dispensing organisation attributes</li>
+                <li>detailed prescribed drug or appliance attributes</li>
+                <li>detailed dispensed drug or appliance attributes</li>
+                <li>patient attributes</li>
+                <li>prescription form attributes</li>
+            </ul>
+
+        {% endset %}
+
+
+        {{ summaryList({
+                classes: 'dataset-list',
+                rows: [
+                    {
+                        key: { html: header_24 },
+                        value: { html: content_24 },
+                        classes: '',
+                        actions: action_links
+                    }
+                ]
+        }) }}
+
+
+        <div class="nhsuk-u-reading-width">
+
+          <h2 class="nhsuk-heading-m">Get help and training</h2>
+          <p>For help with the data exploration tools or training on how to use them, email <a href="mailto:DataServicesSupport@nhsbsa.nhs.uk"> DataServicesSupport@nhsbsa.nhs.uk</a>.</p>
+          <p>You can also visit the <a href="https://www.nhsbsa.nhs.uk/data-services-training-hub">Data Services training hub</a> for guides, training and support materials about our data products.</p>
+
+        </div>
+
+    </div>
+</div>
+{% endblock %}

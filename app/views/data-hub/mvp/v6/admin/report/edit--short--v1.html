@@ -31,6 +31,7 @@
 {% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
 
 {% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
 {{ backLink({
   href: 'javascript:history.go(-1)',
   text: 'Back'
@@ -48,6 +49,12 @@
         <!--
 
           MANDATORY FIELDS
+
+          Fields
+          https://bsa2468.atlassian.net/wiki/x/IoB6PgE
+
+          Current CSV fields:
+          https://bsa2468.atlassian.net/wiki/x/BgCIpgE
 
           data_product_external_id  
           data_product_name
@@ -185,21 +192,38 @@
 
 
 
-          <!-- DASHBOARD LINK -->
+          <!-- PUBLIC REPORT LINK -->
 
           <div class="nhsuk-u-reading-width">
 
             {{ input({
               label: {
-                text: 'Dashboard link',
+                text: 'Public report link',
                 isPageHeading: false
               },
-              id: 'dataProductDashboardLink',
-              name: 'dataProductDashboardLink',
-              value: ( data.dataProductDashboardLink or item.data_product_dashboard_link )
+              id: 'dataProductPublicReportLink',
+              name: 'dataProductPublicReportLink',
+              value: ( data.dataProductPublicReportLink or item.data_product_dashboard_link )
             }) }}
 
           </div>
+
+          <!-- PRIVATE REPORT LINK -->
+          <div class="nhsuk-u-reading-width">
+
+            {{ input({
+              label: {
+                text: 'Private report link',
+                isPageHeading: false
+              },
+              id: 'dataProductPrivateReportLink',
+              name: 'dataProductPrivateReportLink',
+              value: ( data.dataProductPrivateReportLink )
+            }) }}
+
+          </div>
+
+
 
           <!-- ORACLE LINK -->
           <div class="nhsuk-u-reading-width">

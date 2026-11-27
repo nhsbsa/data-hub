@@ -1,0 +1,81 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+
+{% if data.editOrCreate === 'edit' %}
+  {% set pageHeader = 'Edit content page' %}
+  {% set buttonText = 'Update content page' %}
+  {% set updatedOrCreated = 'updated' %}
+{% else %}
+  {% set pageHeader = 'Create content page' %}
+  {% set buttonText = 'Create content page' %}
+  {% set updatedOrCreated = 'created' %}
+{% endif %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        {% if item.data_product_name %}<span class="nhsuk-caption-l">{{ item.data_product_name }}</span>{% endif %}
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">{{ pageHeader }}</h1>
+
+
+        <form method="post" action="?updatedOrCreated={{ updatedOrCreated }}" novalidate>
+
+            <!-- STATUS -->
+
+          {{ radios({
+            fieldset: {
+              legend: {
+                text: 'Status',
+                isPageHeading: false
+              }
+            },
+            idPrefix: 'contentStatus',
+            name: 'contentStatus',
+            value: ( data.contentStatus or 'DRAFT' ),
+            inline: true,
+            small: true,
+            items: [
+              {
+                value: 'DRAFT',
+                text: 'Draft'
+              },
+              {
+                value: 'PUBLISHED',
+                text: 'Published'
+              }
+            ]
+          }) }}
+
+
+          {{ button( { text: buttonText } ) }}
+
+        </form>
+
+
+
+
+       
+    </div>
+</div>
+{% endblock %}

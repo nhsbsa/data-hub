@@ -37,11 +37,92 @@
 
 <!-- Main content of the page -->
 {% block content %}
+
+
+{% if data.userType | containsUserType('admin') and data.signedIn === 'yes' %}
+
+ <!-- ADMIN OPTIONS -->
+ <div class="nhsuk-grid-row">
+     <div class="nhsuk-grid-column-full">
+
+
+
+        {% if data.pageCreated === 'true' or data.pageUpdated === 'true' or data.pageDeleted === 'true' %}
+
+            <div class="nhsuk-notification-banner nhsuk-notification-banner--success nhsuk-u-margin-bottom-4" data-module="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-nhsuk-notification-banner-init="">
+                <div class="nhsuk-notification-banner__header">
+                    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                        <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+                    </svg> 
+                    {% if data.pageCreated === 'true' %}
+                      You successfully created the page
+                    {% elif data.pageUpdated === 'true' %}
+                      You successfully updated the page
+                    {% elif data.pageDeleted === 'true' %}
+                        You successfully deleted "{{ data.deletedPageTitle or 'Page title' }}"
+                    {% endif %}
+                    </h2>
+                </div>
+            </div>
+
+        {% endif %}
+
+
+
+
+        {% if data.settings[prototypeVersion].allowListFunctionality === 'true' or  data.settings[prototypeVersion].allowContentFunctionality === 'true' %}
+            
+            {% call notificationBanner({ title: 'Administration options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
+
+                <div class="nhsuk-button-group">
+
+                    {% if data.settings[prototypeVersion].allowListFunctionality === 'true' %}
+
+                        {{ button({
+                            href: 'admin/list/edit?id=&tag=&editOrCreate=edit&parentPage=noParent&listID=1',
+                            text: 'Edit page',
+                            classes: 'nhsuk-button--admin nhsuk-button--small'
+                        }) }}
+
+                        {{ button({
+                            href: 'admin/list/edit?id=&tag=&editOrCreate=&parentPage=Data%20Hub&listID=',
+                            text: 'Create list page',
+                            classes: 'nhsuk-button--admin nhsuk-button--small'
+                        }) }}
+
+                    {% endif %}
+
+                    {% if data.settings[prototypeVersion].allowContentFunctionality === 'true' %}
+
+                        {{ button({
+                            href: 'admin/content/edit?id=&tag=&parentPage=Data%20Hub',
+                            text: 'Create content page',
+                            classes: 'nhsuk-button--admin nhsuk-button--small'
+                        }) }}
+
+                    {% endif %}
+
+                </div>
+
+            {% endcall %}
+
+         {% endif %}
+
+
+
+
+    </div>
+</div>
+
+{% endif %}
+
+
+
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
         
-        <h2 class="nhsuk-heading-l">Current services</h2>
+        <h2 class="nhsuk-heading-l nhsuk-u-visually-hidden">Current services</h2>
 
         <h3 class="nhsuk-heading-m"><a class="nhsuk-link--no-visited-state" href="/data-hub/mvp/v6/browse">Browse our reports</a></h3>
         <p class="nhsuk-u-margin-bottom-0">Search for pre-prepared reports covering prescribing and dispensing, dental and ophthalmic data.</p>
@@ -52,19 +133,43 @@
             <a href="browse?reportTypeFilters[]=eOPS">Opthalmic</a>
         </div>
 
+        <p class="nhsuk-body-s nhsuk-u-secondary-text-colour">Our prescribing and dispensing reports were previously known as ePACT2.</p>
+
         <hr />
 
-        <h3 class="nhsuk-heading-m"><a class="nhsuk-link--no-visited-state" href="/data-hub/mvp/v6/explore">Explore our data</a></h3>
-        <p>Create your own reports based on our prescribing and dispensing data sets in Fabric, or run paginated reports.</p>
+        <h3 class="nhsuk-heading-m"><a class="nhsuk-link--no-visited-state" href="/data-hub/mvp/v6/explore/">Explore our data</a></h3>
+        <p>Create your own reports based on our prescribing and dispensing dataset, or find and save data.</p>
         
         <hr />
 
+        <!--
         <h3 class="nhsuk-heading-m"><a class="nhsuk-link--no-visited-state" href="/data-hub/mvp/v6/freedom-of-information/">View freedom of information (FOI) requests</a></h3>
         <p>Read previous FOI requests and responses, or learn how to submit your own.</p>
 
-        <hr />
+        <hr />-->
+
+        {% if data.userType | containsUserType('admin') and data.signedIn === 'yes' and data.pageDeleted !== 'true' %}
+
+
+            {% if data.settings[prototypeVersion].allowListFunctionality === 'true' or  data.settings[prototypeVersion].allowContentFunctionality === 'true' %}
+
+                {% call card({ heading: { text: 'Child pages not showing in this list', classes: 'nhsuk-heading-m' } }) %}
+           
+                    <p class="nhsuk-body-s">You are only seeing this list because you are an administrator.</p>
+
+                    <ul class="nhsuk-list">
+                        {% if data.settings[prototypeVersion].allowListFunctionality === 'true' %}<li><span class="nhsuk-tag nhsuk-tag--white nhsuk-tag--draft">Draft</span> <a href="example-list-page">Example list page</a></li>{% endif %}
+                        {% if data.settings[prototypeVersion].allowContentFunctionality === 'true' %}<li><a href="example-content-page">Example content page</a></li>{% endif %}
+                    </ul>
+                {% endcall %}
+
+            {% endif %}
+
+        {% endif %}
+
+
         
-        <h2 class="nhsuk-heading-l">Accessing other services</h2>
+        <h2 class="nhsuk-heading-m">Accessing other services</h2>
         <p>Find information about our other data services on our <a href="https://www.nhsbsa.nhs.uk/" target="_blank">NHSBSA website (opens in a new tab)</a>.</p>
     
     </div>

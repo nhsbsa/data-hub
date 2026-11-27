@@ -7,7 +7,7 @@
 
 <!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
 {% set prototypeVersion = 'v6' %}
-{% set pageHeader = 'Contents' %}
+{% set pageHeader = 'Comparison' %}
 
 
 {% set publicItems = ( 'app/assets/csv/catalyst/' ) | getDirectoryFiles | getJSONFromCSVs( items ) | sortItemsAlphabeticallySimple %}
@@ -33,7 +33,7 @@
 <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-full">
 
-        <h1 class="nhsuk-heading-l">Comparison</h1>
+        <h1 class="nhsuk-heading-l">{{ pageHeader }}</h1>
 
         <style>
           a:hover .nhsuk-tag--green {

@@ -4,9 +4,26 @@ const router = express.Router();
 
 
 //
-// EDIT METADATA PAGE
+// ALL PAGES
 //
-router.get( /edit-metadata-page/, ( req, res ) => {
+router.use((req, res, next) => {
+
+    // Temp vars, delete after use
+
+    const vars = ['pageUpdated','pageCreated','pageDeleted','editOrCreate'];
+  
+    vars.forEach( function( thisVar ){
+        delete req.session.data[thisVar];
+    });
+
+    next();
+
+});
+
+//
+// REPORT / EDIT (GET)
+//
+router.get( /report\/edit/, ( req, res ) => {
 
     // Make sure we're signed in
     if( req.session.data.signedIn !== 'yes' ){
@@ -44,6 +61,88 @@ router.get( /edit-metadata-page/, ( req, res ) => {
     });
 
 });
+
+//
+// REPORT / EDIT (POST)
+//
+router.post( /report\/edit/, (req, res) => {
+
+    const id = req.session.data.id || '';
+    const tag = req.session.data.tag || '';
+    const updatedOrCreated = req.session.data.updatedOrCreated || 'updated';
+
+    let extra = '';
+    if( updatedOrCreated === 'created' ){
+        extra = '&pageCreated=true';
+    } else {
+        extra = '&pageUpdated=true';
+    }
+
+    const destination = '../../view?id=' + id + '&tag=' + tag + extra;
+
+    res.redirect( destination );
+
+});
+
+//
+// LIST / EDIT (POST)
+//
+router.post( /list\/edit/, (req, res) => {
+
+    console.log( 'LIST/EDIT (POST)' );
+
+    const updatedOrCreated = req.session.data.updatedOrCreated || 'updated';
+
+    let extra = '';
+    if( updatedOrCreated === 'created' ){
+        extra = '?pageCreated=true';
+    } else {
+        extra = '?pageUpdated=true';
+    }
+
+    const destination = ( req.session.data.listID === '2' ) ? '../../example-list-page' + extra : '../../' + extra ;
+
+    res.redirect( destination );
+
+});
+
+
+//
+// LIST / EDIT (GET)
+//
+router.get( /list\/edit/, (req, res) => {
+
+    console.log( 'LIST/EDIT (GET)' );
+
+     // Make sure we're signed in
+    if( req.session.data.signedIn !== 'yes' ){
+        req.session.data.signedIn = 'yes';
+    }
+
+    // Clear variables if creating new page
+    if( req.session.data.editOrCreate !== 'edit' ){
+        
+        const fields = [
+            'listShowOnParent',
+            'listPageSlug',
+            'listStatus',
+            'listName',
+            'listDescription',
+            'listRightColumn',
+            'listAfterList'
+        ];
+        fields.forEach( function( field ){
+            delete req.session.data[field];
+        } );
+
+    }
+
+    res.render( req.originalUrl.split('?')[0].replace(/^\//, '') + '.html', {
+        data: req.session.data
+    });
+
+});
+
 
 //
 // BROWSE (POST)
@@ -96,28 +195,6 @@ router.get( /browse/, (req, res) => {
 
 });
 
-
-//
-// EDIT METADATA PAGE
-//
-router.post(/edit-metadata-page/, (req, res) => {
-
-    const id = req.session.data.id || '';
-    const tag = req.session.data.tag || '';
-    const updatedOrCreated = req.session.data.updatedOrCreated || 'updated'
-
-    let extra = '';
-    if( updatedOrCreated === 'created' ){
-        extra = '&pageCreated=true';
-    } else {
-        extra = '&pageUpdated=true';
-    }
-
-    const destination = '../view?id=' + id + '&tag=' + tag + extra;
-
-    res.redirect( destination );
-
-});
 
 //
 // ENTRA SCREENS

@@ -44,6 +44,7 @@
 {% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
 
 {% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
 {{ breadcrumb({
     items: [
       {
@@ -85,8 +86,8 @@
            <div class="nhsuk-button-group">
 
              {{ button({
-               href: 'admin/edit-metadata-page?id=&tag=&pageUpdated=&pageCreated=&pageDeleted=',
-               text: 'Create new page',
+               href: 'admin/report/edit?id=&tag=&pageUpdated=&pageCreated=&pageDeleted=',
+               text: 'Create new report page',
                classes: 'nhsuk-button--admin nhsuk-button--small'
              }) }}
 
@@ -266,6 +267,8 @@
 
         <!-- A TO Z LIST -->
         {{ allItems | getActiveLetters | generateAToZLinks | safe }}
+
+        <hr class="nhsuk-section-break nhsuk-section-break-xs" />
 
         <!-- CARDS -->
         {% if ( ( allItems | length ) > 0 ) %}

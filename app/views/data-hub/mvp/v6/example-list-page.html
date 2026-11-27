@@ -1,0 +1,143 @@
+<!-- Use this page as the index for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+
+{% set items = ( 'app/assets/csv/pages/' ) | getDirectoryFiles | getJSONFromCSVs %}
+{% set item = items[1] %}
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ breadcrumb({
+    items: [
+      {
+        href: '/data-hub/mvp/'+prototypeVersion+'/',
+        text: 'Home'
+      }
+    ]
+  }) }}
+{% endblock %}
+
+<!-- heroContent, large blue section at the top of homepage or any data area landing page -->
+{% block heroContent %}
+<div class="nhsuk-width-container-fluid {{ containerClasses }} nhsuk-u-margin-left-0 nhsuk-u-margin-right-0">
+    <section class="nhsuk-hero">
+        <div class="nhsuk-width-container nhsuk-hero--border app-width-container">
+            <div class="nhsuk-grid-row">
+                <div class="nhsuk-grid-column-two-thirds">
+                    <div class="nhsuk-hero__wrapper app-hero__wrapper">
+                        <h1 class="nhsuk-u-margin-bottom-4">{% if item.list_status === 'DRAFT' %}{{ tag( {text: 'Draft', classes: 'nhsuk-tag--white nhsuk-tag--draft'} ) }} {% endif %}{{ item.list_name }}</h1>
+                        <p class="nhsuk-body-l nhsuk-u-margin-bottom-1">{{ item.list_description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+<!-- Main content of the page -->
+{% block content %}
+
+
+{% if data.userType | containsUserType('admin') and data.signedIn === 'yes' %}
+
+ <!-- ADMIN OPTIONS -->
+ <div class="nhsuk-grid-row">
+     <div class="nhsuk-grid-column-full">
+
+
+
+        {% if data.pageUpdated === 'true' %}
+
+            <div class="nhsuk-notification-banner nhsuk-notification-banner--success nhsuk-u-margin-bottom-4" data-module="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-nhsuk-notification-banner-init="">
+                <div class="nhsuk-notification-banner__header">
+                    <h2 class="nhsuk-notification-banner__title" id="nhsuk-notification-banner-title">
+                    <svg class="nhsuk-icon nhsuk-icon--tick" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+                        <path d="M11.4 17.5a2 2 0 0 1-2.7.1h-.1L4 12.8a1.5 1.5 0 0 1 2.1-2L10 14.7l8.1-8.1a1.5 1.5 0 1 1 2.2 2l-8.9 9Z"></path>
+                    </svg> 
+                    You successfully updated the page
+                    </h2>
+                </div>
+            </div>
+
+        {% endif %}
+
+
+        {% call notificationBanner({ title: 'Administration options', classes: 'nhsuk-u-padding-bottom-0' } ) %}
+
+           <div class="nhsuk-button-group">
+
+            {{ button({
+                href: 'admin/list/edit?id=&tag=&editOrCreate=edit&parentPage=Data%20Hub&listID=2',
+                text: 'Edit page',
+                classes: 'nhsuk-button--admin nhsuk-button--small'
+            }) }}
+
+            {{ button({
+                href: 'admin/list/edit?id=&tag=&parentPage=Example%20List%20Page&listID=',
+                text: 'Create list page',
+                classes: 'nhsuk-button--admin nhsuk-button--small'
+            }) }}
+
+            {% if data.settings[prototypeVersion].allowContentFunctionality === 'true' %}
+
+                {{ button({
+                    href: 'admin/content/edit?id=&tag=&parentPage=Data%20Hub',
+                    text: 'Create content page',
+                    classes: 'nhsuk-button--admin nhsuk-button--small'
+                }) }}
+
+            {% endif %}
+
+            {{ button({
+                href: 'admin/list/delete?listID=2',
+                text: 'Delete page',
+                classes: 'nhsuk-button--secondary nhsuk-button--small'
+              }) }}
+
+
+
+            </div>
+
+         {% endcall %}
+
+
+
+    </div>
+</div>
+
+{% endif %}
+
+
+
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+        
+        <div class="nhsuk-card nhsuk-card--feature">
+            <div class="nhsuk-card__content">
+                <h2 class="nhsuk-card__heading">No child pages</h2>
+                <p>Create a child page to build this list page.</p>
+            </div>
+        </div>
+        
+        {{ item.list_after_list | processMarkdown | safe }}
+    
+    </div>
+
+    <div class="nhsuk-grid-column-one-third">
+        
+        {{ item.list_right_column | processMarkdown | safe }}
+
+    </div>
+
+</div>
+{% endblock %}

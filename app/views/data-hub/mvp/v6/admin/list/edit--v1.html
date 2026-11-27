@@ -1,0 +1,236 @@
+<!-- Use this page as the list for your project -->
+
+<!-- ADDING CUSTOM CSS - Add your custom CSS or Sass in /app/assets/sass/main.scss -->
+
+<!-- Extends the layout from /app/views/layouts/v3/layout.html -->
+{% extends 'layouts/v6/layout.html' %}
+
+<!-- Set the prototype version folder number here for links to work correctly in the header (layout.html) -->
+{% set prototypeVersion = 'v6' %}
+
+{% if data.editOrCreate === 'edit' %}
+  
+  {% set pageHeader = 'Edit list page' %}
+  {% set buttonText = 'Update list page' %}
+  {% set updatedOrCreated = 'updated' %}
+
+  {% set items = ( 'app/assets/csv/pages/' ) | getDirectoryFiles | getJSONFromCSVs %}
+  {% set num = ( data.listID | int ) - 1 %}
+  {% set item = items[( num or 0 )] %}
+
+{% else %}
+  {% set pageHeader = 'Create list page' %}
+  {% set buttonText = 'Create list page' %}
+  {% set updatedOrCreated = 'created' %}
+{% endif %}
+
+
+<!-- Set the page title -->
+{% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
+{{ backLink({
+  href: 'javascript:history.go(-1)',
+  text: 'Back'
+}) }}
+{% endblock %}
+
+
+{% block content %}
+<div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-full">
+
+        {% if item.list_name %}<span class="nhsuk-caption-l">{{ item.list_name }}</span>{% endif %}
+        <h1 class="nhsuk-heading-l nhsuk-u-margin-bottom-4">{{ pageHeader }}</h1>
+
+        {% if data.parentPage === 'noParent' %}
+          {{ insetText( { html: '<p><strong>Parent page:</strong> This is the home page</p>' } ) }}
+        {% else %}
+          {{ insetText( { html: '<p><strong>Parent page:</strong> '+ ( data.parentPage or 'Parent page' ) +'</p>' } ) }}
+        {% endif %}
+
+
+        <form method="post" action="?updatedOrCreated={{ updatedOrCreated }}" novalidate>
+
+          <!-- STATUS -->
+
+          {{ radios({
+            fieldset: {
+              legend: {
+                text: 'Status',
+                isPageHeading: false
+              }
+            },
+            idPrefix: 'listStatus',
+            name: 'listStatus',
+            value: ( data.listStatus or item.list_status or 'DRAFT' ),
+            inline: true,
+            small: true,
+            disabled: ( data.parentPage === 'noParent' ),
+            items: [
+              {
+                value: 'DRAFT',
+                text: 'Draft'
+              },
+              {
+                value: 'PUBLISHED',
+                text: 'Published'
+              }
+            ]
+          }) }}
+
+
+
+
+
+
+          <!-- TITLE -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ input({
+              label: {
+                text: 'Name'
+              },
+              id: 'listName',
+              name: 'listName',
+              value: ( data.listName or item.list_name ),
+              width: 30
+            }) }}
+
+          </div>
+
+
+
+          <!-- SLUG -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ input({
+              label: {
+                text: 'Page slug'
+              },
+              id: 'listPageSlug',
+              name: 'listPageSlug',
+              disabled: ( data.parentPage === 'noParent' ),
+              value: ( data.listPageSlug or item.list_page_slug ),
+              width: 30
+            }) }}
+
+          </div>
+
+
+
+
+
+
+          <!-- SHOW ON PARENT PAGE -->
+
+          {{ radios({
+            fieldset: {
+              legend: {
+                text: 'Show on parent page?',
+                isPageHeading: false
+              }
+            },
+            idPrefix: 'listShowOnParent',
+            name: 'listShowOnParent',
+            value: ( data.listStatus or 'true' ),
+            inline: true,
+            small: true,
+            items: [
+              {
+                value: 'true',
+                text: 'Yes'
+              },
+              {
+                value: 'false',
+                text: 'No'
+              }
+            ]
+          }) }}
+
+
+          <!-- DESCRIPTION -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ textarea({
+              label: {
+                text: 'Description',
+                isPageHeading: false
+              },
+              rows: '3',
+              hint: {
+                text: 'This text appears in the blue header bar'
+              },
+              id: 'listDescription',
+              name: 'listDescription',
+              value: ( data.listDescription or item.list_description )
+            }) }}
+
+          </div>
+
+
+          <!-- RIGHT COLUMN -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ textarea({
+              label: {
+                text: 'Right column',
+                isPageHeading: false
+              },
+              rows: '10',
+              hint: {
+                html: 'You can use <a target="_blank" href="https://www.markdownguide.org/basic-syntax/">Markdown (opens in a new tab)</a> in this field'
+              },
+              id: 'listRightColumn',
+              name: 'listRightColumn',
+              value: ( data.listRightColumn or item.list_right_column )
+            }) }}
+
+          </div>
+
+
+
+          <!-- AFTER LIST -->
+
+          <div class="nhsuk-u-reading-width">
+
+            {{ data.list_after_list }}
+
+            {{ textarea({
+              label: {
+                text: 'After list',
+                isPageHeading: false
+              },
+              rows: '3',
+              hint: {
+                html: 'You can use <a target="_blank" href="https://www.markdownguide.org/basic-syntax/">Markdown (opens in a new tab)</a> in this field'
+              },
+              id: 'listAfterList',
+              name: 'listAfterList',
+              value: ( data.listAfterList or item.list_after_list )
+            }) }}
+
+          </div>
+
+
+
+
+
+
+
+          {{ button( { text: buttonText } ) }}
+
+        </form>
+
+
+
+
+       
+    </div>
+</div>
+{% endblock %}

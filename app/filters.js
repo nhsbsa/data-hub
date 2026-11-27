@@ -380,7 +380,6 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
          }
        });
 
-       console.log( tableItems.length );
 
     return tableItems;
 
@@ -588,7 +587,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
     const date = ( dateInput instanceof Date ) ? dateInput : new Date(dateInput);
 
     if (isNaN(date.getTime())) {
-      return 'Invalid Date';
+      return '1 July 2025 at 12:00 am';
     }
 
     const day = date.getDate();
@@ -605,20 +604,49 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   };
 
 
+    //
+  // PROCESS DATE FOR INPUT
+  //
+  filters.processDateForInput = function( inputDate ){
+
+    const date = new Date( inputDate );
+
+    const obj = {
+      year: date.getUTCFullYear(),
+      month: date.getUTCMonth() + 1,
+      day: date.getUTCDate()
+    };
+
+    if( isNaN( date.getTime() ) ){
+      obj.year = '';
+      obj.month = '';
+      obj.day = '';
+    }
+
+    return obj;
+
+  };
+
+
   //
   // PROCESS MARKDOWN
   //
   filters.processMarkdown = function( markdown ){
 
     const MarkdownIt = require('markdown-it');
+    const MarkdownItAttrs = require('markdown-it-attrs');
+    const SanitizeHTML = require('sanitize-html');
+
     const md = new MarkdownIt({
         html: true,
         linkify: true,
         typographer: true,
-    });
+    }).use(MarkdownItAttrs);
 
-    return md.render( markdown || '').split('<h2>').join('<h2 class="nhsuk-heading-m">');
+    const attrs = { allowedTags: SanitizeHTML.defaults.allowedTags, allowedAttributes: { '*': ['class'], 'a': [ 'href', 'name', 'target' ] }, allowedClasses: { '*': [/^nhsuk-/] } };
 
+    return SanitizeHTML( md.render( markdown || '').split('<h2>').join('<h2 class="nhsuk-heading-m">' ), attrs );
+  
   }
 
 
@@ -875,20 +903,7 @@ module.exports = function (env) { /* eslint-disable-line func-names,no-unused-va
   }
 
 
-  //
-  // PROCESS DATE FOR INPUT
-  //
-  filters.processDateForInput = function( inputDate ){
 
-    const date = new Date( inputDate );
-
-    return {
-      year: date.getUTCFullYear(),
-      month: date.getUTCMonth() + 1,
-      day: date.getUTCDate()
-    };
-
-  };
 
 
 

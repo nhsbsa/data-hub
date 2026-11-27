@@ -23,6 +23,7 @@
 {% block pageTitle %}{{ pageHeader }} - {{ serviceName }} - NHSBSA{% endblock %}
 
 {% block beforeContent %}
+{% include "includes/phase-banner.njk" %}
 {{ breadcrumb({
     items: [
       {
@@ -72,13 +73,13 @@
             <div class="nhsuk-button-group">
 
               {{ button({
-                href: 'admin/edit-metadata-page?id='+data.id + '&tag='+data.tag + '&pageUpdated=&pageCreated=&pageDeleted=',
+                href: 'admin/report/edit?id='+data.id + '&tag='+data.tag + '&pageUpdated=&pageCreated=&pageDeleted=',
                 text: 'Edit page',
                 classes: 'nhsuk-button--admin nhsuk-button--small'
               }) }}
 
               {{ button({
-                href: 'admin/delete-page?id='+data.id + '&tag='+data.tag + '&pageUpdated=&pageCreated=&pageDeleted=',
+                href: 'admin/report/delete?id='+data.id + '&tag='+data.tag + '&pageUpdated=&pageCreated=&pageDeleted=',
                 text: 'Delete page',
                 classes: 'nhsuk-button--secondary nhsuk-button--small'
               }) }}
